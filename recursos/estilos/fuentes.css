@@ -1,0 +1,85 @@
+.bg-color-r1 {
+    background-color: #E5383B;
+}
+
+.bg-color-n1 {
+    background-color: #161A1D;
+}
+
+.bg-color-n2 {
+    background-color: #151313;
+}
+
+.open-sans-light {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.open-sans-light-italic {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.open-sans-regular {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.open-sans-regular-italic {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.open-sans-medium {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.open-sans-medium-italic {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.open-sans-semibold {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.open-sans-semibold-italic {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.open-sans-bold {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+.open-sans-bold-italic {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+
+.open-sans-extrabold {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.open-sans-extrabold-italic {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 800;
+    font-style: italic;
+}
