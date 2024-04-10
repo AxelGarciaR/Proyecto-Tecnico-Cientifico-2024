@@ -36,7 +36,7 @@ const loadTemplate = async () => {
 
 
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">
+                            <a class="nav-link" aria-current="page" href="/vistas/privado/automoviles.html">
                                 <h5 class="text-white open-sans-regular m-0 p-0 px-4 px-lg-0">Automóviles</h5>
                             </a>
                         </li>
@@ -62,15 +62,17 @@ const loadTemplate = async () => {
 
                     <ul class="navbar-nav nav-underline flex-grow-1 justify-content-center">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">
+                            <a class="nav-link" aria-current="page" href="/vistas/privado/panel_principal.html">
                                 <h3 class="text-white open-sans-semibold m-0 px-4">INICIO</h3>
                             </a>
                         </li>
                     </ul>
 
                     <button class="btn btn-outline-primary d-flex flex-wrap justify-content-center" type="button">
+                    <a class="nav-link d-flex" aria-current="page" href="/vistas/privado/usuario.html">
                         <img src="/recursos/imagenes/icons/icono_usuario.svg" width="22px" height="22px">
                         <h5 class="text-white open-sans-regular m-0 text-center ps-1">USUARIO</h5>
+                        </a>
                     </button>
                 </div>
             </div>
