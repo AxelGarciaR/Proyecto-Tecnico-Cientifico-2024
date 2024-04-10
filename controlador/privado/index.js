@@ -39,5 +39,5 @@ function showLogin() {
 }
 
 function goto_panel_principal() {
-    location.href = "/vistas/privado/panel_principal.html";
+    location.href = "../../vistas/privado/panel_principal.html";
 }
