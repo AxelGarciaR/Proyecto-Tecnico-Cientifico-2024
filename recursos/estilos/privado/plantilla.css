@@ -1,13 +1,11 @@
 main {
     min-height: 40vh;
 }
-
 .lineR1 {
     width: 100%;
     height: 2px;
     background-color: #E00D11;
 }
-
 .lineW1 {
     height: 130px;
     width: 2px;
@@ -15,12 +13,10 @@ main {
     margin-right: 10px;
     margin-left: 10px;
 }
-
 .itemFlex {
     width: fit-content;
     padding-right: 20px;
 }
-
 .itemFlexU {
     width: 180px;
 }
