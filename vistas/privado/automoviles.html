@@ -66,11 +66,10 @@
                             <button class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton"
                                 data-bs-toggle="collapse" data-bs-target="#Marcas" aria-expanded="false"
                                 onclick="rotarImagen('img1')">
-                                <span class="d-flex justify-content-start align-items-center">
-                                    <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img1" class="imagen">
+                                <span class="d-flex justify-content-between align-items-center">                                  
                                     <h5 class="open-sans-semibold m-0 p-0 ms-2">
                                         Marcas / Modelos
-                                    </h5>
+                                    </h5> <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img1" class="imagen">
                                 </span>
                             </button>
 
@@ -81,7 +80,7 @@
                                             <input class="form-check-input me-2" type="checkbox" id="Marca1">
                                             <label class="form-check-label stretched-link" for="Marca1">
                                                 <h6 class="m-0 p-0 open-sans-regular">
-                                                    BMWA
+                                                    BMW
                                                 </h6>
                                             </label>
                                         </li>
@@ -258,11 +257,11 @@
                             <button class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton"
                                 data-bs-toggle="collapse" data-bs-target="#Colores" aria-expanded="false"
                                 onclick="rotarImagen('img2')">
-                                <span class="d-flex justify-content-start align-items-center">
-                                    <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img2" class="imagen">
+                                <span class="d-flex justify-content-between align-items-center">
                                     <h5 class="open-sans-semibold m-0 p-0 ms-2">
                                         Colores
                                     </h5>
+                                    <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img2" class="imagen">
                                 </span>
                             </button>
 
@@ -326,11 +325,11 @@
                             <button class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton"
                                 data-bs-toggle="collapse" data-bs-target="#Tipos" aria-expanded="false"
                                 onclick="rotarImagen('img3')">
-                                <span class="d-flex justify-content-start align-items-center">
-                                    <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img3" class="imagen">
+                                <span class="d-flex justify-content-between align-items-center">
                                     <h5 class="open-sans-semibold m-0 p-0 ms-2">
                                         Tipos
                                     </h5>
+                                    <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img3" class="imagen">
                                 </span>
                             </button>
 
@@ -394,21 +393,21 @@
                             <button class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton"
                                 data-bs-toggle="collapse" data-bs-target="#FechaFab" aria-expanded="false"
                                 onclick="rotarImagen('img4')">
-                                <span class="d-flex justify-content-start align-items-center">
-                                    <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img4" class="imagen">
+                                <span class="d-flex justify-content-between align-items-center">
                                     <h5 class="open-sans-semibold m-0 p-0 ms-2">
                                         Fecha de fabricación
                                     </h5>
+                                    <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img4" class="imagen">
                                 </span>
                             </button>
 
                             <div class="collapse col-11 mt-3" id="FechaFab">
-                                <div class="d-flex flex-row mt-3 justify-content-between">
-                                    <div class="fecha-desde col-5">
+                                <div class="d-flex flex-lg-row flex-md-column flex-column mt-3 justify-content-between">
+                                    <div class="fecha-desde col-lg-5 col-11">
                                         <h6 class="open-sans-regular">Desde</h6>
                                         <input id="datepicker-desde" class="open-sans-regular-italic datepickerA" />
                                     </div>
-                                    <div class="fecha-hasta col-5">
+                                    <div class="fecha-hasta col-lg-5 col-11">
                                         <h6 class="open-sans-regular">Hasta</h6>
                                         <input id="datepicker-hasta" class="open-sans-regular-italic datepickerA" />
                                     </div>
@@ -422,21 +421,21 @@
                             <button class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton"
                                 data-bs-toggle="collapse" data-bs-target="#FechaReg" aria-expanded="false"
                                 onclick="rotarImagen('img5')">
-                                <span class="d-flex justify-content-start align-items-center">
-                                    <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img5" class="imagen">
+                                <span class="d-flex justify-content-between align-items-center">
                                     <h5 class="open-sans-semibold m-0 p-0 ms-2">
                                         Fecha de registro
                                     </h5>
+                                    <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img5" class="imagen">
                                 </span>
                             </button>
 
                             <div class="collapse col-11 mt-3" id="FechaReg">
-                                <div class="d-flex flex-row mt-3 justify-content-between">
-                                    <div class="fecha-desde col-5">
+                                <div class="d-flex flex-lg-row flex-md-column flex-column mt-3 justify-content-between">
+                                    <div class="fecha-desde col-lg-5 col-11">
                                         <h6 class="open-sans-regular">Desde</h6>
                                         <input id="datepicker-desdeRE" class="open-sans-regular-italic datepickerA" />
                                     </div>
-                                    <div class="fecha-hasta col-5">
+                                    <div class="fecha-hasta col-lg-5 col-11">
                                         <h6 class="open-sans-regular">Hasta</h6>
                                         <input id="datepicker-hastaRE" class="open-sans-regular-italic datepickerA" />
                                     </div>
@@ -446,6 +445,7 @@
                     </ul>
                 </div>
             </div>
+            <!-- -----------------------------------CUERPO----------------------------------->
             <div class="flex-fill">
                 <div class="p-2 d-md-none d-flex text-white bg-success">
                     <a href="#" class="text-white" data-bs-toggle="offcanvas" data-bs-target="#bdSidebar">
