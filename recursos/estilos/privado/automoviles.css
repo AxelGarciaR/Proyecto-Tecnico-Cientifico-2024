@@ -107,7 +107,7 @@ hr {
 .contenedor-checkbox::-webkit-scrollbar,
 #bdSidebar::-webkit-scrollbar,
 .contenedor-modelos-nombre::-webkit-scrollbar,
-.contenedor-checkbox2::-webkit-scrollbar{
+.contenedor-checkbox2::-webkit-scrollbar {
     width: 10px;
     /* Ancho del scrollbar */
 }
@@ -115,7 +115,7 @@ hr {
 .contenedor-checkbox::-webkit-scrollbar-thumb,
 #bdSidebar::-webkit-scrollbar-thumb,
 .contenedor-modelos-nombre::-webkit-scrollbar-thumb,
-.contenedor-checkbox2::-webkit-scrollbar-thumb{
+.contenedor-checkbox2::-webkit-scrollbar-thumb {
     background-color: #BA181B;
     /* Color del scrollbar thumb */
     border-radius: 8px;
@@ -125,7 +125,7 @@ hr {
 .contenedor-checkbox::-webkit-scrollbar,
 #bdSidebar::-webkit-scrollbar,
 .contenedor-modelos-nombre::-webkit-scrollbar,
-.contenedor-checkbox2::-webkit-scrollbar{
+.contenedor-checkbox2::-webkit-scrollbar {
     width: 10px;
     /* Ancho del scrollbar */
 }
@@ -150,6 +150,7 @@ hr {
     border-radius: 8px;
     /* Borde redondeado del thumb */
 }
+
 /* ------------- SCROLLBAR ------------------ */
 
 .datepickerA {
@@ -175,4 +176,125 @@ hr {
 
 .contenedor-modelos-nombre>li {
     border: 0px;
+}
+
+.btnSlBg {
+    background-color: #1B1919;
+}
+
+.add-auto-card {
+    background-color: #F5F3F4;
+    border: #232323 3px solid;
+    position: relative;
+
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.contenedor-total-cards {
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 85vh;
+    max-height: 85vh;
+    padding-top: 50px;
+
+    display: grid;
+    column-gap: 30px;
+    row-gap: 30px;
+
+    grid-template-rows: repeat(3, 1fr);
+    padding-bottom: 20px;
+}
+
+@media (min-width: 599px) {
+    .contenedor-total-cards {
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container-info-card {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .c1,
+    .c2>p,
+    .c3 {
+        flex-direction: row;
+        display: flex;
+    }
+}
+
+@media (min-width: 600px) {
+    .c2>p {
+        flex-direction: column;
+        display: flex;
+    }
+}
+
+@media (min-width: 1318px) {
+    .contenedor-total-cards {
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 917px) {
+    .contenedor-total-cards {
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+    }
+}
+
+.auto-card {
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+}
+
+.auto-card>.container-img-card>img {
+    max-inline-size: 100%;
+
+    block-size: auto;
+    object-fit: cover;
+    object-position: top center;
+
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    height: 100%;
+    min-width: 100%;
+    aspect-ratio: 2/1;
+}
+
+.line-red-split {
+    width: 100%;
+    height: 7px;
+
+    background-color: #E00D11;
+    top: 0;
+}
+
+.container-info-card {
+    display: grid;
+    column-gap: 10px;
+
+    border: 1px solid #D9D9D9;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.c1,
+.c2,
+.c3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.c2 {
+    background-color: #E00D11;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-bottom: 10px;
+    color: white;
 }

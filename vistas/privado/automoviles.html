@@ -66,10 +66,11 @@
                             <button class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton"
                                 data-bs-toggle="collapse" data-bs-target="#Marcas" aria-expanded="false"
                                 onclick="rotarImagen('img1')">
-                                <span class="d-flex justify-content-between align-items-center">                                  
+                                <span class="d-flex justify-content-between align-items-center">
                                     <h5 class="open-sans-semibold m-0 p-0 ms-2">
                                         Marcas / Modelos
-                                    </h5> <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img1" class="imagen">
+                                    </h5> <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img1"
+                                        class="imagen">
                                 </span>
                             </button>
 
@@ -446,13 +447,227 @@
                 </div>
             </div>
             <!-- -----------------------------------CUERPO----------------------------------->
-            <div class="flex-fill">
-                <div class="p-2 d-md-none d-flex text-white bg-success">
+            <div class="flex-fill col-12">
+                <div class="p-2 d-md-none d-flex text-white btnSlBg">
                     <a href="#" class="text-white" data-bs-toggle="offcanvas" data-bs-target="#bdSidebar">
                         <i class="fa-solid fa-bars"></i>
                     </a>
+                    <h5 class="open-sans-bold text-white mx-3">
+                        Filtros
+                    </h5>
                 </div>
-                <div class="p-4">
+                <!--CUERPO-->
+                <div class="contenedor-total-cards col-12 px-lg-5 px-1 px-md-2">
+                    <div class="add-auto-card d-flex align-items-center justify-content-center">
+                        <img src="../../recursos/imagenes/icons/addCar.svg">
+                    </div>
+                    <div class="auto-card">
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/Car-example.svg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="grid-c pt-2 c1">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Axel Garcìa &nbsp
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">12345678-9</span>
+                                </p>
+                            </div>
+                            <div class="grid-c pt-2 c2 w-100 px-1">
+                                <p class="m-0 p-0 open-sans-light-italic text-center w-100">FERRARI &nbsp
+                                    <span class="open-sans-semibold m-0 p-0 text-center w-100">P222-222</span>
+                                </p>
+                            </div>
+                            <div class="grid-c c3">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Color gris
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">Abarahat500</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="auto-card">
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/Car-example.svg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="grid-c pt-2 c1">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Axel Garcìa &nbsp
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">12345678-9</span>
+                                </p>
+                            </div>
+                            <div class="grid-c pt-2 c2 w-100 px-1">
+                                <p class="m-0 p-0 open-sans-light-italic text-center w-100">FERRARI &nbsp
+                                    <span class="open-sans-semibold m-0 p-0 text-center w-100">P222-222</span>
+                                </p>
+                            </div>
+                            <div class="grid-c c3">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Color gris
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">Abarahat500</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="auto-card">
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/Car-example.svg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="grid-c pt-2 c1">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Axel Garcìa &nbsp
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">12345678-9</span>
+                                </p>
+                            </div>
+                            <div class="grid-c pt-2 c2 w-100 px-1">
+                                <p class="m-0 p-0 open-sans-light-italic text-center w-100">FERRARI &nbsp
+                                    <span class="open-sans-semibold m-0 p-0 text-center w-100">P222-222</span>
+                                </p>
+                            </div>
+                            <div class="grid-c c3">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Color gris
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">Abarahat500</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="auto-card">
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/Car-example.svg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="grid-c pt-2 c1">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Axel Garcìa &nbsp
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">12345678-9</span>
+                                </p>
+                            </div>
+                            <div class="grid-c pt-2 c2 w-100 px-1">
+                                <p class="m-0 p-0 open-sans-light-italic text-center w-100">FERRARI &nbsp
+                                    <span class="open-sans-semibold m-0 p-0 text-center w-100">P222-222</span>
+                                </p>
+                            </div>
+                            <div class="grid-c c3">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Color gris
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">Abarahat500</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="auto-card">
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/Car-example.svg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="grid-c pt-2 c1">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Axel Garcìa &nbsp
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">12345678-9</span>
+                                </p>
+                            </div>
+                            <div class="grid-c pt-2 c2 w-100 px-1">
+                                <p class="m-0 p-0 open-sans-light-italic text-center w-100">FERRARI &nbsp
+                                    <span class="open-sans-semibold m-0 p-0 text-center w-100">P222-222</span>
+                                </p>
+                            </div>
+                            <div class="grid-c c3">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Color gris
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">Abarahat500</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="auto-card">
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/Car-example.svg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="grid-c pt-2 c1">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Axel Garcìa &nbsp
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">12345678-9</span>
+                                </p>
+                            </div>
+                            <div class="grid-c pt-2 c2 w-100 px-1">
+                                <p class="m-0 p-0 open-sans-light-italic text-center w-100">FERRARI &nbsp
+                                    <span class="open-sans-semibold m-0 p-0 text-center w-100">P222-222</span>
+                                </p>
+                            </div>
+                            <div class="grid-c c3">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Color gris
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">Abarahat500</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="auto-card">
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/Car-example.svg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="grid-c pt-2 c1">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Axel Garcìa &nbsp
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">12345678-9</span>
+                                </p>
+                            </div>
+                            <div class="grid-c pt-2 c2 w-100 px-1">
+                                <p class="m-0 p-0 open-sans-light-italic text-center w-100">FERRARI &nbsp
+                                    <span class="open-sans-semibold m-0 p-0 text-center w-100">P222-222</span>
+                                </p>
+                            </div>
+                            <div class="grid-c c3">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Color gris
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">Abarahat500</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="auto-card">
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/Car-example.svg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="grid-c pt-2 c1">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Axel Garcìa &nbsp
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">12345678-9</span>
+                                </p>
+                            </div>
+                            <div class="grid-c pt-2 c2 w-100 px-1">
+                                <p class="m-0 p-0 open-sans-light-italic text-center w-100">FERRARI &nbsp
+                                    <span class="open-sans-semibold m-0 p-0 text-center w-100">P222-222</span>
+                                </p>
+                            </div>
+                            <div class="grid-c c3">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Color gris
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">Abarahat500</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
