@@ -63,13 +63,22 @@ hr {
 
 /* ------------- ANIMACIÓN ------------------ */
 
-.contenedor-checkbox {
+.contenedor-checkbox,
+.contenedor-checkbox2 {
     overflow-x: hidden;
-    height: 200px;
+    height: 230px;
     overflow-y: auto;
     display: grid;
     grid-template-columns: auto;
     gap: 15px;
+}
+
+.contenedor-checkbox2 {
+    gap: 35px;
+}
+
+.marcasA {
+    height: 290px;
 }
 
 .contenedor-checkbox>li {
@@ -94,13 +103,17 @@ hr {
 
 /* ------------- SCROLLBAR ------------------ */
 .contenedor-checkbox::-webkit-scrollbar,
-#bdSidebar::-webkit-scrollbar {
+#bdSidebar::-webkit-scrollbar,
+.contenedor-modelos-nombre::-webkit-scrollbar,
+.contenedor-checkbox2::-webkit-scrollbar{
     width: 10px;
     /* Ancho del scrollbar */
 }
 
 .contenedor-checkbox::-webkit-scrollbar-thumb,
-#bdSidebar::-webkit-scrollbar-thumb {
+#bdSidebar::-webkit-scrollbar-thumb,
+.contenedor-modelos-nombre::-webkit-scrollbar-thumb,
+.contenedor-checkbox2::-webkit-scrollbar-thumb{
     background-color: #BA181B;
     /* Color del scrollbar thumb */
     border-radius: 8px;
@@ -108,7 +121,9 @@ hr {
 }
 
 .contenedor-checkbox::-webkit-scrollbar,
-#bdSidebar::-webkit-scrollbar {
+#bdSidebar::-webkit-scrollbar,
+.contenedor-modelos-nombre::-webkit-scrollbar,
+.contenedor-checkbox2::-webkit-scrollbar{
     width: 10px;
     /* Ancho del scrollbar */
 }
@@ -127,9 +142,35 @@ hr {
     /* Borde redondeado del thumb */
 }
 
+.contenedor-modelos-nombre::-webkit-scrollbar-thumb {
+    background-color: #FF2D31;
+    /* Color del scrollbar thumb */
+    border-radius: 8px;
+    /* Borde redondeado del thumb */
+}
 /* ------------- SCROLLBAR ------------------ */
 
 .datepickerA {
     background-color: #F5F3F4;
+    border: 0px;
+}
+
+.btnModelos {
+    background-color: #E5383B;
+    height: 35px;
+    bottom: 0;
+    left: -15%;
+}
+
+.contenedor-modelos-nombre {
+    overflow-x: hidden;
+    height: 130px;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px;
+}
+
+.contenedor-modelos-nombre>li {
     border: 0px;
 }

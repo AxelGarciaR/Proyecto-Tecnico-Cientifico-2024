@@ -60,7 +60,7 @@
                 </div>
                 <hr>
                 <div class="sidebar-body">
-                    <ul class="list-unstyled ps-0 cursor-hover">
+                    <ul class="list-unstyled ps-0 cursor-hover ">
                         <!--TODO ----------------------------ELEMENTO MARCAS----------------------------------->
                         <li class="mb-1 cursor-hover d-flex flex-column align-items-center">
                             <button class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton"
@@ -74,57 +74,182 @@
                                 </span>
                             </button>
 
-                            <div class="collapse col-11" id="Marcas">
-                                <ul class="list-group contenedor-checkbox">
-                                    <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Marca1">
-                                        <label class="form-check-label stretched-link" for="Marca1">
-                                            <h6 class="m-0 p-0 open-sans-regular">
-                                                BMW
-                                            </h6>
-                                        </label>
-                                    </li>
-                                    <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Marca2">
-                                        <label class="form-check-label stretched-link" for="Marca2">
-                                            <h6 class="m-0 p-0 open-sans-regular">
-                                                MERCEDES-BENZ
-                                            </h6>
-                                        </label>
-                                    </li>
-                                    <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Marca3">
-                                        <label class="form-check-label stretched-link" for="Marca3">
-                                            <h6 class="m-0 p-0 open-sans-regular">
-                                                MITSUBISHI
-                                            </h6>
-                                        </label>
-                                    </li>
-                                    <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Marca4">
-                                        <label class="form-check-label stretched-link" for="Marca4">
-                                            <h6 class="m-0 p-0 open-sans-regular">
-                                                HONDA
-                                            </h6>
-                                        </label>
-                                    </li>
-                                    <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Marca5">
-                                        <label class="form-check-label stretched-link" for="Marca5">
-                                            <h6 class="m-0 p-0 open-sans-regular">
-                                                FERRARI
-                                            </h6>
-                                        </label>
-                                    </li>
-                                    <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Marca6">
-                                        <label class="form-check-label stretched-link" for="Marca6">
-                                            <h6 class="m-0 p-0 open-sans-regular">
-                                                KIA
-                                            </h6>
-                                        </label>
-                                    </li>
-                                </ul>
+                            <div class="collapse col-11 marcasA position-relative mt-3" id="Marcas">
+                                <div class="" id="contenedor-marcas">
+                                    <ul class="list-group contenedor-checkbox d-flex flex-column align-items-start">
+                                        <li class="list-group-item p-0 m-0 px-2">
+                                            <input class="form-check-input me-2" type="checkbox" id="Marca1">
+                                            <label class="form-check-label stretched-link" for="Marca1">
+                                                <h6 class="m-0 p-0 open-sans-regular">
+                                                    BMW
+                                                </h6>
+                                            </label>
+                                        </li>
+                                        <li class="list-group-item p-0 m-0 px-2">
+                                            <input class="form-check-input me-2" type="checkbox" id="Marca2">
+                                            <label class="form-check-label stretched-link" for="Marca2">
+                                                <h6 class="m-0 p-0 open-sans-regular">
+                                                    MERCEDES-BENZ
+                                                </h6>
+                                            </label>
+                                        </li>
+                                        <li class="list-group-item p-0 m-0 px-2">
+                                            <input class="form-check-input me-2" type="checkbox" id="Marca3">
+                                            <label class="form-check-label stretched-link" for="Marca3">
+                                                <h6 class="m-0 p-0 open-sans-regular">
+                                                    MITSUBISHI
+                                                </h6>
+                                            </label>
+                                        </li>
+                                        <li class="list-group-item p-0 m-0 px-2">
+                                            <input class="form-check-input me-2" type="checkbox" id="Marca4">
+                                            <label class="form-check-label stretched-link" for="Marca4">
+                                                <h6 class="m-0 p-0 open-sans-regular">
+                                                    HONDA
+                                                </h6>
+                                            </label>
+                                        </li>
+                                        <li class="list-group-item p-0 m-0 px-2">
+                                            <input class="form-check-input me-2" type="checkbox" id="Marca5">
+                                            <label class="form-check-label stretched-link" for="Marca5">
+                                                <h6 class="m-0 p-0 open-sans-regular">
+                                                    FERRARI
+                                                </h6>
+                                            </label>
+                                        </li>
+                                        <li class="list-group-item p-0 m-0 px-2">
+                                            <input class="form-check-input me-2" type="checkbox" id="Marca6">
+                                            <label class="form-check-label stretched-link" for="Marca6">
+                                                <h6 class="m-0 p-0 open-sans-regular">
+                                                    KIA
+                                                </h6>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="d-none" id="contenedor-modelos">
+                                    <ul class="list-group contenedor-checkbox2">
+
+                                        <li class="contenedor-nombre-marca ps-2 d-flex align-items-start flex-column">
+                                            <h6 class="open-sans-medium">BMW</h6>
+                                            <ul
+                                                class="contenedor-modelos-nombre d-flex flex-column align-items-start ps-2 col-11">
+
+                                                <li class="list-group-item p-0 m-0 px-3">
+                                                    <input class="form-check-input me-2" type="checkbox" id="Modelo1">
+                                                    <label class="form-check-label stretched-link" for="Modelo1">
+                                                        <h6 class="m-0 p-0 open-sans-regular">
+                                                            Modelo 1
+                                                        </h6>
+                                                    </label>
+                                                </li>
+
+                                                <li class="list-group-item p-0 m-0 px-3">
+                                                    <input class="form-check-input me-2" type="checkbox" id="Modelo2">
+                                                    <label class="form-check-label stretched-link" for="Modelo2">
+                                                        <h6 class="m-0 p-0 open-sans-regular">
+                                                            Modelo 2
+                                                        </h6>
+                                                    </label>
+                                                </li>
+
+                                                <li class="list-group-item p-0 m-0 px-3">
+                                                    <input class="form-check-input me-2" type="checkbox" id="Modelo3">
+                                                    <label class="form-check-label stretched-link" for="Modelo3">
+                                                        <h6 class="m-0 p-0 open-sans-regular">
+                                                            Modelo 3
+                                                        </h6>
+                                                    </label>
+                                                </li>
+
+                                                <li class="list-group-item p-0 m-0 px-3">
+                                                    <input class="form-check-input me-2" type="checkbox" id="Modelo4">
+                                                    <label class="form-check-label stretched-link" for="Modelo4">
+                                                        <h6 class="m-0 p-0 open-sans-regular">
+                                                            Modelo 4
+                                                        </h6>
+                                                    </label>
+                                                </li>
+
+                                                <li class="list-group-item p-0 m-0 px-3">
+                                                    <input class="form-check-input me-2" type="checkbox" id="Modelo5">
+                                                    <label class="form-check-label stretched-link" for="Modelo5">
+                                                        <h6 class="m-0 p-0 open-sans-regular">
+                                                            Modelo 5
+                                                        </h6>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="contenedor-nombre-marca ps-2 d-flex align-items-start flex-column">
+                                            <h6 class="open-sans-medium">KIA</h6>
+                                            <ul
+                                                class="contenedor-modelos-nombre d-flex flex-column align-items-start ps-2 col-11">
+
+                                                <li class="list-group-item p-0 m-0 px-3">
+                                                    <input class="form-check-input me-2" type="checkbox" id="Modelo1-1">
+                                                    <label class="form-check-label stretched-link" for="Modelo1-1">
+                                                        <h6 class="m-0 p-0 open-sans-regular">
+                                                            Modelo 1
+                                                        </h6>
+                                                    </label>
+                                                </li>
+
+                                                <li class="list-group-item p-0 m-0 px-3">
+                                                    <input class="form-check-input me-2" type="checkbox" id="Modelo2-2">
+                                                    <label class="form-check-label stretched-link" for="Modelo2-2">
+                                                        <h6 class="m-0 p-0 open-sans-regular">
+                                                            Modelo 2
+                                                        </h6>
+                                                    </label>
+                                                </li>
+
+                                                <li class="list-group-item p-0 m-0 px-3">
+                                                    <input class="form-check-input me-2" type="checkbox" id="Modelo3-3">
+                                                    <label class="form-check-label stretched-link" for="Modelo3-3">
+                                                        <h6 class="m-0 p-0 open-sans-regular">
+                                                            Modelo 3
+                                                        </h6>
+                                                    </label>
+                                                </li>
+
+                                                <li class="list-group-item p-0 m-0 px-3">
+                                                    <input class="form-check-input me-2" type="checkbox" id="Modelo4-4">
+                                                    <label class="form-check-label stretched-link" for="Modelo4-4">
+                                                        <h6 class="m-0 p-0 open-sans-regular">
+                                                            Modelo 4
+                                                        </h6>
+                                                    </label>
+                                                </li>
+
+                                                <li class="list-group-item p-0 m-0 px-3">
+                                                    <input class="form-check-input me-2" type="checkbox" id="Modelo5-5">
+                                                    <label class="form-check-label stretched-link" for="Modelo5-5">
+                                                        <h6 class="m-0 p-0 open-sans-regular">
+                                                            Modelo 5
+                                                        </h6>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <button type="button" id="btnBuscarModelos" onclick="showModelos()"
+                                    class="btn btn-outline-dark btnModelos col-10 text-white position-absolute m-0 p-0">
+                                    <h6 class="open-sans-regular p-0 m-0 z-3">
+                                        Buscar modelos
+                                    </h6>
+                                </button>
+
+                                <button type="button" id="btnReturn" onclick="showMarcas()"
+                                    class="btn btn-outline-dark btnModelos col-10 text-white position-absolute m-0 p-0 d-none">
+                                    <h6 class="open-sans-regular p-0 m-0 z-3">
+                                        Regresar
+                                    </h6>
+                                </button>
                             </div>
                         </li>
                         <!--TODO ----------------------------ELEMENTO COLORES----------------------------------->
@@ -141,7 +266,7 @@
                                 </span>
                             </button>
 
-                            <div class="collapse col-11" id="Colores">
+                            <div class="collapse col-11 mt-3" id="Colores">
                                 <ul class="list-group contenedor-checkbox">
                                     <li class="list-group-item p-0 m-0 px-2">
                                         <input class="form-check-input me-2" type="checkbox" id="Color1">
@@ -209,7 +334,7 @@
                                 </span>
                             </button>
 
-                            <div class="collapse col-11" id="Tipos">
+                            <div class="collapse col-11 mt-3" id="Tipos">
                                 <ul class="list-group contenedor-checkbox">
                                     <li class="list-group-item p-0 m-0 px-2">
                                         <input class="form-check-input me-2" type="checkbox" id="Tipo1">
@@ -277,7 +402,7 @@
                                 </span>
                             </button>
 
-                            <div class="collapse col-11" id="FechaFab">
+                            <div class="collapse col-11 mt-3" id="FechaFab">
                                 <div class="d-flex flex-row mt-3 justify-content-between">
                                     <div class="fecha-desde col-5">
                                         <h6 class="open-sans-regular">Desde</h6>
@@ -305,7 +430,7 @@
                                 </span>
                             </button>
 
-                            <div class="collapse col-11" id="FechaReg">
+                            <div class="collapse col-11 mt-3" id="FechaReg">
                                 <div class="d-flex flex-row mt-3 justify-content-between">
                                     <div class="fecha-desde col-5">
                                         <h6 class="open-sans-regular">Desde</h6>
@@ -318,25 +443,18 @@
                                 </div>
                             </div>
                         </li>
-
                     </ul>
-
+                </div>
+                <div class="flex-fill">
+                    <div class="p-2 d-md-none d-flex text-white bg-success">
+                        <a href="#" class="text-white" data-bs-toggle="offcanvas" data-bs-target="#bdSidebar">
+                            <i class="fa-solid fa-bars"></i>
+                        </a>
+                    </div>
+                    <div class="p-4">
+                    </div>
                 </div>
             </div>
-
-            <div class="flex-fill">
-                <div class="p-2 d-md-none d-flex text-white bg-success">
-                    <a href="#" class="text-white" data-bs-toggle="offcanvas" data-bs-target="#bdSidebar">
-                        <i class="fa-solid fa-bars"></i>
-                    </a>
-                </div>
-                <div class="p-4">
-
-                </div>
-
-            </div>
-
-
         </div>
     </main>
 
@@ -350,7 +468,6 @@
     <!-- *Llamada al controlador de la página web -->
     <script type="text/javascript" src="/controlador/privado/automoviles.js"></script>
     <!--Cambiarlo por el js de la página en cuestion-->
-
 </body>
 
 </html>
