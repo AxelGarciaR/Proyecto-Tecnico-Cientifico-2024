@@ -375,9 +375,38 @@ hr {
     -webkit-transition-property: transform;
     transition-property: transform;
     cursor: pointer;
-  }
-  .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
-  }
-  
+}
+
+.btnForgot {
+    background-color: #007CD7;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.content-add-info {
+    display: grid;
+    gap: 25px;
+}
+
+.btnCancel {
+    background-color: black;
+}
+
+.btnSave {
+    background-color: #E5383B;
+}
+
+.btnSave,.btnCancel {
+    height: 50px;
+    width: 200px;
+}
+.form-floating>label{
+    color: red;
+}

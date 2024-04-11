@@ -459,9 +459,10 @@
                 <!--CUERPO-->
                 <div class="contenedor-total-cards col-12">
                     <div class="add-auto-card d-flex align-items-center justify-content-center">
-                        <img src="../../recursos/imagenes/icons/addCar.svg" class="hvr-grow">
+                        <img src="../../recursos/imagenes/icons/addCar.svg" class="hvr-grow" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">
                     </div>
-                    <div class="auto-card hvr-pop card">
+                    <div class="auto-card card">
                         <div class="content z-3">
                             <h4 class="open-sans-light-italic">Màs informaciòn</h4>
                         </div>
@@ -490,7 +491,7 @@
                         </div>
                     </div>
 
-                    <div class="auto-card hvr-pop card">
+                    <div class="auto-card card">
                         <div class="content z-3">
                             <h4 class="open-sans-light-italic">Màs informaciòn</h4>
                         </div>
@@ -519,7 +520,7 @@
                         </div>
                     </div>
 
-                    <div class="auto-card hvr-pop card">
+                    <div class="auto-card card">
                         <div class="content z-3">
                             <h4 class="open-sans-light-italic">Màs informaciòn</h4>
                         </div>
@@ -548,7 +549,7 @@
                         </div>
                     </div>
 
-                    <div class="auto-card hvr-pop card">
+                    <div class="auto-card card">
                         <div class="content z-3">
                             <h4 class="open-sans-light-italic">Màs informaciòn</h4>
                         </div>
@@ -577,7 +578,7 @@
                         </div>
                     </div>
 
-                    <div class="auto-card hvr-pop card">
+                    <div class="auto-card card">
                         <div class="content z-3">
                             <h4 class="open-sans-light-italic">Màs informaciòn</h4>
                         </div>
@@ -606,7 +607,7 @@
                         </div>
                     </div>
 
-                    <div class="auto-card hvr-pop card">
+                    <div class="auto-card card">
                         <div class="content z-3">
                             <h4 class="open-sans-light-italic">Màs informaciòn</h4>
                         </div>
@@ -635,7 +636,7 @@
                         </div>
                     </div>
 
-                    <div class="auto-card hvr-pop card">
+                    <div class="auto-card card">
                         <div class="content z-3">
                             <h4 class="open-sans-light-italic">Màs informaciòn</h4>
                         </div>
@@ -664,7 +665,7 @@
                         </div>
                     </div>
 
-                    <div class="auto-card hvr-pop card">
+                    <div class="auto-card card">
                         <div class="content z-3">
                             <h4 class="open-sans-light-italic">Màs informaciòn</h4>
                         </div>
@@ -693,7 +694,7 @@
                         </div>
                     </div>
 
-                    <div class="auto-card hvr-pop card">
+                    <div class="auto-card card">
                         <div class="content z-3">
                             <h4 class="open-sans-light-italic">Màs informaciòn</h4>
                         </div>
@@ -722,7 +723,7 @@
                         </div>
                     </div>
 
-                    <div class="auto-card hvr-pop card">
+                    <div class="auto-card card">
                         <div class="content z-3">
                             <h4 class="open-sans-light-italic">Màs informaciòn</h4>
                         </div>
@@ -751,7 +752,7 @@
                         </div>
                     </div>
 
-                    <div class="auto-card hvr-pop card">
+                    <div class="auto-card card">
                         <div class="content z-3">
                             <h4 class="open-sans-light-italic">Màs informaciòn</h4>
                         </div>
@@ -778,7 +779,62 @@
                                 </p>
                             </div>
                         </div>
-                    </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--TODO -------------------------------MODAL---------------------->
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl ">
+                <div class="modal-content p-5 pb-0">
+                    <div class="modal-body col-12 d-flex">
+                        <div class="content-add-img col-5 d-flex flex-column justify-content-center align-items-center">
+                            <h6>Imagen del automòvil</h6>
+                            <button type="button" class="btn btn-primary btnFogot col-8 col-lg-6 open-sans-regular">
+                                Seleccionar imagen</button>
+                        </div>
+
+                        <div class="content-add-info col-7">
+                            <div class="form-floating mb-0 p-0">
+                                <input type="text" class="form-control" id="input_marca"
+                                    placeholder="name@example.com">
+                                <label for="input_marca">Marca</label>
+                            </div>
+
+                            <div class="form-floating mb-0 p-0">
+                                <input type="text" class="form-control" id="input_modelo"
+                                    placeholder="name@example.com">
+                                <label for="input_modelo">Modelo</label>
+                            </div>
+                            <div class="form-floating mb-0 p-0">
+                                <input type="text" class="form-control" id="input_tipo"
+                                    placeholder="name@example.com">
+                                <label for="input_tipo">Tipo</label>
+                            </div>
+                            <div class="form-floating mb-0 p-0">
+                                <input type="text" class="form-control" id="input_fechaFAB"
+                                    placeholder="name@example.com">
+                                <label for="input_fechaFAB">Fecha de fabricaciòn</label>
+                            </div>
+                            <div class="form-floating mb-0 p-0">
+                                <input type="text" class="form-control" id="input_color"
+                                    placeholder="name@example.com">
+                                <label for="input_color">Color</label>
+                            </div>
+                            <div class="form-floating mb-0 p-0">
+                                <input type="text" class="form-control" id="input_placa"
+                                    placeholder="name@example.com">
+                                <label for="input_placa">Placa</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center align-items-center col-12 mt-5">
+                        <button type="button" class="btn btn-secondary btnCancel mx-5" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary btnSave">Guardar</button>
+                    </div>
                 </div>
             </div>
         </div>
