@@ -90,6 +90,8 @@ hr {
     min-height: 85vh;
     overflow-y: auto;
     overflow-x: hidden;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
 /* Cambia el color del checkbox seleccionado */
