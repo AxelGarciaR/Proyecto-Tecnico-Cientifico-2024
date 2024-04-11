@@ -107,7 +107,8 @@ hr {
 .contenedor-checkbox::-webkit-scrollbar,
 #bdSidebar::-webkit-scrollbar,
 .contenedor-modelos-nombre::-webkit-scrollbar,
-.contenedor-checkbox2::-webkit-scrollbar {
+.contenedor-checkbox2::-webkit-scrollbar,
+.contenedor-total-cards::-webkit-scrollbar {
     width: 10px;
     /* Ancho del scrollbar */
 }
@@ -115,7 +116,8 @@ hr {
 .contenedor-checkbox::-webkit-scrollbar-thumb,
 #bdSidebar::-webkit-scrollbar-thumb,
 .contenedor-modelos-nombre::-webkit-scrollbar-thumb,
-.contenedor-checkbox2::-webkit-scrollbar-thumb {
+.contenedor-checkbox2::-webkit-scrollbar-thumb,
+.contenedor-total-cards::-webkit-scrollbar-thumb {
     background-color: #BA181B;
     /* Color del scrollbar thumb */
     border-radius: 8px;
@@ -125,7 +127,8 @@ hr {
 .contenedor-checkbox::-webkit-scrollbar,
 #bdSidebar::-webkit-scrollbar,
 .contenedor-modelos-nombre::-webkit-scrollbar,
-.contenedor-checkbox2::-webkit-scrollbar {
+.contenedor-checkbox2::-webkit-scrollbar,
+.contenedor-total-cards::-webkit-scrollbar {
     width: 10px;
     /* Ancho del scrollbar */
 }
@@ -188,7 +191,6 @@ hr {
     position: relative;
 
     border-radius: 10px;
-    cursor: pointer;
 }
 
 .contenedor-total-cards {
@@ -321,3 +323,23 @@ hr {
     margin-bottom: 10px;
     color: white;
 }
+
+ 
+
+/* Grow */
+.hvr-grow {
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    cursor: pointer;
+  }
+  .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  
