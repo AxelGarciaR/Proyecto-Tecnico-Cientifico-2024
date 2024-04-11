@@ -86,8 +86,8 @@ hr {
 }
 
 #bdSidebar {
-    max-height: 85vh;
-    min-height: 85vh;
+    max-height: 88vh;
+    min-height: 88vh;
     overflow-y: auto;
     overflow-x: hidden;
     border-bottom-left-radius: 30px;
@@ -194,8 +194,8 @@ hr {
 .contenedor-total-cards {
     overflow-x: hidden;
     overflow-y: auto;
-    min-height: 85vh;
-    max-height: 85vh;
+    min-height: 87vh;
+    max-height: 87vh;
     padding-top: 50px;
 
     display: grid;
@@ -204,12 +204,18 @@ hr {
 
     grid-template-rows: repeat(3, 1fr);
     padding-bottom: 20px;
+
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
-@media (min-width: 599px) {
+@media (min-width: 614px) {
     .contenedor-total-cards {
         grid-template-rows: repeat(2, 1fr);
         grid-template-columns: repeat(2, 1fr);
+
+        padding-right: 20px;
+        padding-left: 20px;
     }
 
     .container-info-card {
@@ -224,7 +230,7 @@ hr {
     }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 613px) {
     .c2>p {
         flex-direction: column;
         display: flex;
@@ -235,6 +241,9 @@ hr {
     .contenedor-total-cards {
         grid-template-rows: repeat(2, 1fr);
         grid-template-columns: repeat(3, 1fr);
+
+        padding-right: 20px;
+        padding-left: 20px;
     }
 }
 
@@ -242,6 +251,20 @@ hr {
     .contenedor-total-cards {
         grid-template-rows: repeat(2, 1fr);
         grid-template-columns: 1fr;
+
+        padding-right: 90px;
+        padding-left: 90px;
+    }
+}
+
+@media (min-width: 1830px) {
+    .contenedor-total-cards {
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+
+        padding-right: 20px;
+        padding-left: 20px;
     }
 }
 
