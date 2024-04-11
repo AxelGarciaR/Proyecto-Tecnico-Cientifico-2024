@@ -47,3 +47,7 @@ $('#datepicker-desdeRE').datepicker({
 $('#datepicker-hastaRE').datepicker({
     uiLibrary: 'bootstrap5'
 });
+
+function gotoDetail() {
+    location.href = "../../vistas/privado/detalles_automovil.html";
+}
