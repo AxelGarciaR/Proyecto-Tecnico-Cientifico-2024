@@ -4,13 +4,10 @@ body {
 
 .contenedor-total {
     display: grid;
-    grid-template-columns: 3fr 2fr;
     gap: 50px;
 }
 
 .contenedor-blanco {
-    display: grid;
-    grid-template-columns: 1fr 11fr;
     background-color: white;
     max-height: 85vh;
 }
@@ -43,18 +40,34 @@ body {
     gap: 30px;
 }
 
-.btnCancelar, .btnAceptar {
+.btnCancelar,
+.btnAceptar {
     background-color: black;
     height: 55px;
     border-radius: 5px;
 }
 
-.btnAceptar
-{
+.btnAceptar {
     background-color: #E5383B;
 }
 
 .contenedor_botones {
     display: grid;
     gap: 30px;
+}
+
+.contenedor-imagen>img {
+    max-width: 100%;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+.btnExit {
+    height: fit-content;
+    width: 100%;
+}
+
+.btnExit >a>img {
+    height: 100%;
+    width: 100%;
 }

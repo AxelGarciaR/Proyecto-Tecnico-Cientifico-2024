@@ -1,0 +1,135 @@
+.mynav li a {
+    color: #000000;
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    border-radius: 5px;
+    padding: 8px 5px;
+}
+
+.mynav li a.active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.mynav li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.mynav li a i {
+    width: 25px;
+    text-align: center;
+}
+
+.sidebar-header {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: auto;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid;
+    border-color: #7C7C7C;
+}
+
+.search {
+    background-color: #F8F8F8;
+    border: 0px;
+    border-radius: 10px;
+}
+
+.dropdown-btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* ------------- ANIMACIÓN ------------------ */
+
+.boton {
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.imagen {
+    transition: transform 0.5s ease;
+}
+
+.rotacion-90 {
+    transform: rotate(90deg);
+}
+
+/* ------------- ANIMACIÓN ------------------ */
+
+.contenedor-checkbox {
+    overflow-x: hidden;
+    height: 200px;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: auto;
+    gap: 15px;
+}
+
+.contenedor-checkbox>li {
+    border: 0px;
+}
+
+#bdSidebar {
+    max-height: 85vh;
+    min-height: 85vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Cambia el color del checkbox seleccionado */
+.form-check-input:checked {
+    background-color: #FF0000;
+    /* Cambia el color de fondo */
+    border-color: #FF0000;
+    /* Cambia el color del borde */
+}
+
+
+/* ------------- SCROLLBAR ------------------ */
+.contenedor-checkbox::-webkit-scrollbar,
+#bdSidebar::-webkit-scrollbar {
+    width: 10px;
+    /* Ancho del scrollbar */
+}
+
+.contenedor-checkbox::-webkit-scrollbar-thumb,
+#bdSidebar::-webkit-scrollbar-thumb {
+    background-color: #BA181B;
+    /* Color del scrollbar thumb */
+    border-radius: 8px;
+    /* Borde redondeado del thumb */
+}
+
+.contenedor-checkbox::-webkit-scrollbar,
+#bdSidebar::-webkit-scrollbar {
+    width: 10px;
+    /* Ancho del scrollbar */
+}
+
+.contenedor-checkbox::-webkit-scrollbar-thumb {
+    background-color: #BA181B;
+    /* Color del scrollbar thumb */
+    border-radius: 8px;
+    /* Borde redondeado del thumb */
+}
+
+#bdSidebar::-webkit-scrollbar-thumb {
+    background-color: #e5383b5c;
+    /* Color del scrollbar thumb */
+    border-radius: 8px;
+    /* Borde redondeado del thumb */
+}
+
+/* ------------- SCROLLBAR ------------------ */
+
+.datepickerA {
+    background-color: #F5F3F4;
+    border: 0px;
+}
