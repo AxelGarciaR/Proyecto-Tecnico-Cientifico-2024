@@ -4,7 +4,7 @@
 
 <head>
     <!-- Título del documento -->
-    <title>Pánel Principal - DARG</title> <!--Cambiarlo por el titulo de la página en cuestion-->
+    <title>Panel Principal</title>
 
     <!-- Metadatos de la página web -->
     <meta charset="utf-8">
@@ -25,38 +25,45 @@
     <!--Cambiarlo por el css de la página en cuestion-->
     <link href="../../recursos/estilos/fuentes.css" rel="stylesheet"> <!--Dejarlo NOQUITAR-->
     <link href="../../recursos/estilos/privado/plantilla.css" rel="stylesheet"> <!--Dejarlo NOQUITAR-->
+
+    <link href="../../recursos/estilos/privado/calendario.css" rel="stylesheet" /> <!--Hoja de estilos para el calendario-->
 </head>
 
 <body>
-
     <!-- *Contenido principal del documento -->
     <main> <!--Contenedor blanco-->
         <div class="contenedor-total col-12 px-3 py-5 d-flex flex-column">
-            <div class="contenedor_1 col-12 d-flex flex-wrap">
-                <div class="contenedor-citas col-12 col-md-6 col-lg-6">
+            <div class="contenedor_1 col-12 d-flex flex-wrap"> <!--Contenedor para las cards que muestran las citas finalizadas y el calendario-->
+                <div class="contenedor-citas col-12 col-md-6 col-lg-6"> <!--Contenedor para almacenar las cards de citas finalizadas-->
                     <div class="contenedor-header col-12">
-                        <h3 class="open-sans-regular text-black">CITAS FINALIZADAS</h3>
+                        <h3 class="open-sans-bold text-black">CITAS FINALIZADAS</h3> 
                         <form class="d-flex">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Buscar...">
-                                <button type="button" class="btn btn-secondary"><i class="bi-search"></i></button>
+                                <input type="text" class="form-control" placeholder="Buscar..."> <!--Un buscador para las citas-->
+                                <button type="button" class="btn btn-secondary"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="16" height="16" fill="currentColor" class="bi bi-search"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                                    </svg></button>
                             </div>
                         </form>
                     </div>
-                    <div class="contenedor-cards col-12">
+                    <div class="contenedor-cards">
                         <div class="card">
                             <div class="card-izquierda">
                                 <div class="elemento-fecha-cita d-flex justify-content-center align-items-center text-center"">
-                                    <h5 class="open-sans-regular-italic text-white p-0 m-0" >
-                                        Fecha de la cita programada: <br> 01/abril/2024
+                                    <h5 class=" open-sans-regular-italic text-white p-0 m-0">
+                                    Fecha de la cita programada: <br> 01/abril/2024
                                     </h5>
                                 </div>
                                 <div class="elemento-hora-llegada d-flex justify-content-center align-items-center text-center"">
-                                    <h5 class="open-sans-regular-regular text-white p-0 m-0">
-                                        Hora de llegada del cliente: <br> 11:00 am.
+                                    <h5 class=" open-sans-regular-regular text-white p-0 m-0">
+                                    Hora de llegada del cliente: <br> 11:00 am.
                                     </h5>
                                 </div>
-                                <div class="elemento-movilizacion text-black d-flex flex-column justify-content-center align-items-center">
+                                <div
+                                    class="elemento-movilizacion text-black d-flex flex-column justify-content-center align-items-center">
                                     <h5 class="open-sans-extrabold p-0 m-0 mb-3">
                                         Movilización del vehículo:
                                     </h5>
@@ -70,10 +77,11 @@
                                     <img src="../../recursos/imagenes/img_panel/CAR-EXAMPLE.svg">
                                 </div>
 
-                                <div class="info-cliente text-white d-flex flex-column justify-content-center align-items-center ">
+                                <div
+                                    class="info-cliente text-white d-flex flex-column justify-content-center align-items-center ">
                                     <div class="grupo1">
                                         <h5 class="open-sans-bold p-0 m-0">
-                                            DUI del cliente: 
+                                            DUI del cliente:
                                         </h5>
                                         <h5 class="open-sans-regular p-0 m-0">
                                             12345678-9
@@ -94,14 +102,54 @@
                     </div>
                 </div>
                 <div class="contenedor-calendar col-12 col-md-6 col-lg-6 ">
+                    <div class="calendar">
+                        <div class="header">
+                            <div class="month"></div>
+                            <div class="btns">
+                                <div class="btn today-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-calendar-event-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2m-3.5-7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5" />
+                                    </svg>
+                                </div>
+                                <div class="btn prev-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5" />
+                                    </svg>
+                                </div>
+                                <div class="btn next-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="weekdays">
+                            <div class="day">Sun</div>
+                            <div class="day">Mon</div>
+                            <div class="day">Tue</div>
+                            <div class="day">Wed</div>
+                            <div class="day">Thu</div>
+                            <div class="day">Fri</div>
+                            <div class="day">Sat</div>
+                        </div>
+                        <div class="days">
+                            <!-- lets add days using js -->
+                        </div>
+                    </div>
+                </div>
+                <div class="contenedor_2">
 
                 </div>
             </div>
-            <div class="contenedor_2">
-
-            </div>
-        </div>
     </main>
+
+    <script src="../../recursos/estilos/privado/calendario.js"></script>
 
     <!-- *Llamada a las hojas de estilos del framework e iconos -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -113,6 +161,7 @@
     <!-- *Llamada al controlador de la página web -->
     <script type="text/javascript" src="../../controlador/privado/panel_principal.js"></script>
     <!--Cambiarlo por el js de la página en cuestion-->
+
 </body>
 
 </html>
