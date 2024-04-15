@@ -32,7 +32,7 @@
 
 <body>
     <!-- *Contenido principal del documento -->
-    <main> <!--Contenedor blanco-->
+    <main class="container-fluid"> <!--Contenedor blanco-->
         <div class="contenedor-total col-12 px-3 py-5 d-flex flex-column">
             <div class="contenedor_1 col-12 d-flex flex-wrap">
                 <!--Contenedor para las cards que muestran las citas finalizadas y el calendario-->
@@ -105,7 +105,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="contenedor-calendar col-12 col-md-6 col-lg-6 ">
+                <div class="contenedor-calendar p-5 col-md-6 col-sm-12">
                     <div class="calendar">
                         <div class="header">
                             <div class="month"></div>
@@ -147,12 +147,21 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-12 col-md-12 col-sm-12 linea">
+                    <h3 class="text-center">Resumen del mes de Abril</h3>
+                </div>
                 <div class="col-md-6 col-sm-6">
                     <div class="contenedor_2 container-fluid">
                         <canvas id="grafica"></canvas>
                     </div>
                 </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="contenedor_2 container-fluid">
+                        <canvas id="graficaLineal"></canvas>
+                    </div>
+                </div>
             </div>
+        </div>
     </main>
 
     <script src="../../recursos/estilos/privado/calendario.js"></script> <!--Js para el calendario, para que funcione-->

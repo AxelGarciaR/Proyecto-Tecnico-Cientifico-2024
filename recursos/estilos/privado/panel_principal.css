@@ -63,3 +63,8 @@
     display: grid;
     gap: 30px;
 }
+
+.linea{
+    /* Establece el color de fondo blanco */
+    border-bottom: 5px solid #000;
+}
