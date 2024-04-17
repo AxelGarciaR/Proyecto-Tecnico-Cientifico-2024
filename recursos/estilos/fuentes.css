@@ -1,3 +1,7 @@
+.bg-color-black {
+    background-color: black;
+}
+
 .bg-color-r1 {
     background-color: #E5383B;
 }
@@ -80,4 +84,27 @@
     font-family: "Open Sans", sans-serif;
     font-weight: 800;
     font-style: italic;
+}
+
+/** Clase donde se pondrá la animación */
+.open {
+    animation: transitionIn 0.5s;
+    /* Animación de entrada con duración de 1 segundo */
+}
+
+/** Animación de entrada a la página */
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        /* Inicialmente invisible */
+        transform: rotateX(-10deg);
+        /* Rotación en el eje X */
+    }
+
+    to {
+        opacity: 1;
+        /* Se vuelve completamente visible */
+        transform: rotateX(0);
+        /* Sin rotación */
+    }
 }

@@ -39,7 +39,7 @@
 
 <body>
     <!-- *Contenido principal del documento -->
-    <main>
+    <main class="open">
         <div class="container-fluid p-0 d-flex h-100">
             <div id="bdSidebar"
                 class="d-flex flex-column flex-shrink-0 p-3 pt-5 text-black offcanvas-md offcanvas-start col-12 col-lg-3 col-md-4"
@@ -784,56 +784,60 @@
             </div>
         </div>
 
-        <!--TODO -------------------------------MODAL---------------------->
+        <!--TODO -------------------------------MODAL ADD AND EDIT---------------------->
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-xl ">
-                <div class="modal-content p-5 pb-0">
-                    <div class="modal-body col-12 d-flex">
-                        <div class="content-add-img col-5 d-flex flex-column justify-content-center align-items-center">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-lg-5 p-1 p-md-4 pb-0 pb-lg-3">
+                    <div class="modal-body col-12 d-flex flex-lg-row flex-md-column flex-column  flex-wrap-reverse">
+                        <div
+                            class="content-add-img col-lg-5 col-12 pb-3 p-lg-0 d-flex flex-column justify-content-center align-items-center">
                             <h6>Imagen del automòvil</h6>
-                            <button type="button" class="btn btn-primary btnFogot col-8 col-lg-6 open-sans-regular">
-                                Seleccionar imagen</button>
+                            <!-- Imagen seleccionada y botón para elegir imagen -->
+                            <img id="selectedImageF" class="sizeCard col-10 "
+                                src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg"
+                                alt="example placeholder" />
+                            <div class="btn btn-primary btn-rounded btnFogot col-8 col-lg-6 open-sans-regular mt-1">
+                                <label class="form-label text-white m-1" for="customFile2">Seleccionar
+                                    imagen</label>
+                                <input type="file" class="form-control d-none" id="customFile2" readonly
+                                    onchange="displaySelectedImage(event, 'selectedImageF')" />
+                            </div>
                         </div>
 
-                        <div class="content-add-info col-7">
+                        <div class="content-add-info col-lg-7 col-12">
                             <div class="form-floating mb-0 p-0">
-                                <input type="text" class="form-control" id="input_marca"
-                                    placeholder="name@example.com">
+                                <input type="text" class="form-control" id="input_marca" placeholder="...">
                                 <label for="input_marca">Marca</label>
                             </div>
 
                             <div class="form-floating mb-0 p-0">
-                                <input type="text" class="form-control" id="input_modelo"
-                                    placeholder="name@example.com">
+                                <input type="text" class="form-control" id="input_modelo" placeholder="...">
                                 <label for="input_modelo">Modelo</label>
                             </div>
                             <div class="form-floating mb-0 p-0">
-                                <input type="text" class="form-control" id="input_tipo"
-                                    placeholder="name@example.com">
+                                <input type="text" class="form-control" id="input_tipo" placeholder="...">
                                 <label for="input_tipo">Tipo</label>
                             </div>
                             <div class="form-floating mb-0 p-0">
-                                <input type="text" class="form-control" id="input_fechaFAB"
-                                    placeholder="name@example.com">
+                                <input type="text" class="form-control" id="input_fechaFAB" placeholder="...">
                                 <label for="input_fechaFAB">Fecha de fabricaciòn</label>
                             </div>
                             <div class="form-floating mb-0 p-0">
-                                <input type="text" class="form-control" id="input_color"
-                                    placeholder="name@example.com">
+                                <input type="text" class="form-control" id="input_color" placeholder="...">
                                 <label for="input_color">Color</label>
                             </div>
                             <div class="form-floating mb-0 p-0">
-                                <input type="text" class="form-control" id="input_placa"
-                                    placeholder="name@example.com">
+                                <input type="text" class="form-control" id="input_placa" placeholder="...">
                                 <label for="input_placa">Placa</label>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer d-flex justify-content-center align-items-center col-12 mt-5">
-                        <button type="button" class="btn btn-secondary btnCancel mx-5" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary btnSave">Guardar</button>
+                    <div class="modal-footer d-flex justify-content-center align-items-center col-lg-12 col-12 mt-5">
+                        <button type="button" class="btn btn-secondary btnCancel me-lg-5 me-3 me-md-5"
+                            data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary btnSave me-lg-5 me-3 me-md-5">Guardar</button>
                     </div>
                 </div>
             </div>

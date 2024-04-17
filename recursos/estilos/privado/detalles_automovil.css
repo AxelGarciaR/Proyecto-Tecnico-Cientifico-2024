@@ -1,6 +1,165 @@
+.contenedor-total {
+    display: grid;
+    row-gap: 47px;
+}
+
+.btnReturn {
+    cursor: pointer;
+    width: fit-content;
+}
+
+.contenedor-izqrd {
+    display: grid;
+    row-gap: 35px;
+}
+
 .contenedor-info-cliente {
     border: 1px gray solid;
-    height: 20vh;
+    min-height: 20vh;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+    display: grid;
+    row-gap: 5px;
+}
+
+.content-info-text {
+    width: fit-content;
+}
+
+.btnMasInfo {
+    background-color: #232323;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 0px;
+    border-top-left-radius: 100px;
+}
+
+.btn-position-btmright {
+    bottom: 0;
+    right: 0;
+}
+
+.contenedor-info-auto {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #E00D11;
+    min-height: 15vh;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.btnEdit {
+    border: 0px;
+    width: fit-content;
+}
+
+.btnEdit:hover {
+    background-color: rgb(143, 255, 255);
+}
+
+
+.contenedor-fechas {
+    width: fit-content;
+}
+
+.contenedor-drch>img {
+    max-inline-size: 100%;
+    block-size: auto;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    height: 100%;
+    min-height: 40vh;
+    min-width: 100%;
+    aspect-ratio: 2/1;
+}
+
+.btnm2 {
+    border-radius: 0px;
+    border-bottom-left-radius: 100px;
+}
+
+.contenedor-title {
+    background-color: #5E5E5E;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+
+/*-------------------------- CARRUSEL DE SERVICIOS EN PROCESO ------------------*/
+.arrow {
+    width: fit-content;
+}
+
+.cardM {
+    /*width: 375px;*/
+    border: 0px;
+}
+
+.card-body {
+    padding: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.card-top {
+    background-color: #04D100;
+}
+
+.card-top2 {
+    background-color: #EC7F00;
+}
+
+.time-pastilla {
+    width: 100%;
+    background-color: #E5383B;
+    border-radius: 20px;
+}
+
+.cards-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardM {
+    margin: 25px;
+    margin-right: 60px;
+    width: calc(100%/4);
+}
+
+@media screen and (min-width: 700px) and (max-width: 1200px) {
+    .cardM {
+        width: 100%;
+        margin: 25px 0;
+    }
+
+    .cards-wrapper {
+        padding-left: 30vw;
+        padding-right: 30vw;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cardM:not(:first-child) {
+        margin-top: 25px;
+    }
+}
+
+@media screen and (min-width: 250px) and (max-width: 699px) {
+    .cardM {
+        width: 100%;
+        margin: 25px 0;
+    }
+
+    .cards-wrapper {
+        padding-left: 10vw;
+        padding-right: 10vw;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cardM:not(:first-child) {
+        margin-top: 25px;
+    }
 }

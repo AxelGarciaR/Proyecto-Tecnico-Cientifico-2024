@@ -2,3 +2,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     loadTemplate();
 });
+
+function goBack() {
+    window.history.back();
+}
