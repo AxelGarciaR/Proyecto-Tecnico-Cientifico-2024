@@ -120,15 +120,20 @@
                             </div>
                         </div>
 
-                        <button type="button" id="btnEditCar" onclick=""
+                        <button type="button" id="btnEditCar" onclick="" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop2"
                             class="btn btn-outline-primary col-10 btn-position-btmright btnEdit position-absolute m-0 p-0">
                             <img src="../../recursos/imagenes/icons/btn-edit.svg" class="svg1">
                         </button>
                     </div>
                 </div>
 
-                <div class="contenedor-drch col-lg-8 col-md-7 px-lg-4 px-md-3 col-12 mt-5 mt-md-0 mt-lg-0">
-                    <img src="../../recursos/imagenes/img_automoviles/Car-example.svg">
+                <div class="contenedor-drch col-lg-8 col-md-7 px-lg-4 px-md-3 col-12 mt-5 mt-md-0 mt-lg-0 position-relative"
+                onclick="gotoDetailsServ()">
+                    <div class="content z-3">
+                        <h4 class="open-sans-light-italic">Visualizar servicios realizados</h4>
+                    </div>
+                    <img src="../../recursos/imagenes/img_automoviles/carexmpl.jpg" class="z-2">
                 </div>
             </div>
 
@@ -148,7 +153,7 @@
                     </button>
                 </div>
 
-                <div class="contenedor-card-proces"> 
+                <div class="contenedor-card-proces">
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -160,7 +165,7 @@
                                                 class="card-top text-white d-flex justify-content-between align-items-center col-12">
                                                 <h5 class="mx-3 open-sans-regular m-0 p-0">
                                                     Trabajando :D</h5>
-                                                <button type="button" id="btnEditProces" onclick=""
+                                                <button type="button" onclick=""
                                                     class="btn btn-outline-dark btnMasInfo btnm2 bg-color-black col-10 text-white m-0 p-0">
                                                     <p class="open-sans-regular ps-4 pe-2 py-2 m-0 z-3">Editar</p>
                                                 </button>
@@ -193,7 +198,7 @@
                                                 class="card-top2 text-white d-flex justify-content-between align-items-center col-12">
                                                 <h5 class="mx-3 open-sans-regular m-0 p-0">
                                                     En espera</h5>
-                                                <button type="button" id="btnEditProces" onclick=""
+                                                <button type="button" onclick=""
                                                     class="btn btn-outline-dark btnMasInfo btnm2 bg-color-black col-10 text-white m-0 p-0">
                                                     <p class="open-sans-regular ps-4 pe-2 py-2 m-0 z-3">Editar</p>
                                                 </button>
@@ -226,7 +231,7 @@
                                                 class="card-top2 text-white d-flex justify-content-between align-items-center col-12">
                                                 <h5 class="mx-3 open-sans-regular m-0 p-0">
                                                     En espera</h5>
-                                                <button type="button" id="btnEditProces" onclick=""
+                                                <button type="button" onclick=""
                                                     class="btn btn-outline-dark btnMasInfo btnm2 bg-color-black col-10 text-white m-0 p-0">
                                                     <p class="open-sans-regular ps-4 pe-2 py-2 m-0 z-3">Editar</p>
                                                 </button>
@@ -263,7 +268,7 @@
                                                 class="card-top2 text-white d-flex justify-content-between align-items-center col-12">
                                                 <h5 class="mx-3 open-sans-regular m-0 p-0">
                                                     En espera</h5>
-                                                <button type="button" id="btnEditProces" onclick=""
+                                                <button type="button" onclick=""
                                                     class="btn btn-outline-dark btnMasInfo btnm2 bg-color-black col-10 text-white m-0 p-0">
                                                     <p class="open-sans-regular ps-4 pe-2 py-2 m-0 z-3">Editar</p>
                                                 </button>
@@ -296,7 +301,7 @@
                                                 class="card-top2 text-white d-flex justify-content-between align-items-center col-12">
                                                 <h5 class="mx-3 open-sans-regular m-0 p-0">
                                                     En espera</h5>
-                                                <button type="button" id="btnEditProces" onclick=""
+                                                <button type="button" onclick=""
                                                     class="btn btn-outline-dark btnMasInfo btnm2 bg-color-black col-10 text-white m-0 p-0">
                                                     <p class="open-sans-regular ps-4 pe-2 py-2 m-0 z-3">Editar</p>
                                                 </button>
@@ -329,7 +334,7 @@
                                                 class="card-top2 text-white d-flex justify-content-between align-items-center col-12">
                                                 <h5 class="mx-3 open-sans-regular m-0 p-0">
                                                     En espera</h5>
-                                                <button type="button" id="btnEditProces" onclick=""
+                                                <button type="button" onclick=""
                                                     class="btn btn-outline-dark btnMasInfo btnm2 bg-color-black col-10 text-white m-0 p-0">
                                                     <p class="open-sans-regular ps-4 pe-2 py-2 m-0 z-3">Editar</p>
                                                 </button>
@@ -369,7 +374,70 @@
                                 <img src="../../recursos/imagenes/icons/slidedrch.svg">
                             </span>
                         </button>
-                    </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--TODO -------------------------------MODAL EDIT---------------------->
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content p-lg-5 p-1 p-md-4 pb-0 pb-lg-3">
+                    <div class="modal-body col-12 d-flex flex-lg-row flex-md-column flex-column  flex-wrap-reverse">
+                        <div
+                            class="content-add-img col-lg-5 col-12 pb-3 p-lg-0 d-flex flex-column justify-content-center align-items-center">
+                            <h6>Imagen del automòvil</h6>
+                            <!-- Imagen seleccionada y botón para elegir imagen -->
+                            <img id="selectedImageA" class="sizeCard col-10 "
+                                src="../../recursos/imagenes/img_automoviles/carexmpl2.jpg" alt="example placeholder" />
+                            <div class="btn btn-primary btn-rounded btnForgot col-8 col-lg-6 open-sans-regular mt-1">
+                                <label class="form-label text-white m-1" for="customFile2">Seleccionar
+                                    imagen</label>
+                                <input type="file" class="form-control d-none" id="customFile2" readonly
+                                    onchange="displaySelectedImage(event, 'selectedImageA')" />
+                            </div>
+                        </div>
+
+                        <div class="content-add-info col-lg-7 col-12">
+                            <div class="form-floating mb-0 p-0">
+                                <input type="text" class="form-control" id="input_marca" placeholder="..."
+                                    value="Ferrari">
+                                <label for="input_marca">Marca</label>
+                            </div>
+
+                            <div class="form-floating mb-0 p-0">
+                                <input type="text" class="form-control" id="input_modelo" placeholder="..."
+                                    value="Abarath 500">
+                                <label for="input_modelo">Modelo</label>
+                            </div>
+                            <div class="form-floating mb-0 p-0">
+                                <input type="text" class="form-control" id="input_tipo" placeholder="..."
+                                    value="Camioneta">
+                                <label for="input_tipo">Tipo</label>
+                            </div>
+                            <div class="form-floating mb-0 p-0">
+                                <input type="text" class="form-control" id="input_fechaFAB" placeholder="..."
+                                    value="03/03/1900">
+                                <label for="input_fechaFAB">Fecha de fabricaciòn</label>
+                            </div>
+                            <div class="form-floating mb-0 p-0">
+                                <input type="text" class="form-control" id="input_color" placeholder="..." value="Gris">
+                                <label for="input_color">Color</label>
+                            </div>
+                            <div class="form-floating mb-0 p-0">
+                                <input type="text" class="form-control" id="input_placa" placeholder="..."
+                                    value="P222-222">
+                                <label for="input_placa">Placa</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center align-items-center col-lg-12 col-12 mt-5">
+                        <button type="button" class="btn btn-secondary btnCancel me-lg-5 me-3 me-md-5"
+                            data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary btnSave me-lg-5 me-3 me-md-5">Guardar</button>
+                    </div>
                 </div>
             </div>
         </div>
