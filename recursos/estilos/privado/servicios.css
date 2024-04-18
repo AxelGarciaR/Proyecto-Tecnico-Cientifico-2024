@@ -1,0 +1,47 @@
+.envelope-card {
+    position: relative;
+    background-color: #ffffff;
+    border: 4px solid #dc3545;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.1);
+    height: 100%; /* Establecemos altura al 100% */
+}
+
+/* Triángulo invertido en la parte superior */
+.envelope-card::before {
+    content: "";
+    position: absolute;
+    top: 0; /* Ajuste para pegarlo a la parte superior */
+    left: 50%; /* Centramos el triángulo horizontalmente */
+    transform: translateX(-50%) rotate(180deg); /* Rotamos el triángulo 180 grados */
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 150px 40px 150px;
+    border-color: transparent transparent #dc3545 transparent;
+}
+
+/* Estilo para centrar verticalmente el contenido de la tarjeta */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+/* Triángulo invertido en la parte superior */
+.envelope-card::before {
+    content: "";
+    position: absolute;
+    top: 0; /* Ajuste para pegarlo a la parte superior */
+    left: 50%; /* Centramos el triángulo horizontalmente */
+    transform: translateX(-50%) rotate(180deg); /* Rotamos el triángulo 180 grados */
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 calc(50% - 75px) 40px calc(50% - 75px); /* Ancho del triángulo en porcentaje */
+    border-color: transparent transparent #dc3545 transparent;
+}
+
