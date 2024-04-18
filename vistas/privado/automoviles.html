@@ -43,14 +43,15 @@
         <div class="container-fluid p-0 d-flex h-100">
             <div id="bdSidebar"
                 class="d-flex flex-column flex-shrink-0 p-3 pt-5 text-black offcanvas-md offcanvas-start col-12 col-lg-3 col-md-4"
-                data-bs-toggle="offcanvas">
-                <div class="sidebar-header">
-                    <div class="input-group search shadow-sm">
+                data-bs-toggle="offcanvas"> <!-- Contenedor del menu lateral (filtros) -->
+                <div class="sidebar-header"> <!-- Contenedor del header del menu lateral (filtros) -->
+                    <div class="input-group search shadow-sm"> <!-- Contenedor del los input de entrada -->
                         <input type="text" class="form-control search" placeholder="Buscar...">
                         <button type="button" class="btn btn-outline"><i class="bi-search"><img
                                     src="../../recursos/imagenes/icons/icon-search.svg"></i></button>
                     </div>
                     <div class="d-flex justify-content-center d-flex align-items-baseline">
+                        <!-- Contenedor del los input de entrada -->
                         <img src="../../recursos/imagenes/icons/carIcon1.svg" width="25px" height="25px">
                         <h3 class="px-3 open-sans-bold">Filtros</h3>
                         <a href="#" class="text-black d-md-none" data-bs-toggle="offcanvas" data-bs-target="#bdSidebar">
@@ -59,10 +60,11 @@
                     </div>
                 </div>
                 <hr>
-                <div class="sidebar-body">
-                    <ul class="list-unstyled ps-0 cursor-hover ">
+                <div class="sidebar-body"> <!-- Contedor del cuerpo de los filtros-->
+                    <ul class="list-unstyled ps-0 cursor-hover "> <!-- Lista no ordenada de los filtros-->
                         <!--TODO ----------------------------ELEMENTO MARCAS----------------------------------->
                         <li class="mb-1 cursor-hover d-flex flex-column align-items-center">
+                            <!-- Elemento de la lista-->
                             <button class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton"
                                 data-bs-toggle="collapse" data-bs-target="#Marcas" aria-expanded="false"
                                 onclick="rotarImagen('img1')">
@@ -188,7 +190,7 @@
                                             <ul
                                                 class="contenedor-modelos-nombre d-flex flex-column align-items-start ps-2 col-11">
 
-                                                <li class="list-group-item p-0 m-0 px-3">
+                                                <li class="list-group-item p-0 m-0 px-3"> <!-- Elemento de la lista-->
                                                     <input class="form-check-input me-2" type="checkbox" id="Modelo1-1">
                                                     <label class="form-check-label stretched-link" for="Modelo1-1">
                                                         <h6 class="m-0 p-0 open-sans-regular">
@@ -197,7 +199,7 @@
                                                     </label>
                                                 </li>
 
-                                                <li class="list-group-item p-0 m-0 px-3">
+                                                <li class="list-group-item p-0 m-0 px-3"> <!-- Elemento de la lista-->
                                                     <input class="form-check-input me-2" type="checkbox" id="Modelo2-2">
                                                     <label class="form-check-label stretched-link" for="Modelo2-2">
                                                         <h6 class="m-0 p-0 open-sans-regular">
@@ -206,7 +208,7 @@
                                                     </label>
                                                 </li>
 
-                                                <li class="list-group-item p-0 m-0 px-3">
+                                                <li class="list-group-item p-0 m-0 px-3"> <!-- Elemento de la lista-->
                                                     <input class="form-check-input me-2" type="checkbox" id="Modelo3-3">
                                                     <label class="form-check-label stretched-link" for="Modelo3-3">
                                                         <h6 class="m-0 p-0 open-sans-regular">
@@ -836,8 +838,10 @@
                     </div>
                     <div class="modal-footer d-flex justify-content-center align-items-center col-lg-12 col-12 mt-5">
                         <button type="button" class="btn btn-secondary btnCancel me-lg-5 me-3 me-md-5"
-                            data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary btnSave me-lg-5 me-3 me-md-5">Guardar</button>
+                            onclick="openClose()">Cancelar</button>
+                        <button type="button" class="btn btn-primary btnSave me-lg-5 me-3 me-md-5"
+                        onclick="openNoti()">
+                            Guardar</button>
                     </div>
                 </div>
             </div>
@@ -854,6 +858,8 @@
     <!-- *Llamada al controlador de la página web -->
     <script type="text/javascript" src="/controlador/privado/automoviles.js"></script>
     <!--Cambiarlo por el js de la página en cuestion-->
+    <!-- Llamada al controlador del componente -->
+    <script type="text/javascript" src="../../controlador/utilidades/components.js"></script>
 </body>
 
 </html>
