@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     loadTemplate();
 });
 
+// Funcion que hace el efecto de rotacion en la flecha de cada elemento de los filtros
 function rotarImagen(idImagen) {
     var imagen = document.getElementById(idImagen);
     if (!imagen.classList.contains('rotacion-90')) {
@@ -26,6 +27,7 @@ function rotarImagen(idImagen) {
     }
 }
 
+// Funcion para mostrar los modelos
 function showModelos() {
     MODELOS_CONTAINER.classList.remove('d-none');
     MARCAS_CONTAINER.classList.add('d-none');
@@ -34,6 +36,7 @@ function showModelos() {
     REGRESAR_MARCAS.classList.remove('d-none');
 }
 
+// Funcion para mostrar las marcas
 function showMarcas() {
     MODELOS_CONTAINER.classList.add('d-none');
     MARCAS_CONTAINER.classList.remove('d-none');
@@ -42,6 +45,7 @@ function showMarcas() {
     REGRESAR_MARCAS.classList.add('d-none');
 }
 
+// Date pickers
 $('#datepicker-desde').datepicker({
     uiLibrary: 'bootstrap5'
 });
@@ -56,10 +60,13 @@ $('#datepicker-hastaRE').datepicker({
     uiLibrary: 'bootstrap5'
 });
 
+
+// Funcion para ir hacia la pagina de detalles del automovil
 function gotoDetail() {
     location.href = "../../vistas/privado/detalles_automovil.html";
 }
 
+//Funcion que muestra la alerta de confirmacion
 const openClose = async () => {
     // Llamada a la función para mostrar un mensaje de confirmación, capturando la respuesta en una constante.
     const RESPONSE = await confirmAction2('¿Seguro qué quieres regresar?', 'Los datos ingresados no serán almacenados');
@@ -67,7 +74,7 @@ const openClose = async () => {
         MODAL.hide();
     }
 }
-
+//Funcion que muestra la alerta de notificacion
 const openNoti = async () => {
     // Llamada a la función para mostrar una notificación
     sweetAlert(1, 'Se ha guardado con exito', 300);
