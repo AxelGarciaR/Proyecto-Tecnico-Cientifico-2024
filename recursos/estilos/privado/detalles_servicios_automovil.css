@@ -24,7 +24,7 @@
     overflow-y: auto;
 
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr;
     gap: 55px;
 
     margin-right: 5px;
@@ -214,4 +214,21 @@
 .info-cliente {
     background-color: black;
     border-bottom-right-radius: 10px;
+}
+
+
+
+/*@media (min-width: 1318px) {
+    .body-categoria {
+        min-height: 350px;
+        max-height: 550px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 55px;
+    
+        margin-right: 5px;
+    }
 }
