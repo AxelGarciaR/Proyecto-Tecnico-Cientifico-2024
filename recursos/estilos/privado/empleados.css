@@ -1,5 +1,11 @@
 /* ------------- ANIMACIÓN ------------------ */
 
+.title {
+    top: 30px;
+    right: 0;
+    left: 0;
+}
+
 .boton {
     display: inline-block;
     margin: 10px;
@@ -177,6 +183,7 @@
     /* Ajusta la altura mínima según tus necesidades */
     /* Ajustes para hacer la tarjeta más alta sin cambiar el diseño */
 }
+
 
 .auto-card>.container-img-card>img {
     max-inline-size: 100%;

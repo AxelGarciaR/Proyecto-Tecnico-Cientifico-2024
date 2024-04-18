@@ -29,7 +29,7 @@ const loadTemplate = async () => {
                         class="navbar-nav mb-2 mb-lg-0 nav-underline d-flex justify-content-between me-auto flex-grow-1">
 
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">
+                            <a class="nav-link" aria-current="page" href="../../vistas/privado/empleados.html">
                                 <h5 class="text-white open-sans-regular m-0 p-0 px-4 px-lg-0">Empleados</h5>
                             </a>
                         </li>
