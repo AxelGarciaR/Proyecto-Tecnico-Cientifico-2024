@@ -31,7 +31,7 @@
             <!-- -----------------------------------CUERPO----------------------------------->
             <div class="flex-fill col-12">
                 <div class="container">
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3 buscador">
                         <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar..."
                             aria-describedby="basic-addon2">
                         <div class="input-group-append">
@@ -393,7 +393,10 @@
                                             <h6>Imagen del empleado</h6>
                                             <button type="button"
                                                 class="btn btn-primary btnFogot col-8 col-lg-6 open-sans-regular">
-                                                Seleccionar imagen</button>
+                                                <label class="form-label text-white m-1" for="customFile2">Seleccionar
+                                                    imagen</label></button>
+                                            <input type="file" class="form-control d-none" id="customFile2" readonly
+                                                onchange="displaySelectedImage(event, 'selectedImageF')" />
                                         </div>
 
                                         <div class="content-add-info col-md-7">

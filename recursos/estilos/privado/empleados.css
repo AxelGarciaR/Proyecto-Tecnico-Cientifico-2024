@@ -73,6 +73,12 @@
     /* Ancho del scrollbar */
 }
 
+.buscador {
+    margin-top: 30px;
+    padding: 15px;
+}
+
+
 .contenedor-modelos-nombre {
     overflow-x: hidden;
     height: 130px;
