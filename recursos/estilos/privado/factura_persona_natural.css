@@ -1,0 +1,97 @@
+/* Estilo para la línea negra debajo del texto "Factura" */
+.linea-negra {
+    border-bottom: 1px solid black;
+    width: 100px;
+    margin: 0 auto;
+}
+
+/* Estilos para centrar todo el contenido verticalmente */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para el cuadro rojo en la parte superior */
+.cuadro-rojo {
+    background-color: red;
+    padding: 20px; /* Espacio interno para el cuadro con borde */
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido a la derecha */
+    width: 100%;
+}
+
+/* Estilos para el cuadro con borde redondeado */
+.cuadro-con-borde {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px; /* Espacio interno para el contenido */
+    width: fit-content; /* Ajusta el ancho al contenido */
+}
+
+/* Estilos para el texto "Factura" */
+.factura-texto {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Estilo para el número de factura */
+.numero-factura {
+    color: #808080; /* Gris */
+    text-align: center;
+    margin-top: 5px;
+}
+
+/* Estilos para centrar los elementos de dos en dos horizontalmente */
+.form-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    width: 48%; /* Ajustar el ancho de los elementos para evitar desbordamiento */
+    margin-bottom: 10px; /* Espacio entre cada grupo de input y label */
+}
+
+.form-group label {
+    display: block; /* Mostrar los labels como bloques para que estén arriba de los inputs */
+    text-align: center; /* Centrar el texto de los labels */
+    margin-bottom: 5px; /* Espacio entre el label y el input */
+}
+
+/* Estilo para la línea después de los input */
+form hr {
+    margin: 20px 0;
+}
+
+/* Estilo para el botón "Agregar Servicio" */
+.btn-primary {
+    float: right;
+}
+
+form input,
+form select {
+    width: calc(100% - 5px); /* Establece el ancho para que todos los inputs y select tengan el mismo tamaño */
+    margin-right: 10px; /* Espacio entre los input y select */
+}
+
+/* Estilo para el botón "Agregar Servicio" */
+.btn-primary {
+    float: right;
+    background-color: black; /* Color de fondo negro */
+    color: white; /* Color del texto blanco */
+    border: none; /* Quita el borde */
+}
+
+/* Estilo para el contenedor principal */
+.container {
+    max-width: 800px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor */
+}

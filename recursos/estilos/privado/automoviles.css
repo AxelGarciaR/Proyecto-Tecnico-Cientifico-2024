@@ -276,6 +276,8 @@ hr {
 .auto-card {
     display: grid;
     grid-template-rows: 3fr 1fr;
+    /*min-height: 270px;
+    grid-template-rows: 5fr 2fr;*/
 }
 
 .auto-card>.container-img-card>img {
