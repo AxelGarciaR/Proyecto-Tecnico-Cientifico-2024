@@ -24,7 +24,7 @@ main,
 }
 
 .contenedor-form {
-    /*GTRID*/
+    /*GRID*/
     display: grid;
     gap: 55px;
     height: fit-content;
