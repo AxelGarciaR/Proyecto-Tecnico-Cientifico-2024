@@ -71,3 +71,8 @@ body {
     height: 100%;
     width: 100%;
 }
+.form-floating .form-control:focus~label,
+.form-floating .form-control:not(:placeholder-shown)~label {
+    color: red;
+    /* Color rojo */
+}

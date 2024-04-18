@@ -243,7 +243,7 @@ const logOut = async () => {
         const DATA = await fetchData(USER_API, 'logOut');
         // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
         if (DATA.status) {
-            sweetAlert(1, DATA.message, true, 'index.html');
+            sweetAlert(1, DATA.message, true, '../../vistas/privado/index.html');
         } else {
             sweetAlert(2, DATA.exception, false);
         }
