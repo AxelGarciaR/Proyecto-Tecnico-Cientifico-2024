@@ -246,61 +246,19 @@ document.getElementById('correo').addEventListener('input', function (event) {
     event.target.value = inputValue;
 });
 
-document.getElementById('especializacion').addEventListener('input', function (event) {
+document.getElementById('salario').addEventListener('input', function (event) {
     // Obtener el valor actual del campo de texto
     let inputValue = event.target.value;
 
-    inputValue = inputValue.slice(0, 100);
+    // Eliminar los espacios en blanco
+    inputValue = inputValue.replace(/\s/g, '');
+
+    // Reemplazar cualquier caracter que no sea número, coma o punto con una cadena vacía
+    inputValue = inputValue.replace(/[^\d,.]/g, '');
 
     // Actualizar el valor del campo de texto con la entrada limitada
     event.target.value = inputValue;
-});
 
-document.getElementById('salario').addEventListener('input', function (event) {
-    // Obtener el valor actual del campo de texto
-    let inputValue = event.target.value;
-
-    // Limpiar el valor de cualquier carácter que no sea un número o punto
-    inputValue = inputValue.replace(/[^\d.]/g, '');
-
-    // Asegurar que no haya más de un punto decimal
-    let parts = inputValue.split('.');
-    if (parts.length > 2) {
-        inputValue = parts[0] + '.' + parts.slice(1).join('');
-    }
-
-    // Formatear el número con comas para separar los miles
-    let formattedValue = parseFloat(inputValue).toLocaleString('en-US', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-    });
-
-    // Actualizar el valor del campo de texto con la entrada formateada
-    event.target.value = formattedValue;
-});
-
-document.getElementById('salario').addEventListener('input', function (event) {
-    // Obtener el valor actual del campo de texto
-    let inputValue = event.target.value;
-
-    // Limpiar el valor de cualquier carácter que no sea un número, punto o coma
-    inputValue = inputValue.replace(/[^\d.,]/g, '');
-
-    // Eliminar espacios en blanco
-    inputValue = inputValue.replace(/\s/g, '');
-
-    // Asegurar que no haya más de un punto decimal
-    let parts = inputValue.split('.');
-    if (parts.length > 2) {
-        inputValue = parts[0] + '.' + parts.slice(1).join('');
-    }
-
-    // Asegurar que no haya más de una coma
-    parts = inputValue.split(',');
-    if (parts.length > 2) {
-        inputValue = parts[0] + ',' + parts.slice(1).join('');
-    }
-
-    // Actualizar el valor del campo de texto con la entrada validada
-    event.target.value = inputValue;
+    // Validar y agregar la clase 'invalid' si es necesario
+    event.target.classList.toggle('invalid', !/^[\d.,]*$/.test(inputValue));
 });
