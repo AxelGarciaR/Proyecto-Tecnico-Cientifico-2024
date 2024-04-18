@@ -73,6 +73,12 @@
     /* Ancho del scrollbar */
 }
 
+.buscador {
+    margin-top: 30px;
+    padding: 15px;
+}
+
+
 .contenedor-modelos-nombre {
     overflow-x: hidden;
     height: 130px;
@@ -98,7 +104,7 @@
     /* Ancho completo */
     max-width: 300px;
     /* Ancho máximo */
-    margin-bottom: 10px;
+    margin-bottom: 60px;
     /* Espacio inferior */
     display: flex;
     align-items: center;
@@ -125,7 +131,6 @@
     grid-template-rows: repeat(3, 1fr);
     padding-bottom: 20px;
 }
-
 
 
 @media (min-width: 614px) {
@@ -176,7 +181,7 @@
     /* Ancho completo */
     max-width: 300px;
     /* Ancho máximo */
-    margin-bottom: 10px;
+    margin-bottom: 60px;
     /* Espacio inferior */
     /* Altura mínima de la tarjeta */
     min-height: 500px;
