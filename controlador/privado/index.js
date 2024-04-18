@@ -24,7 +24,7 @@ function showRecCon() {
 
 function showRestCon() {
 
-    sweetAlert(1,'Se ha verificado su dirección de correo electrónico', 250);
+    sweetAlert(1, 'Se ha verificado su dirección de correo electrónico', 250);
 
     LOGIN_FORM.classList.add('d-none');
     CONREC_FORM.classList.add('d-none');
@@ -47,5 +47,36 @@ function goto_panel_principal() {
 
 const openNoti1 = async () => {
     // Llamada a la función para mostrar una notificación
-    sweetAlert(1,'El <span class="open-sans-bold-italic">código de verificación</span> ha sido enviado a su direcciòn de corrreo electrónico', 250);
+    sweetAlert(1, 'El <span class="open-sans-bold-italic">código de verificación</span> ha sido enviado a su direcciòn de corrreo electrónico', 250);
 }
+
+document.getElementById('Input_Contra21').addEventListener('input', function (event) {
+    // Obtener el valor actual del campo de texto
+    let inputValue = event.target.value;
+
+    // Eliminar los espacios en blanco
+    inputValue = inputValue.replace(/\s/g, '');
+
+    // Limitar la longitud máxima a 50 caracteres
+    inputValue = inputValue.slice(0, 50);
+
+    // Actualizar el valor del campo de texto con la entrada limitada
+    event.target.value = inputValue;
+});
+
+
+document.getElementById('Input_ContraNEW').addEventListener('input', function (event) {
+    // Obtener el valor actual del campo de texto
+    let inputValue = event.target.value;
+
+    // Eliminar los espacios en blanco
+    inputValue = inputValue.replace(/\s/g, '');
+
+    // Limitar la longitud máxima a 50 caracteres
+    inputValue = inputValue.slice(0, 50);
+
+    // Actualizar el valor del campo de texto con la entrada limitada
+    event.target.value = inputValue;
+});
+
+
