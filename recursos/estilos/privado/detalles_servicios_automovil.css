@@ -28,6 +28,11 @@
     gap: 55px;
 
     margin-right: 5px;
+
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 55px;
+    padding-bottom: 55px;
 }
 
 .body-details {
@@ -119,7 +124,7 @@
 }
 
 .body-categoria::-webkit-scrollbar-thumb,
-.detail-scroll::-webkit-scrollbar-thumb  {
+.detail-scroll::-webkit-scrollbar-thumb {
     background-color: #BA181B;
     /* Color del scrollbar thumb */
     border-radius: 8px;
@@ -127,7 +132,7 @@
 }
 
 .body-categoria::-webkit-scrollbar,
-.detail-scroll::-webkit-scrollbar  {
+.detail-scroll::-webkit-scrollbar {
     width: 10px;
     /* Ancho del scrollbar */
 
@@ -159,8 +164,8 @@
     background-color: white;
     min-height: 80px;
 }
-.detail-scroll
-{
+
+.detail-scroll {
     overflow-y: hidden;
     overflow-x: auto;
     display: grid;
@@ -216,34 +221,61 @@
     border-bottom-right-radius: 10px;
 }
 
-
-
-/*@media (min-width: 1318px) {
+@media (min-width: 320px)  {
     .body-categoria {
-        min-height: 350px;
-        max-height: 550px;
-        overflow-x: hidden;
-        overflow-y: auto;
-    
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+}
+
+@media (min-width: 400px) {
+    .body-categoria {
+        padding-right: 60px;
+        padding-left: 60px;
+    }
+}
+
+@media (min-width: 500px) {
+    .body-categoria {
+        padding-right: 90px;
+        padding-left: 90px;
+    }
+}
+
+@media (min-width: 609px) {
+    .body-categoria {
+        grid-template-columns: repeat(2, 1fr);
         gap: 55px;
-    
-        margin-right: 5px;
+        padding-right: 20px;
+        padding-left: 20px;
     }
 
     .card-servicio {
-    background-color: #E5383B;
-    display: grid;
-    grid-template-rows: 50% 50%;
-
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-
-    min-height: 210px;
-    max-height: 210px;
+        grid-template-rows: 50% 50%;
+    }
 }
+
+
+@media (min-width: 880px) {
+    .body-categoria {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 45px;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .card-servicio {
+        grid-template-rows: 58% 43%;
+    }
+}
+
+@media (min-width: 1368px) {
+    .body-categoria {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 55px;
+        padding: 55px;
+    }
+    .card-servicio {
+        grid-template-rows: 50% 50%;
+    }
 }
