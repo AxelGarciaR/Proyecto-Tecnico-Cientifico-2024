@@ -262,3 +262,4 @@ document.getElementById('salario').addEventListener('input', function (event) {
     // Validar y agregar la clase 'invalid' si es necesario
     event.target.classList.toggle('invalid', !/^[\d.,]*$/.test(inputValue));
 });
+

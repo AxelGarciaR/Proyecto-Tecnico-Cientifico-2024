@@ -411,6 +411,13 @@ hr {
     color: red;
 }
 
+
+.form-floating .form-control:focus~label,
+.form-floating .form-control:not(:placeholder-shown)~label {
+    color: red;
+    /* Color rojo */
+}
+
 /* ------------------------- MODAL ---------------------- */
 
 .sizeCard {
