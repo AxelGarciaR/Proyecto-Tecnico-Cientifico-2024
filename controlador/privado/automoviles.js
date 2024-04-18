@@ -1,7 +1,12 @@
+
+// Constante del contenedor de modelos
 const MODELOS_CONTAINER = document.getElementById('contenedor-modelos');
+// Constante del contenedor de marcas
 const MARCAS_CONTAINER = document.getElementById('contenedor-marcas');
 
+// Constante del boton de buscar modelos
 const BUSCAR_MODELOS = document.getElementById('btnBuscarModelos');
+// Constante del boton de regresar a las marcas
 const REGRESAR_MARCAS = document.getElementById('btnReturn');
 
 // Constantes para establecer los elementos del componente Modal.
