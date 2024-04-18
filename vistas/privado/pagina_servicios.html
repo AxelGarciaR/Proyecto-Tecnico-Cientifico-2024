@@ -51,7 +51,9 @@
                                 <img src="../../recursos/imagenes/img_servicios/mecanica.png"
                                     class="card-img-top mx-auto d-block" alt="...">
                                 <h5 class="card-title">Mecanica General</h5>
-                                <div class="more-info">Más Información</div>
+                                <div class="content z-3">
+                                    <h4 class="open-sans-light-italic">Màs informaciòn</h4>
+                                </div>
                             </div>
                         </div>
                     </a>
@@ -65,7 +67,9 @@
                                 <img src="../../recursos/imagenes/img_servicios/mecanica.png"
                                     class="card-img-top mx-auto d-block" alt="...">
                                 <h5 class="card-title">Mecanica General</h5>
-                                <div class="more-info">Más Información</div>
+                                <div class="content z-3">
+                                    <h4 class="open-sans-light-italic">Màs informaciòn</h4>
+                                </div>
                             </div>
                         </div>
                     </a>
@@ -79,7 +83,9 @@
                                 <img src="../../recursos/imagenes/img_servicios/mecanica.png"
                                     class="card-img-top mx-auto d-block" alt="...">
                                 <h5 class="card-title">Mecanica General</h5>
-                                <div class="more-info">Más Información</div>
+                                <div class="content z-3">
+                                    <h4 class="open-sans-light-italic">Màs informaciòn</h4>
+                                </div>
                             </div>
                         </div>
                     </a>
@@ -96,7 +102,9 @@
                                 <img src="../../recursos/imagenes/img_servicios/mecanica.png"
                                     class="card-img-top mx-auto d-block" alt="...">
                                 <h5 class="card-title">Mecanica General</h5>
-                                <div class="more-info">Más Información</div>
+                                <div class="content z-3">
+                                    <h4 class="open-sans-light-italic">Màs informaciòn</h4>
+                                </div>
                             </div>
                         </div>
                     </a>
@@ -110,7 +118,9 @@
                                 <img src="../../recursos/imagenes/img_servicios/mecanica.png"
                                     class="card-img-top mx-auto d-block" alt="...">
                                 <h5 class="card-title">Mecanica General</h5>
-                                <div class="more-info">Más Información</div>
+                                <div class="content z-3">
+                                    <h4 class="open-sans-light-italic">Màs informaciòn</h4>
+                                </div>
                             </div>
                         </div>
                     </a>
@@ -124,7 +134,9 @@
                                 <img src="../../recursos/imagenes/img_servicios/mecanica.png"
                                     class="card-img-top mx-auto d-block" alt="...">
                                 <h5 class="card-title">Mecanica General</h5>
-                                <div class="more-info">Más Información</div>
+                                <div class="content z-3">
+                                    <h4 class="open-sans-light-italic">Màs informaciòn</h4>
+                                </div>
                             </div>
                         </div>
                     </a>
@@ -168,9 +180,9 @@
                 <div class="modal-footer justify-content-center">
                     <!-- Botón para cancelar -->
                     <button type="button" class="btn btn-dark" id="cancelarModalButton"
-                        data-bs-dismiss="modal">Cancelar</button>
+                    onclick="openClose()">Cancelar</button>
                     <!-- Botón para aceptar -->
-                    <button type="button" class="btn btn-danger" onclick="showSuccessAlert()">Aceptar</button>
+                    <button type="button" class="btn btn-danger" onclick="openNoti()">Aceptar</button>
                 </div>
             </div>
         </div>
@@ -181,13 +193,14 @@
     <!--Dejarlo NOQUITAR-->
     <!--*Libreria de mensajes-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!--Dejarlo NOQUITAR-->
+    <!--Cambiarlo por el js de la página en cuestion-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- *Llamada al controlador del sitio publico -->
     <script type="text/javascript" src="../../controlador/utilidades/privado.js"></script> <!--Dejarlo NOQUITAR-->
     <!-- *Llamada al controlador de la página web -->
     <script type="text/javascript" src="../../controlador/privado/pagina_servicios.js"></script>
-    <!--Cambiarlo por el js de la página en cuestion-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    <!-- Llamada al controlador del componente -->
+    <script type="text/javascript" src="../../controlador/utilidades/components.js"></script>
 
 </body>
 
