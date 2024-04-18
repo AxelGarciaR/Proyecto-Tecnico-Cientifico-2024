@@ -47,9 +47,75 @@
                     <div class="contenedor-total-cards col-12">
                         <div class="add-auto-card d-flex align-items-center justify-content-center" class="agregar">
                             <img src="../../recursos/imagenes/icons/agregar_cliente.png" class="hvr-grow"
-                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                onclick="openCreate()">
                         </div>
 
+                        <div class="auto-card card" onclick="gotoDetail()">
+                            <div class="content z-3">
+                                <h4 class="open-sans-light-italic">Más información</h4>
+                            </div>
+                            <div class="container-img-card">
+                                <h1>DARG</h1>
+                                <img src="../../recursos/imagenes/img_empleados/fondo_cliente.png">
+                            </div>
+                            <div class="container-img-card2">
+                                <img src="../../recursos/imagenes/img_empleados/empleado.png">
+                                <h1 class=" align-items-center justify-content-center"> Axel Garcia </h1>
+                                <h3 class="">12345678-9</h3>
+                                <h4 class="">axelgarcia@gmail.com</h4>
+                                <h4 class="">1234-5678</h4>
+                            </div>
+                            <div class="container-img-card3">
+                                <img src="../../recursos/imagenes/img_empleados/logo.png">
+                                <h2>Técnico Electronico</h2>
+                            </div>
+                            <div class="container-info-card">
+                            </div>
+                        </div>
+                        <div class="auto-card card" onclick="gotoDetail()">
+                            <div class="content z-3">
+                                <h4 class="open-sans-light-italic">Más información</h4>
+                            </div>
+                            <div class="container-img-card">
+                                <h1>DARG</h1>
+                                <img src="../../recursos/imagenes/img_empleados/fondo_cliente.png">
+                            </div>
+                            <div class="container-img-card2">
+                                <img src="../../recursos/imagenes/img_empleados/empleado.png">
+                                <h1 class=" align-items-center justify-content-center"> Axel Garcia </h1>
+                                <h3 class="">12345678-9</h3>
+                                <h4 class="">axelgarcia@gmail.com</h4>
+                                <h4 class="">1234-5678</h4>
+                            </div>
+                            <div class="container-img-card3">
+                                <img src="../../recursos/imagenes/img_empleados/logo.png">
+                                <h2>Técnico Electronico</h2>
+                            </div>
+                            <div class="container-info-card">
+                            </div>
+                        </div>
+                        <div class="auto-card card" onclick="gotoDetail()">
+                            <div class="content z-3">
+                                <h4 class="open-sans-light-italic">Más información</h4>
+                            </div>
+                            <div class="container-img-card">
+                                <h1>DARG</h1>
+                                <img src="../../recursos/imagenes/img_empleados/fondo_cliente.png">
+                            </div>
+                            <div class="container-img-card2">
+                                <img src="../../recursos/imagenes/img_empleados/empleado.png">
+                                <h1 class=" align-items-center justify-content-center"> Axel Garcia </h1>
+                                <h3 class="">12345678-9</h3>
+                                <h4 class="">axelgarcia@gmail.com</h4>
+                                <h4 class="">1234-5678</h4>
+                            </div>
+                            <div class="container-img-card3">
+                                <img src="../../recursos/imagenes/img_empleados/logo.png">
+                                <h2>Técnico Electronico</h2>
+                            </div>
+                            <div class="container-info-card">
+                            </div>
+                        </div>
                         <div class="auto-card card" onclick="gotoDetail()">
                             <div class="content z-3">
                                 <h4 class="open-sans-light-italic">Más información</h4>
@@ -320,80 +386,78 @@
                         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-xl ">
                             <div class="modal-content p-5 pb-0">
-                                <div class="modal-body col-12 d-flex">
+                                <form id="saveForm">
+                                    <div class="modal-body col-12 d-flex">
+                                        <div
+                                            class="content-add-img col-5 d-flex flex-column justify-content-center align-items-center">
+                                            <h6>Imagen del empleado</h6>
+                                            <button type="button"
+                                                class="btn btn-primary btnFogot col-8 col-lg-6 open-sans-regular">
+                                                Seleccionar imagen</button>
+                                        </div>
+
+                                        <div class="content-add-info col-7">
+                                            <div class="form-floating mb-0 p-0">
+                                                <input type="text" class="form-control" id="dui"
+                                                    placeholder="name@example.com">
+                                                <label for="dui">DUI</label>
+                                            </div>
+
+                                            <div class="form-floating mb-0 p-0">
+                                                <input type="text" class="form-control" id="nit"
+                                                    placeholder="name@example.com">
+                                                <label for="nit">NIT</label>
+                                            </div>
+                                            <div class="form-floating mb-0 p-0">
+                                                <input type="text" class="form-control" id="nombres"
+                                                    placeholder="name@example.com">
+                                                <label for="nombres">Nombres</label>
+                                            </div>
+                                            <div class="form-floating mb-0 p-0">
+                                                <input type="text" class="form-control" id="apellidos"
+                                                    placeholder="name@example.com">
+                                                <label for="apellidos">Apellidos</label>
+                                            </div>
+                                            <div class="form-floating mb-0 p-0">
+                                                <input type="text" class="form-control" id="telefono"
+                                                    placeholder="name@example.com">
+                                                <label for="telefono">Teléfono</label>
+                                            </div>
+                                            <div class="form-floating mb-0 p-0">
+                                                <input type="text" class="form-control" id="correo"
+                                                    placeholder="name@example.com">
+                                                <label for="correo">Correo electrónico</label>
+                                            </div>
+                                            <div class="form-floating mb-0 p-0">
+                                                <input type="text" class="form-control" id="departamento"
+                                                    placeholder="name@example.com">
+                                                <label for="departamento">Departamento</label>
+                                            </div>
+                                            <div class="form-floating mb-0 p-0">
+                                                <input type="text" class="form-control" id="especializacion"
+                                                    placeholder="name@example.com">
+                                                <label for="especializacion">Especialización</label>
+                                            </div>
+                                            <div class="form-floating mb-0 p-0">
+                                                <input type="text" class="form-control" id="fecha"
+                                                    placeholder="name@example.com">
+                                                <label for="fecha">Fecha de contratación</label>
+                                            </div>
+                                            <div class="form-floating mb-0 p-0">
+                                                <input type="text" class="form-control" id="salario"
+                                                    placeholder="name@example.com">
+                                                <label for="salario">Salario Base</label>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div
-                                        class="content-add-img col-5 d-flex flex-column justify-content-center align-items-center">
-                                        <h6>Imagen del empleado</h6>
-                                        <button type="button"
-                                            class="btn btn-primary btnFogot col-8 col-lg-6 open-sans-regular">
-                                            Seleccionar imagen</button>
+                                        class="modal-footer d-flex justify-content-center align-items-center col-12 mt-5">
+                                        <button type="button" id="btnUno" class="btn btn-secondary btnCancel mx-5"
+                                            onclick="openClose()"></button>
+                                        <button type="button" id="btnDos" class="btn btn-primary btnSave"
+                                            onclick="openSave()"></button>
                                     </div>
-
-                                    <div class="content-add-info col-7">
-                                        <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_marca"
-                                                placeholder="name@example.com">
-                                            <label for="input_marca">DUI</label>
-                                        </div>
-
-                                        <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_modelo"
-                                                placeholder="name@example.com">
-                                            <label for="input_modelo">NIT</label>
-                                        </div>
-                                        <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_tipo"
-                                                placeholder="name@example.com">
-                                            <label for="input_tipo">Nombres</label>
-                                        </div>
-                                        <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_fechaFAB"
-                                                placeholder="name@example.com">
-                                            <label for="input_fechaFAB">Apellidos</label>
-                                        </div>
-                                        <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_color"
-                                                placeholder="name@example.com">
-                                            <label for="input_color">Teléfono</label>
-                                        </div>
-                                        <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_placa"
-                                                placeholder="name@example.com">
-                                            <label for="input_placa">Correo electrónico</label>
-                                        </div>
-                                        <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_placa"
-                                                placeholder="name@example.com">
-                                            <label for="input_placa">Departamento</label>
-                                        </div>
-                                        <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_placa"
-                                                placeholder="name@example.com">
-                                            <label for="input_placa">Especialización</label>
-                                        </div>
-                                        <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_placa"
-                                                placeholder="name@example.com">
-                                            <label for="input_placa">Fecha de contratación</label>
-                                        </div>
-                                        <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_placa"
-                                                placeholder="name@example.com">
-                                            <label for="input_placa">Fecha de contratación</label>
-                                        </div>
-                                        <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_placa"
-                                                placeholder="name@example.com">
-                                            <label for="input_placa">Salario Base</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer d-flex justify-content-center align-items-center col-12 mt-5">
-                                    <button type="button" id="btnA" class="btn btn-secondary btnCancel mx-5"
-                                        onclick="openClose()">Cancelar</button>
-                                    <button type="button" class="btn btn-primary btnSave"
-                                        onclick="openSave()">Guardar</button>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
