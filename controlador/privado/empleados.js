@@ -30,13 +30,24 @@ const openSave = () => {
     SAVE_MODAL.hide();
 }
 
+var number = 1;
+
 const openClose = async () => {
-    // Llamada a la función para mostrar un mensaje de confirmación, capturando la respuesta en una constante.
-    const RESPONSE = await confirmAction('¿Desea cancelar el registro de datos?');
-    console.log('Resultado de la confirmación:', RESPONSE);
-    if (RESPONSE === true) {
-        SAVE_MODAL.hide();
+    if (number == 1) {
+        // Llamada a la función para mostrar un mensaje de confirmación, capturando la respuesta en una constante.
+        const RESPONSE = await confirmAction2('¿Seguro qué quieres regresar?', 'Los datos ingresados no serán almacenados');
+        if (RESPONSE.isConfirmed) {
+            SAVE_MODAL.hide();
+        }
     }
+    else {
+        // Llamada a la función para mostrar un mensaje de confirmación, capturando la respuesta en una constante.
+        const RESPONSE = await confirmAction2('¿Seguro qué quieres eliminar al empleado?', 'No podras deshacer la acción');
+        if (RESPONSE.isConfirmed) {
+            SAVE_MODAL.hide();
+        }
+    }
+
 }
 
 
@@ -50,7 +61,7 @@ const openCreate = () => {
     SAVE_FORM.reset();
     // Se muestra la caja de diálogo con su título.
     SAVE_MODAL.show();
-    
+    number = 1;
     // Actualizar texto de los botones
     document.getElementById('btnUno').innerText = 'Cancelar';
     document.getElementById('btnDos').innerText = 'Guardar';
@@ -74,6 +85,7 @@ function gotoDetail() {
     ];
 
     SAVE_MODAL.show();
+    number = 2;
     // Mostrar materiales de respaldo
     lista_datos.forEach(ROW => {
         DUI.value = ROW.dui;
@@ -87,7 +99,7 @@ function gotoDetail() {
         FECHA.value = ROW.fecha;
         SALARIO.value = ROW.salario;
     });
-    
+
     // Actualizar texto de los botones
     document.getElementById('btnUno').innerText = 'Eliminar';
     document.getElementById('btnDos').innerText = 'Actualizar';
