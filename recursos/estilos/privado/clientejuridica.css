@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+}
+.profile {
+    flex: 0 0 30%;
+    text-align: center;
+}
+.profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.label {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+.dui-container {
+    margin-top: 10px;
+    text-align: left; /* Asegura que el contenido de dui-container esté alineado a la izquierda */
+}
+
+.numero-container {
+    float: right; /* Alinea el numero-container a la derecha */
+    width: 20%; /* Ajusta el ancho del numero-container */
+    margin-right: 20px; /* Agrega un margen derecho para separarlo del borde */
+    margin-top: -60px; /* Mueve el numero-container hacia arriba */
+}
+
+.card {
+    width: 600px; /* Aumenta el ancho del card */
+}
+
+.correo-container {
+    float: right; /* Alinea el correo-container a la derecha */
+    width: 60%; /* Ajusta el ancho del correo-container */
+    margin-right: 20px; /* Agrega un margen derecho para separarlo del borde */
+}
+
+.additional-info {
+    right: 200px; /* Ajusta la posición del contenedor "Más información" hacia la derecha */
+}
