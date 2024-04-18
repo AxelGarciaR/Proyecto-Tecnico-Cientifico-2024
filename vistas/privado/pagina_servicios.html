@@ -135,8 +135,7 @@
 
     
     <!-- Modal Agregar Categoría -->
-    <div class="modal fade" id="agregarCategoriaModal" tabindex="-1" aria-labelledby="agregarCategoriaModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="agregarCategoriaModal" tabindex="-1" aria-labelledby="agregarCategoriaModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -156,7 +155,7 @@
                     </form>
                 </div>
                 <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-dark" id="cancelarModalButton" data-bs-dismiss="modal">Cancelar</button>
                     <button type="button" class="btn btn-danger" onclick="showSuccessAlert()">Aceptar</button>
                 </div>
             </div>
@@ -172,6 +171,8 @@
     <!-- *Llamada al controlador de la página web -->
     <script type="text/javascript" src="../../controlador/privado/pagina_servicios.js"></script>
     <!--Cambiarlo por el js de la página en cuestion-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     
 </body>
 
