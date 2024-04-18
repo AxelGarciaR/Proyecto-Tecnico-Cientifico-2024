@@ -45,7 +45,7 @@ function goto_panel_principal() {
     location.href = "../../vistas/privado/panel_principal.html";
 }
 
-const openNoti1 = async (message) => {
+const openNoti1 = async () => {
     // Llamada a la función para mostrar una notificación
     sweetAlert(1,'El <span class="open-sans-bold-italic">código de verificación</span> ha sido enviado a su direcciòn de corrreo electrónico', 250);
 }

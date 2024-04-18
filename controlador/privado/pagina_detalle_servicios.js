@@ -1,27 +1,17 @@
+// Constantes para establecer los elementos del componente Modal.
+const MODAL = new bootstrap.Modal('#exampleModal');
+
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {
-    // Resto del código...
-    const aceptarBtn = document.querySelector('#exampleModal .modal-body .btn-danger');
 
-    // Agregar un evento clic al botón "Aceptar"
-    aceptarBtn.addEventListener('click', function () {
-        // Mostrar la alerta cuando se hace clic en el botón "Aceptar"
-        Swal.fire({
-            icon: 'success',
-            title: '¡Servicio agregado con éxito!',
-            showConfirmButton: false,
-            timer: 1500
-        }).then((result) => {
-            // Cierra el modal después de que se muestra la alerta
-            $('#exampleModal').modal('hide');
-        });
-    });
+    // Llama a la función para cargar el template
+    loadTemplate();
 
     // Obtener el input del nombre del servicio
     const nombreServicioInput = document.getElementById('exampleInputEmail1');
 
     // Agregar un evento de teclado al input del nombre del servicio
-    nombreServicioInput.addEventListener('input', function(event) {
+    nombreServicioInput.addEventListener('input', function (event) {
         // Obtener el valor actual del input
         let currentValue = event.target.value;
 
@@ -33,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     // Permitir borrar pero no ingresar números en el campo de nombre del servicio
-    nombreServicioInput.addEventListener('keydown', function(event) {
+    nombreServicioInput.addEventListener('keydown', function (event) {
         // Obtener el código de la tecla presionada
         const keyCode = event.keyCode || event.which;
 
@@ -55,7 +45,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const descripcionServicioInput = document.getElementById('exampleInputPassword1');
 
     // Agregar un evento de teclado al input de la descripción del servicio
-    descripcionServicioInput.addEventListener('input', function(event) {
+    descripcionServicioInput.addEventListener('input', function (event) {
         // Obtener el valor actual del input
         let currentValue = event.target.value;
 
@@ -67,7 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     // Permitir borrar pero no ingresar números en el campo de descripción del servicio
-    descripcionServicioInput.addEventListener('keydown', function(event) {
+    descripcionServicioInput.addEventListener('keydown', function (event) {
         // Obtener el código de la tecla presionada
         const keyCode = event.keyCode || event.which;
 
@@ -85,3 +75,21 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 });
+
+function goBack() {
+    window.history.back();
+}
+
+const openClose = async () => {
+    // Llamada a la función para mostrar un mensaje de confirmación, capturando la respuesta en una constante.
+    const RESPONSE = await confirmAction2('¿Seguro qué quieres regresar?', 'Los datos ingresados no serán almacenados');
+    if (RESPONSE.isConfirmed) {
+        MODAL.hide();
+    }
+}
+
+const openNoti = async () => {
+    // Llamada a la función para mostrar una notificación
+    sweetAlert(1,'Se ha guardado con exito', 300);
+    MODAL.hide();
+}

@@ -1,13 +1,13 @@
-// Método del evento para cuando el documento ha cargado
-document.addEventListener('DOMContentLoaded', function() {
-    // Llama a la función para cargar el template
-    loadTemplate();
+// Constantes para establecer los elementos del componente Modal.
+const MODAL = new bootstrap.Modal('#agregarCategoriaModal');
 
+// Método del evento para cuando el documento ha cargado
+document.addEventListener('DOMContentLoaded', function () {
     // Obtener el input del nombre de la categoría
     const nombreCategoriaInput = document.getElementById('nombreCategoria');
 
     // Agregar un evento de teclado al input
-    nombreCategoriaInput.addEventListener('keydown', function(event) {
+    nombreCategoriaInput.addEventListener('keydown', function (event) {
         // Obtener el código de la tecla presionada
         const keyCode = event.keyCode || event.which;
 
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Verificar si la tecla presionada es una letra
         const isLetter = /^[A-Za-z]$/.test(event.key);
-        
+
         // Si la tecla no es una letra, prevenir la acción predeterminada
         if (!isLetter) {
             event.preventDefault();
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Agregar un evento de entrada al input para verificar el límite de caracteres
-    nombreCategoriaInput.addEventListener('input', function(event) {
+    nombreCategoriaInput.addEventListener('input', function (event) {
         // Obtener el valor actual del input
         const currentValue = event.target.value;
 
@@ -36,6 +36,10 @@ document.addEventListener('DOMContentLoaded', function() {
             event.target.value = currentValue.slice(0, 50);
         }
     });
+
+    // Llama a la función para cargar el template
+    loadTemplate();
+
 });
 
 // Función para mostrar la advertencia de éxito y cerrar el modal
@@ -51,4 +55,18 @@ function showSuccessAlert() {
         confirmButtonColor: '#dc3545', // Color rojo para el botón de cerrar
         confirmButtonText: 'Cerrar' // Texto del botón de cerrar
     });
+}
+
+const openClose = async () => {
+    // Llamada a la función para mostrar un mensaje de confirmación, capturando la respuesta en una constante.
+    const RESPONSE = await confirmAction2('¿Seguro qué quieres regresar?', 'Los datos ingresados no serán almacenados');
+    if (RESPONSE.isConfirmed) {
+        MODAL.hide();
+    }
+}
+
+const openNoti = async () => {
+    // Llamada a la función para mostrar una notificación
+    sweetAlert(1,'Se ha guardado con exito', 300);
+    MODAL.hide();
 }

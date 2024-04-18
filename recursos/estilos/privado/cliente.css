@@ -19,25 +19,13 @@ body {
     border-radius: 50%;
     margin-bottom: 10px;
 }
-.details {
-    flex: 0 0 60%;
-    border-left: 2px solid red;
-    padding-left: 20px;
-}
+
 .label {
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-.line {
-    position: absolute;
-    top: 45%;
-    left: 30%; /* Posiciona la línea en el medio horizontal */
-    transform: translateX(-50%); /* Alinea la línea correctamente */
-    height: 50%;
-    width: 2px;
-    background-color: red;
-}
+
 
 
 .dui-container {

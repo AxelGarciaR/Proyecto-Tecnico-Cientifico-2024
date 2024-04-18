@@ -30,55 +30,54 @@
 <body>
     <main>
 
-         <!-- Botón de regreso con una imagen -->
-         <a href="personanatural.html">
-            <img src="../../recursos/imagenes/icons/flecha.png" alt="Volver" style="position: absolute; left: 10px; width: 50px; height: 50px;">
+        <!-- Botón de regreso con una imagen -->
+        <a href="personanatural.html">
+            <img src="../../recursos/imagenes/icons/flecha.png" alt="Volver"
+                style="position: absolute; left: 10px; width: 50px; height: 50px;">
         </a>
 
         <div class="container">
             <div class="profile position-relative">
-                <img src="../../recursos/imagenes/img_cliente/hombre.png" alt="Imagen del Cliente">
-                <div class="details">
+                <img src="../../recursos/imagenes/img_cliente/hombre.png" alt="Imagen del Cliente" class="img-fluid">
+                <!-- Agregamos la clase "img-fluid" para que la imagen sea responsive -->
+
+                <div class="container d-flex justify-content-center mx-6">
+                    <div class="details mr-6"> <!-- Agregamos la clase "mr-3" para agregar un margen derecho -->
+                        <div class="card">
+                            <h5 class="card-title">Axel García</h5>
+                            <p class="card-text">Cliente #002</p>
+                            <div class="dui-container">
+                                <div class="line"></div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                    <div class="card-body">
+                                        <h5 class="card-title">CORREO</h5>
+                                        <p class="card-text">axelgrcia@gmail.com</p>
+                                        <h5 class="card-title">DUI</h5>
+                                        <p class="card-text">22222222-2</p>
+                                        <h5 class="card-title">CONTACTO</h5>
+                                        <p class="card-text">2222-2222</p>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
                     <div class="card">
-                        <h5 class="card-title">Axel García</h5>
-                        <p class="card-text">Cliente #002</p>
-                        <div class="dui-container">
-                            <div class="line"></div>
-                            <div class="correo-container">
-                                <label for="correo">Correo</label>
-                                <p class="correo-escrito">axelgrcia@gmail.com</p>
-                            </div>
-                            <label for="dui">DUI</label>
-                            <p class="dui-number">12345678-9</p>
-                            <div class="numero-container">
-                                <label for="numero">Contacto</label>
-                                <p class="numero-contacto">2222-2222</p>
-                            </div>
+                        <div class="card-body">
+                            <h4 class="text-center mb-0">Más información</h4>
+                            <hr style="border-top: 2px solid rgb(255, 18, 18);">
+                            <h6 class="card-subtitle mb-2 text-body-secondary">Departamento de residencia</h6>
+                            <h6 class="mb-4">San Salvador</h6>
+                            <hr style="border-top: 2px solid rgb(255, 18, 18);">
+                            <h6 class="card-subtitle mb-2 text-body-secondary">Fecha de Registro en el Taller</h6>
+                            <h6>01/marzo/2024</h6>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="card" style="width: 30rem;">
-                            <div class="card-body">
-                                <h4 class="text-center">Más información<nav></nav>
-                                </h4>
-                                <hr style="border-top: 2px solid rgb(255, 18, 18);">
-                                <h6 class="card-subtitle mb-2 text-body-secondary">Departamento de residencia</h6>
-                                <h6>San Salvador</h6>
-                                <hr style="border-top: 2px solid rgb(255, 18, 18);">
-                                <h6 class="card-subtitle mb-2 text-body-secondary">Fecha de Registro en el Taller</h6>
-                                <h6>01/marzo/2024</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        
         <div class="container mt-1 text-center">
             <div class="row justify-content-end">
                 <div class="col-md-1">
@@ -96,46 +95,9 @@
                 </div>
             </div>
         </div>
-        
 
-        <div class="container">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="card" style="width: 18rem;">
-                            <img src="../../recursos/imagenes/img_cliente/image 21.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <hr style="border-top: 4px solid red;"> 
-                                <h6 class="card-subtitle mb-2 text-muted">Nombre: Juan Pérez</h6>
-                                <h6 class="card-subtitle mb-2 text-muted">Placa: ABC-123</h6>
-                                <h6 class="card-subtitle mb-2 text-muted">Marca: Toyota</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card" style="width: 18rem;">
-                            <img src="../../recursos/imagenes/img_cliente/image 21.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <hr style="border-top: 4px solid red;">
-                                <h6 class="card-subtitle mb-2 text-muted">Nombre: María García</h6>
-                                <h6 class="card-subtitle mb-2 text-muted">Placa: XYZ-456</h6>
-                                <h6 class="card-subtitle mb-2 text-muted">Marca: Ford</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card" style="width: 18rem;">
-                            <img src="../../recursos/imagenes/img_cliente/image 21.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <hr style="border-top: 4px solid red;">
-                                <h6 class="card-subtitle mb-2 text-muted">Nombre: Luis Martínez</h6>
-                                <h6 class="card-subtitle mb-2 text-muted">Placa: DEF-789</h6>
-                                <h6 class="card-subtitle mb-2 text-muted">Marca: Chevrolet</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+        
 
 
 
