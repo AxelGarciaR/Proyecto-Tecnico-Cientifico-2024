@@ -1,0 +1,767 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.containerLat {
+    width: 20%;
+}
+
+
+
+.opcionesLat img {
+    height: 30px;
+    width: 30px;
+}
+
+.opcionesLat {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: #BDBDBD solid 2px;
+    margin-bottom: 15px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 10px;
+    border-bottom-right-radius: 25px;
+}
+
+.opcionesLatIMG img {
+    height: 30px;
+    width: 30px;
+    margin-right: 17px;
+}
+
+.opcionesLatIMG {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+
+
+.opcionesLat:hover {
+    background-color: #E64547;
+    color: white;
+}
+
+.icon {
+    position: absolute;
+
+    top: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#txtBuscarCitas {
+    border: none;
+    border-bottom: #B4B4B4 solid 2px;
+    background-color: #F8F8F8;
+    border-radius: 5px;
+    height: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+}
+
+#txtBuscarCitas:focus {
+    outline: none;
+    border-bottom: #B4B4B4 solid 2px;
+}
+
+
+
+/*****Aqui empeisa el css de las cards******/
+
+
+.containerCards {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    margin-right: 0;
+}
+
+.containerCards::-webkit-scrollbar {
+    width: 5px;
+    background-color: #BA181B;
+    margin-right: 5px;
+
+}
+
+.containerCards::-webkit-scrollbar-thumb {
+    width: 7px;
+    background-color: #000000;
+    border-radius: 5px;
+
+}
+
+.cardContainer {
+    border-radius: 10px;
+    margin: 15px;
+}
+
+.cardContainer:hover {
+    border: #BA181B solid 5px;
+    margin: 10px;
+}
+
+.containerContenido {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.infoCard {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-right: 15px;
+}
+
+.imgInfoCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+.infoFecha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #000000;
+    height: 30%;
+    border-top-left-radius: 10px;
+    color: white;
+    padding: 10px;
+}
+
+.infoHora {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #BA181B;
+    height: 30%;
+    color: white;
+    padding: 10px;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 30%;
+    border-bottom-left-radius: 10px;
+    padding: 10px;
+    border-left: #B4B4B4 solid 2px;
+    border-bottom: #B4B4B4 solid 2px;
+}
+
+.infoCliente {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    background-color: #000000;
+    width: 100%;
+    border-bottom-right-radius: 10px;
+    color: white;
+}
+
+.infoCliente h4 {
+    margin-bottom: 3px;
+    font-size: 20px;
+}
+
+
+.infoCliente h5 {
+    margin-bottom: 3px;
+    font-size: 15px
+}
+
+#codCita {
+    background-color: #F8F8F8;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/*****Aqui empieza el responsive ctm******/
+
+
+@media screen and (max-width: 1115px) {
+
+    .opcionesLat h3 {
+        font-size: 20px
+    }
+
+    .opcionesLatIMG h2 {
+        font-size: 25px
+    }
+
+    .opcionesLatIMG img {
+        height: 25px;
+        width: 25px;
+    }
+
+    .opcionesLat img {
+        height: 25px;
+        width: 25px;
+    }
+
+}
+
+@media screen and (max-width: 840px){
+    .opcionesLat img {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+  
+    .infoFecha h4 {
+        font-size: 15px;
+    }
+
+    .infoFecha h5 {
+        font-size: 10px;
+    }
+
+    .infoHora h4 {
+        font-size: 15px;
+    }
+
+    .infoHora h5 {
+        font-size: 10px;
+    }
+
+    .info h4 {
+        font-size: 15px;
+    }
+
+    .info h5 {
+        font-size: 10px;
+    }
+
+    .infoCliente h4 {
+        font-size: 15px;
+    }
+
+    .infoCliente h5 {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .imgInfoCard img {
+        height: 110px;
+        width: 110px
+    }
+
+    .opcionesLatIMG h2 {
+        font-size: 25px
+    }
+
+    .opcionesLat h3 {
+        font-size: 20px;
+    }
+
+    .opcionesLatIMG img {
+        height: 20px;
+        width: 20px;
+    }
+
+    .opcionesLat {
+        padding-left: 10px
+    }
+
+    #txtBuscarCitas {
+        font-size: 12px
+    }
+
+
+}
+
+@media screen and (max-width: 656px) {
+
+   
+    .opcionesLatIMG img {
+        display: none;
+    }
+
+}
+
+
+@media screen and (max-width: 636px) {
+
+    .opcionesLat h3{
+        font-size: 15px;
+    }
+
+}
+
+@media screen and (max-width: 425px) {
+
+
+    .opcionesLatIMG h2 {
+        font-size: 15px
+    }
+
+    .opcionesLat h3 {
+        font-size: 12px;
+    }
+
+
+
+
+}
+
+@media screen and (max-width: 375px) {
+
+    .opcionesLatIMG img {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+
+    .opcionesLat {
+        padding-left: 5px
+    }
+
+    .opcionesLat h3 {
+        font-size: 10px
+    }
+
+    .opcionesLatIMG img {
+        display: none;
+    }
+
+}
+
+/****Aqui empiesa el css de info cita****/
+
+.ContainerDetalles {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+    align-items: center;
+    justify-content: center;
+    border-top: #000000 solid 2px;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-right: 0;
+}
+
+
+
+#containerExpand {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: none;
+    background-color: white;
+}
+
+.numeroCita {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.numeroCita h5 {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: solid 1px #BDBDBD;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+}
+
+.infoDetalleCita {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.imagenYacciones {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+}
+
+
+.camposForm {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 70%;
+    margin-bottom: 30px;
+}
+
+
+
+.finalizarCita {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+#finalizarCita {
+    background-color: #000000;
+    color: white;
+    width: 175px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.btnAccion {
+    width: 175px;
+    margin-top: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #BA181B;
+    color: white;
+}
+
+.campos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+
+/**css para los campos**/
+
+.input-field {
+    position: relative;
+    margin-right: 20px;
+    margin-bottom: 15px;
+    width: 40%;
+}
+
+
+
+.input-field input {
+    width: 250px;
+    height: 40px;
+    border-radius: 6px;
+    font-size: 15px;
+    padding: 0 15px;
+    border: solid 2px #000000;
+    background: transparent;
+    color: #000000;
+    outline: none;
+}
+
+.input-field select {
+    width: 250px;
+    height: 40px;
+    border-radius: 6px;
+    font-size: 15px;
+    padding: 0 15px;
+    border: solid 2px #000000;
+    background: transparent;
+    color: #000000;
+    outline: none;
+}
+
+.input-field label {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #000000;
+    pointer-events: none;
+    font-size: 15px;
+    padding: 0 2px;
+    background-color: white;
+    color: #E64547;
+}
+
+
+
+@media screen and (max-width: 840px) {
+    .camposForm {
+        flex-direction: column;
+    }
+
+    .campos {
+        flex-direction: column;
+    }
+
+
+}
+
+@media screen and (max-width: 625px) {
+
+    .imagenYacciones {
+        width: 40%;
+    }
+
+    .camposForm {
+        width: 60%;
+    }
+
+    .input-field input {
+        width: 225px;
+        font-size: 12px;
+    }
+
+    .input-field label {
+        font-size: 12px;
+    }
+
+    .input-field select {
+        width: 225px;
+        font-size: 12px;
+    }
+}
+
+
+@media screen and (max-width: 580px) {
+    .input-field input {
+        width: 225px;
+        font-size: 12px;
+    }
+
+    .input-field label {
+        font-size: 12px;
+    }
+
+    .input-field select {
+        width: 225px;
+        font-size: 12px;
+    }
+}
+
+
+
+@media screen and (max-width: 520px) {
+
+
+    .input-field input {
+        width: 175px;
+    }
+
+    .input-field label {
+        font-size: 12px;
+    }
+
+    .input-field select {
+        width: 175px;
+    }
+
+
+}
+
+
+@media screen and (max-width: 515px) {
+
+
+    .input-field label {
+        width: 110px;
+    }
+
+}
+
+@media screen and (max-width: 440px) {
+
+
+    .imagenYacciones img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .btnAccion {
+        width: 150px;
+    }
+
+
+}
+
+@media screen and (max-width: 420px) {
+
+
+    .input-field input {
+        width: 150px;
+    }
+
+    .input-field label {
+        font-size: 12px;
+    }
+
+    .input-field select {
+        width: 150px;
+    }
+
+
+
+}
+
+@media screen and (max-width: 350px) {
+
+
+    .input-field input {
+        width: 135px;
+    }
+
+    .input-field label {
+        font-size: 12px;
+    }
+
+    .input-field select {
+        width: 135px;
+    }
+
+}
+
+
+
+@media screen and (max-width: 325px) {
+
+    .imagenYacciones img {
+        width: 130px;
+        height: 130px;
+    }
+
+    .btnAccion {
+        width: 130px;
+        font-size: 12px;
+    }
+
+}
+
+/***css del modal***/
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.contenidoModal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.imagenModal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagenModal img{
+    height: 50%;
+    width: 50%;
+}
+
+.botonesModal{
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.btnModal{
+    background-color: #BA181B;
+    width: 40%;
+    color: white;
+    border: none;
+    height: 50px;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 530px) {
+
+    .btnModal{
+        font-size: 12px;
+    }
+
+}
+
+@media screen and (max-width: 425px) {
+
+    .btnModal{
+        font-size: 10px;
+    }
+
+}
+
+@media screen and (max-width: 325px) {
+
+    .btnModal{
+        font-size: 8px;
+    }
+
+}
