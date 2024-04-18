@@ -1,3 +1,4 @@
+/* Estilo de la etiqueta a dentro de la etiqueta li de la clase mynav */
 .mynav li a {
     color: #000000;
     text-decoration: none;
@@ -6,20 +7,22 @@
     border-radius: 5px;
     padding: 8px 5px;
 }
-
+/* Estilo de la etiqueta a dentro de la etiqueta li de la clase mynav cuando esta activo*/
 .mynav li a.active {
     background: rgba(255, 255, 255, 0.2);
 }
-
+/* Estilo de la etiqueta a dentro de la etiqueta li de la clase mynav cuando se le pasa el mouse por encima*/
 .mynav li a:hover {
     background: rgba(255, 255, 255, 0.2);
 }
 
+
+/* Estilo de la etiqueta i dentro de la etiqueta a del elemento li de la clase mynav*/
 .mynav li a i {
     width: 25px;
     text-align: center;
 }
-
+/* Estilo del header del menú lateral (filtros)*/
 .sidebar-header {
     display: grid;
     gap: 25px;
