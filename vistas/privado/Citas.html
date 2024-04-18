@@ -24,7 +24,7 @@
     <link href="../../recursos/estilos/fuentes.css" rel="stylesheet"> <!--Dejarlo NOQUITAR-->
     <!--Dejarlo NOQUITAR-->
     <link href="../../recursos/estilos/privado/plantilla.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../recursos/estilos/privado/Citas.css">
+    <link rel="stylesheet" href="../../recursos/estilos/privado/citas.css">
 </head>
 
 <body>
@@ -73,10 +73,16 @@
                     <h3>Finalizadas</h3>
                     <img src="../../recursos/imagenes/img_citas/finalizadasCitas.png" alt="">
                 </div>
+
+                <div class="opcionesLat" id="btnAgregar">
+                    <h3>Agregar</h3>
+                    <img src="../../recursos/imagenes/img_citas/Agregar.png" alt="">
+                </div>
+                
             </div>
 
             <!--Aqui empieza el contenedor de las cards-->
-            <div class="containerCards container-fluid col-8 d-flex align-items-center justify-content-around">
+            <div class="containerCards container-fluid col-8  align-items-center">
 
                 <!--Contenedor general de las cartas-->
                 <div class="cardContainer row-6">
@@ -206,8 +212,8 @@
 
                     <div class="imagenYacciones">
                         <img src="../../recursos/imagenes/img_citas/image 22.png" alt="">
-                        <button class="btnAccion">Servicios en proceso</button>
-                        <button class="btnAccion" id="btnRevisarFactura">Revisar factura</button>
+                        <button class="btnAccion">Actualizar</button>
+                        <button class="btnAccion">Eliminar</button> <!--id="btnRevisarFactura"-->
                     </div>
 
                     <div class="camposForm">
@@ -215,7 +221,7 @@
                         <form action="/procesar formulario" method="post" class="campos">
 
                             <div class="input-field">
-                                <input type="text">
+                                <input type="text " onkeypress="return soloNumeros(event)">
                                 <label>Fecha de la cita</label>
                             </div>
 
@@ -234,7 +240,7 @@
                             </div>
 
                             <div class="input-field">
-                                <input type="text">
+                                <input type="text" onkeypress="return soloNumeros(event)">
                                 <label>Hora de entrada</label>
                             </div>
 
@@ -244,7 +250,7 @@
                             </div>
 
                             <div class="input-field">
-                                <input type="text">
+                                <input type="text" onkeypress="return soloNumeros(event)">
                                 <label>Hora de salida</label>
                             </div>
 
@@ -292,6 +298,104 @@
 
             </div>
 
+            <!--Agregar-->
+            <div class="ContainerDetalles container-fluid" id="containerExpandAgregar">
+
+                <!--Container numero de cita-->
+                <div class="numeroCita">
+                    <h5>Cita Nº 001</h5>
+                </div>
+
+                <!--Container infomacion y campos form-->
+                <div class="infoDetalleCita">
+
+                    <div class="imagenYacciones">
+                        <img src="../../recursos/imagenes/img_citas/Agregar.png" alt="">
+                        <button class="btnAccion">Aceptar</button>
+                    </div>
+
+                    <div class="camposForm">
+
+                        <form action="/procesar formulario" method="post" class="campos">
+
+                            <div class="input-field">
+                                <input type="text" onkeypress="return soloNumeros(event)">
+                                <label>Fecha de la cita</label>
+                            </div>
+
+                            <!--Este es un combo box-->
+                            <div class="input-field">
+
+                                <select name="zona" id="cmbZona">
+
+                                    <option>Ejemplo</option>
+                                    <option>Ejemplo</option>
+                                    <option>Ejemplo</option>
+
+                                </select>
+
+                                <label>Zona habilitada</label>
+                            </div>
+
+                            <div class="input-field" >
+                                <input type="text" onkeypress="return soloNumeros(event)">
+                                <label>Hora de entrada</label>
+                            </div>
+
+                            <div class="input-field">
+                                <input type="text">
+                                <label>Direccion</label>
+                            </div>
+
+                            <div class="input-field">
+                                <input type="text" onkeypress="return soloNumeros(event)">
+                                <label>Hora de salida</label>
+                            </div>
+
+                            <!--Este es un combo box-->
+                            <div class="input-field">
+                                <select name="estado" id="cmbEstado">
+
+                                    <option>Ejemplo</option>
+                                    <option>Ejemplo</option>
+                                    <option>Ejemplo</option>
+
+                                </select>
+                                <label>Estado</label>
+                            </div>
+
+
+                            <!--Este es un combo box-->
+                            <div class="input-field">
+                                <select name="Movilizacion" id="cmbMovilizacion">
+
+                                    <option>Ejemplo</option>
+                                    <option>Ejemplo</option>
+                                    <option>Ejemplo</option>
+
+                                </select>
+                                <label>Movilizacion</label>
+                            </div>
+
+                            <div class="input-field">
+                                <input type="text">
+                                <label>Placa del vehiculo</label>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+
+                <!--Container finalizar cita-->
+                <div class="finalizarCita">
+
+                    <button id="Cerrar">Cerrar</button>
+
+                </div>
+
+            </div>
+
         </div>
 
         <div id="myModal" class="modal">
@@ -324,7 +428,7 @@
     <!-- *Llamada al controlador de la página web -->
     <script type="text/javascript" src="../../controlador/privado/usuario.js"></script>
     <!--Cambiarlo por el js de la página en cuestion-->
-    <script type="text/javascript" src="../../controlador/privado/Citas.js"></script>
+    <script type="text/javascript" src="../../controlador/privado/citas.js"></script>
 </body>
 
 </html>

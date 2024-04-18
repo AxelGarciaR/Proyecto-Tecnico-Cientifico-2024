@@ -10,9 +10,6 @@ body {
     flex-direction: column;
 }
 
-.containerLat {
-    width: 20%;
-}
 
 
 
@@ -88,11 +85,13 @@ body {
 
 .containerCards {
     display: flex;
+    justify-content: center;
     flex-direction: row;
     height: 100vh;
     flex-wrap: wrap;
     overflow-x: hidden;
     margin-right: 0;
+    margin-left: 0;
 }
 
 .containerCards::-webkit-scrollbar {
@@ -389,6 +388,14 @@ body {
     background-color: white;
 }
 
+#containerExpandAgregar{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: none;
+    background-color: white;
+}
+
 .numeroCita {
     display: flex;
     justify-content: flex-start;
@@ -423,6 +430,11 @@ body {
     width: 30%;
 }
 
+.imagenYacciones img{
+    width: 150px;
+    height: 150px;
+}
+
 
 .camposForm {
     display: flex;
@@ -432,7 +444,7 @@ body {
     margin-bottom: 30px;
 }
 
-
+ 
 
 .finalizarCita {
     display: flex;
@@ -441,6 +453,16 @@ body {
 }
 
 #finalizarCita {
+    background-color: #000000;
+    color: white;
+    width: 175px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+#Cerrar {
     background-color: #000000;
     color: white;
     width: 175px;

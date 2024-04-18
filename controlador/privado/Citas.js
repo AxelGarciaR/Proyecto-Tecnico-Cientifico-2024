@@ -17,6 +17,31 @@ document.getElementById("finalizarCita").addEventListener("click", function () {
 
 });
 
+// Abre el agregar cita
+document.getElementById("btnAgregar").addEventListener("click", function () {
+  // Ocultar el contenedor containerExpand
+  var detalles = document.getElementById("containerExpandAgregar");
+  detalles.style.display = "block";
+
+
+});
+
+// Agregar event listener al botón finalizarCita
+document.getElementById("finalizarCita").addEventListener("click", function () {
+    // Ocultar el contenedor containerExpand
+    var detalles = document.getElementById("containerExpand");
+    detalles.style.display = "none";
+
+
+});
+
+document.getElementById("Cerrar").addEventListener("click", function () {
+  // Ocultar el contenedor containerExpand
+  var detalles = document.getElementById("containerExpandAgregar");
+  detalles.style.display = "none";
+
+
+});
 
 //JS modal
 
@@ -40,5 +65,31 @@ window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
+}
+
+/**Aqui empieza el tipado de datos**/ 
+
+/**Funcion para solo letras**/
+function soloLetras(event) {
+  var inputChar = String.fromCharCode(event.keyCode);
+  var soloLetras = /^[a-zA-Z\s]*$/; // Expresión regular para letras y espacios
+
+  if (!soloLetras.test(inputChar)) {
+      event.preventDefault();
+      return false;
+  }
+  return true;
+}
+
+/**Funcion para solo numeros**/
+function soloNumeros(event) {
+  var inputChar = String.fromCharCode(event.keyCode);
+  var soloNumeros = /^[0-9]*$/; // Expresión regular para números
+
+  if (!soloNumeros.test(inputChar)) {
+      event.preventDefault();
+      return false;
+  }
+  return true;
 }
 
