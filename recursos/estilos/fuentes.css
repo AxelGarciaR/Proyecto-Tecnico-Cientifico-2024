@@ -108,3 +108,22 @@
         /* Sin rotación */
     }
 }
+
+.swal2 {
+    padding: 0px;
+    margin: 0px;
+}
+
+.swal2-popup {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+
+.swal2-actions button {
+    margin: 10px;
+    /* Margen alrededor de los botones de SweetAlert */
+    width: 185px;
+    /* Ancho de los botones de SweetAlert */
+}

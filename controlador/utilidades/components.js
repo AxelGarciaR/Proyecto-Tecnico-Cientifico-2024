@@ -58,7 +58,7 @@ const confirmUpdateAction = (message) => {
 *   Parámetros: type (tipo de mensaje), text (texto a mostrar), timer (uso de temporizador) y url (valor opcional con la ubicación de destino).
 *   Retorno: ninguno.
 */
-const sweetAlert = async (type, text, timer, url = null) => {
+const sweetAlert = async (type, text, timer) => {
     // Se compara el tipo de mensaje a mostrar.
     switch (type) {
         case 1:
@@ -80,18 +80,17 @@ const sweetAlert = async (type, text, timer, url = null) => {
     // Se define un objeto con las opciones principales para el mensaje.
     let options = {
         title: title,
-        text: text,
+        html: text,
         icon: icon,
         closeOnClickOutside: false,
         closeOnEsc: false,
-        button: {
-            text: 'Aceptar'
-        }
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#E5383B'
     };
     // Se verifica el uso del temporizador.
     (timer) ? options.timer = 3000 : options.timer = null;
     // Se muestra el mensaje.
-    await swal(options);
+    await swal.fire(options);
     // Se direcciona a una página web si se indica.
     (url) ? location.href = url : undefined;
 }
