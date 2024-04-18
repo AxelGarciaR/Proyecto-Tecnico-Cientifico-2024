@@ -37,7 +37,7 @@
 .card-servicio {
     background-color: #E5383B;
     display: grid;
-    grid-template-rows: 50% 50%;
+    grid-template-rows: 58% 43%;
 
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -46,7 +46,7 @@
     border-bottom-right-radius: 5px;
 
     min-height: 210px;
-    max-height: 210px;
+    max-height: 240px;
 }
 
 .info-servicio {
@@ -231,4 +231,19 @@
     
         margin-right: 5px;
     }
+
+    .card-servicio {
+    background-color: #E5383B;
+    display: grid;
+    grid-template-rows: 50% 50%;
+
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    min-height: 210px;
+    max-height: 210px;
+}
 }
