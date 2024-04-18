@@ -29,27 +29,28 @@
 </head>
 
 <body>
+    
 
     <!-- *Contenido principal del documento -->
     <main>
-        <header>
-            <div class="container">
-                <div class="row">
-                    <div class="btnReturn pt-5 pb-4 px-4" onclick="goBack()">
-                        <h4 class="open-sans-regular text-black">
-                            <img src="../../recursos/imagenes/icons/minus.png">
-                            Regresar
-                        </h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <h1>Mecánica General</h1>
-                    </div>
+         <!-- encabezado de la pagina -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="btnReturn pt-5 pb-4 px-4" onclick="goBack()">
+                    <h4 class="open-sans-regular text-black">
+                        <img src="../../recursos/imagenes/icons/minus.png"> 
+                        Regresar <!-- para regresar a la pagina anterior -->
+                    </h4>
                 </div>
             </div>
-        </header>
-
+            <div class="row">
+                <div class="col">
+                    <h1>Mecánica General</h1>
+                </div>
+            </div>
+        </div>
+    </header>
         <!-- Cards -->
         <div class="container">
             <div class="row row-cols-1 row-cols-md-4">
@@ -193,32 +194,37 @@
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
+                    <!-- Encabezado del modal -->
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel"></h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                    <!-- Cuerpo del modal -->
                     <div class="modal-body">
                         <form>
+                            <!-- Campo de entrada para el nombre del servicio -->
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Nombre servicio</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp">
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             </div>
+                            <!-- Campo de entrada para la descripción del servicio -->
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Descripción servicio</label>
                                 <input type="text" class="form-control" id="exampleInputPassword1">
                             </div>
+                            <!-- Línea divisoria -->
                             <hr style="border-bottom: 1px solid red;">
+                            <!-- Botones para aceptar y cancelar -->
                             <div class="text-center">
                                 <button type="button" class="btn btn-danger mx-2">Aceptar</button>
-                                <button type="button" class="btn btn-dark mx-2"
-                                    data-bs-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-dark mx-2" data-bs-dismiss="modal">Cancelar</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+        
 
 
         <!-- *Llamada a las hojas de estilos del framework e iconos -->
