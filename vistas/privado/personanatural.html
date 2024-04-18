@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<!-- Declaración del idioma para el documento -->
+<html lang="es">
+
+<head>
+    <!-- Título del documento -->
+    <title>Persona Natural - DARG</title>
+
+    <!-- Metadatos de la página web -->
+    <meta charset="utf-8">
+    <meta name="author" content="DARG_Company">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- IMPORTACIÓN DE RECURSOS EXTERNOS -->
+    <!-- Llamada al icono de la página web -->
+    <link type="image/png" rel="icon" href="../../recursos/imagenes/icons/icono_usuario.svg">
+
+    <!-- Llamada a las hojas de estilos del framework (BOOSTRAP) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+
+    <!-- Llamada a las hojas de estilos propios de css (CREADOS)-->
+    <link href="../../recursos/estilos/privado/usuario.css" rel="stylesheet">
+    <link href="../../recursos/estilos/fuentes.css" rel="stylesheet"> <!--Dejarlo NOQUITAR-->
+    <link href="../../recursos/estilos/privado/plantilla.css" rel="stylesheet"> <!--Dejarlo NOQUITAR-->
+    <link href="../../recursos/estilos/privado/personanatural.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <!-- Contenido principal del documento -->
+    <main>
+        <div class="main-content">
+            <!-- Barra lateral de Filtros-->
+            <div class="filtro-container">
+                <div class="search-container">
+                    <label for="busqueda" class="form-label"></label>
+                    <div class="search-input">
+                        <input type="text" class="form-control" id="busqueda" placeholder="Buscar...">
+                        <img src="../../recursos/imagenes/icons/lupa.png" alt="Icono de Búsqueda" class="search-icon">
+                    </div>
+                </div>
+
+
+                <div class="filtroimg-container">
+                    <img src="../../recursos/imagenes/icons/Vector.png" alt="">
+                    <label for="filtro" class="form-label"> Filtros</label>
+                </div>
+
+                <!-- Línea negra -->
+                <hr style="border-top: 1px solid black; margin: 10px 0;">
+
+
+                <div class="filtro-section">
+                    <label for="departamento">Departamento Residencial</label>
+                    <select id="departamento" name="departamento">
+                        <option value="Ahuachapán">Ahuachapán</option>
+                        <option value="Cabañas">Cabañas</option>
+                        <option value="Chalatenango">Chalatenango</option>
+                        <option value="Cuscatlán">Cuscatlán</option>
+                        <option value="La Libertad">La Libertad</option>
+                        <option value="La Paz">La Paz</option>
+                        <option value="La Unión">La Unión</option>
+                        <option value="Morazán">Morazán</option>
+                        <option value="San Miguel">San Miguel</option>
+                        <option value="San Salvador">San Salvador</option>
+                        <option value="San Vicente">San Vicente</option>
+                        <option value="Santa Ana">Santa Ana</option>
+                        <option value="Sonsonate">Sonsonate</option>
+                        <option value="Usulután">Usulután</option>
+                    </select>
+                </div>
+
+
+                <div class="filtro-section">
+                    <label for="fecha">Fecha de Registro</label><br>
+                    <label for="fecha-desde">Desde</label> <br>
+                    <input type="date" id="fecha" name="fecha-desde">
+                    <label for="fecha-hasta">Hasta</label> <br>
+                    <input type="date" id="fecha-hasta" name="fecha-hasta">
+                </div>
+
+                <div class="filtro-section">
+                    <label for="cantidad-autos">Cantidad de Autos:</label>
+                    <div class="ui-range-values">
+                        <div class="ui-range-value-min">
+                            <span>1</span>
+                            <input type="hidden" name="minprice" id="minprice" value="1">
+                        </div>
+                        &nbsp;-&nbsp;
+                        <div class="ui-range-value-max">
+                            <p id="price-value">50</p>
+                            <input type="hidden" name="maxprice" id="maxprice" value="100">
+                        </div>
+                    </div>
+                    <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRangeAutos">
+                </div>
+
+                <div class="filtro-section">
+                    <label>Marcas de Auto</label><br>
+                    <input type="checkbox" class="marca-checkbox" id="marca1" name="marca1">
+                    <label for="marca1">Toyota</label><br>
+                    <input type="checkbox" class="marca-checkbox" id="marca2" name="marca2">
+                    <label for="marca2">Honda</label><br>
+                    <input type="checkbox" class="marca-checkbox" id="marca3" name="marca3">
+                    <label for="marca3">Ford</label><br>
+                    <input type="checkbox" class="marca-checkbox" id="marca4" name="marca4">
+                    <label for="marca4">Chevrolet</label><br>
+                    <input type="checkbox" class="marca-checkbox" id="marca5" name="marca5">
+                    <label for="marca5">Volkswagen</label><br>
+                    <input type="checkbox" class="marca-checkbox" id="marca6" name="marca6">
+                    <label for="marca6">Nissan</label><br>
+                    <input type="checkbox" class="marca-checkbox" id="marca7" name="marca7">
+                    <label for="marca7">BMW</label><br>
+                    <input type="checkbox" class="marca-checkbox" id="marca8" name="marca8">
+                    <label for="marca8">Mercedes-Benz</label><br>
+                    <input type="checkbox" class="marca-checkbox" id="marca9" name="marca9">
+                    <label for="marca9">Audi</label><br>
+                    <input type="checkbox" class="marca-checkbox" id="marca10" name="marca10">
+                    <label for="marca10">Hyundai</label><br>
+                </div>
+
+                <div class="filtro-section">
+                    <label>Servicios para Autos</label><br>
+                    <input type="checkbox" class="servicio-checkbox" id="servicio1" name="servicio1"
+                        style="color: #FF0000;">
+                    <label for="servicio1">Cambio de aceite</label><br>
+                    <input type="checkbox" class="servicio-checkbox" id="servicio2" name="servicio2"
+                        style="color: #FF0000;">
+                    <label for="servicio2">Alineación</label><br>
+                    <input type="checkbox" class="servicio-checkbox" id="servicio3" name="servicio3"
+                        style="color: #FF0000;">
+                    <label for="servicio3">Balanceo</label><br>
+                    <input type="checkbox" class="servicio-checkbox" id="servicio4" name="servicio4"
+                        style="color: #FF0000;">
+                    <label for="servicio4">Revisión de frenos</label><br>
+                    <input type="checkbox" class="servicio-checkbox" id="servicio5" name="servicio5"
+                        style="color: #FF0000;">
+                    <label for="servicio5">Cambio de neumáticos</label><br>
+                    <input type="checkbox" class="servicio-checkbox" id="servicio6" name="servicio6"
+                        style="color: #FF0000;">
+                    <label for="servicio6">Lavado y aspirado</label><br>
+                    <input type="checkbox" class="servicio-checkbox" id="servicio7" name="servicio7"
+                        style="color: #FF0000;">
+                    <label for="servicio7">Reparación eléctrico</label><br>
+                    <input type="checkbox" class="servicio-checkbox" id="servicio8" name="servicio8"
+                        style="color: #FF0000;">
+                    <label for="servicio8">Cambio de bujías</label><br>
+                    <input type="checkbox" class="servicio-checkbox" id="servicio9" name="servicio9"
+                        style="color: #FF0000;">
+                    <label for="servicio9">Recarga de refrigerante</label><br>
+                </div>
+            </div>
+
+
+            <!-- Tarjeta de productos -->
+            <div class="product-card">
+                <div class="text-center mt-3">
+                    <!-- Agregamos la clase text-center para centrar el contenido y mt-3 para agregar margen superior -->
+                    <button onclick="cambiarPagina()" class="btn btn-danger">Cambiar a Persona Jurídica</button>
+                    <!-- Aplicamos la clase btn y btn-danger para dar estilo de botón y color rojo -->
+                </div>
+
+
+                <div class="container product-container">
+                    <div class="row" id="jj">
+                        <!-- BOTON-->
+                        <div class="col-lg-4 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <button class="custom-button" onclick="openModal()"
+                                        style="font-size: 150px; padding: 44px; width: 300px; background-color: #AFABAB;">
+                                        <img src="../../recursos/imagenes/icons/Añadir.png" alt="Imagen">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal Agregar Cliente-->
+                        <div class="modal fade" id="agregarCategoriaModal" tabindex="-1"
+                            aria-labelledby="agregarCategoriaModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="agregarCategoriaModalLabel">Agregar Cliente</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <!-- Columna izquierda -->
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label for="nombreCategoria" class="form-label">DUI</label>
+                                                        <input type="number" class="form-control" id="nombreCategoria">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="nombreCategoria" class="form-label">NIT</label>
+                                                        <input type="number" class="form-control" id="nombreCategoria">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="nombreCategoria" class="form-label">Telefono</label>
+                                                        <input type="number" class="form-control" id="nombreCategoria">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="departamento"
+                                                            class="form-label">Departamento</label>
+                                                        <select class="form-select" id="departamento">
+                                                            <option value="">Selecciona un departamento</option>
+                                                            <option value="Ahuachapán">Ahuachapán</option>
+                                                            <option value="Cabañas">Cabañas</option>
+                                                            <option value="Chalatenango">Chalatenango</option>
+                                                            <option value="Cuscatlán">Cuscatlán</option>
+                                                            <option value="La Libertad">La Libertad</option>
+                                                            <option value="La Paz">La Paz</option>
+                                                            <option value="La Unión">La Unión</option>
+                                                            <option value="Morazán">Morazán</option>
+                                                            <option value="San Miguel">San Miguel</option>
+                                                            <option value="San Salvador">San Salvador</option>
+                                                            <option value="San Vicente">San Vicente</option>
+                                                            <option value="Santa Ana">Santa Ana</option>
+                                                            <option value="Sonsonate">Sonsonate</option>
+                                                            <option value="Usulután">Usulután</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!-- Columna derecha -->
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
+                                                        <label for="nombreCategoria" class="form-label">Nombre</label>
+                                                        <input type="text" class="form-control" id="nombreCategoria">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="nombreCategoria"
+                                                            class="form-label">Apellidos</label>
+                                                        <input type="text" class="form-control" id="nombreCategoria">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="nombreCategoria" class="form-label">Correo</label>
+                                                        <input type="text" class="form-control" id="nombreCategoria">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="nombreCategoria" class="form-label">Fecha de
+                                                            Registro</label>
+                                                        <input type="datetime" class="form-control"
+                                                            id="nombreCategoria">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer justify-content-center">
+                                        <button type="button" class="btn btn-dark" id="cancelarModalButton"
+                                            data-bs-dismiss="modal">Cancelar</button>
+                                        <button type="button" class="btn btn-danger"
+                                            onclick="showSuccessAlert()">Aceptar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                     <!-- Tarjetas de productos --> 
+                        <div class="col-lg-4 mb-4">
+                            <a href="cliente.html">
+                                <div class="card" onmouseover="showOverlay(this)" onmouseout="hideOverlay(this)">
+                                    <img src="../../recursos/imagenes/img_personanatural/personas.png"
+                                        class="card-img-top">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Axel García</h5>
+                                        <p class="card-text">Cliente #002</p>
+                                        <!-- DUI y números -->
+                                        <div class="dui-container">
+                                            <label for="dui">DUI</label>
+                                            <p class="dui-number">12345678-9</p>
+                                            <!-- Línea roja vertical -->
+                                            <div class="red-line"></div>
+                                            <!-- Número de contacto -->
+                                            <div class="numero-container">
+                                                <label for="numero">Contacto</label>
+                                                <p class="numero-contacto">2222-2222</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="overlay">
+                                        Conoce a tu cliente
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Tarjeta de producto 3 -->
+                        <div class="col-lg-4 mb-4">
+                            <a href="cliente.html">
+                                <div class="card" onmouseover="showOverlay(this)" onmouseout="hideOverlay(this)">
+                                    <img src="../../recursos/imagenes/img_personanatural/personas.png"
+                                        class="card-img-top">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Axel García</h5>
+                                        <p class="card-text">Cliente #002</p>
+                                        <!-- DUI y números -->
+                                        <div class="dui-container">
+                                            <label for="dui">DUI</label>
+                                            <p class="dui-number">12345678-9</p>
+                                            <!-- Línea roja vertical -->
+                                            <div class="red-line"></div>
+                                            <!-- Número de contacto -->
+                                            <div class="numero-container">
+                                                <label for="numero">Contacto</label>
+                                                <p class="numero-contacto">2222-2222</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="overlay">
+                                        Conoce a tu cliente
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Tarjeta de producto 4 -->
+                        <div class="col-lg-4 mb-4">
+                            <a href="cliente.html">
+                                <div class="card" onmouseover="showOverlay(this)" onmouseout="hideOverlay(this)">
+                                    <img src="../../recursos/imagenes/img_personanatural/personas.png"
+                                        class="card-img-top">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Axel García</h5>
+                                        <p class="card-text">Cliente #002</p>
+                                        <!-- DUI y números -->
+                                        <div class="dui-container">
+                                            <label for="dui">DUI</label>
+                                            <p class="dui-number">12345678-9</p>
+                                            <!-- Línea roja vertical -->
+                                            <div class="red-line"></div>
+                                            <!-- Número de contacto -->
+                                            <div class="numero-container">
+                                                <label for="numero">Contacto</label>
+                                                <p class="numero-contacto">2222-2222</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="overlay">
+                                        Conoce a tu cliente
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Tarjeta de producto 5 -->
+                        <div class="col-lg-4 mb-4">
+                            <a href="cliente.html">
+                                <div class="card" onmouseover="showOverlay(this)" onmouseout="hideOverlay(this)">
+                                    <img src="../../recursos/imagenes/img_personanatural/personas.png"
+                                        class="card-img-top">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Axel García</h5>
+                                        <p class="card-text">Cliente #002</p>
+                                        <!-- DUI y números -->
+                                        <div class="dui-container">
+                                            <label for="dui">DUI</label>
+                                            <p class="dui-number">12345678-9</p>
+                                            <!-- Línea roja vertical -->
+                                            <div class="red-line"></div>
+                                            <!-- Número de contacto -->
+                                            <div class="numero-container">
+                                                <label for="numero">Contacto</label>
+                                                <p class="numero-contacto">2222-2222</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="overlay">
+                                        Conoce a tu cliente
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Tarjeta de producto 6 -->
+                        <div class="col-lg-4 mb-4">
+                            <div class="card" onmouseover="showOverlay(this)" onmouseout="hideOverlay(this)">
+                                <img src="../../recursos/imagenes/img_personanatural/personas.png" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Axel García</h5>
+                                    <p class="card-text">Cliente #002</p>
+                                    <!-- DUI y números -->
+                                    <div class="dui-container">
+                                        <label for="dui">DUI</label>
+                                        <p class="dui-number">12345678-9</p>
+                                        <!-- Línea roja vertical -->
+                                        <div class="red-line"></div>
+                                        <!-- Número de contacto -->
+                                        <div class="numero-container">
+                                            <label for="numero">Contacto</label>
+                                            <p class="numero-contacto">2222-2222</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="overlay">
+                                    Conoce a tu cliente
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 mb-4">
+                            <a href="cliente.html">
+                                <div class="card" onmouseover="showOverlay(this)" onmouseout="hideOverlay(this)">
+                                    <img src="../../recursos/imagenes/img_personanatural/personas.png"
+                                        class="card-img-top">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Axel García</h5>
+                                        <p class="card-text">Cliente #002</p>
+                                        <!-- DUI y números -->
+                                        <div class="dui-container">
+                                            <label for="dui">DUI</label>
+                                            <p class="dui-number">12345678-9</p>
+                                            <!-- Línea roja vertical -->
+                                            <div class="red-line"></div>
+                                            <!-- Número de contacto -->
+                                            <div class="numero-container">
+                                                <label for="numero">Contacto</label>
+                                                <p class="numero-contacto">2222-2222</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="overlay">
+                                        Conoce a tu cliente
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-lg-4 mb-4">
+                            <a href="cliente.html">
+                                <div class="card" onmouseover="showOverlay(this)" onmouseout="hideOverlay(this)">
+                                    <img src="../../recursos/imagenes/img_personanatural/personas.png"
+                                        class="card-img-top">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Axel García</h5>
+                                        <p class="card-text">Cliente #002</p>
+                                        <!-- DUI y números -->
+                                        <div class="dui-container">
+                                            <label for="dui">DUI</label>
+                                            <p class="dui-number">12345678-9</p>
+                                            <!-- Línea roja vertical -->
+                                            <div class="red-line"></div>
+                                            <!-- Número de contacto -->
+                                            <div class="numero-container">
+                                                <label for="numero">Contacto</label>
+                                                <p class="numero-contacto">2222-2222</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="overlay">
+                                        Conoce a tu cliente
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- *Llamada a las hojas de estilos del framework e iconos -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!--Dejarlo NOQUITAR-->
+    <!--*Libreria de mensajes-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!--Dejarlo NOQUITAR-->
+    <!-- *Llamada al controlador del sitio publico -->
+    <script type="text/javascript" src="../../controlador/utilidades/privado.js"></script> <!--Dejarlo NOQUITAR-->
+    <!-- *Llamada al controlador de la página web -->
+    <script type="text/javascript" src="../../controlador/privado/usuario.js"></script>
+    <!--Cambiarlo por el js de la página en cuestion-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+<script>
+    function cambiarPagina() {
+        // Obtener la URL actual
+        var url = window.location.href;
+
+        // Verificar si la URL actual es para persona natural
+        if (url.includes("personanatural")) {
+            // Cambiar a la versión de persona jurídica
+            window.location.href = url.replace("personanatural", "personajuridica");
+        } else {
+            // Si ya es la versión de persona jurídica, cambiar a la versión de persona natural
+            window.location.href = url.replace("personajuridica", "personanatural");
+        }
+
+    }
+    function openModal() {
+        $('#agregarCategoriaModal').modal('show');
+    }
+
+    function showSuccessAlert() {
+        // Aquí puedes agregar la lógica para mostrar una alerta de éxito
+    }
+</script>
+
+</html>

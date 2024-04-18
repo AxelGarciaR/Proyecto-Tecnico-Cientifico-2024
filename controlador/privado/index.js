@@ -24,7 +24,7 @@ function showRecCon() {
 
 function showRestCon() {
 
-    sweetAlert(1,'Se ha verificado su direcciòn de correo electronico', 250);
+    sweetAlert(1,'Se ha verificado su dirección de correo electrónico', 250);
 
     LOGIN_FORM.classList.add('d-none');
     CONREC_FORM.classList.add('d-none');
@@ -47,5 +47,5 @@ function goto_panel_principal() {
 
 const openNoti1 = async (message) => {
     // Llamada a la función para mostrar una notificación
-    sweetAlert(1,'El <span class="open-sans-bold-italic">còdigo de verificaciòn</span> ha sido enviado a su direcciòn de corrreo electronico', 250);
+    sweetAlert(1,'El <span class="open-sans-bold-italic">código de verificación</span> ha sido enviado a su direcciòn de corrreo electrónico', 250);
 }

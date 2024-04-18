@@ -1,0 +1,252 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.filtro-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    width: 250px;
+    padding: 20px;
+}
+
+.filtro-section {
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 10px;
+    
+}
+
+.filtro-section select {
+    border: 1px solid #ffffff; 
+    border-radius: 10px; 
+    padding: 8px; 
+    background-color: #ffffff; 
+    color: #ffffff;
+}
+
+
+.filtro-section:last-child {
+    border-bottom: none;
+    /* No añadir línea en la última sección */
+}
+
+.filtro-section label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.filtro-section select,
+.filtro-section input[type="number"],
+.filtro-section input[type="text"],
+.filtro-section input[type="range"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    background-color: #e5383b;
+    color: white;
+}
+
+.filtro-section .marca-checkbox {
+    margin-right: 10px;
+}
+
+.search-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: auto;
+}
+
+.ui-range-values {
+    display: flex;
+    align-items: center;
+}
+
+.ui-range-value-min,
+.ui-range-value-max {
+    margin: 0 10px;
+}
+
+.ui-range-value-max input[type="range"] {
+    width: 150px;
+}
+
+.ui-range-value-max input[type="range"]::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+
+}
+
+.ui-range-value-max input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+}
+
+.ui-range-value-max input[type="range"]::-ms-thumb {
+    width: 20px;
+    height: 20px;
+
+}
+
+/* Estilos para checkbox personalizado */
+.servicio-checkbox {
+    display: none;
+    /* Ocultar checkbox predeterminado */
+}
+
+/* Estilo para el contenedor del checkbox personalizado */
+.servicio-checkbox+label:before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    border: 1px solid #000000;
+    /* Color del borde del checkbox */
+    border-radius: 3px;
+    background-color: #fff;
+    /* Color de fondo del checkbox */
+}
+
+/* Estilo para el checkbox personalizado cuando está seleccionado */
+.servicio-checkbox:checked+label:before {
+    background-color: #FF0000;
+    /* Cambiar color de fondo cuando está seleccionado */
+}
+
+/* Estilo para el texto del label junto al checkbox */
+.servicio-checkbox+label {
+    cursor: pointer;
+}
+
+/* Estilo para el checkbox predeterminado (oculto) */
+.marca-checkbox {
+    position: absolute;
+    opacity: 0;
+    /* Hacer el checkbox predeterminado transparente */
+    pointer-events: none;
+    /* Deshabilitar eventos de puntero para el checkbox predeterminado */
+}
+
+/* Estilo para el contenedor del checkbox personalizado */
+.marca-checkbox+label:before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    border: 1px solid #000000;
+    /* Color del borde del checkbox */
+    border-radius: 3px;
+    background-color: #fff;
+    /* Color de fondo del checkbox */
+}
+
+/* Estilo para el checkbox personalizado cuando está seleccionado */
+.marca-checkbox:checked+label:before {
+    background-color: #FF0000;
+    /* Cambiar color de fondo cuando está seleccionado */
+}
+
+/* Estilo para el texto del label junto al checkbox */
+.marca-checkbox+label {
+    cursor: pointer;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: row;
+}
+
+#jj {
+    margin-top: 60px; 
+}
+
+.img-container {
+    position: relative;
+}
+
+.red-line {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: red;
+}
+
+.dui-container {
+    margin-top: 10px;
+    position: relative;
+}
+
+.dui-container label {
+    font-weight: bold;
+}
+
+.dui-number {
+    font-size: 1.2em;
+    color: #333; /* Color de texto para los números */
+}
+
+.red-line {
+    position: absolute;
+    top: 0;
+    left: 50%; /* Posiciona la línea en el medio horizontal */
+    transform: translateX(-50%); /* Alinea la línea correctamente */
+    height: 100%;
+    width: 2px;
+    background-color: red;
+}
+
+
+.numero-container {
+    position: absolute;
+    top: 0;
+    left: calc(70% + 6px); /* Coloca el número de contacto a la derecha de la línea roja */
+    transform: translateX(-50%);
+}
+
+.numero-contacto {
+    font-size: 1.1em;
+    color: #333; /* Color de texto para los números */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.74); /* Oscurece la tarjeta */
+    color: white; /* Color del texto */
+    font-size: 20px; /* Tamaño del texto */
+    text-align: center;
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 0.3s ease; /* Transición suave */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card:hover .overlay {
+    opacity: 1; /* Mostrar overlay cuando se pasa el mouse por encima de la tarjeta */
+}
