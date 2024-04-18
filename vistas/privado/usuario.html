@@ -29,13 +29,13 @@
 
 <body>
     <!-- *Contenido principal del documento -->
-    <main>
+    <main class="open">
         <div class="contenedor-total d-flex flex-wrap">
             <div class="contenedor-blanco shadow col-lg-6 col-md-10 col-12 d-flex">
                 <div class="contenedor-ralla d-flex justify-content-end col-lg-1 col-2 col-md-1 position-relative">
                     <img src="../../recursos/imagenes/img-usuario/wave-red-1.svg">
-                    <button class="btn btn-outline-dark btnExit position-absolute" type="button">
-                        <a class="nav-link d-flex" aria-current="page" href="../../vistas/privado/index.html">
+                    <button class="btn btn-outline-dark btnExit position-absolute" type="button" onclick="openLogout()">
+                        <a class="nav-link d-flex" aria-current="page">
                             <img src="../../recursos/imagenes/img-usuario/exit-icon-btn.svg">
                         </a>
                     </button>
@@ -50,22 +50,27 @@
                         <div class="contenedor-inputs text-center col-12">
                             <div class="form-floating mb-0">
                                 <input type="email" class="form-control" id="Input_Correo"
-                                    placeholder="name@example.com">
+                                    placeholder="name@example.com"
+                                    value="correoelectrionico@gmail.com                                    ">
                                 <label for="Input_Correo">Correo Electrónico</label>
                             </div>
                             <div class="form-floating">
-                                <input type="password" class="form-control" id="Input_Contra" placeholder="Password">
+                                <input type="password" class="form-control" id="Input_Contra" placeholder="Password"
+                                    value="EjemploContra">
                                 <label for="Input_Contra">Contraseña</label>
                             </div>
                         </div>
 
-                        <div class="contenedor_botones d-flex align-items-center justify-content-center col-12 flex-wrap">
-                            <button type="button" class="btn btn-dark btnCancelar col-lg-5 col-md-5 col-10">
+                        <div
+                            class="contenedor_botones d-flex align-items-center justify-content-center col-12 flex-wrap">
+                            <button type="button" class="btn btn-dark btnCancelar col-lg-5 col-md-5 col-10"
+                                onclick="openClose()">
                                 <h6 class="open-sans-bold p-0 m-0 z-3">
                                     Cancelar
                                 </h6>
                             </button>
-                            <button type="button" class="btn btn-primary btnAceptar col-lg-5 col-md-5 col-10">
+                            <button type="button" class="btn btn-primary btnAceptar col-lg-5 col-md-5 col-10"
+                                onclick="openNoti()">
                                 <h6 class="open-sans-bold p-0 m-0 z-3">
                                     Guardar
                                 </h6>
@@ -90,6 +95,8 @@
     <!-- *Llamada al controlador de la página web -->
     <script type="text/javascript" src="../../controlador/privado/usuario.js"></script>
     <!--Cambiarlo por el js de la página en cuestion-->
+    <!-- Llamada al controlador del componente -->
+    <script type="text/javascript" src="../../controlador/utilidades/components.js"></script>
 </body>
 
 </html>

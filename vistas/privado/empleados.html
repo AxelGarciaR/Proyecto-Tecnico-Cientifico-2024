@@ -435,7 +435,9 @@
                                                 <label for="correo">Correo electrónico</label>
                                             </div>
                                             <div class="form-floating mb-0 p-0">
-                                                <select class="form-select" aria-label="Default select example">
+                                                <label class="form-label px-2 pt-0 p-0 m-0">Departamento</label>
+                                                <select class="form-select pt-4 open-sans-regular"
+                                                    aria-label="Default select example">
                                                     <option selected>San salvador</option>
                                                     <option value="1">Departamento 1</option>
                                                     <option value="2">Departamento 2</option>
@@ -443,15 +445,23 @@
                                                 </select>
                                             </div>
                                             <div class="form-floating mb-0 p-0">
-                                                <input type="text" class="form-control" id="especializacion"
-                                                    placeholder="name@example.com">
-                                                <label for="especializacion">Especialización</label>
+                                                <label
+                                                    class="form-label px-2 pt-0  p-0 m-0">Especialización</label>
+                                                <select class="form-select pt-4 open-sans-regular"
+                                                    aria-label="Default select example">
+                                                    <option selected>Técnico electrónico</option>
+                                                    <option value="1">Especializacion 1</option>
+                                                    <option value="2">Especializacion 2</option>
+                                                    <option value="3">Especializacion 3</option>
+                                                </select>
                                             </div>
                                             <div class="form-floating mb-0 p-0">
-                                                <input type="text" class="form-control" id="fecha"
-                                                    placeholder="name@example.com">
-                                                <label for="fecha">Fecha de contratación</label>
+                                                <label for="fechanInput" class="form-label px-2 pt-1 p-0 m-0">Fecha de
+                                                    contratación</label>
+                                                <input type="date" class="form-control" id="fechanInput" placeholder=""
+                                                    required>
                                             </div>
+
                                             <div class="form-floating mb-0 p-0">
                                                 <input type="text" class="form-control" id="salario"
                                                     placeholder="name@example.com">
@@ -462,9 +472,9 @@
                                     <div
                                         class="modal-footer d-flex justify-content-center align-items-center col-12 mt-5">
                                         <button type="button" id="btnUno" class="btn btn-secondary btnCancel mx-5"
-                                            onclick="openClose()"></button>
+                                            onclick="openClose()">Cancelar</button>
                                         <button type="button" id="btnDos" class="btn btn-primary btnSave"
-                                            onclick="openSave()"></button>
+                                            onclick="openSave()">Aceptar</button>
                                     </div>
                                 </form>
                             </div>

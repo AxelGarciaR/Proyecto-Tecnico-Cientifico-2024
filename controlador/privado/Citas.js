@@ -26,6 +26,27 @@ document.getElementById("btnAgregar").addEventListener("click", function () {
 
 });
 
+// Abre los servicios en proceso
+document.getElementById("btnRevisarServicio").addEventListener("click", function () {
+  // Mostrar el contenedor containerExpand
+  var detalles = document.getElementById("containerExpandServicios");
+  detalles.style.display = "block";
+
+  var detallesExpand = document.getElementById("containerExpand");
+  detallesExpand.style.display = "none";
+});
+
+document.getElementById("btnRegresar").addEventListener("click", function () {
+  // Mostrar el contenedor containerExpand
+  var detallesServicios = document.getElementById("containerExpandServicios");
+  detallesServicios.style.display = "none";
+
+  var detallesExpand = document.getElementById("containerExpand");
+  detallesExpand.style.display = "block";
+});
+
+
+
 // Agregar event listener al botón finalizarCita
 document.getElementById("finalizarCita").addEventListener("click", function () {
     // Ocultar el contenedor containerExpand
@@ -42,6 +63,27 @@ document.getElementById("Cerrar").addEventListener("click", function () {
 
 
 });
+
+//Js para abrir y cerrar la ventana de las cards de servicios
+// Obtener todos los elementos con la clase "cardServicio"
+const cardsServicio = document.querySelectorAll('.cardServicio');
+
+// Iterar sobre cada elemento cardServicio
+cardsServicio.forEach((cardServicio) => {
+  // Obtener el div "contenidoSer" correspondiente a la cardServicio actual
+  const contenidoSer = cardServicio.querySelector('.contenidoSer');
+
+  // Agregar un evento "mouseover" a la cardServicio actual
+  cardServicio.addEventListener('mouseover', () => {
+    contenidoSer.style.display = 'block';
+  });
+
+  // Agregar un evento "mouseout" a la cardServicio actual
+  cardServicio.addEventListener('mouseout', () => {
+    contenidoSer.style.display = 'none';
+  });
+});
+
 
 //JS modal
 
@@ -66,6 +108,23 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+// Obtener referencia a la imagen con el ID "btnAgregarServicio"
+const btnAgregarServicio = document.getElementById('btnAgregarServicio');
+var spanServicio = document.getElementsByClassName("closeServicios")[0];
+
+// Obtener referencia al modal con el ID "modalServicios"
+const modalServicios = document.getElementById('modalServicios');
+
+spanServicio.onclick = function() {
+  modalServicios.style.display = "none";
+}
+
+// Agregar un evento "click" a la imagen
+btnAgregarServicio.addEventListener('click', () => {
+  // Mostrar el modal
+  modalServicios.style.display = 'block';
+});
 
 /**Aqui empieza el tipado de datos**/ 
 

@@ -369,7 +369,6 @@ body {
 .ContainerDetalles {
     display: flex;
     flex-direction: column;
-    margin-right: 30px;
     align-items: center;
     justify-content: center;
     border-top: #000000 solid 2px;
@@ -396,6 +395,134 @@ body {
     background-color: white;
 }
 
+#containerExpandServicios{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: none;
+    background-color: white;
+    overflow-x: scroll;
+    height: 380px;
+}
+
+
+.Titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1E1E1E;
+    color: white;
+}
+
+.cardsServicios{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 15px;
+}
+
+/*Al hacer hover a este div aparecera el contenedor contenidoSer*/
+.cardServicio{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    background-image: url(../../imagenes/img_citas/imagenServicio.png);
+    height: 250px;
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+.bottomCardSer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    background-color: #1E1E1E;
+    color: white;
+    width: 100%;
+    height: 30px;
+}
+
+.bottomCardSer img{
+    width: 20px;
+    height: 20px;
+}
+
+.bottomCardSer h6{
+    margin-bottom: 0;
+}
+
+/*Este es el contenedor que deplegado*/
+.contenidoSer{
+    height: 70%;
+    background-color: rgba(0,0,0,0.4);
+    overflow-x: hidden;
+    width: 100%;
+    color: white;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    padding: 5px;
+    padding-left: 0;
+    display: none;
+}
+
+.contenidoSer::-webkit-scrollbar{
+    width: 10px;
+    background-color: #D9D9D9;
+}
+
+.contenidoSer::-webkit-scrollbar-thumb{
+    background-color: #BA181B;
+    border: 3px solid #D9D9D9;
+    border-radius: 5px;
+}
+
+.contenidoSer strong p{
+    font-size: 15px;
+}
+
+.contAcSer{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contAcSer p{
+    font-size: 12px;
+}
+
+.contAcSer img{
+    width: 20px;
+    height: 20px;
+}
+
+
+.contenedorInfoSer{
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+
+.contenedorInfoSer:hover{
+    background-color: rgba(186, 24, 27,0.9);
+}
+
+.bottomServicio{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+contenidoModal
+
+
 .numeroCita {
     display: flex;
     justify-content: flex-start;
@@ -411,6 +538,7 @@ body {
     border: solid 1px #BDBDBD;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    width: 135px;
 
 }
 
@@ -737,6 +865,8 @@ body {
     flex-direction: row;
 }
 
+
+
 .imagenModal{
     display: flex;
     justify-content: center;
@@ -787,3 +917,82 @@ body {
     }
 
 }
+
+/**Modal agregar servicios***/
+
+.contenidoModalSer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.camposServicios{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.input-fieldS{
+    position: relative;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.input-fieldS input {
+    width: 250px;
+    height: 40px;
+    border-radius: 6px;
+    font-size: 15px;
+    padding: 0 15px;
+    border: solid 2px #000000;
+    background: transparent;
+    color: #000000;
+    outline: none;
+}
+
+.input-fieldS select {
+    width: 250px;
+    height: 40px;
+    border-radius: 6px;
+    font-size: 15px;
+    padding: 0 15px;
+    border: solid 2px #000000;
+    background: transparent;
+    color: #000000;
+    outline: none;
+}
+
+.input-fieldS label {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #000000;
+    pointer-events: none;
+    font-size: 15px;
+    padding: 0 2px;
+    background-color: white;
+    color: #E64547;
+}
+
+
+@media screen and (max-width: 700px) {
+    .input-fieldS{
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .input-fieldS input {
+        width: 200px;
+    }
+
+    .input-fieldS select {
+        width: 200px;
+    }
+    
+}
+
