@@ -1,0 +1,217 @@
+.contenedor-total {
+    display: grid;
+    row-gap: 45px;
+}
+
+.container-categoria {
+    border: 1px solid gray;
+    align-self: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.header-categoria {
+    background-color: #161A1D;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+}
+
+.body-categoria {
+    min-height: 350px;
+    max-height: 550px;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 55px;
+
+    margin-right: 5px;
+}
+
+.body-details {
+    min-height: 350px;
+}
+
+.card-servicio {
+    background-color: #E5383B;
+    display: grid;
+    grid-template-rows: 50% 50%;
+
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    min-height: 210px;
+    max-height: 210px;
+}
+
+.info-servicio {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #E5383B;
+}
+
+.details-servicio {
+    border: 1px solid #D3D3D3;
+    background-color: white;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.num-pastilla {
+    background-color: #E5383B;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    top: -5px;
+}
+
+.card-servicio::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000094;
+    border-radius: inherit;
+    opacity: 0;
+}
+
+.card-servicio:hover::after {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.content {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.content h5 {
+    opacity: 0;
+    margin-bottom: 12px;
+    scale: 0.7;
+    color: white;
+    cursor: pointer;
+}
+
+.card-servicio:hover .content h5 {
+    scale: 1;
+    opacity: 1;
+}
+
+
+/* ------------- SCROLLBAR ------------------ */
+.body-categoria::-webkit-scrollbar,
+.detail-scroll::-webkit-scrollbar {
+    width: 10px;
+    /* Ancho del scrollbar */
+
+}
+
+.body-categoria::-webkit-scrollbar-thumb,
+.detail-scroll::-webkit-scrollbar-thumb  {
+    background-color: #BA181B;
+    /* Color del scrollbar thumb */
+    border-radius: 8px;
+    /* Borde redondeado del thumb */
+}
+
+.body-categoria::-webkit-scrollbar,
+.detail-scroll::-webkit-scrollbar  {
+    width: 10px;
+    /* Ancho del scrollbar */
+
+}
+
+.body-categoria::-webkit-scrollbar-thumb,
+.detail-scroll::-webkit-scrollbar-thumb {
+    background-color: #BA181B;
+    /* Color del scrollbar thumb */
+    border-radius: 8px;
+    /* Borde redondeado del thumb */
+}
+
+/* ------------- SCROLLBAR ------------------ */
+.btnReturn {
+    cursor: pointer;
+    width: fit-content;
+}
+
+.details-header {
+    background-color: #E5383B;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    min-height: 80px;
+}
+
+.c2 {
+    background-color: white;
+    min-height: 80px;
+}
+.detail-scroll
+{
+    overflow-y: hidden;
+    overflow-x: auto;
+    display: grid;
+    gap: 80px;
+}
+
+/* ---------------------------------------- SCROLL DE CITAS */
+.card {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 15px;
+    cursor: pointer;
+    min-width: 565PX;
+    max-width: 565PX;
+    border: 0px;
+}
+
+.card-izquierda {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 15px;
+}
+
+.card-derecha {
+    display: grid;
+    grid-template-rows: 65% 35%;
+}
+
+.elemento-fecha-cita {
+    background-color: black;
+    border-top-left-radius: 10px;
+}
+
+.elemento-hora-llegada {
+    background-color: #BA181B;
+}
+
+.elemento-movilizacion {
+    border-bottom: 1px solid #B5B5B5;
+    border-bottom-left-radius: 10px;
+    border-left: 1px solid #B5B5B5;
+}
+
+
+.img-container>img {
+    min-width: 100%;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+.info-cliente {
+    background-color: black;
+    border-bottom-right-radius: 10px;
+}
