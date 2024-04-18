@@ -1,3 +1,6 @@
+// Constantes para establecer los elementos del componente Modal.
+const MODAL = new bootstrap.Modal('#staticBackdrop2');
+
 // *Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {
     loadTemplate();
@@ -9,6 +12,20 @@ function goBack() {
 
 function gotoDetailsServ() {
     location.href = '../../vistas/privado/detalles_servicios_automovil.html'
+}
+
+const openClose = async () => {
+    // Llamada a la función para mostrar un mensaje de confirmación, capturando la respuesta en una constante.
+    const RESPONSE = await confirmAction2('¿Seguro qué quieres regresar?', 'Los datos ingresados no serán almacenados');
+    if (RESPONSE.isConfirmed) {
+        MODAL.hide();
+    }
+}
+
+const openNoti = async () => {
+    // Llamada a la función para mostrar una notificación
+    sweetAlert(1,'Se ha actualizado con éxito', 300);
+    MODAL.hide();
 }
 
 // Función para mostrar la imagen seleccionada en un elemento de imagen.

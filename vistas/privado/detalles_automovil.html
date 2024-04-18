@@ -129,7 +129,7 @@
                 </div>
 
                 <div class="contenedor-drch col-lg-8 col-md-7 px-lg-4 px-md-3 col-12 mt-5 mt-md-0 mt-lg-0 position-relative"
-                onclick="gotoDetailsServ()">
+                    onclick="gotoDetailsServ()">
                     <div class="content z-3">
                         <h4 class="open-sans-light-italic">Visualizar servicios realizados</h4>
                     </div>
@@ -435,8 +435,10 @@
                     </div>
                     <div class="modal-footer d-flex justify-content-center align-items-center col-lg-12 col-12 mt-5">
                         <button type="button" class="btn btn-secondary btnCancel me-lg-5 me-3 me-md-5"
-                            data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary btnSave me-lg-5 me-3 me-md-5">Guardar</button>
+                            onclick="openClose()">Cancelar</button>
+                        <button type="button" class="btn btn-primary btnSave me-lg-5 me-3 me-md-5" onclick="openNoti()">
+                            Guardar
+                        </button>
                     </div>
                 </div>
             </div>
@@ -453,6 +455,8 @@
     <!-- *Llamada al controlador de la página web -->
     <script type="text/javascript" src="../../controlador/privado/detalles_automovil.js"></script>
     <!--Cambiarlo por el js de la página en cuestion-->
+    <!-- Llamada al controlador del componente -->
+    <script type="text/javascript" src="../../controlador/utilidades/components.js"></script
 </body>
 
 </html>

@@ -280,3 +280,27 @@ const fetchData = async (filename, action, form = null) => {
     }
 }
 
+
+const confirmAction2 = (title, message) => {
+    // Crea una instancia personalizada de SweetAlert con estilos Bootstrap.
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: "btn btn-success",   // Estilo del botón "Sí".
+            cancelButton: "btn btn-danger"      // Estilo del botón "No".
+        },
+        buttonsStyling: false   // Desactiva los estilos por defecto de SweetAlert.
+    });
+
+    // Muestra la modal de confirmación con los parámetros proporcionados.
+    return swalWithBootstrapButtons.fire({
+        title: title,               // Título de la modal.
+        text: message,              // Mensaje de la modal.
+        icon: 'warning',            // Ícono de advertencia.
+        showCancelButton: true,      // Muestra el botón "Cancelar/No".
+        confirmButtonText: "Sí",    // Texto del botón de confirmación.
+        cancelButtonText: "No",     // Texto del botón de cancelación.
+        closeOnClickOutside: false,  // Evita cerrar la modal al hacer clic fuera de ella.
+        closeOnEsc: false,           // Evita cerrar la modal al presionar la tecla Esc.
+        reverseButtons: true         // Invierte la posición de los botones.
+    });
+}
