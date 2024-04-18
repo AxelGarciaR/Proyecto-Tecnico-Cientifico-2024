@@ -43,6 +43,30 @@
     }
 }
 
+@media (min-width: 768px) and (max-width: 1198px) {
+    .row-cols-md-4 {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+    }
+
+    .row-cols-md-4 > .col {
+        flex: 0 0 auto;
+        width: calc(100% / 3);
+        scroll-snap-align: start;
+    }
+}
+
+@media (min-width: 280px) and (max-width: 767px) {
+    .row-cols-1 > .col {
+        margin-bottom: 10px; /* Espacio entre las tarjetas */
+    }
+
+    .row-cols-1 > .col:last-child {
+        margin-bottom: 0; /* Quita el margen inferior de la última tarjeta */
+    }
+}
+
 
 
 /* Estilo para centrar verticalmente el contenido de la tarjeta */
