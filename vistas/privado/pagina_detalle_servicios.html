@@ -29,28 +29,26 @@
 </head>
 
 <body>
-    
-
     <!-- *Contenido principal del documento -->
     <main>
-         <!-- encabezado de la pagina -->
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="btnReturn pt-5 pb-4 px-4" onclick="goBack()">
-                    <h4 class="open-sans-regular text-black">
-                        <img src="../../recursos/imagenes/icons/minus.png"> 
-                        Regresar <!-- para regresar a la pagina anterior -->
-                    </h4>
+        <!-- encabezado de la pagina -->
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="btnReturn pt-5 pb-4 px-4" onclick="goBack()">
+                        <h4 class="open-sans-regular text-black">
+                            <img src="../../recursos/imagenes/icons/minus.png">
+                            Regresar <!-- para regresar a la pagina anterior -->
+                        </h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h1>Mecánica General</h1>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <h1>Mecánica General</h1>
-                </div>
-            </div>
-        </div>
-    </header>
+        </header>
         <!-- Cards -->
         <div class="container">
             <div class="row row-cols-1 row-cols-md-4">
@@ -189,56 +187,57 @@
                 </div>
             </div>
         </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <!-- Encabezado del modal -->
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"></h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <!-- Cuerpo del modal -->
-                    <div class="modal-body">
-                        <form>
-                            <!-- Campo de entrada para el nombre del servicio -->
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Nombre servicio</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            </div>
-                            <!-- Campo de entrada para la descripción del servicio -->
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Descripción servicio</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1">
-                            </div>
-                            <!-- Línea divisoria -->
-                            <hr style="border-bottom: 1px solid red;">
-                            <!-- Botones para aceptar y cancelar -->
-                            <div class="text-center">
-                                <button type="button" class="btn btn-danger mx-2">Aceptar</button>
-                                <button type="button" class="btn btn-dark mx-2" data-bs-dismiss="modal">Cancelar</button>
-                            </div>
-                        </form>
-                    </div>
+    </main>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Encabezado del modal -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- Cuerpo del modal -->
+                <div class="modal-body">
+                    <form>
+                        <!-- Campo de entrada para el nombre del servicio -->
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Nombre servicio</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                        </div>
+                        <!-- Campo de entrada para la descripción del servicio -->
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Descripción servicio</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <!-- Línea divisoria -->
+                        <hr style="border-bottom: 1px solid red;">
+                        <!-- Botones para aceptar y cancelar -->
+                        <div class="text-center">
+                            <button type="button" class="btn btn-danger mx-2" onclick="openNoti()">Aceptar</button>
+                            <button type="button" class="btn btn-dark mx-2"
+                                onclick="openClose()">Cancelar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-        
+    </div>
 
-
-        <!-- *Llamada a las hojas de estilos del framework e iconos -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-        <!--Dejarlo NOQUITAR-->
-        <!--*Libreria de mensajes-->
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!--Dejarlo NOQUITAR-->
-        <!-- *Llamada al controlador del sitio publico -->
-        <script type="text/javascript" src="../../controlador/utilidades/privado.js"></script> <!--Dejarlo NOQUITAR-->
-        <!-- *Llamada al controlador de la página web -->
-        <script type="text/javascript" src="../../controlador/privado/pagina_detalle_servicios.js"></script>
-        <!--Cambiarlo por el js de la página en cuestion-->
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- *Llamada a las hojas de estilos del framework e iconos -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!--Dejarlo NOQUITAR-->
+    <!--*Libreria de mensajes-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!--Dejarlo NOQUITAR-->
+    <!-- *Llamada al controlador del sitio publico -->
+    <script type="text/javascript" src="../../controlador/utilidades/privado.js"></script> <!--Dejarlo NOQUITAR-->
+    <!-- *Llamada al controlador de la página web -->
+    <script type="text/javascript" src="../../controlador/privado/pagina_detalle_servicios.js"></script>
+    <!--Cambiarlo por el js de la página en cuestion-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Llamada al controlador del componente -->
+        <script type="text/javascript" src="../../controlador/utilidades/components.js"></script>
 </body>
 
 </html>
