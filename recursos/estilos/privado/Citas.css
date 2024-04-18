@@ -10,9 +10,6 @@ body {
     flex-direction: column;
 }
 
-
-
-
 .opcionesLat img {
     height: 30px;
     width: 30px;
@@ -572,6 +569,37 @@ contenidoModal
     margin-bottom: 30px;
 }
 
+.form-floating>label {
+    color: red;
+}
+
+
+.form-floating .form-control:focus~label,
+.form-floating .form-control:not(:placeholder-shown)~label {
+    color: red;
+    /* Color rojo */
+}
+
+.form-floating{
+    width: 45%;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+
+@media screen and (max-width: 375px) {
+
+    .form-floating input {
+        font-size: 12px;
+    }
+
+    .form-floating label {
+        font-size: 15px;
+    }
+
+}
+
+
  
 
 .finalizarCita {
@@ -672,6 +700,11 @@ contenidoModal
 
 
 @media screen and (max-width: 840px) {
+    
+    .form-floating{
+        width: 80%;
+    }
+
     .camposForm {
         flex-direction: column;
     }
@@ -976,6 +1009,38 @@ contenidoModal
     padding: 0 2px;
     background-color: white;
     color: #E64547;
+}
+
+.bottomModalSer{
+    width: 100%;
+    color: #BA181B;
+    
+}
+
+.botonesModalSer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+#btnAceptar{
+    border: none;
+    background-color: #E5383B;
+    width: 35%;
+    color: white;
+    height: 35px;
+    border-radius: 5px;
+}
+
+#btnCancelar{
+    border: none;
+    background-color: #161A1D;
+    width: 35%;
+    color: white;
+    height: 35px;
+    border-radius: 5px;
 }
 
 

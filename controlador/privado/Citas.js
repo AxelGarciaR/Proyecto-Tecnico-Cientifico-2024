@@ -2,17 +2,17 @@
 var cardContainers = document.getElementsByClassName("cardContainer");
 
 for (var i = 0; i < cardContainers.length; i++) {
-    cardContainers[i].addEventListener("click", function () {
-        var detalles = document.getElementById("containerExpand");
-        detalles.style.display = "block";
-    });
+  cardContainers[i].addEventListener("click", function () {
+    var detalles = document.getElementById("containerExpand");
+    detalles.style.display = "block";
+  });
 }
 
 // Agregar event listener al botón finalizarCita
 document.getElementById("finalizarCita").addEventListener("click", function () {
-    // Ocultar el contenedor containerExpand
-    var detalles = document.getElementById("containerExpand");
-    detalles.style.display = "none";
+  // Ocultar el contenedor containerExpand
+  var detalles = document.getElementById("containerExpand");
+  detalles.style.display = "none";
 
 
 });
@@ -49,9 +49,9 @@ document.getElementById("btnRegresar").addEventListener("click", function () {
 
 // Agregar event listener al botón finalizarCita
 document.getElementById("finalizarCita").addEventListener("click", function () {
-    // Ocultar el contenedor containerExpand
-    var detalles = document.getElementById("containerExpand");
-    detalles.style.display = "none";
+  // Ocultar el contenedor containerExpand
+  var detalles = document.getElementById("containerExpand");
+  detalles.style.display = "none";
 
 
 });
@@ -93,17 +93,17 @@ var btn = document.getElementById("btnRevisarFactura");
 var span = document.getElementsByClassName("close")[0];
 
 // Abrir el modal cuando se hace clic en el botón
-btn.onclick = function() {
+btn.onclick = function () {
   modal.style.display = "block";
 }
 
 // Cerrar el modal cuando se hace clic en la "x"
-span.onclick = function() {
+span.onclick = function () {
   modal.style.display = "none";
 }
 
 // Cerrar el modal cuando se hace clic fuera del modal
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
@@ -116,7 +116,7 @@ var spanServicio = document.getElementsByClassName("closeServicios")[0];
 // Obtener referencia al modal con el ID "modalServicios"
 const modalServicios = document.getElementById('modalServicios');
 
-spanServicio.onclick = function() {
+spanServicio.onclick = function () {
   modalServicios.style.display = "none";
 }
 
@@ -126,7 +126,7 @@ btnAgregarServicio.addEventListener('click', () => {
   modalServicios.style.display = 'block';
 });
 
-/**Aqui empieza el tipado de datos**/ 
+/**Aqui empieza el tipado de datos**/
 
 /**Funcion para solo letras**/
 function soloLetras(event) {
@@ -134,8 +134,8 @@ function soloLetras(event) {
   var soloLetras = /^[a-zA-Z\s]*$/; // Expresión regular para letras y espacios
 
   if (!soloLetras.test(inputChar)) {
-      event.preventDefault();
-      return false;
+    event.preventDefault();
+    return false;
   }
   return true;
 }
@@ -146,8 +146,8 @@ function soloNumeros(event) {
   var soloNumeros = /^[0-9]*$/; // Expresión regular para números
 
   if (!soloNumeros.test(inputChar)) {
-      event.preventDefault();
-      return false;
+    event.preventDefault();
+    return false;
   }
   return true;
 }
