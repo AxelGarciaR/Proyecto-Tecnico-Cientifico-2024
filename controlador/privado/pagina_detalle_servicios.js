@@ -18,5 +18,8 @@ aceptarBtn.addEventListener('click', function () {
         title: '¡Servicio agregado con éxito!',
         showConfirmButton: false,
         timer: 1500
+    }).then((result) => {
+        // Cierra el modal después de que se muestra la alerta
+        $('#exampleModal').modal('hide');
     });
 });
