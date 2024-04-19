@@ -194,13 +194,6 @@ hr {
     background-color: #1B1919;
 }
 
-/* Estilos para la tarjeta de auto */
-.add-auto-card {
-    background-color: #F5F3F4;
-    border: #232323 3px solid;
-    position: relative;
-    border-radius: 10px;
-}
 
 /* Contenedor para todas las tarjetas */
 .contenedor-total-cards {
@@ -231,9 +224,7 @@ hr {
         padding-left: 20px;
     }
 
-    .container-info-card {
-        grid-template-columns: repeat(3, 1fr);
-    }
+   
 
     .c1,
     .c2>p,
@@ -283,11 +274,30 @@ hr {
 }
 
 /* Estilos para la tarjeta de auto */
+.add-auto-card {
+    background-color: #F5F3F4;
+    border: #232323 3px solid;
+    position: relative;
+    border-radius: 10px;
+}
+.linear2
+{
+    top: 0;
+    right: 0px;
+    height: 100%;
+    background-color: red;
+    width: 3px;
+
+}
+
+
+/* Estilos para la tarjeta de auto */
 .auto-card {
     display: grid;
-    grid-template-rows: 3fr 1fr;
     /*min-height: 270px;
     grid-template-rows: 5fr 2fr;*/
+    min-width: fit-content;
+    max-width: 150px;
 }
 
 /* Estilos para la imagen dentro de la tarjeta de auto */
@@ -474,3 +484,23 @@ hr {
 .range-label {
     flex: 0 0 50px; /* Ajusta el ancho según tus necesidades */
 }
+
+.f1
+{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+
+.contenedor-dui h1{
+    font-size: x-large;
+}
+
+.contenedor-telefono h1{
+    font-size: x-large;
+}
+
+#detalles-card{
+margin-bottom: 20px;
+}
+
