@@ -1,153 +1,174 @@
+/* Estilos generales */
 html,
 body,
 main,
 .contenedor-total {
-    height: 100%;
+  height: 100%; /* Altura del 100% para ocupar todo el espacio disponible */
 }
 
+/* Contenedor total */
 .contenedor-total {
-    display: grid;
-    grid-template-rows: 1fr auto;
-    gap: 10px;
-}
+    display: grid; /* Mostrar como grid */
+    grid-template-rows: 1fr auto; /* Distribución de filas */
+    gap: 10px; /* Espacio entre elementos */
+  }
 
+/* Pie de página */
 .footer {
-    background-color: #1B1919;
-}
+    background-color: #1B1919; /* Color de fondo */
+  }
 
+/* Contenedor rojo */
 .contenedor-rojo {
-    background-color: #E5383B;
-    align-items: center;
-    min-height: 600px;
-    border-radius: 10px;
-    justify-content: center;
-}
+    background-color: #E5383B; /* Color de fondo */
+    align-items: center; /* Alinear elementos verticalmente */
+    min-height: 600px; /* Altura mínima */
+    border-radius: 10px; /* Radio de borde */
+    justify-content: center; /* Justificar contenido */
+  }
 
+/* Contenedor de formulario */
 .contenedor-form {
     /*GRID*/
-    display: grid;
-    gap: 55px;
-    height: fit-content;
-}
+    display: grid; /* Mostrar como grid */
+    gap: 55px; /* Espacio entre elementos */
+    height: fit-content; /* Altura ajustada al contenido */
+  }
 
+/* Contenedor izquierdo */
 .contenedor-izquierdo {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
+    height: 100%; /* Altura del 100% */
+    width: 100%; /* Ancho del 100% */
+    display: flex; /* Mostrar como flex */
+    align-items: center; /* Alinear elementos verticalmente */
+  }
+  
+  /* Contenedor de inputs */
+  .contenedor-inputs {
+    display: grid; /* Mostrar como grid */
+    gap: 40px; /* Espacio entre elementos */
+    height: fit-content; /* Altura ajustada al contenido */
+  }
 
-.contenedor-inputs {
-    display: grid;
-    gap: 40px;
-    height: fit-content;
-}
-
+/* Contenedor de imagen */
 .img-container {
-    min-width: fit-content;
-}
+    min-width: fit-content; /* Ancho mínimo ajustado al contenido */
+  }
+  
+  /* Imagen dentro del contenedor de imagen */
+  .img-container>img {
+    width: 100%; /* Ancho del 100% */
+    height: 115px; /* Altura */
+    object-fit: cover; /* Ajuste de imagen */
+    object-position: bottom; /* Posición de la imagen */
+  }
 
-.img-container>img {
-    width: 100%;
-    height: 115px;
-    object-fit: cover;
-    object-position: bottom;
-}
-
+/* Imagen dentro del contenedor */
 .contenedor-imagen>img {
-    max-width: 100%;
-    object-fit: cover;
-    object-position: bottom;
-}
+    max-width: 100%; /* Ancho máximo del 100% */
+    object-fit: cover; /* Ajuste de imagen */
+    object-position: bottom; /* Posición de la imagen */
+  }
+  
+  /* Botón de inicio */
+  .btnInicio {
+    background-color: black; /* Color de fondo */
+    height: 55px; /* Altura */
+    border-radius: 10px; /* Radio de borde */
+  }
 
-.btnInicio {
-    background-color: black;
-    height: 55px;
-    border-radius: 10px;
-}
-
+/* Botón de olvido */
 .btnForgot {
-    background-color: #007CD7;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-}
+    background-color: #007CD7; /* Color de fondo */
+    border-top-left-radius: 0px; /* Radio de borde superior izquierdo */
+    border-top-right-radius: 0px; /* Radio de borde superior derecho */
+  }
 
+/* Ondas */
 .waves {
-    position: absolute;
-    top: -135px;
-    height: 500px;
-    width: 100%;
-    overflow: hidden;
-    transform: rotate(180deg);
-}
+    position: absolute; /* Posición absoluta */
+    top: -135px; /* Posición superior */
+    height: 500px; /* Altura */
+    width: 100%; /* Ancho */
+    overflow: hidden; /* Ocultar desbordamiento */
+    transform: rotate(180deg); /* Rotación */
+  }
 
+/* Onda */
 .wave {
-    position: absolute;
-    left: -180px;
-    bottom: 0;
+    position: absolute; /* Posición absoluta */
+    left: -180px; /* Posición izquierda */
+    bottom: 0; /* Posición inferior */
     /*width: 200px;*/
     /*height: 200px;*/
     /*width: 100%;*/
     /*border-radius: 50%;*/
     /*background:rgba(0,0,0, .3);*/
-    width: 2402px;
-    height: 427px;
-    background: url(https://static.platzi.com/media/files/waves_c8551f5d-ecf6-4a81-ae1d-f3a0ad55ba10.png) center bottom no-repeat;
-    animation: 5s wave ease-in-out infinite alternate;
+    width: 2402px; /* Ancho */
+    height: 427px; /* Altura */
+    background: url(https://static.platzi.com/media/files/waves_c8551f5d-ecf6-4a81-ae1d-f3a0ad55ba10.png) center bottom no-repeat; /* Imagen de fondo */
+    animation: 5s wave ease-in-out infinite alternate; /* Animación */
 }
 
+/* Onda A */
 .wave.a {
-    background-position: 0 -854px;
-}
+    background-position: 0 -854px; /* Posición de fondo */
+  }
+  
+  /* Onda B */
+  .wave.b {
+    background-position: 0 -427px; /* Posición de fondo */
+    animation-delay: .6s; /* Retraso de animación */
+  }
+  
+  /* Onda C */
+  .wave.c {
+    background-position: 0 0; /* Posición de fondo */
+    animation-delay: 1.2s; /* Retraso de animación */
+  }
 
-.wave.b {
-    background-position: 0 -427px;
-    animation-delay: .6s;
-}
-
-.wave.c {
-    background-position: 0 0;
-    animation-delay: 1.2s;
-}
-
+/* Animación de onda */
 @keyframes wave {
     0% {
-        transform: translate(0, 0);
+      transform: translate(0, 0); /* Transformación */
     }
-
+  
     50% {
-        transform: translate(-80px, 30px);
+      transform: translate(-80px, 30px); /* Transformación */
     }
-
+  
     100% {
-        transform: translate(160px, -60px);
+      transform: translate(160px, -60px); /* Transformación */
     }
-}
+  }
 
-/*---------------------- RECUPERAR CONTRASEÑA -------------------*/
-
+/* Recuperar contraseña */
 .grupo_1 {
-    display: grid;
-    gap: 25px;
-    height: fit-content;
-}
+    display: grid; /* Mostrar como grid */
+    gap: 25px; /* Espacio entre elementos */
+    height: fit-content; /* Altura ajustada al contenido */
+  }
+  
+  /* Texto de retorno */
+  .returnText {
+    bottom: 0; /* Posición inferior */
+    left: 0; /* Posición izquierda */
+  }
 
-.returnText {
-    bottom: 0;
-    left: 0;
-}
-
+/* Título del texto de retorno */
 .returnText>h4 {
-    cursor: pointer;
-}
+    cursor: pointer; /* Cursor */
+  }
+  
+  /* Línea */
+  .lineR2 {
+    width: 100%; /* Ancho del 100% */
+    height: 2px; /* Altura */
+    background-color: #BA181B; /* Color de fondo */
+  }
 
-.lineR2 {
-    width: 100%;
-    height: 2px;
-    background-color: #BA181B;
-}
-
+/* Texto de recuperar contraseña */
 #textRC {
-    height: fit-content;
-    width: fit-content;
-}
+    height: fit-content; /* Altura ajustada al contenido */
+    width: fit-content; /* Ancho ajustado al contenido */
+  }
