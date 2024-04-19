@@ -5,12 +5,12 @@ html {
     width: 100%;
     background-color: white;
 }
-
+/* Estilos para las medidas de la imagen */
 .contenedor-izq>img {
     width: 250px;
     height: 250px;
 }
-
+/* Estilos para el contenedor total */
 .contenedor-total {
     min-height: 80vh;
     width: 100%;
@@ -20,7 +20,7 @@ html {
 
     padding-top: 80px;
 }
-
+/* Estilos para el contenedor info */
 .contenedor-info {
     background-color: white;
     border: 1px solid #6B737A;
@@ -28,12 +28,12 @@ html {
     min-height: 350px;
     margin-top: 30px;
 }
-
+/* Estilos para el dui*/
 .dui {
     border-left: 2px solid red;
     border-right: 2px solid red;
 }
-
+/* Estilos para el contenedor mas info */
 .contenedor-masinfo {
     background-color: white;
     border: 1px solid #DADCDE;
@@ -41,30 +41,30 @@ html {
     padding: 20px;
 
 }
-
+/* Estilos para el contenedor mas info header */
 .masinfo-header {
     width: fit-content;
     border-bottom: 2px solid red;
     margin-bottom: 45px;
 }
-
+/* Estilos para el contenedor mas info body */
 .masinfo-body {
     display: grid;
     row-gap: 20px;
 }
-
+/* Estilos para el contenedor del departamento */
 .depa {
     border-bottom:1px solid red;
 }
-
+/* Estilos para el contenedor de la fecha de registro */
 .fecharegistro {
     border-bottom: 1px solid red;
 }
-
+/* Estilos para el contenedor del nit*/
 .nit {
     border-bottom: 1px solid red;
 }
-
+/* Estilos para el contenedor de la frecuencia*/
 .contenedor-frecuencia {
     background-color: #F1EFEF;
     border-radius: 10px;
@@ -73,16 +73,16 @@ html {
     display: grid;
     row-gap: 20px;
 }
-
+/* Estilos para el contenedor derecha*/
 .contenedor-drch {
     display: grid;
     row-gap: 50px;
 }
-
+/* Estilos para el contenedor de la frecuencia */
 .frecuencia-header {
     border-bottom: 1px solid red;
 }
-
+/* Estilos para el contenedor con el scroll */
 .contenedor-scroll {
     overflow-y: hidden;
     overflow-x: auto;
