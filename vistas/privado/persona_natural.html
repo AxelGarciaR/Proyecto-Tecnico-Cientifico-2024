@@ -13,7 +13,7 @@
 
     <!-- *IMPORTACIÓN DE RECURSOS EXTERNOS -->
     <!-- Llamada al icono de la página web -->
-    <link type="image/png" rel="icon" href="/recursos/imagenes/icons/icono_usuario.svg">
+    <link type="image/png" rel="icon" href="../../recursos/imagenes/icons/auto_icon.svg">
 
     <!-- *Llamada a las hojas de estilos del framework (BOOSTRAP) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -62,66 +62,67 @@
                 <hr>
                 <div class="sidebar-body"> <!-- Contedor del cuerpo de los filtros-->
                     <ul class="list-unstyled ps-0 cursor-hover "> <!-- Lista no ordenada de los filtros-->
-                        <!--TODO ----------------------------ELEMENTO----------------------------------->
+                        <!--TODO ----------------------------ELEMENTO MARCAS----------------------------------->
                         <li class="mb-1 cursor-hover d-flex flex-column align-items-center">
+                            <!-- Primer elemento de filtros-->
                             <!-- Elemento de la lista-->
                             <button class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton"
-                                data-bs-toggle="collapse" data-bs-target="#Marcas" aria-expanded="false"
+                                data-bs-toggle="collapse" data-bs-target="#Departamentos" aria-expanded="false"
                                 onclick="rotarImagen('img1')">
                                 <span class="d-flex justify-content-between align-items-center">
                                     <h5 class="open-sans-semibold m-0 p-0 ms-2">
-                                        Departamento
+                                        Departamentos
                                     </h5> <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img1"
                                         class="imagen">
                                 </span>
                             </button>
 
-                            <div class="collapse col-11 marcasA position-relative mt-3" id="Marcas">
-                                <div class="" id="contenedor-marcas">
-                                    <div class="collapse" id="Marcas">
-                                        <select class="form-select" onchange="seleccionarDepartamento(this)">
-                                            <option value="">Seleccionar departamento</option>
-                                            <option value="Ahuachapán">Ahuachapán</option>
-                                            <option value="Cabañas">Cabañas</option>
-                                            <option value="Chalatenango">Chalatenango</option>
-                                            <option value="Cuscatlán">Cuscatlán</option>
-                                            <option value="La Libertad">La Libertad</option>
-                                            <option value="La Paz">La Paz</option>
-                                            <option value="La Unión">La Unión</option>
-                                            <option value="Morazán">Morazán</option>
-                                            <option value="San Miguel">San Miguel</option>
-                                            <option value="San Salvador">San Salvador</option>
-                                            <option value="San Vicente">San Vicente</option>
-                                            <option value="Santa Ana">Santa Ana</option>
-                                            <option value="Sonsonate">Sonsonate</option>
-                                            <option value="Usulután">Usulután</option>
-                                        </select>
-                                    </div>
-                                </div>
+                            <div class="collapse" id="Departamentos">
+                                <select class="form-select" onchange="seleccionarDepartamento(this)">
+                                    <option value="">Seleccionar departamento</option>
+                                    <option value="Ahuachapán">Ahuachapán</option>
+                                    <option value="Cabañas">Cabañas</option>
+                                    <option value="Chalatenango">Chalatenango</option>
+                                    <option value="Cuscatlán">Cuscatlán</option>
+                                    <option value="La Libertad">La Libertad</option>
+                                    <option value="La Paz">La Paz</option>
+                                    <option value="La Unión">La Unión</option>
+                                    <option value="Morazán">Morazán</option>
+                                    <option value="San Miguel">San Miguel</option>
+                                    <option value="San Salvador">San Salvador</option>
+                                    <option value="San Vicente">San Vicente</option>
+                                    <option value="Santa Ana">Santa Ana</option>
+                                    <option value="Sonsonate">Sonsonate</option>
+                                    <option value="Usulután">Usulután</option>
+                                </select>
                             </div>
                         </li>
-
 
                         <!--TODO ----------------------------ELEMENTO FECHA DE FABRICACIÓN----------------------------------->
                         <hr>
                         <li class="mb-1 cursor-hover d-flex flex-column align-items-center">
+                            <!--Tercer elemento de filtros-->
                             <button class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton"
                                 data-bs-toggle="collapse" data-bs-target="#FechaFab" aria-expanded="false"
-                                onclick="rotarImagen('img8')">
+                                onclick="rotarImagen('img2')">
                                 <span class="d-flex justify-content-between align-items-center">
                                     <h5 class="open-sans-semibold m-0 p-0 ms-2">
-                                        Fecha de registro del Cliente
+                                        Fecha de registro del cliente
                                     </h5>
-                                    <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img8" class="imagen">
+                                    <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img2" class="imagen">
                                 </span>
                             </button>
 
+                            <!--Contenedor de las fechas-->
                             <div class="collapse col-11 mt-3" id="FechaFab">
+                                <!--Contenedor flexbox-->
                                 <div class="d-flex flex-lg-row flex-md-column flex-column mt-3 justify-content-between">
+                                    <!--Contenedor de la fecha inicial (desde))-->
                                     <div class="fecha-desde col-lg-5 col-11">
                                         <h6 class="open-sans-regular">Desde</h6>
                                         <input id="datepicker-desde" class="open-sans-regular-italic datepickerA" />
                                     </div>
+                                    <!--Contenedor de la fecha posterios (hasta)-->
                                     <div class="fecha-hasta col-lg-5 col-11">
                                         <h6 class="open-sans-regular">Hasta</h6>
                                         <input id="datepicker-hasta" class="open-sans-regular-italic datepickerA" />
@@ -129,18 +130,19 @@
                                 </div>
                             </div>
                         </li>
-                        <hr>
-                        <!--TODO ----------------------------ELEMENTO CANTIDAD DE AUTOS----------------------------------->
 
+                        <!--TODO ----------------------------CANTIDAD DE AUTOS----------------------------------->
+                        <hr>
                         <li class="mb-1 cursor-hover d-flex flex-column align-items-center">
+                            <!--Segundo elemento de filtros-->
                             <button class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton"
                                 data-bs-toggle="collapse" data-bs-target="#CantAutos" aria-expanded="false"
-                                onclick="rotarImagen('img7'); inicializarCollapse();">
+                                onclick="rotarImagen('img3')">
                                 <span class="d-flex justify-content-between align-items-center">
                                     <h5 class="open-sans-semibold m-0 p-0 ms-2">
                                         Cantidad de autos a su nombre
                                     </h5>
-                                    <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img7" class="imagen">
+                                    <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img3" class="imagen">
                                 </span>
                             </button>
 
@@ -151,83 +153,85 @@
                                     <span class="range-label">100</span>
                                 </div>
                             </div>
+
                         </li>
-
-
-
-                        <!--TODO ----------------------------ELEMENTO MARCAS DE AUTO----------------------------------->
+                        <!--TODO ----------------------------CANTIDAD DE MARCA DE AUTOS----------------------------------->
                         <hr>
+                        <!-- Segundo elemento de filtros-->
                         <li class="mb-1 cursor-hover d-flex flex-column align-items-center">
+                            <!-- Elemento de la lista-->
                             <button class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton"
-                                data-bs-toggle="collapse" data-bs-target="#Auto" aria-expanded="false"
-                                onclick="rotarImagen('img6')">
+                                data-bs-toggle="collapse" data-bs-target="#Marca" aria-expanded="false"
+                                onclick="rotarImagen('img4')">
                                 <span class="d-flex justify-content-between align-items-center">
                                     <h5 class="open-sans-semibold m-0 p-0 ms-2">
-                                        Marcas de Autos
+                                        Marcas de autos
                                     </h5>
-                                    <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img6" class="imagen">
+                                    <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img4" class="imagen">
                                 </span>
                             </button>
 
-                            <div class="collapse col-11 mt-3" id="Auto">
+                            <!-- Contenedor de los checkboxs del colores-->
+                            <div class="collapse col-11 mt-3" id="Marca">
+                                <!--Contenedor de la lista no ordenada-->
                                 <ul class="list-group contenedor-checkbox">
+                                    <!--Contenedor del auto 1-->
                                     <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Color1">
-                                        <label class="form-check-label stretched-link" for="Color1">
+                                        <input class="form-check-input me-2" type="checkbox" id="Marca1">
+                                        <label class="form-check-label stretched-link" for="Marca1">
                                             <h6 class="m-0 p-0 open-sans-regular">
                                                 KIA
                                             </h6>
                                         </label>
                                     </li>
+                                    <!--Contenedor del auto 2-->
                                     <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Color2">
-                                        <label class="form-check-label stretched-link" for="Color2">
+                                        <input class="form-check-input me-2" type="checkbox" id="Marca2">
+                                        <label class="form-check-label stretched-link" for="Marca2">
                                             <h6 class="m-0 p-0 open-sans-regular">
                                                 TOYOTA
                                             </h6>
                                         </label>
                                     </li>
+                                    <!--Contenedor del auto 3-->
                                     <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Color3">
-                                        <label class="form-check-label stretched-link" for="Color3">
+                                        <input class="form-check-input me-2" type="checkbox" id="Marca3">
+                                        <label class="form-check-label stretched-link" for="Marca3">
                                             <h6 class="m-0 p-0 open-sans-regular">
                                                 MAZDA
                                             </h6>
                                         </label>
                                     </li>
+                                    <!--Contenedor del auto 4-->
                                     <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Color4">
-                                        <label class="form-check-label stretched-link" for="Color4">
+                                        <input class="form-check-input me-2" type="checkbox" id="Marca4">
+                                        <label class="form-check-label stretched-link" for="Marca4">
                                             <h6 class="m-0 p-0 open-sans-regular">
                                                 HYUNDAI
                                             </h6>
                                         </label>
                                     </li>
+                                    <!--Contenedor del auto 5-->
                                     <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Color5">
-                                        <label class="form-check-label stretched-link" for="Color5">
-                                            <h6 class="m-0 p-0 open-sans-regular">
-                                                BMW
-                                            </h6>
-                                        </label>
-                                    </li>
-                                    <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Color6">
-                                        <label class="form-check-label stretched-link" for="Color6">
+                                        <input class="form-check-input me-2" type="checkbox" id="Marca5">
+                                        <label class="form-check-label stretched-link" for="Marca">
                                             <h6 class="m-0 p-0 open-sans-regular">
                                                 FORD
                                             </h6>
                                         </label>
                                     </li>
+
                                 </ul>
                             </div>
                         </li>
 
-                        <!--TODO ----------------------------ELEMENTO SERVICIO----------------------------------->
+                        <!--TODO ----------------------------CANTIDAD DE SERVICIOS----------------------------------->
                         <hr>
+                        <!-- Segundo elemento de filtros-->
                         <li class="mb-1 cursor-hover d-flex flex-column align-items-center">
+                            <!-- Elemento de la lista-->
                             <button class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton"
-                                data-bs-toggle="collapse" data-bs-target="#Tipos" aria-expanded="false"
+                                data-bs-toggle="collapse" data-bs-target="#Servicios" aria-expanded="false"
                                 onclick="rotarImagen('img5')">
                                 <span class="d-flex justify-content-between align-items-center">
                                     <h5 class="open-sans-semibold m-0 p-0 ms-2">
@@ -237,45 +241,52 @@
                                 </span>
                             </button>
 
-                            <div class="collapse col-11 mt-3" id="Tipos">
+                            <!-- Contenedor de los checkboxs del colores-->
+                            <div class="collapse col-11 mt-3" id="Servicios">
+                                <!--Contenedor de la lista no ordenada-->
                                 <ul class="list-group contenedor-checkbox">
+                                    <!--Contenedor del auto 1-->
                                     <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Tipo1">
-                                        <label class="form-check-label stretched-link" for="Tipo1">
+                                        <input class="form-check-input me-2" type="checkbox" id="Servicio1">
+                                        <label class="form-check-label stretched-link" for="Servicio1">
+                                            <h6 class="m-0 p-0 open-sans-regular">
+                                                Mécanica General
+                                            </h6>
+                                        </label>
+                                    </li>
+                                    <!--Contenedor del auto 2-->
+                                    <li class="list-group-item p-0 m-0 px-2">
+                                        <input class="form-check-input me-2" type="checkbox" id="Servicio2">
+                                        <label class="form-check-label stretched-link" for="Servicio2">
+                                            <h6 class="m-0 p-0 open-sans-regular">
+                                                Aire Condicionado
+                                            </h6>
+                                        </label>
+                                    </li>
+                                    <!--Contenedor del auto 3-->
+                                    <li class="list-group-item p-0 m-0 px-2">
+                                        <input class="form-check-input me-2" type="checkbox" id="Servicio3">
+                                        <label class="form-check-label stretched-link" for="Servicio3">
+                                            <h6 class="m-0 p-0 open-sans-regular">
+                                                Mantenimiento General
+                                            </h6>
+                                        </label>
+                                    </li>
+                                    <!--Contenedor del auto 4-->
+                                    <li class="list-group-item p-0 m-0 px-2">
+                                        <input class="form-check-input me-2" type="checkbox" id="Servicio4">
+                                        <label class="form-check-label stretched-link" for="Servicio4">
+                                            <h6 class="m-0 p-0 open-sans-regular">
+                                                Enderezado
+                                            </h6>
+                                        </label>
+                                    </li>
+                                    <!--Contenedor del auto 5-->
+                                    <li class="list-group-item p-0 m-0 px-2">
+                                        <input class="form-check-input me-2" type="checkbox" id="Servicio5">
+                                        <label class="form-check-label stretched-link" for="Servicio5">
                                             <h6 class="m-0 p-0 open-sans-regular">
                                                 Cambio de Aceite
-                                            </h6>
-                                        </label>
-                                    </li>
-                                    <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Tipo2">
-                                        <label class="form-check-label stretched-link" for="Tipo2">
-                                            <h6 class="m-0 p-0 open-sans-regular">
-                                                Cambio de frenos
-                                            </h6>
-                                        </label>
-                                    </li>
-                                    <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Tipo3">
-                                        <label class="form-check-label stretched-link" for="Tipo3">
-                                            <h6 class="m-0 p-0 open-sans-regular">
-                                                Sustitución del líquido de frenos
-                                            </h6>
-                                        </label>
-                                    </li>
-                                    <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Tipo4">
-                                        <label class="form-check-label stretched-link" for="Tipo4">
-                                            <h6 class="m-0 p-0 open-sans-regular">
-                                                Sustitución del filtro de olores
-                                            </h6>
-                                        </label>
-                                    </li>
-                                    <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Tipo5">
-                                        <label class="form-check-label stretched-link" for="Tipo5">
-                                            <h6 class="m-0 p-0 open-sans-regular">
-                                                Sustitución de las bujías.
                                             </h6>
                                         </label>
                                     </li>
@@ -285,8 +296,9 @@
                     </ul>
                 </div>
             </div>
-            <!-- -----------------------------------CUERPO----------------------------------->
+            <!-- TODO -----------------------------------CUERPO----------------------------------->
             <div class="flex-fill col-12">
+                <!--Contenedor del boton para abrir los filtros colapsados-->
                 <div class="p-2 d-md-none d-flex text-white btnSlBg">
                     <a href="#" class="text-white" data-bs-toggle="offcanvas" data-bs-target="#bdSidebar">
                         <i class="fa-solid fa-bars"></i>
@@ -295,104 +307,431 @@
                         Filtros
                     </h5>
                 </div>
-                <!--CUERPO-->
+                <!--Contenedor total del cuerpo de la página-->
                 <div class="contenedor-total-cards col-12">
+                    <!--Contenedor de la primera card - card de agregar automovil-->
                     <div class="add-auto-card d-flex align-items-center justify-content-center">
                         <img src="../../recursos/imagenes/icons/addCar.svg" class="hvr-grow" data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop">
+                            data-bs-target="#agregarCategoriaModal">
                     </div>
+                    <!--Card del automovil 1-->
                     <div class="auto-card card" onclick="gotoDetail()">
                         <div class="content z-3">
-                            <h4 class="open-sans-light-italic">Conoce a tu cliente</h4>
+                            <h4 class="open-sans-light-italic">Màs informaciòn</h4>
                         </div>
                         <div class="container-img-card">
-                            <img src="../../recursos/imagenes/img_personanatural/personas.png">
+                            <img src="../../recursos/imagenes/img_automoviles/carexmpl2.jpg">
                         </div>
-                        <div class="d-flex flex-column position-relative justify-content-around">
+                        <div class="container-info-card position-relative">
                             <div class="line-red-split position-absolute"></div>
-                            <div class="nombre-cliente ps-5">
-                                <p class="m-0 p-0 open-sans-regular-italic text-black text-left"> Axel García &nbsp; <br>
-                                <span class="open-sans-regular m-0 p-0 text-black text-left">Cliente #001</span>
+                            <div class="grid-c pt-2 c1">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Axel Garcìa &nbsp
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">12345678-9</span>
                                 </p>
                             </div>
-                            <div class="grpBelow d-flex justify-content-around position-relative">
-                                <div class="dui-cliente">
-                                    <div class="grup1">
-                                        <h5>DUI</h5> 
-                                        <h6>12345678-9</h6>
-                                    </div>
-                                </div>
-                                <div class="lineV position-absolute"></div>
-                                <div class="numero-cliente">
-                                    <div class="grp2">
-                                        <h5># de Contacto</h5> 
-                                        <h6>2222-2222</h6>
-                                    </div>
-                                </div>
+                            <div class="grid-c pt-2 c2 w-100 px-1">
+                                <p class="m-0 p-0 open-sans-light-italic text-center w-100">FERRARI &nbsp
+                                    <span class="open-sans-semibold m-0 p-0 text-center w-100">P222-222</span>
+                                </p>
+                            </div>
+                            <div class="grid-c c3">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Color gris
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">Abarahat500</span>
+                                </p>
                             </div>
                         </div>
                     </div>
 
+                    <!--Card del automovil 2-->
+                    <div class="auto-card card">
+                        <div class="content z-3">
+                            <h4 class="open-sans-light-italic">Màs informaciòn</h4>
+                        </div>
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/Car-example.svg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="grid-c pt-2 c1">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Axel Garcìa &nbsp
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">12345678-9</span>
+                                </p>
+                            </div>
+                            <div class="grid-c pt-2 c2 w-100 px-1">
+                                <p class="m-0 p-0 open-sans-light-italic text-center w-100">FERRARI &nbsp
+                                    <span class="open-sans-semibold m-0 p-0 text-center w-100">P222-222</span>
+                                </p>
+                            </div>
+                            <div class="grid-c c3">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Color gris
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">Abarahat500</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Card del automovil 3-->
+                    <div class="auto-card card">
+                        <div class="content z-3">
+                            <h4 class="open-sans-light-italic">Màs informaciòn</h4>
+                        </div>
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/Car-example.svg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="grid-c pt-2 c1">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Axel Garcìa &nbsp
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">12345678-9</span>
+                                </p>
+                            </div>
+                            <div class="grid-c pt-2 c2 w-100 px-1">
+                                <p class="m-0 p-0 open-sans-light-italic text-center w-100">FERRARI &nbsp
+                                    <span class="open-sans-semibold m-0 p-0 text-center w-100">P222-222</span>
+                                </p>
+                            </div>
+                            <div class="grid-c c3">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Color gris
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">Abarahat500</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Card del automovil 4-->
+                    <div class="auto-card card">
+                        <div class="content z-3">
+                            <h4 class="open-sans-light-italic">Màs informaciòn</h4>
+                        </div>
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/Car-example.svg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="grid-c pt-2 c1">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Axel Garcìa &nbsp
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">12345678-9</span>
+                                </p>
+                            </div>
+                            <div class="grid-c pt-2 c2 w-100 px-1">
+                                <p class="m-0 p-0 open-sans-light-italic text-center w-100">FERRARI &nbsp
+                                    <span class="open-sans-semibold m-0 p-0 text-center w-100">P222-222</span>
+                                </p>
+                            </div>
+                            <div class="grid-c c3">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Color gris
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">Abarahat500</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Card del automovil 5-->
+                    <div class="auto-card card">
+                        <div class="content z-3">
+                            <h4 class="open-sans-light-italic">Màs informaciòn</h4>
+                        </div>
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/Car-example.svg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="grid-c pt-2 c1">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Axel Garcìa &nbsp
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">12345678-9</span>
+                                </p>
+                            </div>
+                            <div class="grid-c pt-2 c2 w-100 px-1">
+                                <p class="m-0 p-0 open-sans-light-italic text-center w-100">FERRARI &nbsp
+                                    <span class="open-sans-semibold m-0 p-0 text-center w-100">P222-222</span>
+                                </p>
+                            </div>
+                            <div class="grid-c c3">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Color gris
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">Abarahat500</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Card del automovil 6-->
+                    <div class="auto-card card">
+                        <div class="content z-3">
+                            <h4 class="open-sans-light-italic">Màs informaciòn</h4>
+                        </div>
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/Car-example.svg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="grid-c pt-2 c1">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Axel Garcìa &nbsp
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">12345678-9</span>
+                                </p>
+                            </div>
+                            <div class="grid-c pt-2 c2 w-100 px-1">
+                                <p class="m-0 p-0 open-sans-light-italic text-center w-100">FERRARI &nbsp
+                                    <span class="open-sans-semibold m-0 p-0 text-center w-100">P222-222</span>
+                                </p>
+                            </div>
+                            <div class="grid-c c3">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Color gris
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">Abarahat500</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Card del automovil 7-->
+                    <div class="auto-card card">
+                        <div class="content z-3">
+                            <h4 class="open-sans-light-italic">Màs informaciòn</h4>
+                        </div>
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/Car-example.svg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="grid-c pt-2 c1">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Axel Garcìa &nbsp
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">12345678-9</span>
+                                </p>
+                            </div>
+                            <div class="grid-c pt-2 c2 w-100 px-1">
+                                <p class="m-0 p-0 open-sans-light-italic text-center w-100">FERRARI &nbsp
+                                    <span class="open-sans-semibold m-0 p-0 text-center w-100">P222-222</span>
+                                </p>
+                            </div>
+                            <div class="grid-c c3">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Color gris
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">Abarahat500</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Card del automovil 8-->
+                    <div class="auto-card card">
+                        <div class="content z-3">
+                            <h4 class="open-sans-light-italic">Màs informaciòn</h4>
+                        </div>
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/Car-example.svg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="grid-c pt-2 c1">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Axel Garcìa &nbsp
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">12345678-9</span>
+                                </p>
+                            </div>
+                            <div class="grid-c pt-2 c2 w-100 px-1">
+                                <p class="m-0 p-0 open-sans-light-italic text-center w-100">FERRARI &nbsp
+                                    <span class="open-sans-semibold m-0 p-0 text-center w-100">P222-222</span>
+                                </p>
+                            </div>
+                            <div class="grid-c c3">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Color gris
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">Abarahat500</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Card del automovil 9-->
+                    <div class="auto-card card">
+                        <div class="content z-3">
+                            <h4 class="open-sans-light-italic">Màs informaciòn</h4>
+                        </div>
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/Car-example.svg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="grid-c pt-2 c1">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Axel Garcìa &nbsp
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">12345678-9</span>
+                                </p>
+                            </div>
+                            <div class="grid-c pt-2 c2 w-100 px-1">
+                                <p class="m-0 p-0 open-sans-light-italic text-center w-100">FERRARI &nbsp
+                                    <span class="open-sans-semibold m-0 p-0 text-center w-100">P222-222</span>
+                                </p>
+                            </div>
+                            <div class="grid-c c3">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Color gris
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">Abarahat500</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Card del automovil 10-->
+                    <div class="auto-card card">
+                        <div class="content z-3">
+                            <h4 class="open-sans-light-italic">Màs informaciòn</h4>
+                        </div>
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/Car-example.svg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="grid-c pt-2 c1">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Axel Garcìa &nbsp
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">12345678-9</span>
+                                </p>
+                            </div>
+                            <div class="grid-c pt-2 c2 w-100 px-1">
+                                <p class="m-0 p-0 open-sans-light-italic text-center w-100">FERRARI &nbsp
+                                    <span class="open-sans-semibold m-0 p-0 text-center w-100">P222-222</span>
+                                </p>
+                            </div>
+                            <div class="grid-c c3">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Color gris
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">Abarahat500</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Card del automovil 11-->
+                    <div class="auto-card card">
+                        <div class="content z-3">
+                            <h4 class="open-sans-light-italic">Màs informaciòn</h4>
+                        </div>
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/Car-example.svg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="grid-c pt-2 c1">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Axel Garcìa &nbsp
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">12345678-9</span>
+                                </p>
+                            </div>
+                            <div class="grid-c pt-2 c2 w-100 px-1">
+                                <p class="m-0 p-0 open-sans-light-italic text-center w-100">FERRARI &nbsp
+                                    <span class="open-sans-semibold m-0 p-0 text-center w-100">P222-222</span>
+                                </p>
+                            </div>
+                            <div class="grid-c c3">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Color gris
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">Abarahat500</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!--TODO -------------------------------MODAL ADD---------------------->
-        <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
+        <!-- Contenedor del modal de agregar automovil-->
+        <div class="modal fade" id="agregarCategoriaModal" data-bs-backdrop="static" data-bs-keyboard="false"
+            tabindex="-1" aria-labelledby="agregarCategoriaModalLabel" aria-hidden="true">
+            <!-- Contenedor del modal dialog-->
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <!-- Contenedor del modal content-->
                 <div class="modal-content p-lg-5 p-1 p-md-4 pb-0 pb-lg-3">
-                    <div class="modal-body col-12 d-flex flex-lg-row flex-md-column flex-column  flex-wrap-reverse">
-                        <div
-                            class="content-add-info col-lg-5 col-12 pb-3 p-lg-0 d-flex flex-column justify-content-center align-items-center">
-                            <div
-                                class="content-add-info col-lg-5 col-12 pb-3 p-lg-0 d-flex flex-column justify-content-center ">
-                                <div class="form-floating mb-0 p-0">
-                                    <input type="text" class="form-control" id="input_marca" placeholder="...">
-                                    <label for="input_marca">DUI</label>
+                    <!-- Contenedor del modal body-->
+                    <div class="modal-body">
+                        <form>
+                            <!-- Columna izquierda -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="text" class="form-control" id="input_dui" placeholder="...">
+                                            <label for="input_dui">DUI</label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="text" class="form-control" id="input_placa" placeholder="...">
+                                            <label for="input_placa">Telefono</label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <label class="form-label px-2 pt-0 p-0 m-0">Selecciona un
+                                                Departamento</label>
+                                            <select class="form-select pt-4 open-sans-regular"
+                                                aria-label="Default select example">
+                                                <option value="Ahuachapán">Ahuachapán</option>
+                                                <option value="Cabañas">Cabañas</option>
+                                                <option value="Chalatenango">Chalatenango</option>
+                                                <option value="Cuscatlán">Cuscatlán</option>
+                                                <option value="La Libertad">La Libertad</option>
+                                                <option value="La Paz">La Paz</option>
+                                                <option value="La Unión">La Unión</option>
+                                                <option value="Morazán">Morazán</option>
+                                                <option value="San Miguel">San Miguel</option>
+                                                <option value="San Salvador">San Salvador</option>
+                                                <option value="San Vicente">San Vicente</option>
+                                                <option value="Santa Ana">Santa Ana</option>
+                                                <option value="Sonsonate">Sonsonate</option>
+                                                <option value="Usulután">Usulután</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
-
-                                <div class="form-floating mb-0 p-0">
-                                    <input type="text" class="form-control" id="input_modelo" placeholder="...">
-                                    <label for="input_modelo">NIT</label>
+                                <!-- Columna derecha -->
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="text" class="form-control" id="input_placa" placeholder="...">
+                                            <label for="input_placa">Nombres</label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="text" class="form-control" id="input_placa" placeholder="...">
+                                            <label for="input_placa">Apellidos</label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="text" class="form-control" id="input_placa" placeholder="...">
+                                            <label for="input_placa">Correo</label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <label for="fechanInput" class="form-label px-2 pt-1 p-0 m-0">Fecha de
+                                                fabricación</label>
+                                            <input type="date" class="form-control" id="fechanInput" placeholder="" required>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-floating mb-0 p-0">
-                                    <input type="text" class="form-control" id="input_tipo" placeholder="...">
-                                    <label for="input_tipo">Telefono</label>
-                                </div>
-                                <div class="form-floating mb-0 p-0">
-                                    <input type="text" class="form-control" id="input_tipo" placeholder="...">
-                                    <label for="input_tipo">Departamento</label>
-                                </div>
                             </div>
-                        </div>
-
-                        <div class="content-add-info col-lg-7 col-12">
-                            <div class="form-floating mb-0 p-0">
-                                <input type="text" class="form-control" id="input_marca" placeholder="...">
-                                <label for="input_marca">Nombres</label>
-                            </div>
-
-                            <div class="form-floating mb-0 p-0">
-                                <input type="text" class="form-control" id="input_modelo" placeholder="...">
-                                <label for="input_modelo">Apellidos</label>
-                            </div>
-                            <div class="form-floating mb-0 p-0">
-                                <input type="text" class="form-control" id="input_tipo" placeholder="...">
-                                <label for="input_tipo">Correo</label>
-                            </div>
-                            <div class="form-floating mb-0 p-0">
-                                <input type="text" class="form-control" id="input_fechaFAB" placeholder="...">
-                                <label for="datepicker">Fecha de registro</label>
-                            </div>
-                        </div>
+                        </form>
                     </div>
-                    <div class="modal-footer d-flex justify-content-center align-items-center col-lg-12 col-12 mt-5">
-                        <button type="button" class="btn btn-secondary btnCancel me-lg-5 me-3 me-md-5"
-                            onclick="openClose()">Cancelar</button>
-                        <button type="button" class="btn btn-primary btnSave me-lg-5 me-3 me-md-5" onclick="openNoti()">
-                            Guardar</button>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-dark" id="cancelarModalButton"
+                            data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger" onclick="showSuccessAlert()">Aceptar</button>
                     </div>
                 </div>
             </div>
@@ -405,19 +744,12 @@
     <!--*Libreria de mensajes-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!--Dejarlo NOQUITAR-->
     <!-- *Llamada al controlador del sitio publico -->
-    <script type="text/javascript" src="/controlador/utilidades/privado.js"></script> <!--Dejarlo NOQUITAR-->
+    <script type="text/javascript" src="../../controlador/utilidades/privado.js"></script> <!--Dejarlo NOQUITAR-->
     <!-- *Llamada al controlador de la página web -->
-    <script type="text/javascript" src="/controlador/privado/automoviles.js"></script>
+    <script type="text/javascript" src="../../controlador/privado/persona_natural.js"></script>
     <!--Cambiarlo por el js de la página en cuestion-->
     <!-- Llamada al controlador del componente -->
     <script type="text/javascript" src="../../controlador/utilidades/components.js"></script>
 </body>
-
-function inicializarCollapse() {
-var collapseElementList = [].slice.call(document.querySelectorAll('.collapse'));
-var collapseList = collapseElementList.map(function (collapseEl) {
-return new bootstrap.Collapse(collapseEl);
-});
-}
 
 </html>

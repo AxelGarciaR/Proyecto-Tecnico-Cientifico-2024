@@ -4,494 +4,650 @@
 
 <head>
     <!-- Título del documento -->
-    <title>Persona Juridica - DARG</title>
+    <title>Persona Juridica - DARG</title> <!--Cambiarlo por el titulo de la página en cuestion-->
 
     <!-- Metadatos de la página web -->
     <meta charset="utf-8">
     <meta name="author" content="DARG_Company">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- IMPORTACIÓN DE RECURSOS EXTERNOS -->
+    <!-- *IMPORTACIÓN DE RECURSOS EXTERNOS -->
     <!-- Llamada al icono de la página web -->
-    <link type="image/png" rel="icon" href="../../recursos/imagenes/icons/icono_usuario.svg">
+    <link type="image/png" rel="icon" href="../../recursos/imagenes/icons/auto_icon.svg">
 
-    <!-- Llamada a las hojas de estilos del framework (BOOSTRAP) -->
+    <!-- *Llamada a las hojas de estilos del framework (BOOSTRAP) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
 
-    <!-- Llamada a las hojas de estilos propios de css (CREADOS)-->
-    <link href="../../recursos/estilos/privado/usuario.css" rel="stylesheet">
+    <!-- *Llamada a las hojas de estilos del sidebar de filtros-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- *Llamada a las hojas de estilos propios de css (CREADOS)-->
+    <link href="../../recursos/estilos/privado/persona_juridica.css" rel="stylesheet">
+    <!--Cambiarlo por el css de la página en cuestion-->
     <link href="../../recursos/estilos/fuentes.css" rel="stylesheet"> <!--Dejarlo NOQUITAR-->
     <link href="../../recursos/estilos/privado/plantilla.css" rel="stylesheet"> <!--Dejarlo NOQUITAR-->
-    <link href="../../recursos/estilos/privado/persona_juridica.css" rel="stylesheet">
+
+    <!-- *Llamada a las hojas de estilos del DatePicker-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-    <!-- Contenido principal del documento -->
-    <main>
-        <div class="main-content">
-            <!-- Barra lateral de Filtros-->
-            <div class="filtro-container">
-                <!-- Contenedor de búsqueda -->
-                <div class="search-container">
-                    <!-- Etiqueta y campo de entrada de búsqueda -->
-                    <label for="busqueda" class="form-label"></label>
-                    <div class="search-input">
-                        <input type="text" class="form-control" id="busqueda" placeholder="Buscar...">
-                        <!-- Icono de búsqueda -->
-                        <img src="../../recursos/imagenes/icons/lupa.png" alt="Icono de Búsqueda" class="search-icon">
+    <!-- *Contenido principal del documento -->
+    <main class="open">
+        <div class="container-fluid p-0 d-flex h-100">
+            <div id="bdSidebar"
+                class="d-flex flex-column flex-shrink-0 p-3 pt-5 text-black offcanvas-md offcanvas-start col-12 col-lg-3 col-md-4"
+                data-bs-toggle="offcanvas"> <!-- Contenedor del menu lateral (filtros) -->
+                <div class="sidebar-header"> <!-- Contenedor del header del menu lateral (filtros) -->
+                    <div class="input-group search shadow-sm"> <!-- Contenedor del los input de entrada -->
+                        <input type="text" class="form-control search" placeholder="Buscar...">
+                        <button type="button" class="btn btn-outline"><i class="bi-search"><img
+                                    src="../../recursos/imagenes/icons/icon-search.svg"></i></button>
+                    </div>
+                    <div class="d-flex justify-content-center d-flex align-items-baseline">
+                        <!-- Contenedor del los input de entrada -->
+                        <img src="../../recursos/imagenes/icons/Vector.png" width="25px" height="25px">
+                        <h3 class="px-3 open-sans-bold">Filtros</h3>
+                        <a href="#" class="text-black d-md-none" data-bs-toggle="offcanvas" data-bs-target="#bdSidebar">
+                            <h3 class="open-sans-bold">X</h3>
+                        </a>
                     </div>
                 </div>
+                <hr>
+                <div class="sidebar-body"> <!-- Contedor del cuerpo de los filtros-->
+                    <ul class="list-unstyled ps-0 cursor-hover "> <!-- Lista no ordenada de los filtros-->
+                        <!--TODO ----------------------------ELEMENTO MARCAS----------------------------------->
+                        <li class="mb-1 cursor-hover d-flex flex-column align-items-center">
+                            <!-- Primer elemento de filtros-->
+                            <!-- Elemento de la lista-->
+                            <button class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton"
+                                data-bs-toggle="collapse" data-bs-target="#Departamentos" aria-expanded="false"
+                                onclick="rotarImagen('img1')">
+                                <span class="d-flex justify-content-between align-items-center">
+                                    <h5 class="open-sans-semibold m-0 p-0 ms-2">
+                                        Departamentos
+                                    </h5> <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img1"
+                                        class="imagen">
+                                </span>
+                            </button>
 
+                            <div class="collapse" id="Departamentos">
+                                <select class="form-select" onchange="seleccionarDepartamento(this)">
+                                    <option value="">Seleccionar departamento</option>
+                                    <option value="Ahuachapán">Ahuachapán</option>
+                                    <option value="Cabañas">Cabañas</option>
+                                    <option value="Chalatenango">Chalatenango</option>
+                                    <option value="Cuscatlán">Cuscatlán</option>
+                                    <option value="La Libertad">La Libertad</option>
+                                    <option value="La Paz">La Paz</option>
+                                    <option value="La Unión">La Unión</option>
+                                    <option value="Morazán">Morazán</option>
+                                    <option value="San Miguel">San Miguel</option>
+                                    <option value="San Salvador">San Salvador</option>
+                                    <option value="San Vicente">San Vicente</option>
+                                    <option value="Santa Ana">Santa Ana</option>
+                                    <option value="Sonsonate">Sonsonate</option>
+                                    <option value="Usulután">Usulután</option>
+                                </select>
+                            </div>
+                        </li>
 
-                 <!-- Contenedor de título y icono de filtros -->
-                 <div class="filtroimg-container">
-                    <!-- Icono de filtros -->
-                    <img src="../../recursos/imagenes/icons/Vector.png" alt="">
-                    <!-- Etiqueta de filtros -->
-                    <label for="filtro" class="form-label"> Filtros</label>
-                </div>
+                        <!--TODO ----------------------------ELEMENTO FECHA DE FABRICACIÓN----------------------------------->
+                        <hr>
+                        <li class="mb-1 cursor-hover d-flex flex-column align-items-center">
+                            <!--Tercer elemento de filtros-->
+                            <button class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton"
+                                data-bs-toggle="collapse" data-bs-target="#FechaFab" aria-expanded="false"
+                                onclick="rotarImagen('img2')">
+                                <span class="d-flex justify-content-between align-items-center">
+                                    <h5 class="open-sans-semibold m-0 p-0 ms-2">
+                                        Fecha de registro del cliente
+                                    </h5>
+                                    <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img2" class="imagen">
+                                </span>
+                            </button>
 
-               <!-- Línea divisoria -->
-               <hr style="border-top: 1px solid black; margin: 10px 0;">
+                            <!--Contenedor de las fechas-->
+                            <div class="collapse col-11 mt-3" id="FechaFab">
+                                <!--Contenedor flexbox-->
+                                <div class="d-flex flex-lg-row flex-md-column flex-column mt-3 justify-content-between">
+                                    <!--Contenedor de la fecha inicial (desde))-->
+                                    <div class="fecha-desde col-lg-5 col-11">
+                                        <h6 class="open-sans-regular">Desde</h6>
+                                        <input id="datepicker-desde" class="open-sans-regular-italic datepickerA" />
+                                    </div>
+                                    <!--Contenedor de la fecha posterios (hasta)-->
+                                    <div class="fecha-hasta col-lg-5 col-11">
+                                        <h6 class="open-sans-regular">Hasta</h6>
+                                        <input id="datepicker-hasta" class="open-sans-regular-italic datepickerA" />
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
 
+                        <!--TODO ----------------------------CANTIDAD DE AUTOS----------------------------------->
+                        <hr>
+                        <li class="mb-1 cursor-hover d-flex flex-column align-items-center">
+                            <!--Segundo elemento de filtros-->
+                            <button class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton"
+                                data-bs-toggle="collapse" data-bs-target="#CantAutos" aria-expanded="false"
+                                onclick="rotarImagen('img3')">
+                                <span class="d-flex justify-content-between align-items-center">
+                                    <h5 class="open-sans-semibold m-0 p-0 ms-2">
+                                        Cantidad de autos a su nombre
+                                    </h5>
+                                    <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img3" class="imagen">
+                                </span>
+                            </button>
 
-                <div class="filtro-section">
-                    <label for="departamento">Departamento Residencial</label>
-                    <select id="departamento" name="departamento">
-                        <option value="Ahuachapán">Ahuachapán</option>
-                        <option value="Cabañas">Cabañas</option>
-                        <option value="Chalatenango">Chalatenango</option>
-                        <option value="Cuscatlán">Cuscatlán</option>
-                        <option value="La Libertad">La Libertad</option>
-                        <option value="La Paz">La Paz</option>
-                        <option value="La Unión">La Unión</option>
-                        <option value="Morazán">Morazán</option>
-                        <option value="San Miguel">San Miguel</option>
-                        <option value="San Salvador">San Salvador</option>
-                        <option value="San Vicente">San Vicente</option>
-                        <option value="Santa Ana">Santa Ana</option>
-                        <option value="Sonsonate">Sonsonate</option>
-                        <option value="Usulután">Usulután</option>
-                    </select>
-                </div>
+                            <div class="collapse col-11 mt-3" id="CantAutos">
+                                <div class="range-container">
+                                    <span class="range-label">1</span>
+                                    <input type="range" class="form-range" id="customRange1">
+                                    <span class="range-label">100</span>
+                                </div>
+                            </div>
 
+                        </li>
+                        <!--TODO ----------------------------CANTIDAD DE MARCA DE AUTOS----------------------------------->
+                        <hr>
+                        <!-- Segundo elemento de filtros-->
+                        <li class="mb-1 cursor-hover d-flex flex-column align-items-center">
+                            <!-- Elemento de la lista-->
+                            <button class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton"
+                                data-bs-toggle="collapse" data-bs-target="#Marca" aria-expanded="false"
+                                onclick="rotarImagen('img4')">
+                                <span class="d-flex justify-content-between align-items-center">
+                                    <h5 class="open-sans-semibold m-0 p-0 ms-2">
+                                        Marcas de autos
+                                    </h5>
+                                    <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img4" class="imagen">
+                                </span>
+                            </button>
 
-                <div class="filtro-section">
-                    <label for="fecha">Fecha de Registro</label><br>
-                    <label for="fecha-desde">Desde</label> <br>
-                    <input type="date" id="fecha" name="fecha-desde">
-                    <label for="fecha-hasta">Hasta</label> <br>
-                    <input type="date" id="fecha-hasta" name="fecha-hasta">
-                </div>
+                            <!-- Contenedor de los checkboxs del colores-->
+                            <div class="collapse col-11 mt-3" id="Marca">
+                                <!--Contenedor de la lista no ordenada-->
+                                <ul class="list-group contenedor-checkbox">
+                                    <!--Contenedor del auto 1-->
+                                    <li class="list-group-item p-0 m-0 px-2">
+                                        <input class="form-check-input me-2" type="checkbox" id="Marca1">
+                                        <label class="form-check-label stretched-link" for="Marca1">
+                                            <h6 class="m-0 p-0 open-sans-regular">
+                                                KIA
+                                            </h6>
+                                        </label>
+                                    </li>
+                                    <!--Contenedor del auto 2-->
+                                    <li class="list-group-item p-0 m-0 px-2">
+                                        <input class="form-check-input me-2" type="checkbox" id="Marca2">
+                                        <label class="form-check-label stretched-link" for="Marca2">
+                                            <h6 class="m-0 p-0 open-sans-regular">
+                                                TOYOTA
+                                            </h6>
+                                        </label>
+                                    </li>
+                                    <!--Contenedor del auto 3-->
+                                    <li class="list-group-item p-0 m-0 px-2">
+                                        <input class="form-check-input me-2" type="checkbox" id="Marca3">
+                                        <label class="form-check-label stretched-link" for="Marca3">
+                                            <h6 class="m-0 p-0 open-sans-regular">
+                                                MAZDA
+                                            </h6>
+                                        </label>
+                                    </li>
+                                    <!--Contenedor del auto 4-->
+                                    <li class="list-group-item p-0 m-0 px-2">
+                                        <input class="form-check-input me-2" type="checkbox" id="Marca4">
+                                        <label class="form-check-label stretched-link" for="Marca4">
+                                            <h6 class="m-0 p-0 open-sans-regular">
+                                                HYUNDAI
+                                            </h6>
+                                        </label>
+                                    </li>
+                                    <!--Contenedor del auto 5-->
+                                    <li class="list-group-item p-0 m-0 px-2">
+                                        <input class="form-check-input me-2" type="checkbox" id="Marca5">
+                                        <label class="form-check-label stretched-link" for="Marca">
+                                            <h6 class="m-0 p-0 open-sans-regular">
+                                                FORD
+                                            </h6>
+                                        </label>
+                                    </li>
 
-                <div class="filtro-section">
-                    <label for="cantidad-autos">Cantidad de Autos:</label>
-                    <div class="ui-range-values">
-                        <div class="ui-range-value-min">
-                            <span>1</span>
-                            <input type="hidden" name="minprice" id="minprice" value="1">
-                        </div>
-                        &nbsp;-&nbsp;
-                        <div class="ui-range-value-max">
-                            <p id="price-value">50</p>
-                            <input type="hidden" name="maxprice" id="maxprice" value="100">
-                        </div>
-                    </div>
-                    <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRangeAutos">
-                </div>
+                                </ul>
+                            </div>
+                        </li>
 
-                <div class="filtro-section">
-                    <label>Marcas de Auto</label><br>
-                    <input type="checkbox" class="marca-checkbox" id="marca1" name="marca1">
-                    <label for="marca1">Toyota</label><br>
-                    <input type="checkbox" class="marca-checkbox" id="marca2" name="marca2">
-                    <label for="marca2">Honda</label><br>
-                    <input type="checkbox" class="marca-checkbox" id="marca3" name="marca3">
-                    <label for="marca3">Ford</label><br>
-                    <input type="checkbox" class="marca-checkbox" id="marca4" name="marca4">
-                    <label for="marca4">Chevrolet</label><br>
-                    <input type="checkbox" class="marca-checkbox" id="marca5" name="marca5">
-                    <label for="marca5">Volkswagen</label><br>
-                    <input type="checkbox" class="marca-checkbox" id="marca6" name="marca6">
-                    <label for="marca6">Nissan</label><br>
-                    <input type="checkbox" class="marca-checkbox" id="marca7" name="marca7">
-                    <label for="marca7">BMW</label><br>
-                    <input type="checkbox" class="marca-checkbox" id="marca8" name="marca8">
-                    <label for="marca8">Mercedes-Benz</label><br>
-                    <input type="checkbox" class="marca-checkbox" id="marca9" name="marca9">
-                    <label for="marca9">Audi</label><br>
-                    <input type="checkbox" class="marca-checkbox" id="marca10" name="marca10">
-                    <label for="marca10">Hyundai</label><br>
-                </div>
+                        <!--TODO ----------------------------CANTIDAD DE SERVICIOS----------------------------------->
+                        <hr>
+                        <!-- Segundo elemento de filtros-->
+                        <li class="mb-1 cursor-hover d-flex flex-column align-items-center">
+                            <!-- Elemento de la lista-->
+                            <button class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton"
+                                data-bs-toggle="collapse" data-bs-target="#Servicios" aria-expanded="false"
+                                onclick="rotarImagen('img5')">
+                                <span class="d-flex justify-content-between align-items-center">
+                                    <h5 class="open-sans-semibold m-0 p-0 ms-2">
+                                        Servicios
+                                    </h5>
+                                    <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img5" class="imagen">
+                                </span>
+                            </button>
 
-                <div class="filtro-section">
-                    <label>Servicios para Autos</label><br>
-                    <input type="checkbox" class="servicio-checkbox" id="servicio1" name="servicio1"
-                        style="color: #FF0000;">
-                    <label for="servicio1">Cambio de aceite</label><br>
-                    <input type="checkbox" class="servicio-checkbox" id="servicio2" name="servicio2"
-                        style="color: #FF0000;">
-                    <label for="servicio2">Alineación</label><br>
-                    <input type="checkbox" class="servicio-checkbox" id="servicio3" name="servicio3"
-                        style="color: #FF0000;">
-                    <label for="servicio3">Balanceo</label><br>
-                    <input type="checkbox" class="servicio-checkbox" id="servicio4" name="servicio4"
-                        style="color: #FF0000;">
-                    <label for="servicio4">Revisión de frenos</label><br>
-                    <input type="checkbox" class="servicio-checkbox" id="servicio5" name="servicio5"
-                        style="color: #FF0000;">
-                    <label for="servicio5">Cambio de neumáticos</label><br>
-                    <input type="checkbox" class="servicio-checkbox" id="servicio6" name="servicio6"
-                        style="color: #FF0000;">
-                    <label for="servicio6">Lavado y aspirado</label><br>
-                    <input type="checkbox" class="servicio-checkbox" id="servicio7" name="servicio7"
-                        style="color: #FF0000;">
-                    <label for="servicio7">Reparación eléctrico</label><br>
-                    <input type="checkbox" class="servicio-checkbox" id="servicio8" name="servicio8"
-                        style="color: #FF0000;">
-                    <label for="servicio8">Cambio de bujías</label><br>
-                    <input type="checkbox" class="servicio-checkbox" id="servicio9" name="servicio9"
-                        style="color: #FF0000;">
-                    <label for="servicio9">Recarga de refrigerante</label><br>
-                </div>
+                            <!-- Contenedor de los checkboxs del colores-->
+                            <div class="collapse col-11 mt-3" id="Servicios">
+                                <!--Contenedor de la lista no ordenada-->
+                                <ul class="list-group contenedor-checkbox">
+                                    <!--Contenedor del auto 1-->
+                                    <li class="list-group-item p-0 m-0 px-2">
+                                        <input class="form-check-input me-2" type="checkbox" id="Servicio1">
+                                        <label class="form-check-label stretched-link" for="Servicio1">
+                                            <h6 class="m-0 p-0 open-sans-regular">
+                                                Mécanica General
+                                            </h6>
+                                        </label>
+                                    </li>
+                                    <!--Contenedor del auto 2-->
+                                    <li class="list-group-item p-0 m-0 px-2">
+                                        <input class="form-check-input me-2" type="checkbox" id="Servicio2">
+                                        <label class="form-check-label stretched-link" for="Servicio2">
+                                            <h6 class="m-0 p-0 open-sans-regular">
+                                                Aire Condicionado
+                                            </h6>
+                                        </label>
+                                    </li>
+                                    <!--Contenedor del auto 3-->
+                                    <li class="list-group-item p-0 m-0 px-2">
+                                        <input class="form-check-input me-2" type="checkbox" id="Servicio3">
+                                        <label class="form-check-label stretched-link" for="Servicio3">
+                                            <h6 class="m-0 p-0 open-sans-regular">
+                                                Mantenimiento General
+                                            </h6>
+                                        </label>
+                                    </li>
+                                    <!--Contenedor del auto 4-->
+                                    <li class="list-group-item p-0 m-0 px-2">
+                                        <input class="form-check-input me-2" type="checkbox" id="Servicio4">
+                                        <label class="form-check-label stretched-link" for="Servicio4">
+                                            <h6 class="m-0 p-0 open-sans-regular">
+                                                Enderezado
+                                            </h6>
+                                        </label>
+                                    </li>
+                                    <!--Contenedor del auto 5-->
+                                    <li class="list-group-item p-0 m-0 px-2">
+                                        <input class="form-check-input me-2" type="checkbox" id="Servicio5">
+                                        <label class="form-check-label stretched-link" for="Servicio5">
+                                            <h6 class="m-0 p-0 open-sans-regular">
+                                                Cambio de Aceite
+                                            </h6>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
 
-                <!-- Nuevo filtro para Rubro -->
-                <div class="filtro-section">
-                    <label for="rubro">Rubro al que pertenece</label>
-                    <select id="rubro" name="rubro">
-                        <option value="alimenticio">Alimenticio</option>
-                    </select>
+                        <!--TODO ----------------------------ELEMENTO RUBRO COMERCIAL----------------------------------->
+                        <hr>
+                        <li class="mb-1 cursor-hover d-flex flex-column align-items-center">
+                            <!-- Primer elemento de filtros-->
+                            <!-- Elemento de la lista-->
+                            <button class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton"
+                                data-bs-toggle="collapse" data-bs-target="#Rubro" aria-expanded="false"
+                                onclick="rotarImagen('img6')">
+                                <span class="d-flex justify-content-between align-items-center">
+                                    <h5 class="open-sans-semibold m-0 p-0 ms-2">
+                                        Rubro Comercial
+                                    </h5> <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img6"
+                                        class="imagen">
+                                </span>
+                            </button>
+
+                            <div class="collapse" id="Rubro">
+                                <select class="form-select" onchange="seleccionarDepartamento(this)">
+                                    <option value="">Seleccionar Rubro Comercial</option>
+                                    <option value="Ahuachapán">Alimenticio</option>
+                                    <option value="Cabañas">Automotriz</option>
+                                    <option value="Chalatenango">Belleza</option>
+                                    <option value="Cuscatlán">Calzado</option>
+                                </select>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
+            <!-- TODO -----------------------------------CUERPO----------------------------------->
+            <div class="flex-fill col-12">
+                <!--Contenedor del boton para abrir los filtros colapsados-->
+                <div class="p-2 d-md-none d-flex text-white btnSlBg">
+                    <a href="#" class="text-white" data-bs-toggle="offcanvas" data-bs-target="#bdSidebar">
+                        <i class="fa-solid fa-bars"></i>
+                    </a>
+                    <h5 class="open-sans-bold text-white mx-3">
+                        Filtros
+                    </h5>
+                </div>
+                <!--Contenedor total del cuerpo de la página-->
+                <div class="contenedor-total-cards col-12">
+                     <!--Contenedor de la primera card - card de agregar automovil-->
+                     <div class="add-auto-card d-flex align-items-center justify-content-center">
+                        <img src="../../recursos/imagenes/icons/addCar.svg" class="hvr-grow" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">
+                    </div>
+                    <!--Card del automovil 1-->
+                    <div class="auto-card card" onclick="gotoDetail()">
+                        <div class="content z-3">
+                            <h4 class="open-sans-light-italic">Màs informaciòn</h4>
+                        </div>
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/carexmpl2.jpg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="d-flex flex-column">
+                                <div class="d-flex flex-column f1">
+                                    <h2>Axel garcia</h2>
+                                    <p>Lo otro</p>
+                                </div>
+                                <div class="d-flex justify-content-around ">
+                                    <div class="contenedor-dui d-flex-flex-column position-relative">
+                                        <h1>DUI</h1>
+                                        <p>lo otro</p>
+                                        <div class="linear2 position-absolute"></div>
+                                    </div>
+                                    
+                                    <div class="contenedor-telefono d-flex-flex-column">
+                                        <h1>Telefono</h1>
+                                        <p>lo otro</p>
+                                    </div>
+                                </div>
 
-
-            <!-- Tarjeta de productos -->
-            <div class="product-card">
-                    <div class="text-center mt-3"> <!-- Agregamos la clase text-center para centrar el contenido y mt-3 para agregar margen superior -->
-                        <button onclick="cambiarPagina()" class="btn btn-danger">Cambiar a Persona Natural</button> <!-- Aplicamos la clase btn y btn-danger para dar estilo de botón y color rojo -->
+                            </div>
+                        </div>
                     </div>
 
-                <div class="container product-container">
-                    <div class="row" id="jj">
-                        <!-- BOTON-->
-                        <div class="col-lg-4 mb-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <button class="custom-button"  onclick="openModal()"
-                                        style="font-size: 150px; padding: 44px; width: 300px; background-color: #AFABAB;">
-                                        <img src="../../recursos/imagenes/icons/Añadir.png" alt="Imagen">
-                                    </button>
+                    <div class="auto-card card" onclick="gotoDetail()">
+                        <div class="content z-3">
+                            <h4 class="open-sans-light-italic">Màs informaciòn</h4>
+                        </div>
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/carexmpl2.jpg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="d-flex flex-column">
+                                <div class="d-flex flex-column f1">
+                                    <h2>Axel garcia</h2>
+                                    <p>Lo otro</p>
                                 </div>
+                                <div class="d-flex justify-content-around ">
+                                    <div class="contenedor-dui d-flex-flex-column position-relative">
+                                        <h1>DUI</h1>
+                                        <p>lo otro</p>
+                                        <div class="linear2 position-absolute"></div>
+                                    </div>
+                                    
+                                    <div class="contenedor-telefono d-flex-flex-column">
+                                        <h1>Telefono</h1>
+                                        <p>lo otro</p>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Modal Agregar Cliente-->
-                        <div class="modal fade" id="agregarCategoriaModal" tabindex="-1"
-                            aria-labelledby="agregarCategoriaModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="agregarCategoriaModalLabel">Agregar Cliente</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+                    <div class="auto-card card" onclick="gotoDetail()">
+                        <div class="content z-3">
+                            <h4 class="open-sans-light-italic">Màs informaciòn</h4>
+                        </div>
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/carexmpl2.jpg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="d-flex flex-column">
+                                <div class="d-flex flex-column f1">
+                                    <h2>Axel garcia</h2>
+                                    <p>Lo otro</p>
+                                </div>
+                                <div class="d-flex justify-content-around ">
+                                    <div class="contenedor-dui d-flex-flex-column position-relative">
+                                        <h1>DUI</h1>
+                                        <p>lo otro</p>
+                                        <div class="linear2 position-absolute"></div>
                                     </div>
-                                    <div class="modal-body">
-                                        <form>
-                                            <!-- Columna izquierda -->
-                                            <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <label for="nombreCategoria" class="form-label">DUI</label>
-                                                    <input type="number" class="form-control" id="nombreCategoria">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="nombreCategoria" class="form-label">NIT</label>
-                                                    <input type="number" class="form-control" id="nombreCategoria">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="nombreCategoria" class="form-label">Telefono</label>
-                                                    <input type="number" class="form-control" id="nombreCategoria">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="departamento" class="form-label">Departamento</label>
-                                                    <select class="form-select" id="departamento">
-                                                        <option value="">Selecciona un departamento</option>
-                                                        <option value="Ahuachapán">Ahuachapán</option>
-                                                        <option value="Cabañas">Cabañas</option>
-                                                        <option value="Chalatenango">Chalatenango</option>
-                                                        <option value="Cuscatlán">Cuscatlán</option>
-                                                        <option value="La Libertad">La Libertad</option>
-                                                        <option value="La Paz">La Paz</option>
-                                                        <option value="La Unión">La Unión</option>
-                                                        <option value="Morazán">Morazán</option>
-                                                        <option value="San Miguel">San Miguel</option>
-                                                        <option value="San Salvador">San Salvador</option>
-                                                        <option value="San Vicente">San Vicente</option>
-                                                        <option value="Santa Ana">Santa Ana</option>
-                                                        <option value="Sonsonate">Sonsonate</option>
-                                                        <option value="Usulután">Usulután</option>
-                                                    </select>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="nombreCategoria" class="form-label">NRC</label>
-                                                    <input type="number" class="form-control" id="nombreCategoria">
-                                                </div>
-                                            </div>
-                                                <!-- Columna derecha -->
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="nombreCategoria" class="form-label">Nombre</label>
-                                                        <input type="text" class="form-control" id="nombreCategoria">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="nombreCategoria"
-                                                            class="form-label">Apellidos</label>
-                                                        <input type="text" class="form-control" id="nombreCategoria">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="nombreCategoria"
-                                                            class="form-label">Correo</label>
-                                                        <input type="text" class="form-control" id="nombreCategoria">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="nombreCategoria"
-                                                            class="form-label">Fecha de Registro</label>
-                                                        <input type="datetime" class="form-control" id="nombreCategoria">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="rubroComercial" class="form-label">Rubro Comercial</label>
-                                                        <select class="form-select" id="rubroComercial">
-                                                            <option value="">Selecciona un rubro</option>
-                                                            <option value="Comida">Comida</option>
-                                                            <option value="Tecnología">Tecnología</option>
-                                                            <option value="Moda">Moda</option>
-                                                            <option value="Automotriz">Automotriz</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form> 
+                                    
+                                    <div class="contenedor-telefono d-flex-flex-column">
+                                        <h1>Telefono</h1>
+                                        <p>lo otro</p>
                                     </div>
-                                    <div class="modal-footer justify-content-center">
-                                        <button type="button" class="btn btn-dark" id="cancelarModalButton"
-                                            data-bs-dismiss="modal">Cancelar</button>
-                                        <button type="button" class="btn btn-danger"
-                                            onclick="showSuccessAlert()">Aceptar</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="auto-card card" onclick="gotoDetail()">
+                        <div class="content z-3">
+                            <h4 class="open-sans-light-italic">Màs informaciòn</h4>
+                        </div>
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/carexmpl2.jpg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="d-flex flex-column">
+                                <div class="d-flex flex-column f1">
+                                    <h2>Axel garcia</h2>
+                                    <p>Lo otro</p>
+                                </div>
+                                <div class="d-flex justify-content-around ">
+                                    <div class="contenedor-dui d-flex-flex-column position-relative">
+                                        <h1>DUI</h1>
+                                        <p>lo otro</p>
+                                        <div class="linear2 position-absolute"></div>
+                                    </div>
+                                    
+                                    <div class="contenedor-telefono d-flex-flex-column">
+                                        <h1>Telefono</h1>
+                                        <p>lo otro</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="auto-card card" onclick="gotoDetail()">
+                        <div class="content z-3">
+                            <h4 class="open-sans-light-italic">Màs informaciòn</h4>
+                        </div>
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/carexmpl2.jpg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="d-flex flex-column">
+                                <div class="d-flex flex-column f1">
+                                    <h2>Axel garcia</h2>
+                                    <p>Lo otro</p>
+                                </div>
+                                <div class="d-flex justify-content-around ">
+                                    <div class="contenedor-dui d-flex-flex-column position-relative">
+                                        <h1>DUI</h1>
+                                        <p>lo otro</p>
+                                        <div class="linear2 position-absolute"></div>
+                                    </div>
+                                    
+                                    <div class="contenedor-telefono d-flex-flex-column">
+                                        <h1>Telefono</h1>
+                                        <p>lo otro</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="auto-card card" onclick="gotoDetail()">
+                        <div class="content z-3">
+                            <h4 class="open-sans-light-italic">Màs informaciòn</h4>
+                        </div>
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/carexmpl2.jpg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="d-flex flex-column">
+                                <div class="d-flex flex-column f1">
+                                    <h2>Axel garcia</h2>
+                                    <p>Lo otro</p>
+                                </div>
+                                <div class="d-flex justify-content-around ">
+                                    <div class="contenedor-dui d-flex-flex-column position-relative">
+                                        <h1>DUI</h1>
+                                        <p>lo otro</p>
+                                        <div class="linear2 position-absolute"></div>
+                                    </div>
+                                    
+                                    <div class="contenedor-telefono d-flex-flex-column">
+                                        <h1>Telefono</h1>
+                                        <p>lo otro</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+        <!--TODO -------------------------------MODAL ADD---------------------->
+        <!-- Contenedor del modal de agregar automovil-->
+        <div class="modal fade" id="agregarCategoriaModal" data-bs-backdrop="static" data-bs-keyboard="false"
+            tabindex="-1" aria-labelledby="agregarCategoriaModalLabel" aria-hidden="true">
+            <!-- Contenedor del modal dialog-->
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <!-- Contenedor del modal content-->
+                <div class="modal-content p-lg-5 p-1 p-md-4 pb-0 pb-lg-3">
+                    <!-- Contenedor del modal body-->
+                    <div class="modal-body">
+                        <form>
+                            <!-- Columna izquierda -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="text" class="form-control" id="input_placa" placeholder="...">
+                                            <label for="input_placa">DUI</label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="text" class="form-control" id="input_placa" placeholder="...">
+                                            <label for="input_placa">NIT</label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="text" class="form-control" id="input_placa" placeholder="...">
+                                            <label for="input_placa">Telefono</label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="text" class="form-control" id="input_placa" placeholder="...">
+                                            <label for="input_placa">NRC</label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <label class="form-label px-2 pt-0 p-0 m-0">Departamento</label>
+                                            <select class="form-select pt-4 open-sans-regular"
+                                                aria-label="Default select example">
+                                                <option value="Ahuachapán">Ahuachapán</option>
+                                                <option value="Cabañas">Cabañas</option>
+                                                <option value="Chalatenango">Chalatenango</option>
+                                                <option value="Cuscatlán">Cuscatlán</option>
+                                                <option value="La Libertad">La Libertad</option>
+                                                <option value="La Paz">La Paz</option>
+                                                <option value="La Unión">La Unión</option>
+                                                <option value="Morazán">Morazán</option>
+                                                <option value="San Miguel">San Miguel</option>
+                                                <option value="San Salvador">San Salvador</option>
+                                                <option value="San Vicente">San Vicente</option>
+                                                <option value="Santa Ana">Santa Ana</option>
+                                                <option value="Sonsonate">Sonsonate</option>
+                                                <option value="Usulután">Usulután</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Columna derecha -->
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="text" class="form-control" id="input_placa" placeholder="...">
+                                            <label for="input_placa">Nombres</label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="text" class="form-control" id="input_placa" placeholder="...">
+                                            <label for="input_placa">Apellidos</label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="text" class="form-control" id="input_placa" placeholder="...">
+                                            <label for="input_placa">Correo</label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <label for="fechanInput" class="form-label px-2 pt-1 p-0 m-0">Fecha de
+                                                fabricación</label>
+                                            <input type="date" class="form-control" id="fechanInput" placeholder=""
+                                                required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <label class="form-label px-2 pt-0 p-0 m-0">Rubro Comercial</label>
+                                            <select class="form-select pt-4 open-sans-regular"
+                                                aria-label="Default select example">
+                                                <option value="Ahuachapán">Alimenticio</option>
+                                                <option value="Cabañas">Automotriz</option>
+                                                <option value="Chalatenango">Belleza</option>
+                                                <option value="Cuscatlán">Calzado</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-
-                        <div class="col-lg-4 mb-4">
-                            <a href="clientejuridica.html">
-                                <div class="card" onmouseover="showOverlay(this)" onmouseout="hideOverlay(this)">
-                                    <img src="../../recursos/imagenes/img_personanatural/personas.png"
-                                        class="card-img-top">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Axel García</h5>
-                                        <p class="card-text">Cliente #002</p>
-                                        <!-- DUI y números -->
-                                        <div class="dui-container">
-                                            <label for="dui">DUI</label>
-                                            <p class="dui-number">12345678-9</p>
-                                            <!-- Línea roja vertical -->
-                                            <div class="red-line"></div>
-                                            <!-- Número de contacto -->
-                                            <div class="numero-container">
-                                                <label for="numero">Contacto</label>
-                                                <p class="numero-contacto">2222-2222</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="overlay">
-                                        Conoce a tu cliente
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <!-- Tarjeta de producto 3 -->
-                        <div class="col-lg-4 mb-4">
-                            <a href="clientejuridica.html">
-                                <div class="card" onmouseover="showOverlay(this)" onmouseout="hideOverlay(this)">
-                                    <img src="../../recursos/imagenes/img_personanatural/personas.png"
-                                        class="card-img-top">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Axel García</h5>
-                                        <p class="card-text">Cliente #002</p>
-                                        <!-- DUI y números -->
-                                        <div class="dui-container">
-                                            <label for="dui">DUI</label>
-                                            <p class="dui-number">12345678-9</p>
-                                            <!-- Línea roja vertical -->
-                                            <div class="red-line"></div>
-                                            <!-- Número de contacto -->
-                                            <div class="numero-container">
-                                                <label for="numero">Contacto</label>
-                                                <p class="numero-contacto">2222-2222</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="overlay">
-                                        Conoce a tu cliente
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <!-- Tarjeta de producto 4 -->
-                        <div class="col-lg-4 mb-4">
-                            <a href="clientejuridica.html">
-                                <div class="card" onmouseover="showOverlay(this)" onmouseout="hideOverlay(this)">
-                                    <img src="../../recursos/imagenes/img_personanatural/personas.png"
-                                        class="card-img-top">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Axel García</h5>
-                                        <p class="card-text">Cliente #002</p>
-                                        <!-- DUI y números -->
-                                        <div class="dui-container">
-                                            <label for="dui">DUI</label>
-                                            <p class="dui-number">12345678-9</p>
-                                            <!-- Línea roja vertical -->
-                                            <div class="red-line"></div>
-                                            <!-- Número de contacto -->
-                                            <div class="numero-container">
-                                                <label for="numero">Contacto</label>
-                                                <p class="numero-contacto">2222-2222</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="overlay">
-                                        Conoce a tu cliente
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <!-- Tarjeta de producto 5 -->
-                        <div class="col-lg-4 mb-4">
-                            <a href="clientejuridica.html">
-                                <div class="card" onmouseover="showOverlay(this)" onmouseout="hideOverlay(this)">
-                                    <img src="../../recursos/imagenes/img_personanatural/personas.png"
-                                        class="card-img-top">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Axel García</h5>
-                                        <p class="card-text">Cliente #002</p>
-                                        <!-- DUI y números -->
-                                        <div class="dui-container">
-                                            <label for="dui">DUI</label>
-                                            <p class="dui-number">12345678-9</p>
-                                            <!-- Línea roja vertical -->
-                                            <div class="red-line"></div>
-                                            <!-- Número de contacto -->
-                                            <div class="numero-container">
-                                                <label for="numero">Contacto</label>
-                                                <p class="numero-contacto">2222-2222</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="overlay">
-                                        Conoce a tu cliente
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <!-- Tarjeta de producto 6 -->
-                        <div class="col-lg-4 mb-4">
-                            <a href="clientejuridica.html">
-                            <div class="card" onmouseover="showOverlay(this)" onmouseout="hideOverlay(this)">
-                                <img src="../../recursos/imagenes/img_personanatural/personas.png" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">Axel García</h5>
-                                    <p class="card-text">Cliente #002</p>
-                                    <!-- DUI y números -->
-                                    <div class="dui-container">
-                                        <label for="dui">DUI</label>
-                                        <p class="dui-number">12345678-9</p>
-                                        <!-- Línea roja vertical -->
-                                        <div class="red-line"></div>
-                                        <!-- Número de contacto -->
-                                        <div class="numero-container">
-                                            <label for="numero">Contacto</label>
-                                            <p class="numero-contacto">2222-2222</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="overlay">
-                                    Conoce a tu cliente
-                                </div>
-                            </div>
-                        </a>
-                        </div>
-
-                        <div class="col-lg-4 mb-4">
-                            <a href="clientejuridica.html">
-                                <div class="card" onmouseover="showOverlay(this)" onmouseout="hideOverlay(this)">
-                                    <img src="../../recursos/imagenes/img_personanatural/personas.png"
-                                        class="card-img-top">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Axel García</h5>
-                                        <p class="card-text">Cliente #002</p>
-                                        <!-- DUI y números -->
-                                        <div class="dui-container">
-                                            <label for="dui">DUI</label>
-                                            <p class="dui-number">12345678-9</p>
-                                            <!-- Línea roja vertical -->
-                                            <div class="red-line"></div>
-                                            <!-- Número de contacto -->
-                                            <div class="numero-container">
-                                                <label for="numero">Contacto</label>
-                                                <p class="numero-contacto">2222-2222</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="overlay">
-                                        Conoce a tu cliente
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-
-                        <div class="col-lg-4 mb-4">
-                            <a href="clientejuridica.html">
-                                <div class="card" onmouseover="showOverlay(this)" onmouseout="hideOverlay(this)">
-                                    <img src="../../recursos/imagenes/img_personanatural/personas.png"
-                                        class="card-img-top">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Axel García</h5>
-                                        <p class="card-text">Cliente #002</p>
-                                        <!-- DUI y números -->
-                                        <div class="dui-container">
-                                            <label for="dui">DUI</label>
-                                            <p class="dui-number">12345678-9</p>
-                                            <!-- Línea roja vertical -->
-                                            <div class="red-line"></div>
-                                            <!-- Número de contacto -->
-                                            <div class="numero-container">
-                                                <label for="numero">Contacto</label>
-                                                <p class="numero-contacto">2222-2222</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="overlay">
-                                        Conoce a tu cliente
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-
+                        </form>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-dark" id="cancelarModalButton"
+                            data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger" onclick="showSuccessAlert()">Aceptar</button>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-
 
     <!-- *Llamada a las hojas de estilos del framework e iconos -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -501,32 +657,10 @@
     <!-- *Llamada al controlador del sitio publico -->
     <script type="text/javascript" src="../../controlador/utilidades/privado.js"></script> <!--Dejarlo NOQUITAR-->
     <!-- *Llamada al controlador de la página web -->
-    <script type="text/javascript" src="../../controlador/privado/usuario.js"></script>
+    <script type="text/javascript" src="../../controlador/privado/persona_juridica.js"></script>
     <!--Cambiarlo por el js de la página en cuestion-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Llamada al controlador del componente -->
+    <script type="text/javascript" src="../../controlador/utilidades/components.js"></script>
 </body>
-<script>
-    function cambiarPagina() {
-        // Obtener la URL actual
-        var url = window.location.href;
-
-        // Verificar si la URL actual es para persona natural
-        if (url.includes("personanatural")) {
-            // Cambiar a la versión de persona jurídica
-            window.location.href = url.replace("personanatural", "personajuridica");
-        } else {
-            // Si ya es la versión de persona jurídica, cambiar a la versión de persona natural
-            window.location.href = url.replace("personajuridica", "personanatural");
-        }
-    }
-
-    function openModal() {
-        $('#agregarCategoriaModal').modal('show');
-    }
-
-    function showSuccessAlert() {
-        // Aquí puedes agregar la lógica para mostrar una alerta de éxito
-    }
-</script>
 
 </html>
