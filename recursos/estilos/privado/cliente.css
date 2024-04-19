@@ -1,55 +1,188 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+/* Estilos para centrar todo el contenido verticalmente */
+body,
+html {
+    height: 100%;
+    width: 100%;
+    background-color: white;
 }
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+
+.contenedor-izq>img {
+    width: 250px;
+    height: 250px;
+}
+
+.contenedor-total {
+    min-height: 80vh;
+    width: 100%;
+
+    display: grid;
+    row-gap: 90px;
+
+    padding-top: 80px;
+}
+
+.contenedor-info {
+    background-color: white;
+    border: 1px solid #6B737A;
+    border-radius: 10px;
+    min-height: 270px;
+    margin-top: 30px;
+}
+
+.dui {
+    border-left: 2px solid red;
+    border-right: 2px solid red;
+}
+
+.contenedor-masinfo {
+    background-color: white;
+    border: 1px solid #DADCDE;
+    border-radius: 10px;
     padding: 20px;
+
 }
-.profile {
-    flex: 0 0 30%;
-    text-align: center;
+
+
+.info-header {
+    margin-bottom: 55px;
 }
-.profile img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+
+.masinfo-header {
+    width: fit-content;
+    border-bottom: 2px solid red;
+    margin-bottom: 45px;
+}
+
+.masinfo-body {
+    display: grid;
+    row-gap: 20px;
+}
+
+.depa {
+    border-bottom:1px solid red;
+}
+
+.nit {
+    border-bottom: 1px solid red;
+}
+
+.contenedor-frecuencia {
+    background-color: #F1EFEF;
+    border-radius: 10px;
+    border: 1px solid #DADCDE;
+    min-height: 200px;
+    display: grid;
+    row-gap: 20px;
+}
+
+.contenedor-drch {
+    display: grid;
+    row-gap: 50px;
+}
+
+.frecuencia-header {
+    border-bottom: 1px solid red;
+}
+
+.contenedor-scroll {
+    overflow-y: hidden;
+    overflow-x: auto;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 30px;
+
+    display: grid;
+    column-gap: 30px;
+}
+
+/*--------------- CARD DE AUTOS ----------------------*/
+
+/* Estilos para la tarjeta de auto */
+.auto-card {
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    /*min-height: 270px;
+    grid-template-rows: 5fr 2fr;*/
+    min-width: 400px;
+    max-width: 400px;
+    min-height: 300px;
+    max-height: 325px;
+}
+
+/* Estilos para la imagen dentro de la tarjeta de auto */
+.auto-card>.container-img-card>img {
+    max-inline-size: 100%;
+
+    block-size: auto;
+    object-fit: cover;
+
+    object-position: top center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    height: 100%;
+    min-width: 100%;
+    aspect-ratio: 2/1;
+}
+
+
+/* Línea roja de división */
+.line-red-split {
+    width: 100%;
+    height: 7px;
+    background-color: #E00D11;
+    top: 0;
+}
+
+/* Contenedor para la información de la tarjeta */
+.container-info-card {
+    display: grid;
+    column-gap: 10px;
+
+    border: 1px solid #D9D9D9;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+
+/* Estilos para los elementos de la tarjeta */
+.c1,
+.c2,
+.c3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos para la segunda columna de la tarjeta */
+.c2 {
+    background-color: #E00D11;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     margin-bottom: 10px;
-}
-
-.label {
-    font-weight: bold;
-    margin-bottom: 10px;
+    color: white;
 }
 
 
+/* Media query para pantallas medianas */
+@media (min-width: 682px) {
+    .container-info-card {
+        grid-template-columns: repeat(3, 1fr);
+    }
 
-
-.dui-container {
-    margin-top: 10px;
-    text-align: left; /* Asegura que el contenido de dui-container esté alineado a la izquierda */
+    .c1,
+    .c2>p,
+    .c3 {
+        flex-direction: row;
+        display: flex;
+    }
 }
 
-.numero-container {
-    float: right; /* Alinea el numero-container a la derecha */
-    width: 20%; /* Ajusta el ancho del numero-container */
-    margin-right: 20px; /* Agrega un margen derecho para separarlo del borde */
-    margin-top: -60px; /* Mueve el numero-container hacia arriba */
-}
-
-.card {
-    width: 600px; /* Aumenta el ancho del card */
-}
-
-.correo-container {
-    float: right; /* Alinea el correo-container a la derecha */
-    width: 60%; /* Ajusta el ancho del correo-container */
-    margin-right: 20px; /* Agrega un margen derecho para separarlo del borde */
-}
-
-.additional-info {
-    right: 200px; /* Ajusta la posición del contenedor "Más información" hacia la derecha */
+/* Media query para pantallas pequeñas */
+@media (min-width: 613px) {
+    .c2>p {
+        flex-direction: column;
+        display: flex;
+    }
 }
