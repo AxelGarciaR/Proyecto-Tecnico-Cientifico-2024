@@ -38,7 +38,9 @@
         <main>
             <!-- Cuadro rojo en la parte superior -->
             <div class="cuadro-rojo">
-                <a href="../privado/Citas.html"><h4><--Regresar</h4></a>
+                <a href="../privado/Citas.html">
+                    <h4> <--Regresar </h4>
+                </a>
                 <!-- Cuadro con borde redondeado en la esquina superior derecha -->
                 <div class="cuadro-con-borde">
                     <div class="factura-info">
@@ -53,13 +55,13 @@
             <form class="formContainer">
                 <div class="form-row">
                     <div class="form-floating mb-0 p-0">
-                        <label for="fechanInput" class="form-label px-2 pt-1 p-0 m-0">Fecha de registro</label>
+                        <label for="inputFechaRegistroD" class="form-label px-2 pt-1 p-0 m-0">Fecha de registro</label>
                         <input type="date" class="form-control" id="inputFechaRegistroD" placeholder="" required>
                     </div>
 
                     <div class="form-floating mb-2 p-0">
                         <input type="text" class="form-control" id="inputClienteD" placeholder="...">
-                        <label for="input_placa">Cliente</label>
+                        <label for="inputClienteD">Cliente</label>
                     </div>
                 </div>
 
@@ -74,19 +76,19 @@
 
                     <div class="form-floating mb-2 p-0">
                         <input type="text" class="form-control" id="inputPlacaAutomovilD" placeholder="...">
-                        <label for="input_placa">Placa del automovil</label>
+                        <label for="inputPlacaAutomovilD">Placa del automovil</label>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-floating mb-2 p-0">
                         <input type="text" class="form-control" id="inputDureacionGarantiaD" placeholder="...">
-                        <label for="input_placa">Duracion de garantia</label>
+                        <label for="inputDureacionGarantiaD">Duracion de garantia</label>
                     </div>
 
                     <div class="form-floating mb-2 p-0">
                         <input type="text" class="form-control" id="inputEstadoD" placeholder="...">
-                        <label for="input_placa">Estado</label>
+                        <label for="inputEstadoD">Estado</label>
                     </div>
                 </div>
 
@@ -94,7 +96,7 @@
 
                     <div class="form-floating mb-2 p-0">
                         <input type="text" class="form-control" id="inputNota" placeholder="...">
-                        <label for="input_placa">Nota</label>
+                        <label for="inputNota">Nota</label>
                     </div>
 
                     <div class="form-floating mb-2 p-0" id="formaPagoOpc">
@@ -112,36 +114,36 @@
                 <div class="form-row">
                     <div class="form-floating mb-2 p-0">
                         <input type="text" class="form-control" id="inputNombreEmisor" placeholder="...">
-                        <label for="input_placa">Nombre emisor</label>
+                        <label for="inputNombreEmisor">Nombre emisor</label>
                     </div>
 
                     <div class="form-floating mb-2 p-0">
                         <input type="text" class="form-control" id="inputDuiEmisor" placeholder="...">
-                        <label for="input_placa">Dui emisor</label>
+                        <label for="inputDuiEmisor">Dui emisor</label>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-floating mb-2 p-0">
                         <input type="text" class="form-control" id="inputNITCliente" placeholder="...">
-                        <label for="input_placa">NIT cliente</label>
+                        <label for="inputNITCliente">NIT cliente</label>
                     </div>
 
                     <div class="form-floating mb-2 p-0">
                         <input type="text" class="form-control" id="inputNCRCliente" placeholder="...">
-                        <label for="input_placa">NRC cliente</label>
+                        <label for="inputNCRCliente">NRC cliente</label>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-floating mb-2 p-0">
                         <input type="text" class="form-control" id="inputNRFCliente" placeholder="...">
-                        <label for="input_placa">NRF cliente</label>
+                        <label for="inputNRFCliente">NRF cliente</label>
                     </div>
 
                     <div class="form-floating mb-2 p-0">
                         <input type="text" class="form-control" id="inputGiroCliente" placeholder="...">
-                        <label for="input_placa">Giro cliente</label>
+                        <label for="inputGiroCliente">Giro cliente</label>
                     </div>
                 </div>
 
@@ -210,20 +212,20 @@
                 <div class="modal-content">
                     <span class="closeAServicios">&times;</span>
                     <div class="contenidoModalSer">
-    
+
                         <div class="camposServicios">
-    
+
                             <div class="form-floating mb-2 p-0">
                                 <input type="text" class="form-control" id="inputCantidadA" placeholder="...">
-                                <label for="input_placa">Cantidad</label>
+                                <label for="inputCantidadA">Cantidad</label>
                             </div>
-    
-    
+
+
                             <div class="form-floating mb-2 p-0">
                                 <input type="text" class="form-control" id="inputPrecioA" placeholder="...">
-                                <label for="input_placa">Precio</label>
+                                <label for="inputPrecioA">Precio</label>
                             </div>
-    
+
                             <div class="form-floating mb-2 p-0">
                                 <label class="form-label px-2 pt-0 p-0 m-0">Servicio</label>
                                 <select class="form-select pt-4 open-sans-regular" aria-label="Default select example">
@@ -233,20 +235,20 @@
                                     <option value="3">Servicio2</option>
                                 </select>
                             </div>
-    
+
                         </div>
-    
+
                         <div class="bottomModalSer"></div>
-    
+
                         <div class="botonesModalSer">
                             <button id="btnCancelar">Cancelar</button>
                             <button id="btnAceptar">Aceptar</button>
                         </div>
-    
+
                     </div>
                 </div>
             </div>
-        
+
         </main>
     </div>
 
