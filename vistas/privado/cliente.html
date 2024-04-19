@@ -19,80 +19,216 @@
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
 
     <!-- Llamada a las hojas de estilos propios de css (CREADOS)-->
-    <link href="../../recursos/estilos/privado/usuario.css" rel="stylesheet">
     <link href="../../recursos/estilos/fuentes.css" rel="stylesheet"> <!--Dejarlo NOQUITAR-->
     <link href="../../recursos/estilos/privado/plantilla.css" rel="stylesheet"> <!--Dejarlo NOQUITAR-->
     <link href="../../recursos/estilos/privado/cliente.css" rel="stylesheet">
 </head>
 
 <body>
-    <main>
+    <main class="open pt-4">
         <!-- Botón de regreso con una imagen -->
-        <a href="personanatural.html">
+        <a href="../../vistas/privado/persona_juridica.html">
             <img src="../../recursos/imagenes/icons/flecha.png" alt="Volver"
                 style="position: absolute; left: 10px; width: 50px; height: 50px;">
         </a>
 
-        <div class="container d-flex justify-content-center">
-            <div class="profile position-relative">
-                <div class="container d-flex justify-content-center align-items-center mx-6 mb-4">
-                    <img src="../../recursos/imagenes/img_cliente/hombre.png" alt="Imagen del Cliente" class="img-fluid"
-                        style="margin-right: 20px;">
+        <div
+            class="contenedor-total col-12 d-flex flex-column justify-content-center align-items-center px-lg-5 px-md-3 px-1">
+            <div class="fila1 col-12 d-flex flex-wrap">
+                <div
+                    class="contenedor-izq d-flex flex-column col-lg-7 col-md-6 col-12 flex-wrap justify-content-center align-items-center">
+                    <img src="../../recursos/imagenes/user_exmpl.png">
+                    <div
+                        class="contenedor-info d-flex flex-column col-lg-8 col-md-11 col-10 justify-content-center align-items-center">
+                        <div class="info-header d-flex flex-column text-center pt-4 pt-md-0 pt-lg-0">
+                            <h1 class="p-0 m-0 open-sans-bold">
+                                Axel Garcìa
+                            </h1>
+                            <p class="p-0 m-0 open-sans-regular">
+                                Cliente #003
+                            </p>
+                        </div>
+                        <div
+                            class="info-body d-flex flex-lg-row flex-column flex-md-row justify-content-around align-items-center col-12 flex-wrap pb-4 pb-md-0 pb-lg-0">
+                            <div class="correo d-flex flex-column text-center text-md-start text-lg-start">
+                                <h5 class="p-0 m-0 open-sans-semibold">
+                                    Correo
+                                </h5>
+                                <p class="p-0 m-0 open-sans-regular">
+                                    correo@gmail.com
+                                </p>
+                            </div>
+                            <div class="dui d-flex flex-column text-center px-3">
+                                <h5 class="p-0 m-0 open-sans-semibold">
+                                    DUI
+                                </h5>
+                                <p class="p-0 m-0 open-sans-regular">
+                                    12345678-9
+                                </p>
+                            </div>
+                            <div class="telefono d-flex flex-column">
+                                <h5 class="p-0 m-0 open-sans-semibold">
+                                    Telefono
+                                </h5>
+                                <p class="p-0 m-0 open-sans-regular">
+                                    1234-5678
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contenedor-drch d-flex flex-column col-lg-5 col-md-6 col-12 align-items-center">
+                    <div
+                        class="contenedor-masinfo d-flex flex-column align-items-center justify-content-start col-12 mt-5 mt-md-0 mt-lg-0">
+                        <div class="masinfo-header">
+                            <h2 class="m-0 p-0 open-sans-bold">
+                                Màs Informaciòn
+                            </h2>
+                        </div>
+                        <div class="masinfo-body col-12">
+                            <div class="depa d-flex flex-column">
+                                <h5 class="m-0 p-0 open-sans-semibold">Departamento de residencia</h5>
+                                <p class="m-0 p-0 open-sans-regular">
+                                    San Salvador
+                                </p>
+                            </div>
+                            <div class="fecharegistro d-flex flex-column">
+                                <h5 class="m-0 p-0 open-sans-semibold">Fecha de registro en el taller</h5>
+                                <p class="m-0 p-0 open-sans-regular">
+                                    01/febrero/24
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="contenedor-frecuencia d-flex flex-column col-lg-6 col-md-7 col-9 justify-content-center align-items-center">
+                        <div class="frecuencia-header text-center">
+                            <h6 class="m-0 p-0 open-sans-semibold">Frecuencia con la que el cliente
+                                <br> vista nuestro taller
+                            </h6>
+                        </div>
+                        <div class="frecuencia-body d-flex flex-column">
+                            <h6 class="m-0 p-0 open-sans-regular">
+                                Mes de abril
+                            </h6>
+                            <h3 class="m-0 p-0 open-sans-bold-italic">
+                                5 Veces
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fila2 col-lg-10 col-md-11 col-12 px-3 px-md-0 px-lg-0 d-flex flex-column">
+                <h2 class="me-auto mb-3 text-center text-md-start text-lg-start open-sans-bold">
+                    Automóviles a nombre del cliente
+                </h2>
+                <div class="contenedor-scroll col-12 d-flex">
+                    <div class="auto-card card">
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/carexmpl2.jpg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="grid-c pt-2 c1">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Axel Garcìa &nbsp
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">12345678-9</span>
+                                </p>
+                            </div>
+                            <div class="grid-c pt-2 c2 w-100 px-1">
+                                <p class="m-0 p-0 open-sans-light-italic text-center w-100">FERRARI &nbsp
+                                    <span class="open-sans-semibold m-0 p-0 text-center w-100">P222-222</span>
+                                </p>
+                            </div>
+                            <div class="grid-c c3">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Color gris
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">Abarahat500</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="auto-card card">
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/carexmpl2.jpg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="grid-c pt-2 c1">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Axel Garcìa &nbsp
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">12345678-9</span>
+                                </p>
+                            </div>
+                            <div class="grid-c pt-2 c2 w-100 px-1">
+                                <p class="m-0 p-0 open-sans-light-italic text-center w-100">FERRARI &nbsp
+                                    <span class="open-sans-semibold m-0 p-0 text-center w-100">P222-222</span>
+                                </p>
+                            </div>
+                            <div class="grid-c c3">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Color gris
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">Abarahat500</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="auto-card card">
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/carexmpl2.jpg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="grid-c pt-2 c1">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Axel Garcìa &nbsp
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">12345678-9</span>
+                                </p>
+                            </div>
+                            <div class="grid-c pt-2 c2 w-100 px-1">
+                                <p class="m-0 p-0 open-sans-light-italic text-center w-100">FERRARI &nbsp
+                                    <span class="open-sans-semibold m-0 p-0 text-center w-100">P222-222</span>
+                                </p>
+                            </div>
+                            <div class="grid-c c3">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Color gris
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">Abarahat500</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
 
-                    <div class="details mr-6"> <!-- Agregamos la clase "mr-3" para agregar un margen derecho -->
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="text-center mb-0">Más información</h4>
-                                <hr style="border-top: 2px solid rgb(255, 18, 18);">
-                                <h6 class="card-subtitle mb-2 text-body-secondary">Departamento de residencia</h6>
-                                <h6 class="mb-4">San Salvador</h6>
-                                <hr style="border-top: 2px solid rgb(255, 18, 18);">
-                                <h6 class="card-subtitle mb-2 text-body-secondary">Fecha de Registro en el Taller</h6>
-                                <h6>01/marzo/2024</h6>
+                    <div class="auto-card card">
+                        <div class="container-img-card">
+                            <img src="../../recursos/imagenes/img_automoviles/carexmpl2.jpg">
+                        </div>
+                        <div class="container-info-card position-relative">
+                            <div class="line-red-split position-absolute"></div>
+                            <div class="grid-c pt-2 c1">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Axel Garcìa &nbsp
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">12345678-9</span>
+                                </p>
+                            </div>
+                            <div class="grid-c pt-2 c2 w-100 px-1">
+                                <p class="m-0 p-0 open-sans-light-italic text-center w-100">FERRARI &nbsp
+                                    <span class="open-sans-semibold m-0 p-0 text-center w-100">P222-222</span>
+                                </p>
+                            </div>
+                            <div class="grid-c c3">
+                                <p class="m-0 p-0 open-sans-regular text-black text-center">Color gris
+                                    <span
+                                        class="open-sans-regular-italic m-0 p-0 text-black text-center">Abarahat500</span>
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
         </div>
-        </div>
-
-        <div class="container d-flex justify-content-center">
-            <div class="card">
-                <h5 class="card-title">Axel García</h5>
-                <p class="card-text">Cliente #002</p>
-                <div class="dui-container">
-                    <div class="line"></div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="card-body">
-                                <h5 class="card-title">CORREO</h5>
-                                <p class="card-text">axelgrcia@gmail.com</p>
-                                <h5 class="card-title">DUI</h5>
-                                <p class="card-text">22222222-2</p>
-                                <h5 class="card-title">CONTACTO</h5>
-                                <p class="card-text">2222-2222</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card me-3">
-                <div class="card-body text-center">
-                    <h5>Frecuencia de Visitas al Taller</h5>
-                    <hr style="border-top: 2px solid rgb(255, 18, 18);">
-                    <h4>Mes de abril</h4>
-                    <h1>10 veces</h1>
-                    <div class="d-grid gap-2 col-6 mx-auto">
-                        <button class="btn btn-danger" type="button">Facturas a nombre del cliente</button>
-                    </div>
-                </div>
-            </div>
-            
-
     </main>
 
     <!-- *Llamada a las hojas de estilos del framework e iconos -->
@@ -103,7 +239,7 @@
     <!-- *Llamada al controlador del sitio publico -->
     <script type="text/javascript" src="../../controlador/utilidades/privado.js"></script> <!--Dejarlo NOQUITAR-->
     <!-- *Llamada al controlador de la página web -->
-    <script type="text/javascript" src="../../controlador/privado/usuario.js"></script>
+    <script type="text/javascript" src="../../controlador/privado/cliente.js"></script>
     <!--Cambiarlo por el js de la página en cuestion-->
 </body>
 
