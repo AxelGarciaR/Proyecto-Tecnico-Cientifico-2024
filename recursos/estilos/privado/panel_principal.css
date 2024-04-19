@@ -14,66 +14,6 @@
     min-height: 50vh; /* Altura mínima del 50% del viewport */
 }
 
-/* Estilo para las tarjetas */
-.card {
-    display: grid; /* Establece la tarjeta como una cuadrícula */
-    grid-template-columns: 1fr 1fr; /* Dos columnas en la cuadrícula */
-    gap: 25px; /* Espacio entre columnas */
-    min-height: 200px; /* Altura mínima */
-    cursor: pointer; /* Cursor de tipo puntero */
-    border: 0px; /* Borde de 0 píxeles */
-    min-width: 500px; /* Ancho mínimo */
-    max-width: 500px; /* Ancho máximo */
-}
-
-/* Estilo para la parte izquierda de la tarjeta */
-.card-izquierda {
-    display: grid; /* Establece la parte izquierda como una cuadrícula */
-    grid-template-rows: 1fr 1fr 1fr; /* Tres filas en la cuadrícula */
-    gap: 15px; /* Espacio entre filas */
-}
-
-/* Estilo para el elemento de fecha de la cita */
-.elemento-fecha-cita {
-    background-color: black; /* Color de fondo */
-    border-top-left-radius: 10px; /* Radio del borde superior izquierdo */
-}
-
-/* Estilo para el elemento de hora de llegada */
-.elemento-hora-llegada {
-    background-color: #BA181B; /* Color de fondo */
-}
-
-/* Estilo para el elemento de movilización */
-.elemento-movilizacion {
-    border-bottom: 1px solid #B5B5B5; /* Borde inferior */
-    border-bottom-left-radius: 10px; /* Radio del borde inferior izquierdo */
-}
-
-/* Estilo para la parte derecha de la tarjeta */
-.card-derecha {
-    display: grid; /* Establece la parte derecha como una cuadrícula */
-    grid-template-rows: 3fr 1fr; /* Dos filas en la cuadrícula */
-    gap: 15px; /* Espacio entre filas */
-}
-
-/* Estilo para las imágenes dentro de los contenedores */
-.img-container>img {
-    max-inline-size: 100%; /* Tamaño máximo en línea */
-    block-size: auto; /* Tamaño del bloque automático */
-    object-fit: cover; /* Ajuste del objeto */
-    object-position: center; /* Posición del objeto */
-    border-radius: 10px; /* Radio del borde */
-    height: 100%; /* Altura del 100% */
-    min-width: 100%; /* Ancho mínimo del 100% */
-    aspect-ratio: 2/1; /* Relación de aspecto */
-}
-
-/* Estilo para la información del cliente */
-.info-cliente {
-    background-color: black; /* Color de fondo */
-}
-
 /* Estilo para el contenedor de las citas */
 .contenedor-citas {
     display: grid; /* Establece el contenedor como una cuadrícula */
@@ -104,4 +44,133 @@
 .detail-scroll {
     overflow-y: auto; /* Desplazamiento vertical */
     overflow-x: auto; /* Desplazamiento horizontal */
+}
+
+/* Estilo para las imágenes dentro de los contenedores */
+.img-container>img {
+    max-inline-size: 100%; /* Tamaño máximo en línea */
+    block-size: auto; /* Tamaño del bloque automático */
+    object-fit: cover; /* Ajuste del objeto */
+    object-position: center; /* Posición del objeto */
+    border-radius: 0px; /* Radio del borde */
+    height: 100%; /* Altura del 100% */
+    min-width: 100%; /* Ancho mínimo del 100% */
+    aspect-ratio: 2/1; /* Relación de aspecto */
+}
+
+/* Encabezado de detalles */
+.details-header {
+    background-color: #E5383B; /* Color de fondo */
+    border-bottom-left-radius: 10px; /* Radio de borde inferior izquierdo */
+    border-bottom-right-radius: 10px; /* Radio de borde inferior derecho */
+    min-height: 80px; /* Altura mínima */
+  }
+
+/* C2 */
+.c2 {
+    background-color: white; /* Color de fondo */
+    min-height: 80px; /* Altura mínima */
+  }
+
+/* Scroll de detalles */
+.detail-scroll {
+    overflow-y: hidden; /* Ocultar desbordamiento vertical */
+    overflow-x: auto; /* Permitir desplazamiento horizontal */
+    display: grid;
+    gap: 80px; /* Espacio entre elementos */
+    min-height: 395px; /* Altura mínima */
+  }
+
+/* Tarjeta */
+
+.card {
+    display: grid;
+    grid-template-columns: 2fr 2fr; /* Distribución de columnas */
+    gap: 0px; /* Espacio entre elementos */
+    cursor: pointer;
+    min-width: 565PX; /* Ancho mínimo */
+    max-width: 565PX; /* Ancho máximo */
+    border: 0px; /* Borde */
+    border: 1px solid #1E1E1E; /* Borde */
+  }
+
+/* Columna izquierda de la tarjeta */
+.card-izquierda {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr; /* Distribución de filas */
+    gap: 15px; /* Espacio entre elementos */
+  }
+
+/* Columna derecha de la tarjeta */
+.card-derecha {
+    display: grid;
+    grid-template-rows: 65% 35%; /* Distribución de filas */
+  }
+
+/* Elemento de fecha de la cita */
+.elemento-fecha-cita {
+    background-color: white; /* Color de fondo */
+    border-top-left-radius: 10px; /* Radio de borde superior izquierdo */
+  }
+
+/* Elemento de hora de llegada */
+.elemento-hora-llegada {
+    background-color: #E64547; /* Color de fondo */
+  }
+
+/* Elemento de movilización */
+.elemento-movilizacion {
+    border-bottom: 1px solid #B5B5B5; /* Borde inferior */
+    border-bottom-left-radius: 10px; /* Radio de borde inferior izquierdo */
+  }
+
+
+/* Contenedor de imagen */
+.img-container>img {
+    min-width: 100%;
+    object-fit: cover;
+    object-position: bottom;
+  }
+
+/* Información del cliente */
+.info-cliente {
+    background-color: black; /* Color de fondo */
+    border-bottom-right-radius: 10px; /* Radio de borde inferior derecho */
+  }
+
+  /* Número de cita */
+.cita-number {
+    background-color: black; /* Color de fondo */
+    width: 50%; /* Ancho */
+    padding-top: 10px; /* Relleno superior */
+    padding-bottom: 10px; /* Relleno inferior */
+    border-bottom-left-radius: 15px; /* Radio de borde inferior izquierdo */
+    border-bottom-right-radius: 15px; /* Radio de borde inferior derecho */
+    border-bottom: 0px solid #D3D3D3; /* Borde inferior */
+    top: 0; /* Posición superior */
+    left: 50%; /* Posición izquierda */
+    transform: translate(-50%); /* Traslación */
+  }
+
+
+.detail-scroll::-webkit-scrollbar {
+  width: 10px; /* Ancho del scrollbar */
+}
+
+.detail-scroll::-webkit-scrollbar-thumb {
+  background-color: #BA181B; /* Color del thumb del scrollbar */
+  border-radius: 8px; /* Borde redondeado del thumb */
+}
+
+.detail-scroll::-webkit-scrollbar {
+    width: 10px;
+    /* Ancho del scrollbar */
+
+}
+
+.detail-scroll::-webkit-scrollbar-thumb {
+    background-color: #BA181B;
+    /* Color del scrollbar thumb */
+    border-radius: 8px;
+    /* Borde redondeado del thumb */
 }
