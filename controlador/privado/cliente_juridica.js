@@ -3,3 +3,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     loadTemplate();
 });
+
+function gotoDetailsCar(){
+    location.href = "../../vistas/privado/detalles_automovil.html";
+}
