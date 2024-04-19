@@ -53,3 +53,12 @@
     scale: 1; /* Escala al pasar el cursor */
     opacity: 1; /* Opacidad al pasar el cursor */
 }
+
+label[for= "inputHoraFin"] {
+    color: #BA181B;
+}
+
+label[for="imagenCategoria"] {
+    color: #BA181B;
+}
+

@@ -97,3 +97,11 @@
     cursor: pointer; /* Cursor */
     width: fit-content; /* Ancho ajustado al contenido */
 }
+
+label[for= exampleInputEmail1]{
+    color: #BA181B;
+}
+
+label[for= exampleInputPassword1]{
+    color: #BA181B;
+}

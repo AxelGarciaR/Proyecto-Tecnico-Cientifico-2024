@@ -160,19 +160,17 @@
                 <!-- Cuerpo del modal -->
                 <div class="modal-body">
                     <form>
+                        
                         <!-- Campo de entrada para el nombre de la categoría -->
-                        <!-- Campo de entrada para el nombre de la categoría -->
-                        <div class="mb-3">
-                            <label for="nombreCategoria" class="form-label">Nombre de la Categoría</label>
-                            <!-- Input que no acepta números y tiene un máximo de 50 caracteres -->
-                            <input type="text" class="form-control" id="nombreCategoria" pattern="[^\d]{0,50}"
-                                title="Solo se permiten letras y máximo 50 caracteres" required>
+                        <div class="form-floating mb-2 p-0">
+                            <input type="text" class="form-control" id="nombreCategoria"  pattern="[^\d]{0,50}" placeholder="">
+                            <label for="inputHoraFin">nombreCategoria</label>
                         </div>
 
                         <!-- Campo de entrada para la imagen de la categoría -->
                         <div class="mb-3">
                             <label for="imagenCategoria" class="form-label">Imagen de la Categoría</label>
-                            <input type="file" class="form-control" id="imagenCategoria">
+                            <input  type="file" class="form-control" id="imagenCategoria">
                         </div>
                     </form>
                 </div>
