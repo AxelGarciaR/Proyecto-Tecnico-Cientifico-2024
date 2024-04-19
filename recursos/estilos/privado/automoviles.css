@@ -1,46 +1,51 @@
 /* Estilo de la etiqueta a dentro de la etiqueta li de la clase mynav */
 .mynav li a {
-    color: #000000;
-    text-decoration: none;
+    color: #000000; /* Color del texto */
+    text-decoration: none; /* Elimina la decoración de texto */
     width: 100%;
     display: block;
     border-radius: 5px;
     padding: 8px 5px;
 }
-/* Estilo de la etiqueta a dentro de la etiqueta li de la clase mynav cuando esta activo*/
+
+/* Estilo de la etiqueta a dentro de la etiqueta li de la clase mynav cuando está activo */
 .mynav li a.active {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2); /* Fondo transparente */
 }
-/* Estilo de la etiqueta a dentro de la etiqueta li de la clase mynav cuando se le pasa el mouse por encima*/
+
+/* Estilo de la etiqueta a dentro de la etiqueta li de la clase mynav cuando se pasa el mouse por encima */
 .mynav li a:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2); /* Fondo transparente */
 }
 
-
-/* Estilo de la etiqueta i dentro de la etiqueta a del elemento li de la clase mynav*/
+/* Estilo de la etiqueta i dentro de la etiqueta a del elemento li de la clase mynav */
 .mynav li a i {
     width: 25px;
     text-align: center;
 }
-/* Estilo del header del menú lateral (filtros)*/
+
+/* Estilo del header del menú lateral (filtros) */
 .sidebar-header {
     display: grid;
-    gap: 25px;
+    gap: 25px; /* Espacio entre elementos */
     grid-template-columns: auto;
 }
 
+/* Estilos para la barra divisoria */
 hr {
     border: none;
     border-top: 1px solid;
-    border-color: #7C7C7C;
+    border-color: #7C7C7C; /* Color de la línea */
 }
 
+/* Estilo para la barra de búsqueda */
 .search {
     background-color: #F8F8F8;
     border: 0px;
     border-radius: 10px;
 }
 
+/* Estilos para el botón desplegable */
 .dropdown-btn {
     width: 100%;
     padding: 16px;
@@ -48,7 +53,7 @@ hr {
     cursor: pointer;
 }
 
-/* ------------- ANIMACIÓN ------------------ */
+/* Animación */
 
 .boton {
     display: inline-block;
@@ -56,16 +61,20 @@ hr {
     cursor: pointer;
 }
 
+/* Estilos para la animación de rotación */
 .imagen {
     transition: transform 0.5s ease;
 }
 
+/* Rotación de 90 grados */
 .rotacion-90 {
     transform: rotate(90deg);
 }
 
-/* ------------- ANIMACIÓN ------------------ */
+/* Animación */
 
+
+/* Contenedor de los checkboxes */
 .contenedor-checkbox,
 .contenedor-checkbox2 {
     overflow-x: hidden;
@@ -76,10 +85,12 @@ hr {
     gap: 15px;
 }
 
+/* Segundo contenedor de checkboxes */
 .contenedor-checkbox2 {
     gap: 35px;
 }
 
+/* Altura de las marcasA */
 .marcasA {
     height: 290px;
 }
@@ -88,6 +99,7 @@ hr {
     border: 0px;
 }
 
+/*Formato de la barra lateral */
 #bdSidebar {
     max-height: 88vh;
     min-height: 88vh;
@@ -97,73 +109,64 @@ hr {
     border-bottom-right-radius: 30px;
 }
 
-/* Cambia el color del checkbox seleccionado */
+/* Estilo del checkbox seleccionado */
 .form-check-input:checked {
-    background-color: #FF0000;
-    /* Cambia el color de fondo */
-    border-color: #FF0000;
-    /* Cambia el color del borde */
+    background-color: #FF0000; /* Color de fondo del checkbox seleccionado */
+    border-color: #FF0000; /* Color del borde del checkbox seleccionado */
 }
 
-
-/* ------------- SCROLLBAR ------------------ */
+/* Estilos para la scrollbar */
 .contenedor-checkbox::-webkit-scrollbar,
 #bdSidebar::-webkit-scrollbar,
 .contenedor-modelos-nombre::-webkit-scrollbar,
 .contenedor-checkbox2::-webkit-scrollbar,
 .contenedor-total-cards::-webkit-scrollbar {
-    width: 10px;
-    /* Ancho del scrollbar */
+    width: 10px; /* Ancho del scrollbar */
 }
 
+/* Estilos para el scrollbar thumb */
 .contenedor-checkbox::-webkit-scrollbar-thumb,
 #bdSidebar::-webkit-scrollbar-thumb,
 .contenedor-modelos-nombre::-webkit-scrollbar-thumb,
 .contenedor-checkbox2::-webkit-scrollbar-thumb,
 .contenedor-total-cards::-webkit-scrollbar-thumb {
-    background-color: #BA181B;
-    /* Color del scrollbar thumb */
-    border-radius: 8px;
-    /* Borde redondeado del thumb */
+    background-color: #BA181B; /* Color del scrollbar thumb */
+    border-radius: 8px; /* Borde redondeado del thumb */
 }
+
 
 .contenedor-checkbox::-webkit-scrollbar,
 #bdSidebar::-webkit-scrollbar,
 .contenedor-modelos-nombre::-webkit-scrollbar,
 .contenedor-checkbox2::-webkit-scrollbar,
 .contenedor-total-cards::-webkit-scrollbar {
-    width: 10px;
-    /* Ancho del scrollbar */
+    width: 10px; /* Ancho del scrollbar */
 }
 
 .contenedor-checkbox::-webkit-scrollbar-thumb {
-    background-color: #BA181B;
-    /* Color del scrollbar thumb */
-    border-radius: 8px;
-    /* Borde redondeado del thumb */
+    background-color: #BA181B; /* Color del scrollbar thumb */
+    border-radius: 8px; /* Borde redondeado del thumb */
 }
 
 #bdSidebar::-webkit-scrollbar-thumb {
-    background-color: #e5383b5c;
-    /* Color del scrollbar thumb */
-    border-radius: 8px;
-    /* Borde redondeado del thumb */
+    background-color: #e5383b5c; /* Color del scrollbar thumb */
+    border-radius: 8px; /* Borde redondeado del thumb */
 }
 
 .contenedor-modelos-nombre::-webkit-scrollbar-thumb {
-    background-color: #FF2D31;
-    /* Color del scrollbar thumb */
-    border-radius: 8px;
-    /* Borde redondeado del thumb */
+    background-color: #FF2D31; /* Color del scrollbar thumb */
+    border-radius: 8px; /* Borde redondeado del thumb */
 }
 
-/* ------------- SCROLLBAR ------------------ */
+/* Scrollbar */
 
+/* Estilos para el datepickerA */
 .datepickerA {
     background-color: #F5F3F4;
     border: 0px;
 }
 
+/* Estilos para el botón de modelos */
 .btnModelos {
     background-color: #E5383B;
     height: 35px;
@@ -171,6 +174,7 @@ hr {
     left: -15%;
 }
 
+/* Contenedor para los modelos de nombres */
 .contenedor-modelos-nombre {
     overflow-x: hidden;
     height: 130px;
@@ -180,45 +184,49 @@ hr {
     gap: 10px;
 }
 
+/* Estilo de los elementos dentro del contenedor-modelos-nombre */
 .contenedor-modelos-nombre>li {
     border: 0px;
 }
 
+/* Estilos para los botones */
 .btnSlBg {
     background-color: #1B1919;
 }
 
+/* Estilos para la tarjeta de auto */
 .add-auto-card {
     background-color: #F5F3F4;
     border: #232323 3px solid;
     position: relative;
-
     border-radius: 10px;
 }
 
+/* Contenedor para todas las tarjetas */
 .contenedor-total-cards {
     overflow-x: hidden;
     overflow-y: auto;
+
     min-height: 87vh;
     max-height: 87vh;
-    padding-top: 50px;
 
+    padding-top: 50px;
     display: grid;
     column-gap: 30px;
     row-gap: 30px;
-
     grid-template-rows: repeat(3, 1fr);
-    padding-bottom: 20px;
 
+    padding-bottom: 20px;
     padding-right: 10px;
     padding-left: 10px;
 }
 
+
+/* Media query para pantallas medianas */
 @media (min-width: 682px) {
     .contenedor-total-cards {
         grid-template-rows: repeat(2, 1fr);
         grid-template-columns: repeat(2, 1fr);
-
         padding-right: 20px;
         padding-left: 20px;
     }
@@ -235,6 +243,7 @@ hr {
     }
 }
 
+/* Media query para pantallas pequeñas */
 @media (min-width: 613px) {
     .c2>p {
         flex-direction: column;
@@ -242,37 +251,38 @@ hr {
     }
 }
 
+/* Media query para pantallas grandes */
 @media (min-width: 1318px) {
     .contenedor-total-cards {
         grid-template-rows: repeat(2, 1fr);
         grid-template-columns: repeat(3, 1fr);
-
         padding-right: 20px;
         padding-left: 20px;
     }
 }
 
+/* Media query para pantallas de tamaño específico */
 @media (min-width: 768px) and (max-width: 991px) {
     .contenedor-total-cards {
         grid-template-rows: repeat(2, 1fr);
         grid-template-columns: 1fr;
-
         padding-right: 90px;
         padding-left: 90px;
     }
 }
 
+/* Media query para pantallas muy grandes */
 @media (min-width: 1830px) {
     .contenedor-total-cards {
         grid-template-rows: repeat(2, 1fr);
         grid-template-columns: repeat(4, 1fr);
         gap: 25px;
-
         padding-right: 20px;
         padding-left: 20px;
     }
 }
 
+/* Estilos para la tarjeta de auto */
 .auto-card {
     display: grid;
     grid-template-rows: 3fr 1fr;
@@ -280,13 +290,14 @@ hr {
     grid-template-rows: 5fr 2fr;*/
 }
 
+/* Estilos para la imagen dentro de la tarjeta de auto */
 .auto-card>.container-img-card>img {
     max-inline-size: 100%;
 
     block-size: auto;
     object-fit: cover;
-    object-position: top center;
 
+    object-position: top center;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 
@@ -295,14 +306,15 @@ hr {
     aspect-ratio: 2/1;
 }
 
+/* Línea roja de división */
 .line-red-split {
     width: 100%;
     height: 7px;
-
     background-color: #E00D11;
     top: 0;
 }
 
+/* Contenedor para la información de la tarjeta */
 .container-info-card {
     display: grid;
     column-gap: 10px;
@@ -312,6 +324,7 @@ hr {
     border-bottom-right-radius: 5px;
 }
 
+/* Estilos para los elementos de la tarjeta */
 .c1,
 .c2,
 .c3 {
@@ -321,6 +334,7 @@ hr {
     justify-content: center;
 }
 
+/* Estilos para la segunda columna de la tarjeta */
 .c2 {
     background-color: #E00D11;
     border-bottom-left-radius: 5px;
@@ -329,6 +343,7 @@ hr {
     color: white;
 }
 
+/* Efecto de oscurecimiento al pasar el ratón por la tarjeta */
 .card::after {
     content: "";
     position: absolute;
@@ -340,11 +355,13 @@ hr {
     opacity: 0;
 }
 
+/* Efecto de oscurecimiento al pasar el ratón por la tarjeta */
 .card:hover::after {
     opacity: 1;
     cursor: pointer;
 }
 
+/* Contenido de la tarjeta */
 .content {
     width: 100%;
     position: absolute;
@@ -354,6 +371,7 @@ hr {
     text-align: center;
 }
 
+/* Título del contenido de la tarjeta */
 .content h4 {
     opacity: 0;
     margin-bottom: 12px;
@@ -362,12 +380,13 @@ hr {
     cursor: pointer;
 }
 
+/* Efecto de crecimiento al pasar el ratón por el contenido */
 .card:hover .content h4 {
     scale: 1;
     opacity: 1;
 }
 
-/* Grow */
+/* Efecto de crecimiento */ /* Grow */
 .hvr-grow {
     vertical-align: middle;
     -webkit-transform: perspective(1px) translateZ(0);
@@ -380,6 +399,7 @@ hr {
     cursor: pointer;
 }
 
+/* Efecto de crecimiento al pasar el ratón por el contenido */
 .hvr-grow:hover,
 .hvr-grow:focus,
 .hvr-grow:active {
@@ -387,52 +407,61 @@ hr {
     transform: scale(1.1);
 }
 
+/* Estilos para el botón de olvido */
 .btnForgot {
     background-color: #007CD7;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
 }
 
+/* Contenido adicional */
 .content-add-info {
     display: grid;
     gap: 25px;
 }
 
+/* Estilos para el botón de cancelar */
 .btnCancel {
     background-color: black;
 }
 
+/* Estilos para el botón de guardar */
 .btnSave {
     background-color: #E5383B;
 }
 
+/* Estilos para los botones de guardar y cancelar */
 .btnSave,
 .btnCancel {
     height: 50px;
     width: 200px;
 }
 
+/* Etiqueta flotante */
 .form-floating>label {
     color: red;
 }
 
-
+/* Etiqueta flotante enfocada o con contenido */
 .form-floating .form-control:focus~label,
 .form-floating .form-control:not(:placeholder-shown)~label {
-    color: red;
+    color: red; /* Color rojo */
     /* Color rojo */
 }
 
-/* ------------------------- MODAL ---------------------- */
+/* Modal */
 
+/* Estilo para el tamaño de la tarjeta */
 .sizeCard {
     border-radius: 10px;
 }
 
+/* Estilo para el diálogo modal */
 .modal-dialog {
     min-width: 70vw;
 }
 
+/* Contenido adicional de la imagen */
 .content-add-img {
     min-height: 40vh;
 }
