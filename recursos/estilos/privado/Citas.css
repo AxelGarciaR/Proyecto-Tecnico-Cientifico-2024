@@ -84,7 +84,7 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: row;
-    height: 100vh;
+    height: 85vh;
     flex-wrap: wrap;
     overflow-x: auto;
     margin-right: 0;
