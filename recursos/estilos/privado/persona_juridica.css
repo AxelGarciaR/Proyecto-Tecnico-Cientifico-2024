@@ -1,7 +1,9 @@
 /* Estilo de la etiqueta a dentro de la etiqueta li de la clase mynav */
 .mynav li a {
-    color: #000000; /* Color del texto */
-    text-decoration: none; /* Elimina la decoración de texto */
+    color: #000000;
+    /* Color del texto */
+    text-decoration: none;
+    /* Elimina la decoración de texto */
     width: 100%;
     display: block;
     border-radius: 5px;
@@ -10,12 +12,14 @@
 
 /* Estilo de la etiqueta a dentro de la etiqueta li de la clase mynav cuando está activo */
 .mynav li a.active {
-    background: rgba(255, 255, 255, 0.2); /* Fondo transparente */
+    background: rgba(255, 255, 255, 0.2);
+    /* Fondo transparente */
 }
 
 /* Estilo de la etiqueta a dentro de la etiqueta li de la clase mynav cuando se pasa el mouse por encima */
 .mynav li a:hover {
-    background: rgba(255, 255, 255, 0.2); /* Fondo transparente */
+    background: rgba(255, 255, 255, 0.2);
+    /* Fondo transparente */
 }
 
 /* Estilo de la etiqueta i dentro de la etiqueta a del elemento li de la clase mynav */
@@ -27,7 +31,8 @@
 /* Estilo del header del menú lateral (filtros) */
 .sidebar-header {
     display: grid;
-    gap: 25px; /* Espacio entre elementos */
+    gap: 25px;
+    /* Espacio entre elementos */
     grid-template-columns: auto;
 }
 
@@ -35,7 +40,8 @@
 hr {
     border: none;
     border-top: 1px solid;
-    border-color: #7C7C7C; /* Color de la línea */
+    border-color: #7C7C7C;
+    /* Color de la línea */
 }
 
 /* Estilo para la barra de búsqueda */
@@ -111,8 +117,10 @@ hr {
 
 /* Estilo del checkbox seleccionado */
 .form-check-input:checked {
-    background-color: #FF0000; /* Color de fondo del checkbox seleccionado */
-    border-color: #FF0000; /* Color del borde del checkbox seleccionado */
+    background-color: #FF0000;
+    /* Color de fondo del checkbox seleccionado */
+    border-color: #FF0000;
+    /* Color del borde del checkbox seleccionado */
 }
 
 /* Estilos para la scrollbar */
@@ -121,7 +129,8 @@ hr {
 .contenedor-modelos-nombre::-webkit-scrollbar,
 .contenedor-checkbox2::-webkit-scrollbar,
 .contenedor-total-cards::-webkit-scrollbar {
-    width: 10px; /* Ancho del scrollbar */
+    width: 10px;
+    /* Ancho del scrollbar */
 }
 
 /* Estilos para el scrollbar thumb */
@@ -130,8 +139,10 @@ hr {
 .contenedor-modelos-nombre::-webkit-scrollbar-thumb,
 .contenedor-checkbox2::-webkit-scrollbar-thumb,
 .contenedor-total-cards::-webkit-scrollbar-thumb {
-    background-color: #BA181B; /* Color del scrollbar thumb */
-    border-radius: 8px; /* Borde redondeado del thumb */
+    background-color: #BA181B;
+    /* Color del scrollbar thumb */
+    border-radius: 8px;
+    /* Borde redondeado del thumb */
 }
 
 
@@ -140,22 +151,29 @@ hr {
 .contenedor-modelos-nombre::-webkit-scrollbar,
 .contenedor-checkbox2::-webkit-scrollbar,
 .contenedor-total-cards::-webkit-scrollbar {
-    width: 10px; /* Ancho del scrollbar */
+    width: 10px;
+    /* Ancho del scrollbar */
 }
 
 .contenedor-checkbox::-webkit-scrollbar-thumb {
-    background-color: #BA181B; /* Color del scrollbar thumb */
-    border-radius: 8px; /* Borde redondeado del thumb */
+    background-color: #BA181B;
+    /* Color del scrollbar thumb */
+    border-radius: 8px;
+    /* Borde redondeado del thumb */
 }
 
 #bdSidebar::-webkit-scrollbar-thumb {
-    background-color: #e5383b5c; /* Color del scrollbar thumb */
-    border-radius: 8px; /* Borde redondeado del thumb */
+    background-color: #e5383b5c;
+    /* Color del scrollbar thumb */
+    border-radius: 8px;
+    /* Borde redondeado del thumb */
 }
 
 .contenedor-modelos-nombre::-webkit-scrollbar-thumb {
-    background-color: #FF2D31; /* Color del scrollbar thumb */
-    border-radius: 8px; /* Borde redondeado del thumb */
+    background-color: #FF2D31;
+    /* Color del scrollbar thumb */
+    border-radius: 8px;
+    /* Borde redondeado del thumb */
 }
 
 /* Scrollbar */
@@ -224,7 +242,7 @@ hr {
         padding-left: 20px;
     }
 
-   
+
 
     .c1,
     .c2>p,
@@ -280,8 +298,8 @@ hr {
     position: relative;
     border-radius: 10px;
 }
-.linear2
-{
+
+.linear2 {
     top: 0;
     right: 0px;
     height: 100%;
@@ -396,7 +414,8 @@ hr {
     opacity: 1;
 }
 
-/* Efecto de crecimiento */ /* Grow */
+/* Efecto de crecimiento */
+/* Grow */
 .hvr-grow {
     vertical-align: middle;
     -webkit-transform: perspective(1px) translateZ(0);
@@ -455,7 +474,8 @@ hr {
 /* Etiqueta flotante enfocada o con contenido */
 .form-floating .form-control:focus~label,
 .form-floating .form-control:not(:placeholder-shown)~label {
-    color: red; /* Color rojo */
+    color: red;
+    /* Color rojo */
     /* Color rojo */
 }
 
@@ -482,25 +502,24 @@ hr {
 }
 
 .range-label {
-    flex: 0 0 50px; /* Ajusta el ancho según tus necesidades */
+    flex: 0 0 50px;
+    /* Ajusta el ancho según tus necesidades */
 }
 
-.f1
-{
+.f1 {
     margin-left: 20px;
     margin-top: 10px;
 }
 
 
-.contenedor-dui h1{
+.contenedor-dui h1 {
     font-size: x-large;
 }
 
-.contenedor-telefono h1{
+.contenedor-telefono h1 {
     font-size: x-large;
 }
 
-#detalles-card{
-margin-bottom: 20px;
+#detalles-card {
+    margin-bottom: 20px;
 }
-

@@ -349,14 +349,15 @@
                                                 <h6>Imagen del empleado</h6> <!--Imagen del empleado-->
                                                 <img id="selectedImageF" class="sizeCard col-10 "
                                                     src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg"
-                                                    alt="example placeholder"/> 
+                                                    alt="example placeholder" />
                                                 <button type="button"
                                                     class="btn btn-primary btnFogot col-8 col-lg-6 open-sans-regular">
                                                     <label class="form-label text-white m-1"
                                                         for="customFile2">Seleccionar
                                                         imagen</label></button>
                                                 <input type="file" class="form-control d-none" id="customFile2" readonly
-                                                    onchange="displaySelectedImage(event, 'selectedImageF')"/> <!--Boton de seleccion de imagen-->
+                                                    onchange="displaySelectedImage(event, 'selectedImageF')" />
+                                                <!--Boton de seleccion de imagen-->
                                             </div>
 
                                             <div class="content-add-info col-md-7">
@@ -372,9 +373,9 @@
                                                     <label for="nit">NIT</label> <!--NIT-->
                                                 </div>
 
-                                                <div class="form-floating mb-0 p-0"> 
+                                                <div class="form-floating mb-0 p-0">
                                                     <input type="text" class="form-control" id="nombres"
-                                                        placeholder="name@example.com"> 
+                                                        placeholder="name@example.com">
                                                     <label for="nombres">Nombres</label> <!--Nombres-->
                                                 </div>
 
@@ -397,10 +398,11 @@
                                                 </div>
 
                                                 <div class="form-floating mb-0 p-0">
-                                                    <label class="form-label px-2 pt-0 p-0 m-0">Departamento</label> <!--Departamento-->
+                                                    <label class="form-label px-2 pt-0 p-0 m-0">Departamento</label>
+                                                    <!--Departamento-->
                                                     <select class="form-select pt-4 open-sans-regular"
                                                         aria-label="Default select example">
-                                                        <option selected>San salvador</option> 
+                                                        <option selected>San salvador</option>
                                                         <option value="1">Departamento 1</option> <!--Opción 1-->
                                                         <option value="2">Departamento 2</option> <!--Opción 2-->
                                                         <option value="3">Departamento 3</option> <!--Opción 3-->
@@ -408,7 +410,8 @@
                                                 </div>
 
                                                 <div class="form-floating mb-0 p-0">
-                                                    <label class="form-label px-2 pt-0  p-0 m-0">Especialización</label> <!--Especialización-->
+                                                    <label class="form-label px-2 pt-0  p-0 m-0">Especialización</label>
+                                                    <!--Especialización-->
                                                     <select class="form-select pt-4 open-sans-regular"
                                                         aria-label="Default select example">
                                                         <option selected>Técnico electrónico</option>
@@ -421,7 +424,7 @@
                                                     <label for="fechanInput" class="form-label px-2 pt-1 p-0 m-0">Fecha
                                                         de contratación</label> <!--Fecha de contratación-->
                                                     <input type="date" class="form-control" id="fechanInput"
-                                                        placeholder="" required> 
+                                                        placeholder="" required>
                                                 </div>
 
                                                 <div class="form-floating mb-0 p-0">
@@ -447,19 +450,18 @@
                 </div>
             </div>
     </main>
-</body>
 
-<!-- *Llamada a las hojas de estilos del framework e iconos -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<!--Dejarlo NOQUITAR-->
-<!--*Libreria de mensajes-->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!--Dejarlo NOQUITAR-->
-<!-- Llamada al controlador del componente -->
-<script type="text/javascript" src="../../controlador/utilidades/components.js"></script>
-<!-- *Llamada al controlador del sitio publico -->
-<script type="text/javascript" src="../../controlador/utilidades/privado.js"></script> <!--Dejarlo NOQUITAR-->
-<!-- *Llamada al controlador de la página web -->
-<script type="text/javascript" src="../../controlador/privado/empleados.js"></script>
+    <!-- *Llamada a las hojas de estilos del framework e iconos -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!--Dejarlo NOQUITAR-->
+    <!--*Libreria de mensajes-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!--Dejarlo NOQUITAR-->
+    <!-- Llamada al controlador del componente -->
+    <script type="text/javascript" src="../../controlador/utilidades/components.js"></script>
+    <!-- *Llamada al controlador del sitio publico -->
+    <script type="text/javascript" src="../../controlador/utilidades/privado.js"></script> <!--Dejarlo NOQUITAR-->
+    <!-- *Llamada al controlador de la página web -->
+    <script type="text/javascript" src="../../controlador/privado/empleados.js"></script>
 </body>
 
 </html>
