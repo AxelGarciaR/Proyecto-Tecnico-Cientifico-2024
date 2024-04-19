@@ -1,37 +1,41 @@
+/* Estilos globales para resetear el padding, margen y fuente */
 * {
     padding: 0;
     margin: 0;
     font-family: sans-serif;
 }
 
+/* Estilos para el cuerpo de la página */
 body {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    height: 100%; /* Altura del cuerpo al 100% */
+    display: flex; /* Utiliza el modelo de caja flexible */
+    flex-direction: column; /* Apila los elementos verticalmente */
 }
 
+/* Estilos para las opciones laterales */
 .opcionesLat img {
     height: 30px;
     width: 30px;
 }
 
 .opcionesLat {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-top: #BDBDBD solid 2px;
-    margin-bottom: 15px;
-    padding-top: 15px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 10px;
-    border-bottom-right-radius: 25px;
+    display: flex; /* Utiliza el modelo de caja flexible */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: space-between; /* Espacio uniforme entre los elementos */
+    border-top: #BDBDBD solid 2px; /* Borde superior sólido */
+    margin-bottom: 15px; /* Margen inferior */
+    padding-top: 15px; /* Relleno superior */
+    padding-bottom: 10px; /* Relleno inferior */
+    padding-left: 20px; /* Relleno izquierdo */
+    padding-right: 10px; /* Relleno derecho */
+    border-bottom-right-radius: 25px; /* Radio del borde inferior derecho */
 }
 
+/* Estilos para las imágenes dentro de opcionesLat */
 .opcionesLatIMG img {
     height: 30px;
     width: 30px;
-    margin-right: 17px;
+    margin-right: 17px; /* Margen derecho */
 }
 
 .opcionesLatIMG {
@@ -41,78 +45,79 @@ body {
     margin-bottom: 15px;
 }
 
-
-
+/* Estilos para el contenedor de opciones laterales cuando se pasa el cursor sobre él */
 .opcionesLat:hover {
-    background-color: #E64547;
-    color: white;
+    background-color: #E64547; /* Color de fondo rojo al pasar el cursor */
+    color: white; /* Color del texto blanco */
 }
 
+/* Estilos para el icono */
 .icon {
-    position: absolute;
-
-    top: 0;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: absolute; /* Posición absoluta */
+    top: 0; /* Desde arriba */
+    width: 50px; /* Ancho de 50px */
+    height: 50px; /* Altura de 50px */
+    display: flex; /* Utiliza el modelo de caja flexible */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: center; /* Centra horizontalmente los elementos */
 }
 
+/* Estilos para el campo de búsqueda de citas */
 #txtBuscarCitas {
-    border: none;
-    border-bottom: #B4B4B4 solid 2px;
-    background-color: #F8F8F8;
-    border-radius: 5px;
-    height: 35px;
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 100%;
+    border: none; /* Sin borde */
+    border-bottom: #B4B4B4 solid 2px; /* Borde inferior sólido */
+    background-color: #F8F8F8; /* Color de fondo */
+    border-radius: 5px; /* Borde redondeado */
+    height: 35px; /* Altura de 35px */
+    padding-left: 10px; /* Relleno izquierdo */
+    padding-right: 10px; /* Relleno derecho */
+    width: 100%; /* Ancho del 100% */
 }
 
+/* Estilos para el campo de búsqueda de citas cuando está enfocado */
 #txtBuscarCitas:focus {
-    outline: none;
-    border-bottom: #B4B4B4 solid 2px;
+    outline: none; /* Sin contorno */
+    border-bottom: #B4B4B4 solid 2px; /* Borde inferior sólido */
 }
 
-
-
-/*****Aqui empeisa el css de las cards******/
-
+/*Acá comienza el CSS de las Cards*/
 
 .containerCards {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    height: 85vh;
-    flex-wrap: wrap;
-    overflow-x: auto;
-    margin-right: 0;
-    margin-left: 0;
+    display: flex; /* Utiliza el modelo de caja flexible */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    flex-direction: row; /* Apila los elementos horizontalmente */
+    height: 85vh; /* Altura del 85% del viewport */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+    overflow-x: auto; /* Desplazamiento horizontal */
+    margin-right: 0; /* Sin margen derecho */
+    margin-left: 0; /* Sin margen izquierdo */
 }
 
+/* Estilos para la barra de desplazamiento */
 .containerCards::-webkit-scrollbar {
-    width: 5px;
-    background-color: #BA181B;
-    margin-right: 5px;
-
+    width: 5px; /* Ancho de la barra de desplazamiento */
+    background-color: #BA181B; /* Color de fondo */
+    margin-right: 5px; /* Margen derecho */
 }
 
+/* Estilos para el deslizador de la barra de desplazamiento */
 .containerCards::-webkit-scrollbar-thumb {
-    width: 7px;
-    background-color: #000000;
-    border-radius: 5px;
-
+    width: 7px; /* Ancho del deslizador */
+    background-color: #000000; /* Color de fondo del deslizador */
+    border-radius: 5px; /* Borde redondeado */
 }
 
+/* Estilos para el contenedor de la tarjeta */
 .cardContainer {
-    border-radius: 10px;
-    margin: 15px;
+    border-radius: 10px; /* Borde redondeado */
+    margin: 15px; /* Margen */
 }
 
+
+/* Estilos cuando se pasa el cursor sobre el contenedor de la tarjeta */
 .cardContainer:hover {
-    border: #BA181B solid 5px;
-    margin: 10px;
+    border: #BA181B solid 5px; /* Borde rojo sólido */
+    margin: 10px; /* Margen */
 }
 
 /*****Aqui empieza el responsive ctm******/
