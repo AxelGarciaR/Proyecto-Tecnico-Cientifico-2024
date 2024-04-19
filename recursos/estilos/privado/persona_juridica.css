@@ -283,10 +283,11 @@ hr {
 .linear2
 {
     top: 0;
-    right: -20px;
+    right: 0px;
     height: 100%;
     background-color: red;
     width: 3px;
+
 }
 
 
@@ -486,5 +487,20 @@ hr {
 
 .f1
 {
-    border-right: 1px solid red;
+    margin-left: 20px;
+    margin-top: 10px;
 }
+
+
+.contenedor-dui h1{
+    font-size: x-large;
+}
+
+.contenedor-telefono h1{
+    font-size: x-large;
+}
+
+#detalles-card{
+margin-bottom: 20px;
+}
+

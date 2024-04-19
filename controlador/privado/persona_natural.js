@@ -23,3 +23,67 @@ document.getElementById('input_dui').addEventListener('input', function (event) 
     // Actualizar el valor del campo de texto con la entrada formateada
     event.target.value = inputValue;
 });
+
+
+document.getElementById('input_telefono').addEventListener('input', function (event) {
+    // Obtener el valor actual del campo de texto
+    let inputValue = event.target.value;
+
+    // Limpiar el valor de cualquier carácter que no sea un número
+    inputValue = inputValue.replace(/\D/g, '');
+
+    // Asegurar que no haya más de 8 dígitos
+    inputValue = inputValue.slice(0, 8);
+
+    // Formatear el número agregando el guión
+    if (inputValue.length > 4) {
+        inputValue = inputValue.slice(0, 4) + '-' + inputValue.slice(4);
+    }
+
+    // Actualizar el valor del campo de texto con la entrada formateada
+    event.target.value = inputValue;
+});
+
+
+document.getElementById('input_nombre').addEventListener('input', function (event) {
+    // Obtener el valor actual del campo de texto
+    let inputValue = event.target.value;
+
+    // Eliminar caracteres que no sean letras o espacios
+    inputValue = inputValue.replace(/[^a-zA-Z\s]/g, '');
+
+    // Asegurar que el texto no supere los 50 caracteres
+    inputValue = inputValue.slice(0, 50);
+
+    // Actualizar el valor del campo de texto con la entrada validada
+    event.target.value = inputValue;
+});
+
+document.getElementById('input_apellido').addEventListener('input', function (event) {
+    // Obtener el valor actual del campo de texto
+    let inputValue = event.target.value;
+
+    // Eliminar caracteres que no sean letras o espacios
+    inputValue = inputValue.replace(/[^a-zA-Z\s]/g, '');
+
+    // Asegurar que el texto no supere los 50 caracteres
+    inputValue = inputValue.slice(0, 50);
+
+    // Actualizar el valor del campo de texto con la entrada validada
+    event.target.value = inputValue;
+});
+
+
+document.getElementById('input_correo').addEventListener('input', function (event) {
+    // Obtener el valor actual del campo de texto
+    let inputValue = event.target.value;
+
+    // Eliminar espacios en blanco
+    inputValue = inputValue.replace(/\s/g, '');
+
+    // Asegurar que el correo electrónico no supere los 50 caracteres
+    inputValue = inputValue.slice(0, 50);
+
+    // Actualizar el valor del campo de texto con la entrada limitada
+    event.target.value = inputValue;
+});
