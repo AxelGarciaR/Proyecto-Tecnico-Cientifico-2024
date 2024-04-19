@@ -245,3 +245,6 @@ html {
     width: 5px; /* Ancho del scrollbar */
 }
 
+.return{
+    cursor: pointer;
+}

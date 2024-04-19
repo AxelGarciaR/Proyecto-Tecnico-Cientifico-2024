@@ -6,3 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 function gotoDetailsCar(){
     location.href = "../../vistas/privado/detalles_automovil.html";
 }
+// *Funcion para ir a la pagina anterior
+function goBack() {
+    window.history.back();
+}

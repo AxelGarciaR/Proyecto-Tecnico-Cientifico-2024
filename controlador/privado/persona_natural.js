@@ -1,9 +1,10 @@
+// Constantes para establecer los elementos del componente Modal.
+const MODAL = new bootstrap.Modal('#agregarCategoriaModal');
+
 // *Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {
     loadTemplate();
 });
-
-
 
 document.getElementById('input_dui').addEventListener('input', function (event) {
     // Obtener el valor actual del campo de texto
@@ -87,3 +88,23 @@ document.getElementById('input_correo').addEventListener('input', function (even
     // Actualizar el valor del campo de texto con la entrada limitada
     event.target.value = inputValue;
 });
+
+//Funcion que muestra la alerta de confirmacion
+const openClose = async () => {
+    // Llamada a la función para mostrar un mensaje de confirmación, capturando la respuesta en una constante.
+    const RESPONSE = await confirmAction2('¿Seguro qué quieres regresar?', 'Los datos ingresados no serán almacenados');
+    if (RESPONSE.isConfirmed) {
+        MODAL.hide();
+    }
+}
+//Funcion que muestra la alerta de notificacion
+const openNoti = async () => {
+    // Llamada a la función para mostrar una notificación
+    sweetAlert(1, 'Se ha guardado con exito', 300);
+    MODAL.hide();
+}
+
+// Funcion para ir hacia la pagina de detalles del automovil
+function gotoDetail() {
+    location.href = "../../vistas/privado/cliente.html";
+}
