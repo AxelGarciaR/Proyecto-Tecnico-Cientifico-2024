@@ -31,7 +31,7 @@
     <!-- *Contenido principal del documento -->
     <main class="open">
         <div class="contenedor-total col-12 py-2">
-            <div class="btnReturn pt-5 px-4" onclick="goBack()">
+            <div class="btnReturn pt-5 px-4" onclick="goBack()">  <!-- Boton regresar -->
                 <h4 class="open-sans-regular text-black">
                     <img src="../../recursos/imagenes/icons/minus.png">
                     Regresar
@@ -40,7 +40,7 @@
             <div class="row1 col-12 d-flex flex-wrap">
                 <div class="contenedor-izqrd col-lg-4 col-md-5 col-12">
                     <div
-                        class="contenedor-info-cliente col-12 d-flex justify-content-lg-center justify-content-start align-items-center  position-relative">
+                        class="contenedor-info-cliente col-12 d-flex justify-content-lg-center justify-content-start align-items-center  position-relative">  <!-- Informacion cliente -->
                         <div class="content-info-text text-lg-start text-md-start mx-2">
                             <span>
                                 <h2 class="open-sans-bold m-0 p-0">
@@ -69,7 +69,7 @@
                     </div>
 
                     <div
-                        class="contenedor-info-auto col-12 py-3 text-white text-center d-flex flex-column flex-md-row flex-lg-row justify-content-around align-items-center px-lg-5 px-md-0">
+                        class="contenedor-info-auto col-12 py-3 text-white text-center d-flex flex-column flex-md-row flex-lg-row justify-content-around align-items-center px-lg-5 px-md-0"> <!-- Información del auto -->
                         <div class="info-color py-1">
                             <h4 class="open-sans-semibold m-0 p-0 ">
                                 Color:
@@ -99,7 +99,7 @@
                     </div>
 
                     <div
-                        class="contenedor-info-fechas d-flex flex-column justify-content-around align-items-center pt-4 position-relative">
+                        class="contenedor-info-fechas d-flex flex-column justify-content-around align-items-center pt-4 position-relative">   <!-- Fechas -->
                         <div class="contenedor-fechas">
                             <div class="contenedor-fecha-fabricacion mb-5">
                                 <h2 class="open-sans-bold m-0 p-0">
@@ -129,7 +129,7 @@
                 </div>
 
                 <div class="contenedor-drch col-lg-8 col-md-7 px-lg-4 px-md-3 col-12 mt-5 mt-md-0 mt-lg-0 position-relative"
-                    onclick="gotoDetailsServ()">
+                    onclick="gotoDetailsServ()">                                                                                  <!-- Imagen de los carros -->
                     <div class="content z-3">
                         <h4 class="open-sans-light-italic">Visualizar servicios realizados</h4>
                     </div>
@@ -153,7 +153,7 @@
                     </button>
                 </div>
 
-                <div class="contenedor-card-proces">
+                <div class="contenedor-card-proces">                                                   
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -457,8 +457,12 @@
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-center align-items-center col-lg-12 col-12 mt-5">
+                        
+                        <!-- Boton eliminar -->
                         <button type="button" class="btn btn-secondary btnCancel2 me-lg-5 me-3 me-md-5"
                             onclick="openDelete()">Eliminar</button>
+
+                        <!-- Boton cancelar -->    
                         <button type="button" class="btn btn-secondary btnCancel me-lg-5 me-3 me-md-5"
                             onclick="openClose()">Cancelar</button>
                         <button type="button" class="btn btn-primary btnSave me-lg-5 me-3 me-md-5" onclick="openNoti()">

@@ -1,150 +1,164 @@
+/* Contenedor total */
 .contenedor-total {
     display: grid;
-    row-gap: 47px;
-}
+    row-gap: 47px; /* Espacio entre filas */
+  }
 
+/* Botón de retorno */
 .btnReturn {
     cursor: pointer;
-    width: fit-content;
-}
+    width: fit-content; /* Ancho ajustado al contenido */
+  }
 
+/* Contenedor izquierdo */
 .contenedor-izqrd {
     display: grid;
-    row-gap: 35px;
-}
+    row-gap: 35px; /* Espacio entre filas */
+  }
 
+/* Contenedor de información del cliente */
 .contenedor-info-cliente {
-    border: 1px gray solid;
-    min-height: 20vh;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border: 1px gray solid; /* Borde */
+    min-height: 20vh; /* Altura mínima */
+    border-top-right-radius: 10px; /* Radio de borde superior derecho */
+    border-bottom-right-radius: 10px; /* Radio de borde inferior derecho */
     display: grid;
-    row-gap: 5px;
-}
+    row-gap: 5px; /* Espacio entre filas */
+  }
 
+/* Contenido de información de texto */
 .content-info-text {
-    width: fit-content;
-}
+    width: fit-content; /* Ancho ajustado al contenido */
+  }
 
+/* Botón de más información */
 .btnMasInfo {
     background-color: #232323;
-    width: fit-content;
-    height: fit-content;
+    width: fit-content; /* Ancho ajustado al contenido */
+    height: fit-content; /* Altura ajustada al contenido */
     border-radius: 0px;
-    border-top-left-radius: 100px;
-}
+    border-top-left-radius: 100px; /* Radio de borde superior izquierdo */
+  }
 
+/* Botón de posición inferior derecha */
 .btn-position-btmright {
     bottom: 0;
     right: 0;
-}
+  }
 
+/* Contenedor de información del automóvil */
 .contenedor-info-auto {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px; /* Radio de borde superior derecho */
+    border-bottom-right-radius: 5px; /* Radio de borde inferior derecho */
     background-color: #E00D11;
-    min-height: 15vh;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
+    min-height: 15vh; /* Altura mínima */
+    border-top-right-radius: 10px; /* Radio de borde superior derecho */
+    border-bottom-right-radius: 10px; /* Radio de borde inferior derecho */
+  }
 
+/* Botón de edición */
 .btnEdit {
-    border: 0px;
-    width: fit-content;
-}
+    border: 0px; /* Borde */
+    width: fit-content; /* Ancho ajustado al contenido */
+  }
+  
+  /* Efecto de hover en el botón de edición */
+  .btnEdit:hover {
+    background-color: rgb(143, 255, 255); /* Color de fondo al pasar el ratón */
+  }  
 
-.btnEdit:hover {
-    background-color: rgb(143, 255, 255);
-}
-
-
+/* Contenedor de fechas */
 .contenedor-fechas {
-    width: fit-content;
-}
+    width: fit-content; /* Ancho ajustado al contenido */
+  }
 
+/* Imagen dentro del contenedor derecho */
 .contenedor-drch>img {
     max-inline-size: 100%;
     block-size: auto;
     object-fit: cover;
     object-position: center;
-    border-radius: 10px;
+    border-radius: 10px; /* Radio de borde */
     height: 100%;
-    min-height: 40vh;
+    min-height: 40vh; /* Altura mínima */
     min-width: 100%;
-    aspect-ratio: 2/1;
-}
+    aspect-ratio: 2/1; /* Proporción de aspecto */
+  }
 
+/* Botón m2 */
 .btnm2 {
-    border-radius: 0px;
-    border-bottom-left-radius: 100px;
-}
+    border-radius: 0px; /* Radio de borde */
+    border-bottom-left-radius: 100px; /* Radio de borde inferior izquierdo */
+  }
 
+/* Contenedor de título */
 .contenedor-title {
-    background-color: #5E5E5E;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
+    background-color: #5E5E5E; /* Color de fondo */
+    border-top-left-radius: 5px; /* Radio de borde superior izquierdo */
+    border-bottom-left-radius: 5px; /* Radio de borde inferior izquierdo */
+  }
 
+/* Carrusel de servicios en proceso */
 
-/*-------------------------- CARRUSEL DE SERVICIOS EN PROCESO ------------------*/
+/* Flecha */
 .arrow {
-    width: fit-content;
-}
+    width: fit-content; /* Ancho ajustado al contenido */
+  }
+  
+  /* Tarjeta */
+  .cardM {
+    border: 0px; /* Borde */
+  }
 
-.cardM {
-    /*width: 375px;*/
-    border: 0px;
-}
-
-.card-body {
-    padding: 0px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
+/* Parte superior de la tarjeta */
 .card-top {
-    background-color: #04D100;
-}
+    background-color: #04D100; /* Color de fondo */
+  }
+  
+  /* Parte superior de la segunda tarjeta */
+  .card-top2 {
+    background-color: #EC7F00; /* Color de fondo */
+  }
 
-.card-top2 {
-    background-color: #EC7F00;
-}
-
+/* Pastilla de tiempo */
 .time-pastilla {
-    width: 100%;
-    background-color: #E5383B;
-    border-radius: 20px;
-}
-
-.cards-wrapper {
+    width: 100%; /* Ancho completo */
+    background-color: #E5383B; /* Color de fondo */
+    border-radius: 20px; /* Radio de borde */
+  }
+  
+  /* Paquete de tarjetas */
+  .cards-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+  }
 
+/* Tarjeta */
 .cardM {
     margin: 25px;
     margin-right: 60px;
-    width: calc(100%/4);
-}
+    width: calc(100%/4); /* Ancho calculado */
+  }
 
+/* Estilos responsivos */
 @media screen and (min-width: 700px) and (max-width: 1200px) {
     .cardM {
         width: 100%;
         margin: 25px 0;
     }
-
+  
     .cards-wrapper {
         padding-left: 30vw;
         padding-right: 30vw;
         flex-direction: column;
         align-items: flex-start;
     }
-
+  
     .cardM:not(:first-child) {
         margin-top: 25px;
     }
-}
+  }
 
 @media screen and (min-width: 250px) and (max-width: 699px) {
     .cardM {
@@ -164,94 +178,110 @@
     }
 }
 
+/* Tamaño de la tarjeta */
 .sizeCard {
-    border-radius: 10px;
-}
+    border-radius: 10px; /* Radio de borde */
+  }
+  
+  /* Diálogo modal */
+  .modal-dialog {
+    min-width: 70vw; /* Ancho mínimo */
+  }
+  
+  /* Contenido adicional de la imagen */
+  .content-add-img {
+    min-height: 40vh; /* Altura mínima */
+  }
 
-.modal-dialog {
-    min-width: 70vw;
-}
-
-.content-add-img {
-    min-height: 40vh;
-}
-
+/* Contenido adicional */
 .content-add-info {
     display: grid;
-    gap: 25px;
-}
+    gap: 25px; /* Espacio entre elementos */
+  }
+  
+  /* Botón de cancelar */
+  .btnCancel {
+    background-color: black; /* Color de fondo */
+  }
 
-.btnCancel {
-    background-color: black;
-}
-
+/* Segundo botón de cancelar */
 .btnCancel2 {
-    background-color: white;
-    border: solid 2px #ECECEC;
-    color: black;
-}
+    background-color: white; /* Color de fondo */
+    border: solid 2px #ECECEC; /* Borde */
+    color: black; /* Color del texto */
+  }
+  
+  /* Botón de guardar */
+  .btnSave {
+    background-color: #E5383B; /* Color de fondo */
+  }
 
-.btnSave {
-    background-color: #E5383B;
-}
-
+/* Botones de guardar y cancelar */
 .btnSave,
 .btnCancel,
 .btnCancel2 {
-    height: 50px;
-    width: 200px;
+  height: 50px; /* Altura */
+  width: 200px; /* Ancho */
 }
 
+/* Etiqueta flotante */
 .form-floating>label {
-    color: red;
+  color: red; /* Color del texto */
 }
 
+/* Botón de olvido */
 .btnForgot {
-    background-color: #007CD7;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
+  background-color: #007CD7; /* Color de fondo */
+  border-top-left-radius: 0px; /* Radio de borde superior izquierdo */
+  border-top-right-radius: 0px; /* Radio de borde superior derecho */
 }
 
+/* Contenedor derecho */
 .contenedor-drch::after {
     content: "";
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    background-color: #00000094;
+    background-color: #00000094; /* Color de fondo */
     border-radius: inherit;
     opacity: 0;
-}
+  }
+  
 
+/* Efecto de hover en el contenedor derecho */
 .contenedor-drch:hover::after {
     opacity: 1;
     cursor: pointer;
-}
+  }
 
+/* Contenido */
 .content {
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
+/* Título del contenido */
 .content h4 {
-    opacity: 0;
-    margin-bottom: 12px;
-    scale: 0.7;
-    color: white;
-    cursor: pointer;
+  opacity: 0;
+  margin-bottom: 12px;
+  scale: 0.7;
+  color: white; /* Color del texto */
+  cursor: pointer;
 }
 
+/* Efecto de hover en el título del contenido */
 .contenedor-drch:hover .content h4 {
     scale: 1;
     opacity: 1;
-}
-
-.form-floating .form-control:focus~label,
-.form-floating .form-control:not(:placeholder-shown)~label {
-    color: red;
-    /* Color rojo */
-}
+  }
+  
+  /* Etiqueta flotante activa */
+  .form-floating .form-control:focus~label,
+  .form-floating .form-control:not(:placeholder-shown)~label {
+    color: red; /* Color del texto */
+  }

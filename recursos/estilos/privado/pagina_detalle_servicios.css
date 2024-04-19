@@ -1,101 +1,99 @@
+/* Estilo para la tarjeta */
 .envelope-card {
-    position: relative;
-    background-color: #ffffff;
-    border: 4px solid #dc3545;
-    padding: 20px;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.1);
-    height: 100%;
-    /* Establecemos altura al 100% */
+    position: relative; /* Posición relativa */
+    background-color: #ffffff; /* Color de fondo */
+    border: 4px solid #dc3545; /* Borde */
+    padding: 20px; /* Relleno */
+    border-radius: 15px; /* Radio de borde */
+    margin-bottom: 20px; /* Margen inferior */
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    height: 100%; /* Altura del 100% */
+}
+
+/* Triángulo invertido en la parte superior */
+.envelope-card::before {
+    content: ""; /* Contenido */
+    position: absolute; /* Posición absoluta */
+    top: 0; /* Posición superior */
+    left: 50%; /* Posición izquierda al 50% */
+    transform: translateX(-50%) rotate(180deg); /* Transformación para centrar y rotar */
+    width: 0; /* Ancho del triángulo */
+    height: 0; /* Altura del triángulo */
+    border-style: solid; /* Estilo de borde */
+    border-width: 0 150px 40px 150px; /* Grosor del borde */
+    border-color: transparent transparent #dc3545 transparent; /* Color del borde */
+}
+
+/* Media queries para diferentes tamaños de pantalla */
+
+/* Para pantallas medianas */
+@media (min-width: 768px) and (max-width: 1398px) {
+    .envelope-card::before {
+        border-width: 0 105px 40px 105px; /* Grosor del borde */
+    }
+}
+
+/* Para pantallas pequeñas */
+@media (min-width: 280px) and (max-width: 340px) {
+    .envelope-card::before {
+        border-width: 0 120px 40px 120px; /* Grosor del borde */
+    }
+}
+
+/* Para pantallas medianas */
+@media (min-width: 768px) and (max-width: 1198px) {
+    /* Estilo para la fila de tarjetas */
+    .row-cols-md-4 {
+        flex-wrap: nowrap; /* No permitir el ajuste de línea */
+        overflow-x: auto; /* Permitir desplazamiento horizontal */
+        scroll-snap-type: x mandatory; /* Tipo de desplazamiento */
+    }
+
+    /* Estilo para las columnas de la fila */
+    .row-cols-md-4 > .col {
+        flex: 0 0 auto; /* No crecer ni encoger */
+        width: calc(100% / 3); /* Ancho de la columna */
+        scroll-snap-align: start; /* Alineación de desplazamiento */
+    }
+}
+
+/* Para pantallas pequeñas */
+@media (min-width: 280px) and (max-width: 767px) {
+    /* Estilo para las columnas de una sola fila */
+    .row-cols-1 > .col {
+        margin-bottom: 10px; /* Espacio entre las tarjetas */
+    }
+
+    /* Estilo para la última tarjeta en una fila */
+    .row-cols-1 > .col:last-child {
+        margin-bottom: 0; /* Eliminar el margen inferior */
+    }
+}
+
+/* Estilo para centrar verticalmente el contenido de la tarjeta */
+.card-body {
+    display: flex; /* Mostrar como flex */
+    flex-direction: column; /* Dirección de flexión */
+    justify-content: center; /* Justificar contenido */
+    height: 100%; /* Altura del 100% */
 }
 
 /* Triángulo invertido en la parte superior */
 .envelope-card::before {
     content: "";
     position: absolute;
-    top: 0;
-    /* Ajuste para pegarlo a la parte superior */
-    left: 50%;
-    /* Centramos el triángulo horizontalmente */
-    transform: translateX(-50%) rotate(180deg);
-    /* Rotamos el triángulo 180 grados */
+    top: 0; /* Ajuste para pegarlo a la parte superior */
+    left: 50%; /* Centramos el triángulo horizontalmente */
+    transform: translateX(-50%) rotate(180deg); /* Rotamos el triángulo 180 grados */
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 0 150px 40px 150px;
+    border-width: 0 calc(50% - 75px) 40px calc(50% - 75px); /* Ancho del triángulo en porcentaje */
     border-color: transparent transparent #dc3545 transparent;
 }
 
-@media (min-width: 768px) and (max-width: 1398px) {
-    /* Triángulo invertido en la parte superior */
-    .envelope-card::before {
-        border-width: 0 105px 40px 105px;
-        /* top, izq, abajo, drch*/
-    }
+/* Botón de retorno */
+.btnReturn {
+    cursor: pointer; /* Cursor */
+    width: fit-content; /* Ancho ajustado al contenido */
 }
-
-@media (min-width: 280px) and (max-width: 340px) {
-    /* Triángulo invertido en la parte superior */
-    .envelope-card::before {
-        border-width: 0 120px 40px 120px;
-        /* top, izq, abajo, drch*/
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1198px) {
-    .row-cols-md-4 {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-    }
-
-    .row-cols-md-4 > .col {
-        flex: 0 0 auto;
-        width: calc(100% / 3);
-        scroll-snap-align: start;
-    }
-}
-
-@media (min-width: 280px) and (max-width: 767px) {
-    .row-cols-1 > .col {
-        margin-bottom: 10px; /* Espacio entre las tarjetas */
-    }
-
-    .row-cols-1 > .col:last-child {
-        margin-bottom: 0; /* Quita el margen inferior de la última tarjeta */
-    }
-}
-
-
-
-/* Estilo para centrar verticalmente el contenido de la tarjeta */
-        .card-body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 100%;
-        }
-
-        /* Triángulo invertido en la parte superior */
-        .envelope-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            /* Ajuste para pegarlo a la parte superior */
-            left: 50%;
-            /* Centramos el triángulo horizontalmente */
-            transform: translateX(-50%) rotate(180deg);
-            /* Rotamos el triángulo 180 grados */
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 0 calc(50% - 75px) 40px calc(50% - 75px);
-            /* Ancho del triángulo en porcentaje */
-            border-color: transparent transparent #dc3545 transparent;
-        }
-
-        .btnReturn {
-            cursor: pointer;
-            width: fit-content;
-        }
