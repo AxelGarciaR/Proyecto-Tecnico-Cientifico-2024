@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!-- Declaración del idioma para el documento -->
+<html lang="es">
+
+<head>
+    <!-- Título del documento -->
+    <title>Factura Natural</title>
+
+    <!-- Metadatos de la página web -->
+    <meta charset="utf-8">
+    <meta name="author" content="DARG_Company">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- *IMPORTACIÓN DE RECURSOS EXTERNOS -->
+    <!-- Llamada al icono de la página web -->
+    <link type="image/png" rel="icon" href="/recursos/imagenes/icons/icono_usuario.svg">
+
+    <!-- *Llamada a las hojas de estilos del framework (BOOTSTRAP) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+
+    <!-- *Llamada a las hojas de estilos propios de css (CREADOS)-->
+    <link href="../../recursos/estilos/privado/index.css" rel="stylesheet">
+    <!--Cambiarlo por el css de la página en cuestion-->
+    <link href="../../recursos/estilos/privado/factura_persona_natural.css" rel="stylesheet"> <!--Dejarlo NOQUITAR-->
+    <link href="../../recursos/estilos/privado/plantilla.css" rel="stylesheet"> <!--Dejarlo NOQUITAR-->
+
+    <!-- Enlace al archivo de estilos personalizados -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- *Contenido principal del documento -->
+        <main>
+            <!-- Cuadro rojo en la parte superior -->
+            <div class="cuadro-rojo">
+                <a href="../privado/Citas.html"><h4><--Regresar</h4></a>
+                <!-- Cuadro con borde redondeado en la esquina superior derecha -->
+                <div class="cuadro-con-borde">
+                    <div class="factura-info">
+                        <div class="factura-texto">Factura</div>
+                        <div class="linea-negra"></div>
+                        <div class="numero-factura">#0001</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulario de detalles de servicios -->
+            <form class="formContainer">
+                <div class="form-row">
+                    <div class="form-floating mb-0 p-0">
+                        <label for="fechanInput" class="form-label px-2 pt-1 p-0 m-0">Fecha de registro</label>
+                        <input type="date" class="form-control" id="inputFechaRegistroD" placeholder="" required>
+                    </div>
+
+                    <div class="form-floating mb-2 p-0">
+                        <input type="text" class="form-control" id="inputClienteD" placeholder="...">
+                        <label for="input_placa">Cliente</label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-floating mb-2 p-0">
+                        <label class="form-label px-2 pt-0 p-0 m-0">Servicio</label>
+                        <select class="form-select pt-4 open-sans-regular" aria-label="Default select example">
+                            <option selected>Contado</option>
+                            <option value="1">Varios pagos</option>
+                        </select>
+                    </div>
+
+                    <div class="form-floating mb-2 p-0">
+                        <input type="text" class="form-control" id="inputPlacaAutomovilD" placeholder="...">
+                        <label for="input_placa">Placa del automovil</label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-floating mb-2 p-0">
+                        <input type="text" class="form-control" id="inputDureacionGarantiaD" placeholder="...">
+                        <label for="input_placa">Duracion de garantia</label>
+                    </div>
+
+                    <div class="form-floating mb-2 p-0">
+                        <input type="text" class="form-control" id="inputEstadoD" placeholder="...">
+                        <label for="input_placa">Estado</label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-floating mb-2 p-0">
+                        <input type="text" class="form-control" id="inputNota" placeholder="...">
+                        <label for="input_placa">Nota</label>
+                    </div>
+
+                    <div class="form-floating mb-2 p-0" id="formaPagoOpc">
+                        <label class="form-label px-2 pt-0 p-0 m-0">Forma de pago</label>
+                        <select class="form-select pt-4 open-sans-regular" aria-label="Default select example">
+                            <option selected>Tarjeta</option>
+                            <option value="1">Efectivo</option>
+                            <option value="2">Cheque</option>
+                        </select>
+                        <img src="../../recursos/imagenes/img_factura_persona_natural/SignoMas.png" alt="">
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="form-floating mb-2 p-0">
+                        <input type="text" class="form-control" id="inputNombreEmisor" placeholder="...">
+                        <label for="input_placa">Nombre emisor</label>
+                    </div>
+
+                    <div class="form-floating mb-2 p-0">
+                        <input type="text" class="form-control" id="inputDuiEmisor" placeholder="...">
+                        <label for="input_placa">Dui emisor</label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-floating mb-2 p-0">
+                        <input type="text" class="form-control" id="inputNITCliente" placeholder="...">
+                        <label for="input_placa">NIT cliente</label>
+                    </div>
+
+                    <div class="form-floating mb-2 p-0">
+                        <input type="text" class="form-control" id="inputNCRCliente" placeholder="...">
+                        <label for="input_placa">NRC cliente</label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-floating mb-2 p-0">
+                        <input type="text" class="form-control" id="inputNRFCliente" placeholder="...">
+                        <label for="input_placa">NRF cliente</label>
+                    </div>
+
+                    <div class="form-floating mb-2 p-0">
+                        <input type="text" class="form-control" id="inputGiroCliente" placeholder="...">
+                        <label for="input_placa">Giro cliente</label>
+                    </div>
+                </div>
+
+            </form>
+
+            <hr>
+
+            <div class="containerBtnAgregarS">
+                <!-- Botón para agregar servicio -->
+                <button type="button" class="btn btn-dark" id="btnAgregarSer">Agregar servicio</button>
+            </div>
+
+            <!-- Cards de servicios -->
+            <div class="card-deck">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Cambio de aceite</h5>
+                        <p class="card-text">Consumidor: Axel Garcia<br>Cantidad: 1</p>
+                        <hr>
+                        <div class="diveliminar">
+                            <p class="card-text text-center">Precio: $50</p>
+                            <img src="../../recursos/imagenes/img_factura_persona_natural/eliminarIcono.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Cambio de aceite</h5>
+                        <p class="card-text">Consumidor: Axel Garcia<br>Cantidad: 1</p>
+                        <hr>
+                        <div class="diveliminar">
+                            <p class="card-text text-center">Precio: $50</p>
+                            <img src="../../recursos/imagenes/img_factura_persona_natural/eliminarIcono.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Cambio de aceite</h5>
+                        <p class="card-text">Consumidor: Axel Garcia<br>Cantidad: 1</p>
+                        <hr>
+                        <div class="diveliminar">
+                            <p class="card-text text-center">Precio: $50</p>
+                            <img src="../../recursos/imagenes/img_factura_persona_natural/eliminarIcono.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <h5>IVA:13%</h5>
+            <div class="bottomModalSer"></div>
+
+            <div class="imprimir">
+                <h5>Total $100.00</h5>
+                <h5>Total con IVA: $100.00</h5>
+                <button type="button" class="btn btn-dark" id="btnImprimir">Imprimir</button>
+            </div>
+
+            <br>
+
+            <!--Modal Agregar Servicio-->
+            <div id="modalAServicios" class="modal">
+                <div class="modal-content">
+                    <span class="closeAServicios">&times;</span>
+                    <div class="contenidoModalSer">
+    
+                        <div class="camposServicios">
+    
+                            <div class="form-floating mb-2 p-0">
+                                <input type="text" class="form-control" id="inputCantidadA" placeholder="...">
+                                <label for="input_placa">Cantidad</label>
+                            </div>
+    
+    
+                            <div class="form-floating mb-2 p-0">
+                                <input type="text" class="form-control" id="inputPrecioA" placeholder="...">
+                                <label for="input_placa">Precio</label>
+                            </div>
+    
+                            <div class="form-floating mb-2 p-0">
+                                <label class="form-label px-2 pt-0 p-0 m-0">Servicio</label>
+                                <select class="form-select pt-4 open-sans-regular" aria-label="Default select example">
+                                    <option selected>Mantenimiento aire acondicionado</option>
+                                    <option value="1">Mantenimiento aire acondicionado</option>
+                                    <option value="2">Servicio1</option>
+                                    <option value="3">Servicio2</option>
+                                </select>
+                            </div>
+    
+                        </div>
+    
+                        <div class="bottomModalSer"></div>
+    
+                        <div class="botonesModalSer">
+                            <button id="btnCancelar">Cancelar</button>
+                            <button id="btnAceptar">Aceptar</button>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+        
+        </main>
+    </div>
+
+    <!-- *Llamada a las hojas de estilos del framework e iconos -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!--Dejarlo NOQUITAR-->
+    <!--*Libreria de mensajes-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!--Dejarlo NOQUITAR-->
+    <!-- *Llamada al controlador del sitio publico -->
+    <!--Dejarlo NOQUITAR-<script type="text/javascript" src="/controlador/utilidades/privado.js"></script> ->
+    <!-*Llamada al controlador de la página web -->
+    <script type="text/javascript" src="../../controlador/privado/usuario.js"></script>
+    <script type="text/javascript" src="/controlador/privado/factura_persona_natural.js"></script>
+    <!--Cambiarlo por el js de la página en cuestion-->
+</body>
+
+</html>

@@ -4,7 +4,7 @@
 
 <head>
     <!-- Título del documento -->
-    <title>Detalles servicios</title>
+    <title>Factura Natural</title>
 
     <!-- Metadatos de la página web -->
     <meta charset="utf-8">
@@ -18,12 +18,14 @@
     <!-- *Llamada a las hojas de estilos del framework (BOOTSTRAP) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
 
     <!-- *Llamada a las hojas de estilos propios de css (CREADOS)-->
-    <link href="../../recursos/estilos/privado/index.css" rel="stylesheet"> <!--Cambiarlo por el css de la página en cuestion-->
+    <link href="../../recursos/estilos/privado/index.css" rel="stylesheet">
+    <!--Cambiarlo por el css de la página en cuestion-->
     <link href="../../recursos/estilos/privado/factura_persona_natural.css" rel="stylesheet"> <!--Dejarlo NOQUITAR-->
     <link href="../../recursos/estilos/privado/plantilla.css" rel="stylesheet"> <!--Dejarlo NOQUITAR-->
-   
+
     <!-- Enlace al archivo de estilos personalizados -->
     <link href="styles.css" rel="stylesheet">
 </head>
@@ -36,6 +38,7 @@
         <main>
             <!-- Cuadro rojo en la parte superior -->
             <div class="cuadro-rojo">
+                <a href="../privado/Citas.html"><h4><--Regresar</h4></a>
                 <!-- Cuadro con borde redondeado en la esquina superior derecha -->
                 <div class="cuadro-con-borde">
                     <div class="factura-info">
@@ -45,68 +48,80 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Formulario de detalles de servicios -->
-            <form>
+            <form class="formContainer">
+
+                <!--Campos de formulario-->
                 <div class="form-row">
-                    <div class="form-group">
-                        <label for="fecha_registro">Fecha de registro:</label>
-                        <input type="date" id="fecha_registro" name="fecha_registro">
+                    <div class="form-floating mb-0 p-0">
+                        <label for="fechanInput" class="form-label px-2 pt-1 p-0 m-0">Fecha de registro</label>
+                        <input type="date" class="form-control" id="fechanInput" placeholder="" required>
                     </div>
 
-                    <div class="form-group">
-                        <label for="cliente">Cliente:</label>
-                        <input type="text" id="cliente" name="cliente">
+                    <div class="form-floating mb-2 p-0">
+                        <input type="text" class="form-control" id="inputCliente" placeholder="...">
+                        <label for="input_placa">Cliente</label>
                     </div>
                 </div>
 
+                <!--Campos de formulario-->
                 <div class="form-row">
-                    <div class="form-group">
-                        <label for="venta_cuenta">Venta a cuenta de:</label>
-                        <select id="venta_cuenta" name="venta_cuenta">
-                            <option value="opcion1">Opción 1</option>
-                            <option value="opcion2">Opción 2</option>
-                            <option value="opcion3">Opción 3</option>
+                    <div class="form-floating mb-2 p-0">
+                        <label class="form-label px-2 pt-0 p-0 m-0">Servicio</label>
+                        <select class="form-select pt-4 open-sans-regular" aria-label="Default select example">
+                            <option selected>Contado</option>
+                            <option value="1">Varios pagos</option>
                         </select>
                     </div>
 
-                    <div class="form-group">
-                        <label for="placa_automovil">Placa de automóvil:</label>
-                        <input type="text" id="placa_automovil" name="placa_automovil">
+                    <div class="form-floating mb-2 p-0">
+                        <input type="text" class="form-control" id="inputPlacaAutomovilD" placeholder="...">
+                        <label for="input_placa">Placa del automovil</label>
                     </div>
                 </div>
 
+                <!--Campos de formulario-->
                 <div class="form-row">
-                    <div class="form-group">
-                        <label for="duracion_garantia">Duración de garantía:</label>
-                        <input type="text" id="duracion_garantia" name="duracion_garantia">
+                    <div class="form-floating mb-2 p-0">
+                        <input type="text" class="form-control" id="inputDuracionGarantiaD" placeholder="...">
+                        <label for="input_placa">Duracion de garantia</label>
                     </div>
 
-                    <div class="form-group">
-                        <label for="estado">Estado:</label>
-                        <input type="text" id="estado" name="estado">
+                    <div class="form-floating mb-2 p-0">
+                        <input type="text" class="form-control" id="inputEstadoD" placeholder="...">
+                        <label for="input_placa">Estado</label>
                     </div>
                 </div>
 
+                <!--Campos de formulario-->
                 <div class="form-row">
-                    <div class="form-group">
-                        <label for="forma_pago">Forma de pago:</label>
-                        <select id="forma_pago" name="forma_pago">
-                            <option value="opcion1">Opción 1</option>
-                            <option value="opcion2">Opción 2</option>
-                            <option value="opcion3">Opción 3</option>
+
+                    <div class="form-floating mb-2 p-0">
+                        <input type="text" class="form-control" id="inputNora" placeholder="...">
+                        <label for="input_placa">Nota</label>
+                    </div>
+
+                    <div class="form-floating mb-2 p-0" id="formaPagoOpc">
+                        <label class="form-label px-2 pt-0 p-0 m-0">Forma de pago</label>
+                        <select class="form-select pt-4 open-sans-regular" aria-label="Default select example">
+                            <option selected>Tarjeta</option>
+                            <option value="1">Efectivo</option>
+                            <option value="2">Cheque</option>
                         </select>
+                        <img src="../../recursos/imagenes/img_factura_persona_natural/SignoMas.png" alt="">
                     </div>
 
-                    <div class="form-group">
-                        <label for="nota">Nota:</label>
-                        <input type="text" id="nota" name="nota">
-                    </div>
                 </div>
 
-                <!-- Botón para agregar servicio -->
-                <button type="button" class="btn btn-dark">Agregar servicio</button>
             </form>
+
+            <hr>
+
+            <div class="containerBtnAgregarS">
+                <!-- Botón para agregar servicio -->
+                <button type="button" class="btn btn-dark" id="btnAgregarSer">Agregar servicio</button>
+            </div>
 
             <!-- Cards de servicios -->
             <div class="card-deck">
@@ -115,24 +130,99 @@
                         <h5 class="card-title text-center">Cambio de aceite</h5>
                         <p class="card-text">Consumidor: Axel Garcia<br>Cantidad: 1</p>
                         <hr>
-                        <p class="card-text text-center">Precio: $50</p>
+                        <div class="diveliminar">
+                            <p class="card-text text-center">Precio: $50</p>
+                            <img src="../../recursos/imagenes/img_factura_persona_natural/eliminarIcono.png" alt="">
+                        </div>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-center">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <h5 class="card-title text-center">Cambio de aceite</h5>
+                        <p class="card-text">Consumidor: Axel Garcia<br>Cantidad: 1</p>
+                        <hr>
+                        <div class="diveliminar">
+                            <p class="card-text text-center">Precio: $50</p>
+                            <img src="../../recursos/imagenes/img_factura_persona_natural/eliminarIcono.png" alt="">
+                        </div>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-center">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <h5 class="card-title text-center">Cambio de aceite</h5>
+                        <p class="card-text">Consumidor: Axel Garcia<br>Cantidad: 1</p>
+                        <hr>
+                        <div class="diveliminar">
+                            <p class="card-text text-center">Precio: $50</p>
+                            <img src="../../recursos/imagenes/img_factura_persona_natural/eliminarIcono.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="bottomModalSer"></div>
+
+            <!--Container inferior para las acciones y total-->
+            <div class="imprimir">
+                <h4>Total $100.00</h4>
+                <button type="button" class="btn btn-dark" id="btnImprimir">Imprimir</button>
+            </div>
+
+            <br>
+
+            <!--Modal Agregar Servicio-->
+            <div id="modalAServicios" class="modal">
+
+                <!--container del modal-->
+                <div class="modal-content">
+
+                    <!--Control para poder cerrar el modal-->
+                    <span class="closeAServicios">&times;</span>
+
+                    <!--Container para el conteido del modal-->
+                    <div class="contenidoModalSer">
+                        
+                        <!--Container para los campos del form-->
+                        <div class="camposServicios">
+    
+                            <div class="form-floating mb-2 p-0">
+                                <input type="text" class="form-control" id="inputCantidad" placeholder="...">
+                                <label for="input_placa">Cantidad</label>
+                            </div>
+    
+    
+                            <div class="form-floating mb-2 p-0">
+                                <input type="text" class="form-control" id="inputPrecio" placeholder="...">
+                                <label for="input_placa">Precio</label>
+                            </div>
+    
+                            <div class="form-floating mb-2 p-0">
+                                <label class="form-label px-2 pt-0 p-0 m-0">Servicio</label>
+                                <select class="form-select pt-4 open-sans-regular" aria-label="Default select example">
+                                    <option selected>Mantenimiento aire acondicionado</option>
+                                    <option value="1">Mantenimiento aire acondicionado</option>
+                                    <option value="2">Servicio1</option>
+                                    <option value="3">Servicio2</option>
+                                </select>
+                            </div>
+    
+                        </div>
+                        
+                        <div class="bottomModalSer"></div>
+                        
+                        <!--Container para los botones-->
+                        <div class="botonesModalSer">
+                            <button id="btnCancelar">Cancelar</button>
+                            <button id="btnAceptar">Aceptar</button>
+                        </div>
+    
                     </div>
                 </div>
             </div>
+        
         </main>
     </div>
 
@@ -142,9 +232,11 @@
     <!--*Libreria de mensajes-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!--Dejarlo NOQUITAR-->
     <!-- *Llamada al controlador del sitio publico -->
-    <script type="text/javascript" src="/controlador/utilidades/privado.js"></script> <!--Dejarlo NOQUITAR-->
-    <!-- *Llamada al controlador de la página web -->
-    <script type="text/javascript" src="/controlador/privado/factura_persona_natural.js"></script> <!--Cambiarlo por el js de la página en cuestion-->
+    <!--Dejarlo NOQUITAR-<script type="text/javascript" src="/controlador/utilidades/privado.js"></script> ->
+    <!-Llamada al controlador de la página web -->
+    <script type="text/javascript" src="../../controlador/privado/usuario.js"></script>
+    <script type="text/javascript" src="/controlador/privado/factura_persona_natural.js"></script>
+    <!--Cambiarlo por el js de la página en cuestion-->
 </body>
 
 </html>

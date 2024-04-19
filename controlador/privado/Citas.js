@@ -13,16 +13,65 @@ document.getElementById("finalizarCita").addEventListener("click", function () {
   // Ocultar el contenedor containerExpand
   var detalles = document.getElementById("containerExpand");
   detalles.style.display = "none";
+  var verFacturas = document.getElementById("myModal");
+  verFacturas.style.display = "block"; 
+});
 
+var closeButtonElements = document.getElementsByClassName("close");
+
+// Iterar sobre la colección de elementos y agregar el evento de clic a cada uno
+for (var i = 0; i < closeButtonElements.length; i++) {
+    closeButtonElements[i].addEventListener("click", function () {
+        // Ocultar el contenedor modal
+        var modal = document.getElementById("myModal");
+        modal.style.display = "none";
+    });
+}
+
+
+
+// Abre el agregar cita closeServiciosA
+document.getElementById("btnAgregar").addEventListener("click", function () {
+  // Ocultar el contenedor containerExpand
+  var AgregarSer = document.getElementById("modalAgregarServicio");
+  AgregarSer.style.display = "block";
 
 });
 
-// Abre el agregar cita
+// Obtener el primer elemento con la clase closeServiciosA
+var closeButton = document.getElementsByClassName("closeServiciosA")[0];
+
+// Agregar el evento de clic al botón de cierre
+closeButton.addEventListener("click", function () {
+    // Ocultar el contenedor modalAgregarServicio
+    var modalAgregarServicio = document.getElementById("modalAgregarServicio");
+    modalAgregarServicio.style.display = "none";
+});
+
+//Abrir modal de citas
+document.getElementById("btnAgregarServicio").addEventListener("click", function () {
+  // Ocultar el contenedor containerExpand
+  var AgregarSerA = document.getElementById("modalAgregarCita");
+  AgregarSerA.style.display = "block";
+
+});
+
+// Obtener el primer elemento con la clase closeServiciosA
+var closeButton = document.getElementsByClassName("closeServiciosB")[0];
+
+// Agregar el evento de clic al botón de cierre
+closeButton.addEventListener("click", function () {
+    // Ocultar el contenedor modalAgregarServicio
+    var modalAgregarServicio = document.getElementById("modalAgregarCita");
+    modalAgregarServicio.style.display = "none";
+});
+
+
+//Abre Agregar cita
 document.getElementById("btnAgregar").addEventListener("click", function () {
   // Ocultar el contenedor containerExpand
-  var detalles = document.getElementById("containerExpandAgregar");
-  detalles.style.display = "block";
-
+  var AgregarSer = document.getElementById("modalAgregarServicio");
+  AgregarSer.style.display = "block";
 
 });
 
@@ -46,7 +95,6 @@ document.getElementById("btnRegresar").addEventListener("click", function () {
 });
 
 
-
 // Agregar event listener al botón finalizarCita
 document.getElementById("finalizarCita").addEventListener("click", function () {
   // Ocultar el contenedor containerExpand
@@ -64,28 +112,17 @@ document.getElementById("Cerrar").addEventListener("click", function () {
 
 });
 
-//Js para abrir y cerrar la ventana de las cards de servicios
-// Obtener todos los elementos con la clase "cardServicio"
-const cardsServicio = document.querySelectorAll('.cardServicio');
+// Obtener el primer elemento con la clase closeServiciosA
+var closeButton = document.getElementsByClassName("close")[0];
 
-// Iterar sobre cada elemento cardServicio
-cardsServicio.forEach((cardServicio) => {
-  // Obtener el div "contenidoSer" correspondiente a la cardServicio actual
-  const contenidoSer = cardServicio.querySelector('.contenidoSer');
-
-  // Agregar un evento "mouseover" a la cardServicio actual
-  cardServicio.addEventListener('mouseover', () => {
-    contenidoSer.style.display = 'block';
-  });
-
-  // Agregar un evento "mouseout" a la cardServicio actual
-  cardServicio.addEventListener('mouseout', () => {
-    contenidoSer.style.display = 'none';
-  });
+// Agregar el evento de clic al botón de cierre
+closeButton.addEventListener("click", function () {
+    // Ocultar el contenedor modalAgregarServicio
+    var RevisarFac = document.getElementById("myModal");
+    RevisarFac.style.display = "none";
 });
 
 
-//JS modal
 
 // Obtener elementos del DOM
 var modal = document.getElementById("myModal");
@@ -125,6 +162,8 @@ btnAgregarServicio.addEventListener('click', () => {
   // Mostrar el modal
   modalServicios.style.display = 'block';
 });
+
+
 
 /**Aqui empieza el tipado de datos**/
 

@@ -1,53 +1,309 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+/* Estilo para la línea negra debajo del texto "Factura" */
+.linea-negra {
+    border-bottom: 1px solid black;
+    width: 100px;
+    margin: 0 auto;
 }
-.container {
+
+/* Estilos para centrar todo el contenido verticalmente */
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+.formContainer{
     display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card-deck{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+/* Estilos para el cuadro rojo en la parte superior */
+.cuadro-rojo {
+    background-color: #E5383B;
+    padding: 20px; /* Espacio interno para el cuadro con borde */
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido a la derecha */
+    width: 100%;
+    margin-bottom: 35px;
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
-    padding: 20px;
-}
-.profile {
-    flex: 0 0 30%;
-    text-align: center;
-}
-.profile img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 10px;
+    align-items: center;
 }
 
-.label {
-    font-weight: bold;
-    margin-bottom: 10px;
+.cuadro-rojo a{
+    text-decoration: none;
+    color: white;
 }
 
-
-.dui-container {
+.bottomModalSer{
+    width: 100%;
+    height: 15px;
+    border-top: 4px solid #E5383B;
     margin-top: 10px;
-    text-align: left; /* Asegura que el contenido de dui-container esté alineado a la izquierda */
+    margin-bottom: 10px; /* Cambia el color y aumenta el grosor */
 }
 
-.numero-container {
-    float: right; /* Alinea el numero-container a la derecha */
-    width: 20%; /* Ajusta el ancho del numero-container */
-    margin-right: 20px; /* Agrega un margen derecho para separarlo del borde */
-    margin-top: -60px; /* Mueve el numero-container hacia arriba */
+
+/* Estilos para el cuadro con borde redondeado */
+.cuadro-con-borde {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px; /* Espacio interno para el contenido */
+    width: fit-content; /* Ajusta el ancho al contenido */
 }
 
-.card {
-    width: 600px; /* Aumenta el ancho del card */
+/* Estilos para el texto "Factura" */
+.factura-texto {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
 }
 
-.correo-container {
-    float: right; /* Alinea el correo-container a la derecha */
-    width: 60%; /* Ajusta el ancho del correo-container */
-    margin-right: 20px; /* Agrega un margen derecho para separarlo del borde */
+/* Estilo para el número de factura */
+.numero-factura {
+    color: #808080; /* Gris */
+    text-align: center;
+    margin-top: 5px;
 }
 
-.additional-info {
-    right: 200px; /* Ajusta la posición del contenedor "Más información" hacia la derecha */
+/* Estilos para centrar los elementos de dos en dos horizontalmente */
+.form-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+#formaPagoOpc{
+    margin-bottom: 15px;
+}
+
+
+
+.form-group {
+    width: 48%; /* Ajustar el ancho de los elementos para evitar desbordamiento */
+    margin-bottom: 10px; /* Espacio entre cada grupo de input y label */
+}
+
+.form-group label {
+    display: block; /* Mostrar los labels como bloques para que estén arriba de los inputs */
+    text-align: center; /* Centrar el texto de los labels */
+    margin-bottom: 5px; /* Espacio entre el label y el input */
+}
+
+/* Estilo para la línea después de los input */
+form hr {
+    margin: 20px 0;
+}
+
+/* Estilo para el botón "Agregar Servicio" */
+.btn-primary {
+    float: right;
+}
+
+form input,
+form select {
+    width: calc(100% - 5px); /* Establece el ancho para que todos los inputs y select tengan el mismo tamaño */
+    margin-right: 10px; /* Espacio entre los input y select */
+}
+
+/* Estilo para el botón "Agregar Servicio" */
+.btn-primary {
+    float: right;
+    background-color: black; /* Color de fondo negro */
+    color: white; /* Color del texto blanco */
+    border: none; /* Quita el borde */
+}
+
+/* Estilo para el contenedor principal */
+.container {
+    min-width: 100%;
+    padding: 0; /* Ancho máximo del contenedor */ /* Centra el contenedor */
+}
+
+/*Estilos de los intputs*/
+.form-floating>label {
+    color: red;
+}
+
+
+.form-floating .form-control:focus~label,
+.form-floating .form-control:not(:placeholder-shown)~label {
+    color: red;
+    /* Color rojo */
+}
+
+.form-floating{
+    width: 45%;
+    margin-right: 5px;
+    margin-bottom: 15px;
+}
+
+.form-label{
+    overflow: hidden;
+}
+
+#formaPagoOpc{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#formaPagoOpc img{
+    width: 30px;
+    height: 30px;
+}
+
+.containerBtnAgregarS{
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.card{
+    margin-bottom: 15px;
+    width: 80%;
+}
+
+.diveliminar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.diveliminar img{
+    width: 30px;
+    height: 30px;
+}
+
+.imprimir{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#btnImprimir{
+    width: 30%;
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 999; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+}
+
+.contenidoModalSer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.camposServicios{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.bottomModalSer{
+    width: 100%;
+    color: #BA181B;
+    
+}
+
+.botonesModalSer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+#btnAceptar{
+    border: none;
+    background-color: #E5383B;
+    width: 35%;
+    color: white;
+    height: 35px;
+    border-radius: 5px;
+}
+
+#btnCancelar{
+    border: none;
+    background-color: #161A1D;
+    width: 35%;
+    color: white;
+    height: 35px;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 730px) {
+    .modal-content {
+        margin-top: 110px;
+    }
+}
+
+
+@media screen and (max-width: 510px) {
+
+    .form-floating label{
+        font-size: 12px;
+    }
+
+}
+
+@media screen and (max-width: 430px) {
+
+    #btnImprimir{
+        font-size: 12px;
+    }
+
+}
+
+@media screen and (max-width: 375px) {
+
+    .form-floating input {
+        font-size: 12px;
+    }
+
+    .form-floating{
+        width: 100%;
+    }
+
 }

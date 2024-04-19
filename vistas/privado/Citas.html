@@ -220,15 +220,16 @@
 
                         <form action="/procesar formulario" method="post" class="campos">
 
-                            <div class="form-floating mb-2 p-0">
-                                <input type="text" class="form-control" id="input_fecha_cita" placeholder="...">
-                                <label for="input_placa">Fecha de la cita</label>
+                            <div class="form-floating mb-0 p-0">
+                                <label for="fechanInput" class="form-label px-2 pt-1 p-0 m-0">Fecha cita</label>
+                                <input type="date" class="form-control" id="inputFechaCita" placeholder="" required>
                             </div>
 
                             <!--Este es un combo box-->
                             <div class="form-floating mb-2 p-0">
                                 <label class="form-label px-2 pt-0 p-0 m-0">Zona Habilitada</label>
-                                <select class="form-select pt-4 open-sans-regular" aria-label="Default select example">
+                                <select class="form-select pt-4 open-sans-regular" aria-label="Default select example"
+                                    id="selectZonaHabilitadaD">
                                     <option selected>San Salvador Centro</option>
                                     <option value="1">San Salvador Centro</option>
                                     <option value="2">Zona 2</option>
@@ -237,24 +238,25 @@
                             </div>
 
                             <div class="form-floating mb-2 p-0">
-                                <input type="text" class="form-control" id="input_placa" placeholder="...">
-                                <label for="input_placa">Hora de entrada</label>
+                                <input type="text" class="form-control" id="inputHoraEntradaD" placeholder="...">
+                                <label for="inputHoraEntradaD">Hora de entrada</label>
                             </div>
 
                             <div class="form-floating mb-2 p-0">
-                                <input type="text" class="form-control" id="input_placa" placeholder="...">
-                                <label for="input_placa">Direccion</label>
+                                <input type="text" class="form-control" id="inputDireccion" placeholder="...">
+                                <label for="inputDireccion">Direccion</label>
                             </div>
 
                             <div class="form-floating mb-2 p-0">
-                                <input type="text" class="form-control" id="input_placa" placeholder="...">
-                                <label for="input_placa">Hora de salida</label>
+                                <input type="text" class="form-control" id="inputHoraSalida" placeholder="...">
+                                <label for="inputHoraSalida">Hora de salida</label>
                             </div>
 
                             <!--Este es un combo box-->
                             <div class="form-floating mb-2 p-0">
                                 <label class="form-label px-2 pt-0 p-0 m-0">Estado</label>
-                                <select class="form-select pt-4 open-sans-regular" aria-label="Default select example">
+                                <select class="form-select pt-4 open-sans-regular" aria-label="Default select example"
+                                    id="selectEstado">
                                     <option selected>En espera</option>
                                     <option value="1">En espera</option>
                                     <option value="2">Aceptado</option>
@@ -266,7 +268,8 @@
                             <!--Este es un combo box-->
                             <div class="form-floating mb-2 p-0">
                                 <label class="form-label px-2 pt-0 p-0 m-0">Movilizacion</label>
-                                <select class="form-select pt-4 open-sans-regular" aria-label="Default select example">
+                                <select class="form-select pt-4 open-sans-regular" aria-label="Default select example"
+                                    id="selectMovilizacion">
                                     <option selected>Yo lo llevo y regreso</option>
                                     <option value="1">Yo lo llevo y regreso</option>
                                     <option value="2">Solo lo llevo</option>
@@ -275,7 +278,7 @@
                             </div>
 
                             <div class="form-floating mb-2 p-0">
-                                <input type="text" class="form-control" id="input_placa" placeholder="...">
+                                <input type="text" class="form-control" id="inputPlacaAutomovilD" placeholder="...">
                                 <label for="input_placa">Placa</label>
                             </div>
 
@@ -294,98 +297,137 @@
 
             </div>
 
-            <!--Agregar-->
-            <div class="ContainerDetalles container-fluid" id="containerExpandAgregar">
+            <!--Agregar servicios-->
+            <div id="modalAgregarServicio" class="modal">
+                <div class="modal-content">
+                    <span class="closeServiciosA">&times;</span>
+                    <div class="contenidoModalSer">
+                        <div class="titulo">
+                            <h4>Agregar Cita</h4>
+                        </div>
 
-                <!--Container numero de cita-->
-                <div class="numeroCita">
-                    <h5>Cita Nº 001</h5>
-                </div>
+                        <div class="camposServicios">
+                            <div class="form-floating mb-0 p-0">
+                                <label for="fechanInput" class="form-label px-2 pt-1 p-0 m-0">Fecha de registro</label>
+                                <input type="date" class="form-control" id="inputFechaRegistro" placeholder="" required>
+                            </div>
 
-                <!--Container infomacion y campos form-->
-                <div class="infoDetalleCita">
 
-                    <div class="imagenYacciones">
-                        <img src="../../recursos/imagenes/img_citas/Agregar.png" alt="">
-                        <button class="btnAccion">Aceptar</button>
+                            <div class="form-floating mb-2 p-0">
+                                <input type="text" class="form-control" id="inputFechaHoraCita" placeholder="...">
+                                <label for="inputFechaHora">Fecha y hora cita</label>
+                            </div>
+
+                            <div class="form-floating mb-2 p-0">
+                                <input type="text" class="form-control" id="inputPlacaAutomovilA" placeholder="...">
+                                <label for="inputPlacaAutomovilA">Placa de automovil</label>
+                            </div>
+
+                            <div class="form-floating mb-2 p-0">
+                                <label class="form-label px-2 pt-0 p-0 m-0">Movilizacion</label>
+                                <select class="form-select pt-4 open-sans-regular" aria-label="Default select example"
+                                    id="selectMovilizacion">
+                                    <option value="1">Yo lo traigo y retiro</option>
+                                    <option value="2">Yo solo lo traigo</option>
+                                    <option value="3">Yo solo retiro</option>
+                                </select>
+                            </div>
+
+                            <div class="form-floating mb-2 p-0">
+                                <label class="form-label px-2 pt-0 p-0 m-0">Zona habilitada</label>
+                                <select class="form-select pt-4 open-sans-regular" aria-label="Default select example"
+                                    id="selectZonaHabilitadaA">
+                                    <option selected>Sansalvador Centro</option>
+                                    <option value="1">San Salvador Oeste</option>
+                                    <option value="2">San Salvador Este</option>
+                                    <option value="3">San Salvador Sur</option>
+                                </select>
+                            </div>
+
+                            <div class="form-floating mb-2 p-0">
+                                <input type="text" class="form-control" id="inputDireccionDada" placeholder="...">
+                                <label for="inputDireccionDada">Direccion ida</label>
+                            </div>
+
+                            <div class="form-floating mb-2 p-0">
+                                <input type="text" class="form-control" id="inputDireccionRegreso" placeholder="...">
+                                <label for="inputDireccionRegreso">Direccion regreso</label>
+                            </div>
+
+                            <div class="form-floating mb-2 p-0">
+                                <label class="form-label px-2 pt-0 p-0 m-0">Estado cita</label>
+                                <select class="form-select pt-4 open-sans-regular" aria-label="Default select example"
+                                    id="selectEstadoCita">
+                                    <option value="1">Aceptada</option>
+                                    <option value="2">En espera</option>
+                                    <option value="3">Finalizadas</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <hr class="bottomModalSer">
+
+                        <div class="botonesModalSer">
+                            <button id="btnCancelar">Cancelar</button>
+                            <button id="btnAceptar">Aceptar</button>
+                        </div>
+
                     </div>
+                </div>
+            </div>
 
-                    <div class="camposForm">
+            <!--Modal para cita-->
+            <div id="modalAgregarCita" class="modal">
+                <div class="modal-content">
+                    <span class="closeServiciosB">&times;</span>
+                    <div class="contenidoModalSer">
+                        <div class="titulo">
+                            <h4>Agregar Cita</h4>
+                        </div>
 
-                        <form action="/procesar formulario" method="post" class="campos">
-
-                            <div class="form-floating mb-2 p-0">
-                                <input type="text" class="form-control" id="input_placa" placeholder="...">
-                                <label for="input_placa">Hora de salida</label>
+                        <div class="camposServicios">
+                            <div class="form-floating mb-0 p-0">
+                                <label for="fechanInput" class="form-label px-2 pt-1 p-0 m-0">Fecha aprox fin</label>
+                                <input type="date" class="form-control" id="inputFechaAproxFin" placeholder="" required>
                             </div>
 
-
-                            <!--Este es un combo box-->
                             <div class="form-floating mb-2 p-0">
-                                <label class="form-label px-2 pt-0 p-0 m-0">Movilizacion</label>
-                                <select class="form-select pt-4 open-sans-regular" aria-label="Default select example">
-                                    <option selected>Yo lo llevo y regreso</option>
-                                    <option value="1">Yo lo llevo y regreso</option>
-                                    <option value="2">Solo lo llevo</option>
-                                    <option value="3">Solo de regreso</option>
+                                <input type="text" class="form-control" id="inputHoraAproxFin" placeholder="...">
+                                <label for="input_placa">Hora aprox fin</label>
+                            </div>
+
+                            <div class="form-floating mb-0 p-0">
+                                <label for="fechanInput" class="form-label px-2 pt-1 p-0 m-0">Fecha fin</label>
+                                <input type="date" class="form-control" id="inputFechaFinA" placeholder="" required>
+                            </div>
+
+                            <div class="form-floating mb-2 p-0">
+                                <input type="text" class="form-control" id="inputHoraFin" placeholder="...">
+                                <label for="input_placa">Hora fin</label>
+                            </div>
+
+                            <div class="form-floating mb-2 p-0">
+                                <label class="form-label px-2 pt-0 p-0 m-0">Servicio</label>
+                                <select class="form-select pt-4 open-sans-regular" aria-label="Default select example"
+                                    id="selectServicio">
+                                    <option value="1">Mantenimiento aire acondicionado</option>
+                                    <option value="2">Cambio de aceite</option>
+                                    <option value="3">Rectificado de frenos</option>
                                 </select>
                             </div>
 
-                            <div class="form-floating mb-2 p-0">
-                                <input type="text" class="form-control" id="input_placa" placeholder="...">
-                                <label for="input_placa">Hora de salida</label>
-                            </div>
+                        </div>
 
-                            <div class="form-floating mb-2 p-0">
-                                <input type="text" class="form-control" id="input_placa" placeholder="...">
-                                <label for="input_placa">Hora de salida</label>
-                            </div>
+                        <div class="bottomModalSer"></div>
 
-                            <div class="form-floating mb-2 p-0">
-                                <input type="text" class="form-control" id="input_placa" placeholder="...">
-                                <label for="input_placa">Hora de salida</label>
-                            </div>
+                        <div class="botonesModalSer">
+                            <button id="btnCancelar">Cancelar</button>
+                            <button id="btnAceptar">Aceptar</button>
+                        </div>
 
-                            <!--Este es un combo box-->
-                            <div class="form-floating mb-2 p-0">
-                                <label class="form-label px-2 pt-0 p-0 m-0">Movilizacion</label>
-                                <select class="form-select pt-4 open-sans-regular" aria-label="Default select example">
-                                    <option selected>Yo lo llevo y regreso</option>
-                                    <option value="1">Yo lo llevo y regreso</option>
-                                    <option value="2">Solo lo llevo</option>
-                                    <option value="3">Solo de regreso</option>
-                                </select>
-                            </div>
-
-
-                            <!--Este es un combo box-->
-                            <div class="form-floating mb-2 p-0">
-                                <label class="form-label px-2 pt-0 p-0 m-0">Movilizacion</label>
-                                <select class="form-select pt-4 open-sans-regular" aria-label="Default select example">
-                                    <option selected>Yo lo llevo y regreso</option>
-                                    <option value="1">Yo lo llevo y regreso</option>
-                                    <option value="2">Solo lo llevo</option>
-                                    <option value="3">Solo de regreso</option>
-                                </select>
-                            </div>
-
-                            <div class="form-floating mb-2 p-0">
-                                <input type="text" class="form-control" id="input_placa" placeholder="...">
-                                <label for="input_placa">Hora de salida</label>
-                            </div>
-
-                        </form>
                     </div>
-
                 </div>
-
-                <!--Container finalizar cita-->
-                <div class="finalizarCita">
-
-                    <button id="Cerrar">Cerrar</button>
-
-                </div>
-
             </div>
 
             <!--Container Servicios en proceso-->
@@ -477,6 +519,7 @@
                     <div class="cardServicio">
 
                         <div class="contenidoSer">
+
                             <div class="contenedorInfoSer">
                                 <strong>
                                     <p>
@@ -573,8 +616,10 @@
                     <div class="contentModal">
                         <h2>¿Que clase de factura desa realizar?</h2>
                         <div class="botonesModal">
-                            <button class="btnModal">Credito Fizcal</button>
-                            <button class="btnModal">Consumidor final</button>
+                            <a href="../privado/factura_persona_juridica.html"><button class="btnModal">Credito
+                                    Fizcal</button></a>
+                            <a href="../privado/factura_persona_natural.html"><button class="btnModal">Consumidor
+                                    final</button></a>
                         </div>
                     </div>
 
@@ -582,7 +627,7 @@
             </div>
         </div>
 
-        <!---->
+        <!--Modal de la parte de agregar servicio-->
         <div id="modalServicios" class="modal">
             <div class="modal-content">
                 <span class="closeServicios">&times;</span>
@@ -592,24 +637,24 @@
                     </div>
 
                     <div class="camposServicios">
-                        <div class="form-floating mb-2 p-0">
-                            <input type="text" class="form-control" id="input_placa" placeholder="...">
-                            <label for="input_placa">Fecha aprox fin</label>
+                        <div class="form-floating mb-0 p-0">
+                            <label for="fechanInput" class="form-label px-2 pt-1 p-0 m-0">Fecha aprox fin</label>
+                            <input type="date" class="form-control" id="inputFechaAproxFin" placeholder="" required>
                         </div>
 
 
                         <div class="form-floating mb-2 p-0">
-                            <input type="text" class="form-control" id="input_placa" placeholder="...">
+                            <input type="text" class="form-control" id="inputHoraAprox" placeholder="...">
                             <label for="input_placa">hora aprox fin</label>
                         </div>
 
-                        <div class="form-floating mb-2 p-0">
-                            <input type="text" class="form-control" id="input_placa" placeholder="...">
-                            <label for="input_placa">fecha fin</label>
+                        <div class="form-floating mb-0 p-0">
+                            <label for="fechanInput" class="form-label px-2 pt-1 p-0 m-0">Fecha fin</label>
+                            <input type="date" class="form-control" id="inputFechaFinS" placeholder="" required>
                         </div>
 
                         <div class="form-floating mb-2 p-0">
-                            <input type="text" class="form-control" id="input_placa" placeholder="...">
+                            <input type="text" class="form-control" id="inputHoraFinS" placeholder="...">
                             <label for="input_placa">Hora fin</label>
                         </div>
 
@@ -638,6 +683,8 @@
 
 
     </main>
+
+
 
     <!-- *Llamada a las hojas de estilos del framework e iconos -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
