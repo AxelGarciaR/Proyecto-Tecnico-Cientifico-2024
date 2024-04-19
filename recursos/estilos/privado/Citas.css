@@ -86,7 +86,7 @@ body {
     flex-direction: row;
     height: 100vh;
     flex-wrap: wrap;
-    overflow-x: hidden;
+    overflow-x: auto;
     margin-right: 0;
     margin-left: 0;
 }
@@ -113,97 +113,6 @@ body {
 .cardContainer:hover {
     border: #BA181B solid 5px;
     margin: 10px;
-}
-
-.containerContenido {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-
-.infoCard {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    margin-right: 15px;
-}
-
-.imgInfoCard {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-
-
-
-.infoFecha {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: #000000;
-    height: 30%;
-    border-top-left-radius: 10px;
-    color: white;
-    padding: 10px;
-}
-
-.infoHora {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: #BA181B;
-    height: 30%;
-    color: white;
-    padding: 10px;
-}
-
-.info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 30%;
-    border-bottom-left-radius: 10px;
-    padding: 10px;
-    border-left: #B4B4B4 solid 2px;
-    border-bottom: #B4B4B4 solid 2px;
-}
-
-.infoCliente {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    background-color: #000000;
-    width: 100%;
-    border-bottom-right-radius: 10px;
-    color: white;
-}
-
-.infoCliente h4 {
-    margin-bottom: 3px;
-    font-size: 20px;
-}
-
-
-.infoCliente h5 {
-    margin-bottom: 3px;
-    font-size: 15px
-}
-
-#codCita {
-    background-color: #F8F8F8;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 15px;
-    padding-left: 15px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
 }
 
 /*****Aqui empieza el responsive ctm******/
@@ -1097,3 +1006,117 @@ contenidoModal
 }
 
 
+
+
+/* Estilo para el desplazamiento en el detalle */
+.detail-scroll {
+    overflow-y: auto; /* Desplazamiento vertical */
+    overflow-x: auto; /* Desplazamiento horizontal */
+}
+
+/* Estilo para las imágenes dentro de los contenedores */
+.img-container>img {
+    max-inline-size: 100%; /* Tamaño máximo en línea */
+    block-size: auto; /* Tamaño del bloque automático */
+    object-fit: cover; /* Ajuste del objeto */
+    object-position: center; /* Posición del objeto */
+    border-radius: 0px; /* Radio del borde */
+    height: 100%; /* Altura del 100% */
+    min-width: 100%; /* Ancho mínimo del 100% */
+    aspect-ratio: 2/1; /* Relación de aspecto */
+}
+
+/* Encabezado de detalles */
+.details-header {
+    background-color: #E5383B; /* Color de fondo */
+    border-bottom-left-radius: 10px; /* Radio de borde inferior izquierdo */
+    border-bottom-right-radius: 10px; /* Radio de borde inferior derecho */
+    min-height: 80px; /* Altura mínima */
+  }
+
+/* C2 */
+.c2 {
+    background-color: white; /* Color de fondo */
+    min-height: 80px; /* Altura mínima */
+  }
+
+/* Scroll de detalles */
+.detail-scroll {
+    overflow-y: hidden; /* Ocultar desbordamiento vertical */
+    overflow-x: auto; /* Permitir desplazamiento horizontal */
+    display: grid;
+    gap: 80px; /* Espacio entre elementos */
+    min-height: 395px; /* Altura mínima */
+  }
+
+/* Tarjeta */
+
+.card {
+    display: grid;
+    grid-template-columns: 2fr 2fr; /* Distribución de columnas */
+    gap: 0px; /* Espacio entre elementos */
+    cursor: pointer;
+    min-width: 565PX; /* Ancho mínimo */
+    max-width: 565PX; /* Ancho máximo */
+    border: 0px; /* Borde */
+    border: 1px solid #1E1E1E; /* Borde */
+    min-height: 355px;
+  }
+
+/* Columna izquierda de la tarjeta */
+.card-izquierda {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr; /* Distribución de filas */
+    gap: 15px; /* Espacio entre elementos */
+  }
+
+/* Columna derecha de la tarjeta */
+.card-derecha {
+    display: grid;
+    grid-template-rows: 65% 35%; /* Distribución de filas */
+  }
+
+/* Elemento de fecha de la cita */
+.elemento-fecha-cita {
+    background-color: white; /* Color de fondo */
+    border-top-left-radius: 10px; /* Radio de borde superior izquierdo */
+  }
+
+/* Elemento de hora de llegada */
+.elemento-hora-llegada {
+    background-color: #E64547; /* Color de fondo */
+  }
+
+/* Elemento de movilización */
+.elemento-movilizacion {
+    border-bottom: 1px solid #B5B5B5; /* Borde inferior */
+    border-bottom-left-radius: 10px; /* Radio de borde inferior izquierdo */
+  }
+
+
+/* Contenedor de imagen */
+.img-container>img {
+    min-width: 100%;
+    object-fit: cover;
+    object-position: bottom;
+  }
+
+/* Información del cliente */
+.info-cliente {
+    background-color: black; /* Color de fondo */
+    border-bottom-right-radius: 10px; /* Radio de borde inferior derecho */
+  }
+
+  /* Número de cita */
+.cita-number {
+    background-color: black; /* Color de fondo */
+    width: 50%; /* Ancho */
+    padding-top: 10px; /* Relleno superior */
+    padding-bottom: 10px; /* Relleno inferior */
+    border-bottom-left-radius: 15px; /* Radio de borde inferior izquierdo */
+    border-bottom-right-radius: 15px; /* Radio de borde inferior derecho */
+    border-bottom: 0px solid #D3D3D3; /* Borde inferior */
+    top: 0; /* Posición superior */
+    left: 50%; /* Posición izquierda */
+    transform: translate(-50%); /* Traslación */
+  }

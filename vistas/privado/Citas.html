@@ -82,119 +82,291 @@
             </div>
 
             <!--Aqui empieza el contenedor de las cards-->
-            <div class="containerCards container-fluid col-8  align-items-center">
+            <div class="containerCards container-fluid col-9 align-items-start justify-content-start">
 
-                <!--Contenedor general de las cartas-->
-                <div class="cardContainer row-6">
-
-                    <!--Contenedor de informacion de cartas-->
-                    <div class="containerContenido">
-
-                        <!--Detalles de cita-->
-                        <div class="infoCard">
-                            <div class="infoFecha">
-                                <h4>Fecha de la cita programada:</h4>
-                                <h5>01/abril/2024</h5>
-                            </div>
-                            <div class="infoHora">
-                                <h4>Hora de llegada del cliente:</h4>
-                                <h5>11:00 am</h5>
-                            </div>
-                            <div class="info">
-                                <h4>Movilizacion del vehiculo:</h4>
-                                <h5>Cliente vendrá y dejara el vehículo</h5>
-                            </div>
+                <div class="card cardContainer">
+                    <div class="card-izquierda">
+                        <div
+                            class="elemento-fecha-cita d-flex justify-content-center align-items-center text-center">
+                            <h5 class=" open-sans-regular-italic text-black p-0 m-0">
+                                Fecha de la cita programada: <br> 01/abril/2024
+                            </h5>
                         </div>
-
-                        <!--Imagen del Automovil y info del cliente-->
-                        <div class="imgInfoCard">
-                            <h6 id="codCita">Cita Nº 001</h6>
-                            <img src="../../recursos/imagenes/img_citas/image 22.png" alt="">
-                            <div class="infoCliente">
-                                <h4>DUI del cliente:</h3>
-                                    <h5>12345678-9</h3>
-                                        <h4>Placa del vehiculo:</h3>
-                                            <h5>P22-222</h3>
-                            </div>
+                        <div
+                            class="elemento-hora-llegada d-flex justify-content-center align-items-center text-center">
+                            <h5 class=" open-sans-regular-regular text-white p-0 m-0">
+                                Hora de llegada del cliente: <br> 11:00 am.
+                            </h5>
                         </div>
-
+                        <div
+                            class="elemento-movilizacion text-black d-flex flex-column justify-content-center align-items-center px-3">
+                            <h5 class="open-sans-semibold p-0 m-0 mb-3">
+                                Movilización del vehículo:
+                            </h5>
+                            <h5 class="open-sans-regular p-0 m-0">
+                                Cliente vendrá y dejará el vehículo
+                            </h5>
+                        </div>
                     </div>
 
+                    <div class="card-derecha position-relative">
+
+                        <div class="cita-number position-absolute text-center">
+                            <h6 class="open-sans-semibold m-0 p-0 text-white">Cita N° 003</h6>
+                        </div>
+
+                        <div class="img-container">
+                            <img src="../../recursos/imagenes/img_automoviles/carexmpl2.jpg">
+                        </div>
+                        <div
+                            class="info-cliente text-white d-flex flex-column justify-content-center align-items-center ">
+                            <div class="grupo1 pb-3">
+                                <h5 class="open-sans-bold p-0 m-0">
+                                    DUI del cliente:
+                                </h5>
+                                <h5 class="open-sans-regular p-0 m-0">
+                                    12345678-9
+                                </h5>
+                            </div>
+
+                            <div class="grupo2">
+                                <h5 class="open-sans-bold p-0 m-0">
+                                    Placa del Vehiculo:
+                                </h5>
+                                <h5 class="open-sans-regular p-0 m-0">
+                                    P333-333
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!--Se repite la estructura de las cards como ejemplo-->
-                <div class="cardContainer row-6">
-
-                    <div class="containerContenido">
-
-                        <div class="infoCard">
-                            <div class="infoFecha">
-                                <h4>Fecha de la cita programada:</h4>
-                                <h5>01/abril/2024</h5>
-                            </div>
-                            <div class="infoHora">
-                                <h4>Hora de llegada del cliente:</h4>
-                                <h5>11:00 am</h5>
-                            </div>
-                            <div class="info">
-                                <h4>Movilizacion del vehiculo:</h4>
-                                <h5>Cliente vendrá y dejara el vehículo</h5>
-                            </div>
+                <div class="card cardContainer">
+                    <div class="card-izquierda">
+                        <div
+                            class="elemento-fecha-cita d-flex justify-content-center align-items-center text-center">
+                            <h5 class=" open-sans-regular-italic text-black p-0 m-0">
+                                Fecha de la cita programada: <br> 01/abril/2024
+                            </h5>
                         </div>
-
-                        <div class="imgInfoCard">
-                            <h6 id="codCita">Cita Nº 001</h6>
-                            <img src="../../recursos/imagenes/img_citas/image 22.png" alt="">
-                            <div class="infoCliente">
-                                <h4>DUI del cliente:</h3>
-                                    <h5>12345678-9</h3>
-                                        <h4>Placa del vehiculo:</h3>
-                                            <h5>P22-222</h3>
-                            </div>
+                        <div
+                            class="elemento-hora-llegada d-flex justify-content-center align-items-center text-center">
+                            <h5 class=" open-sans-regular-regular text-white p-0 m-0">
+                                Hora de llegada del cliente: <br> 11:00 am.
+                            </h5>
                         </div>
-
+                        <div
+                            class="elemento-movilizacion text-black d-flex flex-column justify-content-center align-items-center px-3">
+                            <h5 class="open-sans-semibold p-0 m-0 mb-3">
+                                Movilización del vehículo:
+                            </h5>
+                            <h5 class="open-sans-regular p-0 m-0">
+                                Cliente vendrá y dejará el vehículo
+                            </h5>
+                        </div>
                     </div>
 
+                    <div class="card-derecha position-relative">
+
+                        <div class="cita-number position-absolute text-center">
+                            <h6 class="open-sans-semibold m-0 p-0 text-white">Cita N° 003</h6>
+                        </div>
+
+                        <div class="img-container">
+                            <img src="../../recursos/imagenes/img_automoviles/carexmpl2.jpg">
+                        </div>
+                        <div
+                            class="info-cliente text-white d-flex flex-column justify-content-center align-items-center ">
+                            <div class="grupo1 pb-3">
+                                <h5 class="open-sans-bold p-0 m-0">
+                                    DUI del cliente:
+                                </h5>
+                                <h5 class="open-sans-regular p-0 m-0">
+                                    12345678-9
+                                </h5>
+                            </div>
+
+                            <div class="grupo2">
+                                <h5 class="open-sans-bold p-0 m-0">
+                                    Placa del Vehiculo:
+                                </h5>
+                                <h5 class="open-sans-regular p-0 m-0">
+                                    P333-333
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="cardContainer row-6">
-
-                    <div class="containerContenido">
-
-                        <div class="infoCard">
-                            <div class="infoFecha">
-                                <h4>Fecha de la cita programada:</h4>
-                                <h5>01/abril/2024</h5>
-                            </div>
-
-                            <div class="infoHora">
-                                <h4>Hora de llegada del cliente:</h4>
-                                <h5>11:00 am</h5>
-                            </div>
-
-                            <div class="info">
-                                <h4>Movilizacion del vehiculo:</h4>
-                                <h5>Cliente vendrá y dejara el vehículo</h5>
-                            </div>
-
+                <div class="card cardContainer">
+                    <div class="card-izquierda">
+                        <div
+                            class="elemento-fecha-cita d-flex justify-content-center align-items-center text-center">
+                            <h5 class=" open-sans-regular-italic text-black p-0 m-0">
+                                Fecha de la cita programada: <br> 01/abril/2024
+                            </h5>
                         </div>
-
-                        <div class="imgInfoCard">
-                            <h6 id="codCita">Cita Nº 001</h6>
-
-                            <img src="../../recursos/imagenes/img_citas/image 22.png" alt="">
-
-                            <div class="infoCliente">
-                                <h4>DUI del cliente:</h3>
-                                    <h5>12345678-9</h3>
-                                        <h4>Placa del vehiculo:</h3>
-                                            <h5>P22-222</h3>
-                            </div>
-
+                        <div
+                            class="elemento-hora-llegada d-flex justify-content-center align-items-center text-center">
+                            <h5 class=" open-sans-regular-regular text-white p-0 m-0">
+                                Hora de llegada del cliente: <br> 11:00 am.
+                            </h5>
                         </div>
-
+                        <div
+                            class="elemento-movilizacion text-black d-flex flex-column justify-content-center align-items-center px-3">
+                            <h5 class="open-sans-semibold p-0 m-0 mb-3">
+                                Movilización del vehículo:
+                            </h5>
+                            <h5 class="open-sans-regular p-0 m-0">
+                                Cliente vendrá y dejará el vehículo
+                            </h5>
+                        </div>
                     </div>
 
+                    <div class="card-derecha position-relative">
+
+                        <div class="cita-number position-absolute text-center">
+                            <h6 class="open-sans-semibold m-0 p-0 text-white">Cita N° 003</h6>
+                        </div>
+
+                        <div class="img-container">
+                            <img src="../../recursos/imagenes/img_automoviles/carexmpl2.jpg">
+                        </div>
+                        <div
+                            class="info-cliente text-white d-flex flex-column justify-content-center align-items-center ">
+                            <div class="grupo1 pb-3">
+                                <h5 class="open-sans-bold p-0 m-0">
+                                    DUI del cliente:
+                                </h5>
+                                <h5 class="open-sans-regular p-0 m-0">
+                                    12345678-9
+                                </h5>
+                            </div>
+
+                            <div class="grupo2">
+                                <h5 class="open-sans-bold p-0 m-0">
+                                    Placa del Vehiculo:
+                                </h5>
+                                <h5 class="open-sans-regular p-0 m-0">
+                                    P333-333
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card cardContainer">
+                    <div class="card-izquierda">
+                        <div
+                            class="elemento-fecha-cita d-flex justify-content-center align-items-center text-center">
+                            <h5 class=" open-sans-regular-italic text-black p-0 m-0">
+                                Fecha de la cita programada: <br> 01/abril/2024
+                            </h5>
+                        </div>
+                        <div
+                            class="elemento-hora-llegada d-flex justify-content-center align-items-center text-center">
+                            <h5 class=" open-sans-regular-regular text-white p-0 m-0">
+                                Hora de llegada del cliente: <br> 11:00 am.
+                            </h5>
+                        </div>
+                        <div
+                            class="elemento-movilizacion text-black d-flex flex-column justify-content-center align-items-center px-3">
+                            <h5 class="open-sans-semibold p-0 m-0 mb-3">
+                                Movilización del vehículo:
+                            </h5>
+                            <h5 class="open-sans-regular p-0 m-0">
+                                Cliente vendrá y dejará el vehículo
+                            </h5>
+                        </div>
+                    </div>
+
+                    <div class="card-derecha position-relative">
+
+                        <div class="cita-number position-absolute text-center">
+                            <h6 class="open-sans-semibold m-0 p-0 text-white">Cita N° 003</h6>
+                        </div>
+
+                        <div class="img-container">
+                            <img src="../../recursos/imagenes/img_automoviles/carexmpl2.jpg">
+                        </div>
+                        <div
+                            class="info-cliente text-white d-flex flex-column justify-content-center align-items-center ">
+                            <div class="grupo1 pb-3">
+                                <h5 class="open-sans-bold p-0 m-0">
+                                    DUI del cliente:
+                                </h5>
+                                <h5 class="open-sans-regular p-0 m-0">
+                                    12345678-9
+                                </h5>
+                            </div>
+
+                            <div class="grupo2">
+                                <h5 class="open-sans-bold p-0 m-0">
+                                    Placa del Vehiculo:
+                                </h5>
+                                <h5 class="open-sans-regular p-0 m-0">
+                                    P333-333
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card cardContainer">
+                    <div class="card-izquierda">
+                        <div
+                            class="elemento-fecha-cita d-flex justify-content-center align-items-center text-center">
+                            <h5 class=" open-sans-regular-italic text-black p-0 m-0">
+                                Fecha de la cita programada: <br> 01/abril/2024
+                            </h5>
+                        </div>
+                        <div
+                            class="elemento-hora-llegada d-flex justify-content-center align-items-center text-center">
+                            <h5 class=" open-sans-regular-regular text-white p-0 m-0">
+                                Hora de llegada del cliente: <br> 11:00 am.
+                            </h5>
+                        </div>
+                        <div
+                            class="elemento-movilizacion text-black d-flex flex-column justify-content-center align-items-center px-3">
+                            <h5 class="open-sans-semibold p-0 m-0 mb-3">
+                                Movilización del vehículo:
+                            </h5>
+                            <h5 class="open-sans-regular p-0 m-0">
+                                Cliente vendrá y dejará el vehículo
+                            </h5>
+                        </div>
+                    </div>
+
+                    <div class="card-derecha position-relative">
+
+                        <div class="cita-number position-absolute text-center">
+                            <h6 class="open-sans-semibold m-0 p-0 text-white">Cita N° 003</h6>
+                        </div>
+
+                        <div class="img-container">
+                            <img src="../../recursos/imagenes/img_automoviles/carexmpl2.jpg">
+                        </div>
+                        <div
+                            class="info-cliente text-white d-flex flex-column justify-content-center align-items-center ">
+                            <div class="grupo1 pb-3">
+                                <h5 class="open-sans-bold p-0 m-0">
+                                    DUI del cliente:
+                                </h5>
+                                <h5 class="open-sans-regular p-0 m-0">
+                                    12345678-9
+                                </h5>
+                            </div>
+
+                            <div class="grupo2">
+                                <h5 class="open-sans-bold p-0 m-0">
+                                    Placa del Vehiculo:
+                                </h5>
+                                <h5 class="open-sans-regular p-0 m-0">
+                                    P333-333
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -619,7 +791,7 @@
                         <h2>¿Que clase de factura desea realizar?</h2>
                         <div class="botonesModal">
                             <a href="../privado/factura_persona_juridica.html"><button class="btnModal">Credito
-                                    Fizcal</button></a>
+                                    Fiscal</button></a>
                             <a href="../privado/factura_persona_natural.html"><button class="btnModal">Consumidor
                                     final</button></a>
                         </div>
