@@ -442,9 +442,6 @@ body {
     align-items: center;
 }
 
-contenidoModal
-
-
 .numeroCita {
     display: flex;
     justify-content: flex-start;
@@ -461,7 +458,7 @@ contenidoModal
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     width: 135px;
-
+    font-size: 16px;
 }
 
 .infoDetalleCita {
@@ -536,7 +533,18 @@ contenidoModal
 #finalizarCita {
     background-color: #000000;
     color: white;
-    width: 175px;
+    width: 160px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#cerrarCitas {
+    background-color: #000000;
+    color: white;
+    width: 160px;
     padding-top: 10px;
     padding-bottom: 10px;
     border: none;

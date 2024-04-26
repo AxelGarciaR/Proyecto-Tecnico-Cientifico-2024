@@ -375,8 +375,8 @@
             <div class="ContainerDetalles container-fluid" id="containerExpand">
 
                 <!--Container numero de cita-->
-                <div class="numeroCita">
-                    <h5>Cita Nº 001</h5>
+                <div class="numeroCita container row">
+                    <h5 class="text-center ">Cita Nº 001</h5>
                 </div>
 
                 <!--Container infomacion y campos form-->
@@ -393,7 +393,7 @@
                         <form action="/procesar formulario" method="post" class="campos">
 
                             <div class="form-floating mb-0 p-0">
-                                <label for="fechanInput" class="form-label px-2 pt-1 p-0 m-0">Fecha cita</label>
+                                <label for="inputFechaCita" class="form-label px-2 pt-1 p-0 m-0">Fecha cita</label>
                                 <input type="date" class="form-control" id="inputFechaCita" placeholder="" required>
                             </div>
 
@@ -464,6 +464,7 @@
                 <div class="finalizarCita">
 
                     <button id="finalizarCita">Finalizar Cita</button>
+                    <button id="cerrarCitas">Cerrar</button>
 
                 </div>
 
@@ -824,7 +825,7 @@
                         </div>
 
                         <div class="form-floating mb-0 p-0">
-                            <label for="fechanInput" class="form-label px-2 pt-1 p-0 m-0">Fecha fin</label>
+                            <label for="inputFechaFinS" class="form-label px-2 pt-1 p-0 m-0">Fecha fin</label>
                             <input type="date" class="form-control" id="inputFechaFinS" placeholder="" required>
                         </div>
 

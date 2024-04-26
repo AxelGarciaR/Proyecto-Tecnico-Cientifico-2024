@@ -8,26 +8,12 @@ for (var i = 0; i < cardContainers.length; i++) {
   });
 }
 
-// Agregar event listener al botón finalizarCita
-document.getElementById("finalizarCita").addEventListener("click", function () {
+
+document.getElementById("cerrarCitas").addEventListener("click", function () {
   // Ocultar el contenedor containerExpand
-  var detalles = document.getElementById("containerExpand");
-  detalles.style.display = "none";
-  var verFacturas = document.getElementById("myModal");
-  verFacturas.style.display = "block";
+  var cerrarCita = document.getElementById("containerExpand");
+  cerrarCita.style.display = "none";
 });
-
-var closeButtonElements = document.getElementsByClassName("close");
-
-// Iterar sobre la colección de elementos y agregar el evento de clic a cada uno
-for (var i = 0; i < closeButtonElements.length; i++) {
-  closeButtonElements[i].addEventListener("click", function () {
-    // Ocultar el contenedor modal
-    var modal = document.getElementById("myModal");
-    modal.style.display = "none";
-  });
-}
-
 
 
 // Abre el agregar cita closeServiciosA
@@ -365,6 +351,4 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 });
 
-
-
-
+//Codigo de las alerts
