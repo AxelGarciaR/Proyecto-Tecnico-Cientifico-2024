@@ -3,7 +3,8 @@ html,
 body,
 main,
 .contenedor-total {
-  height: 100%; /* Altura del 100% para ocupar todo el espacio disponible */
+  min-height: 100vh; /* Altura del 100% para ocupar todo el espacio disponible */
+  max-height: 100vh;
 }
 
 /* Contenedor total */
