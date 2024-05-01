@@ -48,7 +48,7 @@ const loadTemplate = async () => {
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="../../vistas/privado/Citas.html">
+                            <a class="nav-link" aria-current="page" href="../../vistas/privado/citas.html">
                                 <h5 class="text-white open-sans-regular m-0 p-0 px-4 px-lg-0">Citas</h5>
                             </a>
                         </li>
