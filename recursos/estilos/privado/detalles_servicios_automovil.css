@@ -1,341 +1,473 @@
 /* Contenedor total */
 .contenedor-total {
-    display: grid;
-    row-gap: 45px; /* Espacio entre filas */
-  }
+  display: grid;
+  row-gap: 45px;
+  /* Espacio entre filas */
+}
 
 /* Contenedor de categoría */
 .container-categoria {
-    border: 1px solid gray; /* Borde */
-    align-self: center; /* Alineación vertical */
-    border-top-left-radius: 10px; /* Radio de borde superior izquierdo */
-    border-top-right-radius: 10px; /* Radio de borde superior derecho */
-  }
+  border: 1px solid gray;
+  /* Borde */
+  align-self: center;
+  /* Alineación vertical */
+  border-top-left-radius: 10px;
+  /* Radio de borde superior izquierdo */
+  border-top-right-radius: 10px;
+  /* Radio de borde superior derecho */
+}
 
 /* Encabezado de categoría */
 .header-categoria {
-    background-color: #161A1D; /* Color de fondo */
-    border-top-left-radius: 10px; /* Radio de borde superior izquierdo */
-    border-top-right-radius: 10px; /* Radio de borde superior derecho */
-    width: 100%; /* Ancho completo */
-  }
-  
-  /* Cuerpo de categoría */
-  .body-categoria {
-    min-height: 350px; /* Altura mínima */
-    max-height: 550px; /* Altura máxima */
-    overflow-x: hidden; /* Ocultar desbordamiento horizontal */
-    overflow-y: auto; /* Permitir desplazamiento vertical */
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 55px; /* Espacio entre elementos */
-    margin-right: 5px;
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-top: 55px;
-    padding-bottom: 55px;
-  }
+  background-color: #161A1D;
+  /* Color de fondo */
+  border-top-left-radius: 10px;
+  /* Radio de borde superior izquierdo */
+  border-top-right-radius: 10px;
+  /* Radio de borde superior derecho */
+  width: 100%;
+  /* Ancho completo */
+}
+
+/* Cuerpo de categoría */
+.body-categoria {
+  min-height: 350px;
+  /* Altura mínima */
+  max-height: 550px;
+  /* Altura máxima */
+  overflow-x: hidden;
+  /* Ocultar desbordamiento horizontal */
+  overflow-y: auto;
+  /* Permitir desplazamiento vertical */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 55px;
+  /* Espacio entre elementos */
+  margin-right: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 55px;
+  padding-bottom: 55px;
+}
 
 /* Detalles del cuerpo */
 .body-details {
-    min-height: 450px; /* Altura mínima */
-  }
-  
-  /* Tarjeta de servicio */
-  .card-servicio {
-    background-color: #E5383B; /* Color de fondo */
-    display: grid;
-    grid-template-rows: 58% 43%; /* Distribución de filas */
+  min-height: 450px;
+  /* Altura mínima */
+}
 
-    border-top-left-radius: 15px; /* Radio de borde superior izquierdo */
-    border-top-right-radius: 15px; /* Radio de borde superior derecho */
+/* Tarjeta de servicio */
+.card-servicio {
+  background-color: #E5383B;
+  /* Color de fondo */
+  display: grid;
+  grid-template-rows: 58% 43%;
+  /* Distribución de filas */
 
-    border-bottom-left-radius: 5px; /* Radio de borde inferior izquierdo */
-    border-bottom-right-radius: 5px; /* Radio de borde inferior derecho */
+  border-top-left-radius: 15px;
+  /* Radio de borde superior izquierdo */
+  border-top-right-radius: 15px;
+  /* Radio de borde superior derecho */
 
-    min-height: 210px; /* Altura mínima */
-    max-height: 240px; /* Altura máxima */
-  }
+  border-bottom-left-radius: 5px;
+  /* Radio de borde inferior izquierdo */
+  border-bottom-right-radius: 5px;
+  /* Radio de borde inferior derecho */
+
+  min-height: 210px;
+  /* Altura mínima */
+  max-height: 240px;
+  /* Altura máxima */
+}
 
 /* Información del servicio */
 .info-servicio {
-  border-top-left-radius: 15px; /* Radio de borde superior izquierdo */
-  border-top-right-radius: 15px; /* Radio de borde superior derecho */
-  background-color: #E5383B; /* Color de fondo */
+  border-top-left-radius: 15px;
+  /* Radio de borde superior izquierdo */
+  border-top-right-radius: 15px;
+  /* Radio de borde superior derecho */
+  background-color: #E5383B;
+  /* Color de fondo */
 }
 
 /* Detalles del servicio */
 .details-servicio {
-  border: 1px solid #D3D3D3; /* Borde */
-  background-color: white; /* Color de fondo */
+  border: 1px solid #D3D3D3;
+  /* Borde */
+  background-color: white;
+  /* Color de fondo */
 
-  border-top-left-radius: 20px; /* Radio de borde superior izquierdo */
-  border-top-right-radius: 20px; /* Radio de borde superior derecho */
+  border-top-left-radius: 20px;
+  /* Radio de borde superior izquierdo */
+  border-top-right-radius: 20px;
+  /* Radio de borde superior derecho */
 
-  border-bottom-left-radius: 5px; /* Radio de borde inferior izquierdo */
-  border-bottom-right-radius: 5px; /* Radio de borde inferior derecho */
+  border-bottom-left-radius: 5px;
+  /* Radio de borde inferior izquierdo */
+  border-bottom-right-radius: 5px;
+  /* Radio de borde inferior derecho */
 }
 
 /* Pastilla de número */
 .num-pastilla {
-    background-color: #E5383B; /* Color de fondo */
-    border-bottom-left-radius: 15px; /* Radio de borde inferior izquierdo */
-    border-bottom-right-radius: 15px; /* Radio de borde inferior derecho */
-    top: -5px; /* Posición superior */
-  }
-  
-  /* Efecto de hover en la tarjeta de servicio */
-  .card-servicio::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #00000094; /* Color de fondo */
-    border-radius: inherit; /* Heredar radio de borde */
-    opacity: 0;
-  }
+  background-color: #E5383B;
+  /* Color de fondo */
+  border-bottom-left-radius: 15px;
+  /* Radio de borde inferior izquierdo */
+  border-bottom-right-radius: 15px;
+  /* Radio de borde inferior derecho */
+  top: -5px;
+  /* Posición superior */
+}
 
-  .card-servicio:hover::after {
-    opacity: 1;
-    cursor: pointer;
-  }
-  
-  /* Contenido */
-  .content {
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
+/* Efecto de hover en la tarjeta de servicio */
+.card-servicio::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000094;
+  /* Color de fondo */
+  border-radius: inherit;
+  /* Heredar radio de borde */
+  opacity: 0;
+}
+
+.card-servicio:hover::after {
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* Contenido */
+.content {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
 
 /* Título del contenido */
 .content h5 {
-    opacity: 0;
-    margin-bottom: 12px;
-    scale: 0.7;
-    color: white; /* Color del texto */
-    cursor: pointer;
-  }
-  
-  /* Efecto de hover en el título del contenido */
-  .card-servicio:hover .content h5 {
-    scale: 1;
-    opacity: 1;
-  }
+  opacity: 0;
+  margin-bottom: 12px;
+  scale: 0.7;
+  color: white;
+  /* Color del texto */
+  cursor: pointer;
+}
+
+/* Efecto de hover en el título del contenido */
+.card-servicio:hover .content h5 {
+  scale: 1;
+  opacity: 1;
+}
 
 
 /* Estilos de scrollbar */
 
 .body-categoria::-webkit-scrollbar,
 .detail-scroll::-webkit-scrollbar {
-  width: 10px; /* Ancho del scrollbar */
+  width: 10px;
+  /* Ancho del scrollbar */
 }
 
 .body-categoria::-webkit-scrollbar-thumb,
 .detail-scroll::-webkit-scrollbar-thumb {
-  background-color: #BA181B; /* Color del thumb del scrollbar */
-  border-radius: 8px; /* Borde redondeado del thumb */
+  background-color: #BA181B;
+  /* Color del thumb del scrollbar */
+  border-radius: 8px;
+  /* Borde redondeado del thumb */
 }
 
 .body-categoria::-webkit-scrollbar,
 .detail-scroll::-webkit-scrollbar {
-    width: 10px;
-    /* Ancho del scrollbar */
+  width: 10px;
+  /* Ancho del scrollbar */
 
 }
 
 .body-categoria::-webkit-scrollbar-thumb,
 .detail-scroll::-webkit-scrollbar-thumb {
-    background-color: #BA181B;
-    /* Color del scrollbar thumb */
-    border-radius: 8px;
-    /* Borde redondeado del thumb */
+  background-color: #BA181B;
+  /* Color del scrollbar thumb */
+  border-radius: 8px;
+  /* Borde redondeado del thumb */
 }
 
 /* Estilos de scrollbar */
 
 /* Botón de retorno */
 .btnReturn {
-    cursor: pointer;
-    width: fit-content; /* Ancho ajustado al contenido */
-  }
+  cursor: pointer;
+  width: fit-content;
+  /* Ancho ajustado al contenido */
+}
 
 /* Encabezado de detalles */
 .details-header {
-    background-color: #E5383B; /* Color de fondo */
-    border-bottom-left-radius: 10px; /* Radio de borde inferior izquierdo */
-    border-bottom-right-radius: 10px; /* Radio de borde inferior derecho */
-    min-height: 80px; /* Altura mínima */
-  }
+  background-color: #E5383B;
+  /* Color de fondo */
+  border-bottom-left-radius: 10px;
+  /* Radio de borde inferior izquierdo */
+  border-bottom-right-radius: 10px;
+  /* Radio de borde inferior derecho */
+  min-height: 80px;
+  /* Altura mínima */
+}
 
 /* C2 */
 .c2 {
-    background-color: white; /* Color de fondo */
-    min-height: 80px; /* Altura mínima */
-  }
+  background-color: white;
+  /* Color de fondo */
+  min-height: 80px;
+  /* Altura mínima */
+}
 
 /* Scroll de detalles */
 .detail-scroll {
-    overflow-y: hidden; /* Ocultar desbordamiento vertical */
-    overflow-x: auto; /* Permitir desplazamiento horizontal */
-    display: grid;
-    gap: 80px; /* Espacio entre elementos */
-    min-height: 395px; /* Altura mínima */
-  }
+  overflow-y: hidden;
+  /* Ocultar desbordamiento vertical */
+  overflow-x: auto;
+  /* Permitir desplazamiento horizontal */
+  display: grid;
+  gap: 80px;
+  /* Espacio entre elementos */
+  min-height: 395px;
+  /* Altura mínima */
+}
 
-/* Tarjeta */
+@media (min-width: 591px) {
 
-.card {
+  /* Tarjeta */
+  .card {
     display: grid;
-    grid-template-columns: 2fr 2fr; /* Distribución de columnas */
-    gap: 0px; /* Espacio entre elementos */
+    grid-template-columns: 2fr 2fr;
+    /* Distribución de columnas */
+    gap: 0px;
+    /* Espacio entre elementos */
     cursor: pointer;
-    min-width: 565PX; /* Ancho mínimo */
-    max-width: 565PX; /* Ancho máximo */
-    border: 0px; /* Borde */
-    border: 1px solid #1E1E1E; /* Borde */
+    min-width: 565PX;
+    /* Ancho mínimo */
+    max-width: 565PX;
+    /* Ancho máximo */
+    border: 0px;
+    /* Borde */
+    border: 1px solid #1E1E1E;
+    /* Borde */
+    min-height: 355px;
+    max-height: 355px;
   }
+
+  /* Columna derecha de la tarjeta */
+  .card-derecha {
+    display: grid;
+    grid-template-rows: 65% 35%;
+    /* Distribución de filas */
+  }
+
+  /* Elemento de movilización */
+  .elemento-movilizacion {
+    border-bottom: 1px solid #B5B5B5;
+    /* Borde inferior */
+    border-bottom-left-radius: 10px;
+    /* Radio de borde inferior izquierdo */
+  }
+
+}
+
+/* Media query para pantallas de tamaño específico */
+@media (min-width: 200px) and (max-width: 590px) {
+  .card {
+    min-width: 325px;
+    max-width: 325px;
+    /* Distribución de filas */
+    gap: 0px;
+    /* Espacio entre elementos */
+  }
+
+  /* Columna derecha de la tarjeta */
+  .card-derecha {
+    display: grid;
+    grid-template-rows: 65% 35%;
+    /* Distribución de filas */
+    min-height: 355px;
+  }
+
+  /* Elemento de movilización */
+  .elemento-movilizacion {
+    margin-bottom: 15px;
+  }
+}
+
 
 /* Columna izquierda de la tarjeta */
 .card-izquierda {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr; /* Distribución de filas */
-    gap: 15px; /* Espacio entre elementos */
-  }
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  /* Distribución de filas */
+  gap: 15px;
+  /* Espacio entre elementos */
+}
 
-/* Columna derecha de la tarjeta */
-.card-derecha {
-    display: grid;
-    grid-template-rows: 65% 35%; /* Distribución de filas */
-  }
 
 /* Elemento de fecha de la cita */
 .elemento-fecha-cita {
-    background-color: white; /* Color de fondo */
-    border-top-left-radius: 10px; /* Radio de borde superior izquierdo */
-  }
+  background-color: white;
+  /* Color de fondo */
+  border-top-left-radius: 10px;
+  /* Radio de borde superior izquierdo */
+}
 
 /* Elemento de hora de llegada */
 .elemento-hora-llegada {
-    background-color: #E64547; /* Color de fondo */
-  }
-
-/* Elemento de movilización */
-.elemento-movilizacion {
-    border-bottom: 1px solid #B5B5B5; /* Borde inferior */
-    border-bottom-left-radius: 10px; /* Radio de borde inferior izquierdo */
-  }
-
-
-/* Contenedor de imagen */
-.img-container>img {
-    min-width: 100%;
-    object-fit: cover;
-    object-position: bottom;
-  }
+  background-color: #E64547;
+  /* Color de fondo */
+}
 
 /* Información del cliente */
 .info-cliente {
-    background-color: black; /* Color de fondo */
-    border-bottom-right-radius: 10px; /* Radio de borde inferior derecho */
-  }
+  background-color: black;
+  /* Color de fondo */
+  border-bottom-right-radius: 10px;
+  /* Radio de borde inferior derecho */
+}
 
 /* Media queries para diferentes tamaños de pantalla */
 @media (min-width: 320px) {
-    .body-categoria {
-      padding-right: 30px; /* Relleno derecho */
-      padding-left: 30px; /* Relleno izquierdo */
-    }
+  .body-categoria {
+    padding-right: 30px;
+    /* Relleno derecho */
+    padding-left: 30px;
+    /* Relleno izquierdo */
+  }
+}
+
+@media (min-width: 400px) {
+  .body-categoria {
+    padding-right: 60px;
+    /* Relleno derecho */
+    padding-left: 60px;
+    /* Relleno izquierdo */
+  }
+}
+
+@media (min-width: 500px) {
+  .body-categoria {
+    padding-right: 90px;
+    /* Relleno derecho */
+    padding-left: 90px;
+    /* Relleno izquierdo */
+  }
+}
+
+@media (min-width: 609px) {
+  .body-categoria {
+    grid-template-columns: repeat(2, 1fr);
+    /* Distribución de columnas */
+    gap: 55px;
+    /* Espacio entre elementos */
+    padding-right: 20px;
+    /* Relleno derecho */
+    padding-left: 20px;
+    /* Relleno izquierdo */
   }
 
-  @media (min-width: 400px) {
-    .body-categoria {
-      padding-right: 60px; /* Relleno derecho */
-      padding-left: 60px; /* Relleno izquierdo */
-    }
+  .card-servicio {
+    grid-template-rows: 50% 50%;
+    /* Distribución de filas */
+  }
+}
+
+
+@media (min-width: 880px) {
+  .body-categoria {
+    grid-template-columns: repeat(3, 1fr);
+    /* Distribución de columnas */
+    gap: 45px;
+    /* Espacio entre elementos */
+    padding-right: 20px;
+    /* Relleno derecho */
+    padding-left: 20px;
+    /* Relleno izquierdo */
   }
 
-  @media (min-width: 500px) {
-    .body-categoria {
-      padding-right: 90px; /* Relleno derecho */
-      padding-left: 90px; /* Relleno izquierdo */
-    }
+  .card-servicio {
+    grid-template-rows: 58% 43%;
+    /* Distribución de filas */
+  }
+}
+
+@media (min-width: 1368px) {
+  .body-categoria {
+    grid-template-columns: repeat(4, 1fr);
+    /* Distribución de columnas */
+    gap: 55px;
+    /* Espacio entre elementos */
+    padding: 55px;
+    /* Relleno */
   }
 
-  @media (min-width: 609px) {
-    .body-categoria {
-      grid-template-columns: repeat(2, 1fr); /* Distribución de columnas */
-      gap: 55px; /* Espacio entre elementos */
-      padding-right: 20px; /* Relleno derecho */
-      padding-left: 20px; /* Relleno izquierdo */
-    }
-
-    .card-servicio {
-        grid-template-rows: 50% 50%; /* Distribución de filas */
-      }
-    }
-
-
-    @media (min-width: 880px) {
-        .body-categoria {
-          grid-template-columns: repeat(3, 1fr); /* Distribución de columnas */
-          gap: 45px; /* Espacio entre elementos */
-          padding-right: 20px; /* Relleno derecho */
-          padding-left: 20px; /* Relleno izquierdo */
-        }
-      
-        .card-servicio {
-          grid-template-rows: 58% 43%; /* Distribución de filas */
-        }
-      }
-
-      @media (min-width: 1368px) {
-        .body-categoria {
-          grid-template-columns: repeat(4, 1fr); /* Distribución de columnas */
-          gap: 55px; /* Espacio entre elementos */
-          padding: 55px; /* Relleno */
-        }
-      
-        .card-servicio {
-          grid-template-rows: 50% 50%; /* Distribución de filas */
-        }
-      }
+  .card-servicio {
+    grid-template-rows: 50% 50%;
+    /* Distribución de filas */
+  }
+}
 
 /* Número de cita */
 .cita-number {
-    background-color: black; /* Color de fondo */
-    width: 50%; /* Ancho */
-    padding-top: 10px; /* Relleno superior */
-    padding-bottom: 10px; /* Relleno inferior */
-    border-bottom-left-radius: 15px; /* Radio de borde inferior izquierdo */
-    border-bottom-right-radius: 15px; /* Radio de borde inferior derecho */
-    border-bottom: 0px solid #D3D3D3; /* Borde inferior */
-    top: 0; /* Posición superior */
-    left: 50%; /* Posición izquierda */
-    transform: translate(-50%); /* Traslación */
-  }
-  
+  background-color: black;
+  /* Color de fondo */
+  width: 50%;
+  /* Ancho */
+  padding-top: 10px;
+  /* Relleno superior */
+  padding-bottom: 10px;
+  /* Relleno inferior */
+  border-bottom-left-radius: 15px;
+  /* Radio de borde inferior izquierdo */
+  border-bottom-right-radius: 15px;
+  /* Radio de borde inferior derecho */
+  border-bottom: 0px solid #D3D3D3;
+  /* Borde inferior */
+  top: 0;
+  /* Posición superior */
+  left: 50%;
+  /* Posición izquierda */
+  transform: translate(-50%);
+  /* Traslación */
+}
+
 /* Contenedor de imagen */
 .img-container>img {
-    max-inline-size: 100%;
-    block-size: auto;
-    object-fit: cover;
-    object-position: top center;
-    border-top-left-radius: 10px; /* Radio de borde superior izquierdo */
-    border-top-right-radius: 10px; /* Radio de borde superior derecho */
-    height: 100%; /* Altura */
-    min-width: 100%; /* Ancho mínimo */
-    aspect-ratio: 2/1; /* Relación de aspecto */
-  }
-  
-  /* División de línea */
-  .line-divis {
-    top: 0; /* Posición superior */
-    left: 49%; /* Posición izquierda */
-    height: 100%; /* Altura */
-    width: 0px; /* Ancho */
-    background-color: #BA181B; /* Color de fondo */
-  }
+  max-inline-size: 100%;
+  block-size: auto;
+  object-fit: cover;
+  object-position: top center;
+  border-top-left-radius: 10px;
+  /* Radio de borde superior izquierdo */
+  border-top-right-radius: 10px;
+  /* Radio de borde superior derecho */
+  height: 100%;
+  /* Altura */
+  min-width: 100%;
+  /* Ancho mínimo */
+  aspect-ratio: 2/1;
+  /* Relación de aspecto */
+}
+
+/* División de línea */
+.line-divis {
+  top: 0;
+  /* Posición superior */
+  left: 49%;
+  /* Posición izquierda */
+  height: 100%;
+  /* Altura */
+  width: 0px;
+  /* Ancho */
+  background-color: #BA181B;
+  /* Color de fondo */
+}
