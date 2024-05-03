@@ -33,13 +33,13 @@
 <body>
     <!-- *Contenido principal del documento -->
     <main class="container-fluid open p-0"> <!--Contenedor blanco-->
-        <div class="contenedor-total col-12 px-3 py-5 d-flex flex-column">
+        <div class="contenedor-total col-12 px-3 py-5 my-4 d-flex flex-column gap-5">
             <div class="contenedor_1 col-12 d-flex flex-wrap">
                 <!--Contenedor para las cards que muestran las citas finalizadas y el calendario-->
-                <div class="contenedor-citas col-12 col-md-6 col-lg-7">
+                <div class="contenedor-citas col-12 col-md-6 col-lg-7 ps-2">
                     <!--Contenedor para almacenar las cards de citas finalizadas-->
                     <div class="contenedor-header col-12">
-                        <h3 class="open-sans-bold text-black">CITAS FINALIZADAS</h3>
+                        <h3 class="open-sans-regular text-black">Citas finalizadas</h3>
                         <form class="d-flex">
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Buscar...">
@@ -352,7 +352,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="contenedor-calendar col-md-5 col-sm-12 a d-flex justify-content-center">
+                <div class="contenedor-calendar col-lg-5 col-md-6 col-sm-12 mt-5 mt-md-0 mt-lg-0 a d-flex justify-content-center">
                     <div class="calendar">
                         <div class="header">
                             <div class="month"></div>
@@ -394,17 +394,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-12 col-sm-12 linea a">
-                    <h3 class="text-center">Resumen del mes de Abril</h3>
+            </div>
+            <div class="contenedor_2 col-12 p-0 a my-4 mt-5 pt-4">
+                <div class="col-12 col-md-12 col-sm-12 justify-content-around d-flex position-relative mb-5">
+                    <h3 class="text-center open-sans-regular">Resumen del mes de abril</h3>
+                    <div class="linea"></div>
                 </div>
-                <div class="col-md-6 col-sm-6 a">
-                    <div class="contenedor_2 container-fluid">
-                        <canvas id="grafica"></canvas>
+                <div class="row  d-flex justify-content-center">
+                    <div class="col-md-6 col-sm-12 pe-2">
+                        <div class="container-fluid">
+                            <canvas id="grafica"></canvas>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-sm-6 a">
-                    <div class="contenedor_2 container-fluid">
-                        <canvas id="graficaLineal"></canvas>
+                    <div class="col-md-6 col-sm-12 ps-2">
+                        <div class="container-fluid">
+                            <canvas id="graficaLineal"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>

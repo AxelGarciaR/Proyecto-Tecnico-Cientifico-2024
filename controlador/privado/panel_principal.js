@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     cargarGraficaLineal();
 });
 
-
 /*
 *   Función asíncrona para mostrar un gráfico de barras.
 *   Parámetros: ninguno.
