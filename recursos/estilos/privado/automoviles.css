@@ -200,6 +200,7 @@ hr {
     border: #232323 3px solid;
     position: relative;
     border-radius: 10px;
+    min-height: 170px;
 }
 
 /* Contenedor para todas las tarjetas */
@@ -221,6 +222,43 @@ hr {
     padding-left: 10px;
 }
 
+/* Estilos para la tarjeta de auto */
+.auto-card {
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    min-height: 300px;
+}
+
+/* Media query para pantallas pequeñas */
+@media (min-width: 370px) {
+    .auto-card {
+        min-height: auto;
+    }
+}
+
+@media (min-width: 420px) {
+    .auto-card {
+        min-height: 400px;
+    }
+    .container-info-card {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .c2>p{
+        flex-direction: column;
+        display: flex;
+    }
+    .contenedor-total-cards {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+}
+
+@media (min-width: 529px) {
+    .contenedor-total-cards {
+        padding-right: 77px;
+        padding-left: 77px;
+    }
+}
 
 /* Media query para pantallas medianas */
 @media (min-width: 682px) {
@@ -241,6 +279,9 @@ hr {
         flex-direction: row;
         display: flex;
     }
+    .auto-card {
+        min-height: 350px;
+    }
 }
 
 /* Media query para pantallas pequeñas */
@@ -248,6 +289,31 @@ hr {
     .c2>p {
         flex-direction: column;
         display: flex;
+    }
+}
+
+/* Media query para pantallas de tamaño específico */
+@media (min-width: 768px) and (max-width: 991px) {
+    .contenedor-total-cards {
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+        padding-right: 90px;
+        padding-left: 90px;
+    }
+    .auto-card {
+        min-height: 350px;
+    }
+}
+
+
+/* Media query para pantallas grandes */
+@media (min-width: 992px) {
+    .auto-card {
+        min-height: 300px;
+    }
+    .contenedor-total-cards {
+        padding-right: 35px;
+        padding-left: 35px;
     }
 }
 
@@ -259,15 +325,8 @@ hr {
         padding-right: 20px;
         padding-left: 20px;
     }
-}
-
-/* Media query para pantallas de tamaño específico */
-@media (min-width: 768px) and (max-width: 991px) {
-    .contenedor-total-cards {
-        grid-template-rows: repeat(2, 1fr);
-        grid-template-columns: 1fr;
-        padding-right: 90px;
-        padding-left: 90px;
+    .auto-card {
+        min-height: 300px;
     }
 }
 
@@ -280,15 +339,14 @@ hr {
         padding-right: 20px;
         padding-left: 20px;
     }
+    .auto-card {
+        grid-template-rows: 4fr 2fr;
+        min-height: 290px;
+        max-height: 290px;
+    }
 }
 
-/* Estilos para la tarjeta de auto */
-.auto-card {
-    display: grid;
-    grid-template-rows: 3fr 1fr;
-    /*min-height: 270px;
-    grid-template-rows: 5fr 2fr;*/
-}
+
 
 /* Estilos para la imagen dentro de la tarjeta de auto */
 .auto-card>.container-img-card>img {

@@ -11,6 +11,7 @@ const MAIN = document.querySelector('main');
 *   Retorno: ninguno.*/
 
 const loadTemplate = async () => {
+
     // *Se agrega el encabezado de la página web antes del contenido principal.
     MAIN.insertAdjacentHTML('beforebegin', `
     <header class="sticky-top">
