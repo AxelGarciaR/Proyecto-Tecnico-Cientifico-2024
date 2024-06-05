@@ -89,6 +89,8 @@
 .btnm2 {
     border-radius: 0px; /* Radio de borde */
     border-bottom-left-radius: 100px; /* Radio de borde inferior izquierdo */
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 
 /* Contenedor de título */
@@ -113,11 +115,13 @@
 /* Parte superior de la tarjeta */
 .card-top {
     background-color: #04D100; /* Color de fondo */
+    border-radius: 10px;
   }
   
   /* Parte superior de la segunda tarjeta */
   .card-top2 {
     background-color: #EC7F00; /* Color de fondo */
+    border-radius: 10px;
   }
 
 /* Pastilla de tiempo */
