@@ -13,7 +13,7 @@ const confirmAction = (message) => {
     return swal({
         title: 'Advertencia',
         text: message,
-        icon: 'warning',
+        icon: 'warning',  
         closeOnClickOutside: false,
         closeOnEsc: false,
         buttons: {
@@ -97,24 +97,27 @@ const sweetAlert = async (type, text, timer) => {
 
 /*
 *   Función asíncrona para cargar las opciones en un select de formulario.
-*   Parámetros: filename (nombre del archivo), action (acción a realizar), select (identificador del select en el formulario) y selected (dato opcional con el valor seleccionado).
+*   Parámetros: filename (nombre del archivo), action (acción a realizar), select (identificador del select en el formulario) y filter (dato opcional para seleccionar una opción o filtrar los datos).
 *   Retorno: ninguno.
 */
-const fillSelect = async (filename, action, select, selected = null) => {
+const fillSelect = async (filename, action, select, filter = undefined) => {
+    // Se verifica si el filtro contiene un objeto para enviar a la API.
+    const FORM = (typeof (filter) == 'object') ? filter : null;
     // Petición para obtener los datos.
-    const DATA = await fetchData(filename, action);
+    const DATA = await fetchData(filename, action, FORM);
     let content = '';
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje.
     if (DATA.status) {
         content += '<option value="" selected>Seleccione una opción</option>';
         // Se recorre el conjunto de registros fila por fila a través del objeto row.
         DATA.dataset.forEach(row => {
-            // Se obtiene el dato del primer campo.
+            // Se obtiene el dato del primer campo de la sentencia SQL.
             value = Object.values(row)[0];
-            // Se obtiene el dato del segundo campo.
+            // Se obtiene el dato del segundo campo de la sentencia SQL.
             text = Object.values(row)[1];
-            // Se verifica cada valor para enlistar las opciones.
-            if (value != selected) {
+            // Se verifica el valor del filtro para enlistar las opciones.
+            const SELECTED = (typeof (filter) == 'number') ? filter : null;
+            if (value != SELECTED) {
                 content += `<option value="${value}">${text}</option>`;
             } else {
                 content += `<option value="${value}" selected>${text}</option>`;
@@ -126,6 +129,7 @@ const fillSelect = async (filename, action, select, selected = null) => {
     // Se agregan las opciones a la etiqueta select mediante el id.
     document.getElementById(select).innerHTML = content;
 }
+
 
 /*
 *   Función para generar un gráfico de barras verticales. Requiere la librería chart.js para funcionar.
@@ -243,12 +247,13 @@ const logOut = async () => {
         const DATA = await fetchData(USER_API, 'logOut');
         // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
         if (DATA.status) {
-            sweetAlert(1, DATA.message, true, '../../vistas/privado/index.html');
+            sweetAlert(1, DATA.message, true, 'index.html');
         } else {
             sweetAlert(2, DATA.exception, false);
         }
     }
 }
+
 
 /*
 *   Función asíncrona para intercambiar datos con el servidor.
