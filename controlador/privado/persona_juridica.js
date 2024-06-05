@@ -19,10 +19,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 */
 const fillTable = async () => {
     CLIENTES_CARDS_CONTAINER.innerHTML = '';
-    // Se verifica la acción a realizar.
-    action = 'readAll';
     // Petición para obtener los registros disponibles.
-    const DATA = await fetchData(CLIENTES_API, action);
+    const DATA = await fetchData(CLIENTES_API, 'readAll');
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {
         // Se recorre el conjunto de registros fila por fila.
