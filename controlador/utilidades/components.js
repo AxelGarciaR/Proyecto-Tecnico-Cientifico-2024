@@ -91,8 +91,6 @@ const sweetAlert = async (type, text, timer) => {
     (timer) ? options.timer = 3000 : options.timer = null;
     // Se muestra el mensaje.
     await swal.fire(options);
-    // Se direcciona a una página web si se indica.
-    (url) ? location.href = url : undefined;
 }
 /*
 *   Función para generar un gráfico de barras verticales. Requiere la librería chart.js para funcionar.

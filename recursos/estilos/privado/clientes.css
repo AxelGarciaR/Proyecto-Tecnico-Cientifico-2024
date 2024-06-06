@@ -60,7 +60,6 @@ hr {
 }
 
 /* Animación */
-
 .boton {
     display: inline-block;
     margin: 10px;
@@ -79,7 +78,6 @@ hr {
 
 /* Animación */
 
-
 /* Contenedor de los checkboxes */
 .contenedor-checkbox,
 .contenedor-checkbox2 {
@@ -94,11 +92,6 @@ hr {
 /* Segundo contenedor de checkboxes */
 .contenedor-checkbox2 {
     gap: 35px;
-}
-
-/* Altura de las marcasA */
-.marcasA {
-    height: 290px;
 }
 
 .contenedor-checkbox>li {
@@ -145,7 +138,6 @@ hr {
     /* Borde redondeado del thumb */
 }
 
-
 .contenedor-checkbox::-webkit-scrollbar,
 #bdSidebar::-webkit-scrollbar,
 .contenedor-modelos-nombre::-webkit-scrollbar,
@@ -169,206 +161,19 @@ hr {
     /* Borde redondeado del thumb */
 }
 
-.contenedor-modelos-nombre::-webkit-scrollbar-thumb {
-    background-color: #FF2D31;
-    /* Color del scrollbar thumb */
-    border-radius: 8px;
-    /* Borde redondeado del thumb */
-}
-
 /* Scrollbar */
-
-/* Estilos para el datepickerA */
-.datepickerA {
-    background-color: #F5F3F4;
-    border: 0px;
-}
-
-/* Estilos para el botón de modelos */
-.btnModelos {
-    background-color: #E5383B;
-    height: 35px;
-    bottom: 0;
-    left: -15%;
-}
-
-/* Contenedor para los modelos de nombres */
-.contenedor-modelos-nombre {
-    overflow-x: hidden;
-    height: 130px;
-    overflow-y: auto;
-    display: grid;
-    grid-template-columns: auto;
-    gap: 10px;
-}
-
-/* Estilo de los elementos dentro del contenedor-modelos-nombre */
-.contenedor-modelos-nombre>li {
-    border: 0px;
-}
-
 /* Estilos para los botones */
 .btnSlBg {
     background-color: #1B1919;
 }
 
-
-/* Contenedor para todas las tarjetas */
-.contenedor-total-cards {
-    overflow-x: hidden;
-    overflow-y: auto;
-
-    min-height: 87vh;
-    max-height: 87vh;
-
-    padding-top: 50px;
-    display: grid;
-    column-gap: 30px;
-    row-gap: 30px;
-    grid-template-rows: repeat(3, 1fr);
-
-    padding-bottom: 20px;
-    padding-right: 10px;
-    padding-left: 10px;
-}
-
-
-/* Media query para pantallas medianas */
-@media (min-width: 682px) {
-    .contenedor-total-cards {
-        grid-template-rows: repeat(2, 1fr);
-        grid-template-columns: repeat(2, 1fr);
-        padding-right: 20px;
-        padding-left: 20px;
-    }
-
-
-
-    .c1,
-    .c2>p,
-    .c3 {
-        flex-direction: row;
-        display: flex;
-    }
-}
-
-/* Media query para pantallas pequeñas */
-@media (min-width: 613px) {
-    .c2>p {
-        flex-direction: column;
-        display: flex;
-    }
-}
-
-/* Media query para pantallas grandes */
-@media (min-width: 1318px) {
-    .contenedor-total-cards {
-        grid-template-rows: repeat(2, 1fr);
-        grid-template-columns: repeat(3, 1fr);
-        padding-right: 20px;
-        padding-left: 20px;
-    }
-}
-
-/* Media query para pantallas de tamaño específico */
-@media (min-width: 768px) and (max-width: 991px) {
-    .contenedor-total-cards {
-        grid-template-rows: repeat(2, 1fr);
-        grid-template-columns: 1fr;
-        padding-right: 90px;
-        padding-left: 90px;
-    }
-}
-
-/* Media query para pantallas muy grandes */
-@media (min-width: 1830px) {
-    .contenedor-total-cards {
-        grid-template-rows: repeat(2, 1fr);
-        grid-template-columns: repeat(4, 1fr);
-        gap: 25px;
-        padding-right: 20px;
-        padding-left: 20px;
-    }
-}
-
 /* Estilos para la tarjeta de auto */
-.add-auto-card {
+.add-cliente-card {
     background-color: #F5F3F4;
     border: #232323 3px solid;
     position: relative;
     border-radius: 10px;
-}
-
-.linear2 {
-    top: 0;
-    right: 0px;
-    height: 100%;
-    background-color: red;
-    width: 3px;
-
-}
-
-
-/* Estilos para la tarjeta de auto */
-.auto-card {
-    display: grid;
-    /*min-height: 270px;
-    grid-template-rows: 5fr 2fr;*/
-    min-width: fit-content;
-    max-width: 150px;
-}
-
-/* Estilos para la imagen dentro de la tarjeta de auto */
-.auto-card>.container-img-card>img {
-    max-inline-size: 100%;
-
-    block-size: auto;
-    object-fit: cover;
-
-    object-position: top center;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-
-    height: 100%;
-    min-width: 100%;
-    aspect-ratio: 2/1;
-}
-
-/* Línea roja de división */
-.line-red-split {
-    width: 100%;
-    height: 7px;
-    background-color: #E00D11;
-    top: 0;
-}
-
-/* Contenedor para la información de la tarjeta */
-.container-info-card {
-    display: grid;
-    column-gap: 10px;
-
-    border: 1px solid #D9D9D9;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
-/* Estilos para los elementos de la tarjeta */
-.c1,
-.c2,
-.c3 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Estilos para la segunda columna de la tarjeta */
-.c2 {
-    background-color: #E00D11;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    margin-bottom: 10px;
-    color: white;
+    min-height: 170px;
 }
 
 /* Efecto de oscurecimiento al pasar el ratón por la tarjeta */
@@ -436,36 +241,6 @@ hr {
     transform: scale(1.1);
 }
 
-/* Estilos para el botón de olvido */
-.btnForgot {
-    background-color: #007CD7;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-}
-
-/* Contenido adicional */
-.content-add-info {
-    display: grid;
-    gap: 25px;
-}
-
-/* Estilos para el botón de cancelar */
-.btnCancel {
-    background-color: black;
-}
-
-/* Estilos para el botón de guardar */
-.btnSave {
-    background-color: #E5383B;
-}
-
-/* Estilos para los botones de guardar y cancelar */
-.btnSave,
-.btnCancel {
-    height: 50px;
-    width: 200px;
-}
-
 /* Etiqueta flotante */
 .form-floating>label {
     color: red;
@@ -479,21 +254,9 @@ hr {
     /* Color rojo */
 }
 
-/* Modal */
-
-/* Estilo para el tamaño de la tarjeta */
-.sizeCard {
-    border-radius: 10px;
-}
-
 /* Estilo para el diálogo modal */
 .modal-dialog {
     min-width: 70vw;
-}
-
-/* Contenido adicional de la imagen */
-.content-add-img {
-    min-height: 40vh;
 }
 
 .range-container {
@@ -506,20 +269,159 @@ hr {
     /* Ajusta el ancho según tus necesidades */
 }
 
-.f1 {
-    margin-left: 20px;
-    margin-top: 10px;
+/* ------------ ESTILOS DE LAS CARDS ------------- */
+
+/* Contenedor para todas las tarjetas */
+.contenedor-total-cards {
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    min-height: 87vh;
+    max-height: 87vh;
+
+    padding-top: 50px;
+    display: grid;
+    column-gap: 30px;
+    row-gap: 30px;
+    grid-template-rows: repeat(3, 1fr);
+
+    padding-bottom: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+/* Estilos para la tarjeta de cliente */
+.cliente-card {
+    display: grid;
+    min-height: 350px;
+}
+
+/* Contenedor para la información de la tarjeta */
+.container-info-card {
+    display: grid;
+    row-gap: 15px;
+
+    border: 1px solid #D9D9D9;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 
-.contenedor-dui h1 {
-    font-size: x-large;
+/* Línea roja de división */
+.line-red-split {
+    width: 100%;
+    height: 7px;
+    background-color: #E00D11;
+    top: 0;
 }
 
-.contenedor-telefono h1 {
-    font-size: x-large;
+/* Línea roja de división */
+.line-red-split-2 {
+    width: 7px;
+    border-radius: 10px;
+    height: 100%;
+    background-color: #E00D11;
+    top: 0;
+    right: -25%;
 }
 
-#detalles-card {
-    margin-bottom: 20px;
+/* Media query para pantallas pequeñas */
+@media (min-width: 370px) {
+    .cliente-card {
+        min-height: 350px;
+    }
+}
+
+@media (min-width: 450px) {
+    .cliente-card {
+        min-height: 350px;
+    }
+    .contenedor-total-cards {
+        padding-right: 65px;
+        padding-left: 65px;
+    }
+
+}
+
+/* Media query para pantallas medianas */
+@media (min-width: 563px) {
+    .contenedor-total-cards {
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .cliente-card {
+        min-height: 350px;
+    }
+}
+
+
+/* Media query para pantallas de tamaño específico */
+@media (min-width: 768px) and (max-width: 991px) {
+    .contenedor-total-cards {
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+        padding-right: 90px;
+        padding-left: 90px;
+    }
+    .cliente-card {
+        min-height: 380px;
+    }
+}
+
+/* Media query para pantallas grandes */
+@media (min-width: 900px) {
+    .cliente-card {
+        min-height: 350px;
+    }
+    .contenedor-total-cards {
+        grid-template-columns: repeat(2, 1fr);
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+/* Media query para pantallas grandes */
+@media (min-width: 1184px) {
+    .contenedor-total-cards {
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .cliente-card {
+        min-height: 350px;
+    }
+}
+
+/* Media query para pantallas muy grandes */
+@media (min-width: 1830px) {
+    .contenedor-total-cards {
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+    .cliente-card {
+        min-height: 310px;
+    }
+}
+
+/* Estilos para la imagen dentro de la tarjeta de cliente */
+.cliente-card>.container-img-card>img {
+    max-inline-size: 100%;
+
+    block-size: auto;
+    object-fit: cover;
+
+    object-position: top center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    height: 100%;
+    min-width: 100%;
+    aspect-ratio: 2/1;
 }

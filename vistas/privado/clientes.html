@@ -4,7 +4,7 @@
 
 <head>
     <!-- Título del documento -->
-    <title>Persona Juridica - DARG</title> <!--Cambiarlo por el titulo de la página en cuestion-->
+    <title>Clientes- DARG</title> <!--Cambiarlo por el titulo de la página en cuestion-->
 
     <!-- Metadatos de la página web -->
     <meta charset="utf-8">
@@ -13,7 +13,7 @@
 
     <!-- *IMPORTACIÓN DE RECURSOS EXTERNOS -->
     <!-- Llamada al icono de la página web -->
-    <link type="image/png" rel="icon" href="../../recursos/imagenes/icons/auto_icon.svg">
+    <link type="image/png" rel="icon" href="../../recursos/imagenes/icons/IconClientes.png">
 
     <!-- *Llamada a las hojas de estilos del framework (BOOSTRAP) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -26,7 +26,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- *Llamada a las hojas de estilos propios de css (CREADOS)-->
-    <link href="../../recursos/estilos/privado/persona_juridica.css" rel="stylesheet">
+    <link href="../../recursos/estilos/privado/clientes.css" rel="stylesheet">
     <!--Cambiarlo por el css de la página en cuestion-->
     <link href="../../recursos/estilos/fuentes.css" rel="stylesheet"> <!--Dejarlo NOQUITAR-->
     <link href="../../recursos/estilos/privado/plantilla.css" rel="stylesheet"> <!--Dejarlo NOQUITAR-->
@@ -78,8 +78,8 @@
                             </button>
 
                             <div class="collapse" id="Departamentos">
-                                <select class="form-select" onchange="seleccionarDepartamento(this)">
-                                    <option value="">Seleccionar departamento</option>
+                                <select class="form-select">
+                                    <option selected>Seleccionar departamento</option>
                                     <option value="Ahuachapán">Ahuachapán</option>
                                     <option value="Cabañas">Cabañas</option>
                                     <option value="Chalatenango">Chalatenango</option>
@@ -311,8 +311,8 @@
                             </button>
 
                             <div class="collapse" id="Rubro">
-                                <select class="form-select" onchange="seleccionarDepartamento(this)">
-                                    <option value="">Seleccionar Rubro Comercial</option>
+                                <select class="form-select">
+                                    <option selected>Seleccionar Rubro Comercial</option>
                                     <option value="Ahuachapán">Alimenticio</option>
                                     <option value="Cabañas">Automotriz</option>
                                     <option value="Chalatenango">Belleza</option>
@@ -334,63 +334,55 @@
                         Filtros
                     </h5>
                 </div>
-                <!--Contenedor total del cuerpo de la página-->
-                <button class="btn btn-danger" onclick="window.location.href = 'persona_natural.html';">Ir a Persona
-                    Natural</button>
-                <div class="contenedor-total-cards col-12" id="clientes_container">
-                    <!--Contenedor de la primera card - card de agregar automovil-->
-                    <div class="add-auto-card d-flex align-items-center justify-content-center">
-                        <img src="../../recursos/imagenes/icons/addCar.svg" class="hvr-grow" data-bs-toggle="modal"
-                            data-bs-target="#agregarCategoriaModal">
-                    </div>
-                </div>
+                <div class="contenedor-total-cards col-12" id="clientes_container"></div>
             </div>
         </div>
 
         <!--TODO -------------------------------MODAL ADD---------------------->
         <!-- Contenedor del modal de agregar automovil-->
-        <div class="modal fade" id="agregarCategoriaModal" data-bs-backdrop="static" data-bs-keyboard="false"
-            tabindex="-1" aria-labelledby="agregarCategoriaModalLabel" aria-hidden="true">
+        <div class="modal fade" id="agregarClienteJuridicoModal" data-bs-backdrop="static" data-bs-keyboard="false"
+            tabindex="-1" aria-labelledby="agregarClienteJuridicoModal" aria-hidden="true">
             <!-- Contenedor del modal dialog-->
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <!-- Contenedor del modal content-->
                 <div class="modal-content p-lg-5 p-1 p-md-4 pb-0 pb-lg-3">
                     <!-- Contenedor del modal body-->
                     <div class="modal-body">
-                        <form>
+                        <form id="addFormJuridico" name="addFormJuridico">
                             <!-- Columna izquierda -->
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_dui" placeholder="...">
+                                            <input type="text" class="form-control" id="input_dui" name="input_dui"   placeholder="...">
                                             <label for="input_dui">DUI</label>
                                         </div>
                                     </div>
                                     <div class="mb-3">
                                         <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_nit" placeholder="...">
+                                            <input type="text" class="form-control" id="input_nit" name="input_nit" placeholder="...">
                                             <label for="input_nit">NIT</label>
                                         </div>
                                     </div>
                                     <div class="mb-3">
                                         <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_telefono"
+                                            <input type="text" class="form-control" id="input_telefono" name="input_telefono"
                                                 placeholder="...">
                                             <label for="input_telefono">Telefono</label>
                                         </div>
                                     </div>
                                     <div class="mb-3">
                                         <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_nrc" placeholder="...">
+                                            <input type="text" class="form-control" id="input_nrc" name="input_nrc" placeholder="...">
                                             <label for="input_nrc">NRC</label>
                                         </div>
                                     </div>
                                     <div class="mb-3">
                                         <div class="form-floating mb-0 p-0">
                                             <label class="form-label px-2 pt-0 p-0 m-0">Departamento</label>
-                                            <select class="form-select pt-4 open-sans-regular"
-                                                aria-label="Default select example">
+                                            <select class="form-select pt-4 open-sans-regular" id="input_departamento"
+                                                name="input_departamento" aria-label="Default select example">
+                                                <option selected>Seleccione una opción</option>
                                                 <option value="Ahuachapán">Ahuachapán</option>
                                                 <option value="Cabañas">Cabañas</option>
                                                 <option value="Chalatenango">Chalatenango</option>
@@ -413,51 +405,46 @@
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_nombre" placeholder="...">
+                                            <input type="text" class="form-control" id="input_nombre" name="input_nombre" placeholder="...">
                                             <label for="input_nombre">Nombres</label>
                                         </div>
                                     </div>
                                     <div class="mb-3">
                                         <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_apellido"
+                                            <input type="text" class="form-control" id="input_apellido" name="input_apellido"
                                                 placeholder="...">
                                             <label for="input_apellido">Apellidos</label>
                                         </div>
                                     </div>
                                     <div class="mb-3">
                                         <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_correo" placeholder="...">
+                                            <input type="text" class="form-control" id="input_correo" name="input_correo" placeholder="...">
                                             <label for="input_correo">Correo</label>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="form-floating mb-0 p-0">
-                                            <label for="input_fechaJ" class="form-label px-2 pt-1 p-0 m-0">Fecha de
-                                                fabricación</label>
-                                            <input type="date" class="form-control" id="input_fechaJ" placeholder=""
-                                                required>
                                         </div>
                                     </div>
                                     <div class="mb-3">
                                         <div class="form-floating mb-0 p-0">
                                             <label class="form-label px-2 pt-0 p-0 m-0">Rubro Comercial</label>
                                             <select class="form-select pt-4 open-sans-regular"
+                                                id="input_rubro_comercial" name="input_rubro_comercial"
                                                 aria-label="Default select example">
-                                                <option value="Ahuachapán">Alimenticio</option>
-                                                <option value="Cabañas">Automotriz</option>
-                                                <option value="Chalatenango">Belleza</option>
-                                                <option value="Cuscatlán">Calzado</option>
+                                                <option selected>Seleccione una opción</option>
+                                                <option value="Alimenticio">Alimenticio</option>
+                                                <option value="Automotriz">Automotriz</option>
+                                                <option value="Belleza">Belleza</option>
+                                                <option value="Calzado">Calzado</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="modal-footer justify-content-center">
+                                <button type="button" class="btn btn-dark" id="cancelarModalButton"
+                                    onclick="openCloseJuridico()">Cancelar</button>
+                                <button type="button" class="btn btn-danger"
+                                    onclick="addSaveJuridico()">Aceptar</button>
+                            </div>
                         </form>
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-dark" id="cancelarModalButton"
-                            onclick="openClose()">Cancelar</button>
-                        <button type="button" class="btn btn-danger" onclick="openNoti()">Aceptar</button>
                     </div>
                 </div>
             </div>
@@ -472,7 +459,7 @@
     <!-- *Llamada al controlador del sitio publico -->
     <script type="text/javascript" src="../../controlador/utilidades/privado.js"></script> <!--Dejarlo NOQUITAR-->
     <!-- *Llamada al controlador de la página web -->
-    <script type="text/javascript" src="../../controlador/privado/persona_juridica.js"></script>
+    <script type="text/javascript" src="../../controlador/privado/clientes.js"></script>
     <!--Cambiarlo por el js de la página en cuestion-->
     <!-- Llamada al controlador del componente -->
     <script type="text/javascript" src="../../controlador/utilidades/components.js"></script>

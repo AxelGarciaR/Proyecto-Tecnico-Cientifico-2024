@@ -26,6 +26,29 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No existen clientes para mostrar';
                 }
                 break;
+                case 'createRow':
+                    $_POST = Validator::validateForm($_POST);
+                    if (
+                        !$cliente->setDUI($_POST['input_dui']) or
+                        !$cliente->setNIT($_POST['input_nit']) or
+                        !$cliente->setTelefono($_POST['input_telefono']) or
+                        !$cliente->setNRC($_POST['input_nrc']) or
+                        !$cliente->setDepartamento($_POST['input_departamento']) or
+                        !$cliente->setNombre($_POST['input_nombre']) or
+                        !$cliente->setApellido($_POST['input_apellido']) or
+                        !$cliente->setCorreo($_POST['input_correo']) or
+                        !$cliente->setRubro($_POST['input_rubro_comercial']) or
+                        !$cliente->setFechaRegistro($_POST['fecha_registro']) or
+                        !$cliente->setTipoCliente($_POST['tipo_cliente']) 
+                    ) {
+                        $result['error'] = $cliente->getDataError();
+                    } elseif ($cliente->createRow()) {
+                        $result['status'] = 1;
+                        $result['message'] = 'Cliente creado correctamente';
+                    } else {
+                        $result['error'] = 'Ocurrió un problema al crear el Cliente';
+                    }
+                    break;
             default:
                 $result['error'] = 'Acción no disponible fuera de la sesión';
         }

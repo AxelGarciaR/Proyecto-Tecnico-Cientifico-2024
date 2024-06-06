@@ -14,6 +14,10 @@
     background-color: #1B1919;
 }
 
+.clrGry1 {
+    color: "#6B737A";
+}
+
 .open-sans-light {
     font-family: "Open Sans", sans-serif;
     font-weight: 300;
@@ -120,7 +124,6 @@
     font-style: normal;
     color: black;
 }
-
 
 .swal2-actions button {
     margin: 10px;

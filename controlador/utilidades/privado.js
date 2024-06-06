@@ -35,7 +35,6 @@ const loadTemplate = async () => {
                             </a>
                         </li>
 
-
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="../../vistas/privado/automoviles.html">
                                 <h5 class="text-white open-sans-regular m-0 p-0 px-4 px-lg-0">Automóviles</h5>
@@ -43,7 +42,7 @@ const loadTemplate = async () => {
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="../../vistas/privado/persona_juridica.html">
+                            <a class="nav-link" aria-current="page" href="../../vistas/privado/clientes.html">
                                 <h5 class="text-white open-sans-regular m-0 p-0 px-4 px-lg-0">Clientes</h5>
                             </a>
                         </li>
@@ -101,21 +100,21 @@ const loadTemplate = async () => {
                         <div class="lineR1 mb-3"></div>
                         <div class="col">
                             <div class="d-flex flex-row align-items-center mb-3">
-                                <img class="me-2" src="/recursos/imagenes/icons/icon_facebook.svg" height="20px">
+                                <img class="me-2" src="../../recursos/imagenes/icons/icon_facebook.svg" height="20px">
                                 <a class="text-white" href="">
                                     <h6 class="open-sans-light m-0 p-0">Facebook</h6>
                                 </a>
                             </div>
 
                             <div class="d-flex flex-row align-items-center mb-3">
-                                <img class="me-2" src="/recursos/imagenes/icons/icon_whatsapp.svg" height="20px">
+                                <img class="me-2" src="../../recursos/imagenes/icons/icon_whatsapp.svg" height="20px">
                                 <a class="text-white" href="">
                                     <h6 class="open-sans-light m-0 p-0">WhatsApp</h6>
                                 </a>
                             </div>
 
                             <div class="d-flex flex-row align-items-center mb-3">
-                                <img class="me-2" src="/recursos/imagenes/icons/icon_instagram.svg" height="20px">
+                                <img class="me-2" src="../../recursos/imagenes/icons/icon_instagram.svg" height="20px">
                                 <a class="text-white" href="">
                                     <h6 class="open-sans-light m-0 p-0">Instagram</h6>
                                 </a>
@@ -131,7 +130,7 @@ const loadTemplate = async () => {
                         <div class="lineR1 mb-3"></div>
                         <div class="col">
                             <div class="d-flex flex-row align-items-center mb-3">
-                                <img class="me-2" src="/recursos/imagenes/icons/icon_cellphone.svg" height="20px">
+                                <img class="me-2" src="../../recursos/imagenes/icons/icon_cellphone.svg" height="20px">
                                 <h6 class="open-sans-light m-0 p-0">+503 7221-2806</h6>
                             </div>
 
@@ -169,18 +168,18 @@ const loadTemplate = async () => {
                                     <h6 class="open-sans-light m-0 p-0">Adriana P. Mejía</h6>
                                 </div>
                                 <div class="d-flex flex-row align-items-center mb-3">
-                                    <img class="me-2" src="/recursos/imagenes/icons/icon_user3.svg" height="20px">
+                                    <img class="me-2" src="../../recursos/imagenes/icons/icon_user3.svg" height="20px">
                                     <h6 class="open-sans-light m-0 p-0">Melanie J. Martínez</h6>
                                 </div>
                                 <div class="d-flex flex-row align-items-center mb-3">
-                                    <img class="me-2" src="/recursos/imagenes/icons/icon_user3.svg" height="20px">
+                                    <img class="me-2" src="../../recursos/imagenes/icons/icon_user3.svg" height="20px">
                                     <h6 class="open-sans-light m-0 p-0">Emily G. Murillo.</h6>
                                 </div>
                             </div>
 
                             <div class="col">
                                 <div class="d-flex flex-row align-items-center mb-3">
-                                    <img class="me-2" src="/recursos/imagenes/icons/icon_user3.svg" height="20px">
+                                    <img class="me-2" src="../../recursos/imagenes/icons/icon_user3.svg" height="20px">
                                     <h6 class="open-sans-light m-0 p-0">Daniel A. Córtez</h6>
                                 </div>
                                 <div class="d-flex flex-row align-items-center mb-3">
