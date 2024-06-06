@@ -34,8 +34,9 @@ class ClienteHandler
             departamento_cliente,
             NIT_cliente,
             NRC_cliente,
+            NRF_cliente,
             rubro_comercial,
-            tipo_cliente) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'; // Consulta SQL para insertar un nuevo cliente
+            tipo_cliente) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'; // Consulta SQL para insertar un nuevo cliente
         $params = array(
             $this-> fecha_registro_cliente,
             $this-> dui_cliente,
@@ -46,6 +47,7 @@ class ClienteHandler
             $this-> departamento_cliente,
             $this-> NIT_cliente,
             $this-> NRC_cliente,
+            $this-> NRF_cliente,
             $this-> rubro_comercial,
             $this-> tipo_cliente
         ); // Parámetros para la consulta SQL
@@ -69,9 +71,15 @@ class ClienteHandler
     }
 
      // Método para leer los clientes
-    public function readAll()
+    public function readAllJuridico()
     {
-        $sql = 'SELECT * FROM tb_clientes;';
+        $sql = 'SELECT * FROM tb_clientes WHERE tipo_cliente = "Persona juridica";';
+        return Database::getRows($sql);
+    }
+
+    public function readAllNatural()
+    {
+        $sql = 'SELECT * FROM tb_clientes WHERE tipo_cliente = "Persona natural";';
         return Database::getRows($sql);
     }
 }

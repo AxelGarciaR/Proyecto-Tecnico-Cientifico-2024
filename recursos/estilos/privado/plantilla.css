@@ -41,11 +41,11 @@ main {
     width: 180px;
     /* Ancho de 180 píxeles */
 }
-.nav-item {
+.animation {
     position: relative;
 }
-.nav-item::after,
-.nav-item::before {
+.animation::after,
+.animation::before {
     content: "";
     position: absolute;
     width: 0;
@@ -54,20 +54,20 @@ main {
     transition: all 0.6s ease-in-out;
 }
 
-.nav-item::after {
+.animation::after {
     top: 0;
     right: 0;
     transform-origin: right;
 }
 
-.nav-item::before {
+.animation::before {
     left: 0;
     bottom: 0;
     transform-origin: left;
 }
 
-.nav-item:hover::after,
-.nav-item:hover::before {
+.animation:hover::after,
+.animation:hover::before {
     width: 100%;
 }
 

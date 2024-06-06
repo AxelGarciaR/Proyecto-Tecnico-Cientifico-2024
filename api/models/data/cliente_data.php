@@ -61,6 +61,16 @@ class ClienteData extends ClienteHandler
             return false;
         }
     }
+    public function setNRF($value, $min = 11, $max = 11)
+    {
+        if (Validator::validateLength($value, $min, $max)) {
+            $this->NRF_cliente = $value;
+            return true;
+        } else {
+            $this->data_error = 'El NRF debe tener una longitud de ' . $min;
+            return false;
+        }
+    }
 
     // Método para establecer el teléfono del cliente
     public function setTelefono($value)
@@ -138,7 +148,7 @@ class ClienteData extends ClienteHandler
     public function setRubro($value)
     {
         if (!Validator::validateAlphabetic($value)) {
-            $this->data_error = 'El rubro debe ser un valor alfabético';
+            $this->data_error = 'El    rubro debe ser un valor alfabético';
             return false;
         } else {
             $this->rubro_comercial = $value;

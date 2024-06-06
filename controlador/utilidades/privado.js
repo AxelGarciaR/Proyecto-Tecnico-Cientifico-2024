@@ -15,7 +15,7 @@ const loadTemplate = async () => {
     // *Se agrega el encabezado de la página web antes del contenido principal.
     MAIN.insertAdjacentHTML('beforebegin', `
     <header class="sticky-top">
-        <nav class="navbar navbar-expand-lg bg-color-n2 shadow px-lg-5 py-4 px-md-0">
+        <nav class="navbar navbar-expand-lg bg-color-n2 shadow px-lg-5 py-3 px-md-0">
             <div class="container-fluid">
 
                 <button class="navbar-toggler mb-3" type="button" data-bs-toggle="collapse"
@@ -29,31 +29,31 @@ const loadTemplate = async () => {
                     <ul
                         class="navbar-nav mb-2 mb-lg-0 nav-underline d-flex justify-content-between me-auto flex-grow-1">
 
-                        <li class="nav-item">
+                        <li class="nav-item animation">
                             <a class="nav-link" aria-current="page" href="../../vistas/privado/empleados.html">
                                 <h5 class="text-white open-sans-regular m-0 p-0 px-4 px-lg-0">Empleados</h5>
                             </a>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item animation">
                             <a class="nav-link" aria-current="page" href="../../vistas/privado/automoviles.html">
                                 <h5 class="text-white open-sans-regular m-0 p-0 px-4 px-lg-0">Automóviles</h5>
                             </a>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item animation">
                             <a class="nav-link" aria-current="page" href="../../vistas/privado/clientes.html">
                                 <h5 class="text-white open-sans-regular m-0 p-0 px-4 px-lg-0">Clientes</h5>
                             </a>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item animation">
                             <a class="nav-link" aria-current="page" href="../../vistas/privado/citas.html">
                                 <h5 class="text-white open-sans-regular m-0 p-0 px-4 px-lg-0">Citas</h5>
                             </a>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item animation">
                             <a class="nav-link" aria-current="page" href="../../vistas/privado/pagina_servicios.html">
                                 <h5 class="text-white open-sans-regular m-0 p-0 px-4 px-lg-0">Servicios</h5>
                             </a>
@@ -61,7 +61,7 @@ const loadTemplate = async () => {
                     </ul>
 
                     <ul class="navbar-nav nav-underline flex-grow-1 justify-content-center">
-                        <li class="nav-item">
+                        <li class="nav-item animation">
                             <a class="nav-link" aria-current="page" href="../../vistas/privado/panel_principal.html">
                                 <h3 class="text-white open-sans-semibold m-0 px-4">INICIO</h3>
                             </a>

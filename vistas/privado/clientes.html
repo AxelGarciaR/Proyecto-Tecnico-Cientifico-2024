@@ -324,57 +324,92 @@
                 </div>
             </div>
             <!-- TODO -----------------------------------CUERPO----------------------------------->
-            <div class="flex-fill col-12">
-                <!--Contenedor del boton para abrir los filtros colapsados-->
-                <div class="p-2 d-md-none d-flex text-white btnSlBg">
-                    <a href="#" class="text-white" data-bs-toggle="offcanvas" data-bs-target="#bdSidebar">
-                        <i class="fa-solid fa-bars"></i>
-                    </a>
-                    <h5 class="open-sans-bold text-white mx-3">
-                        Filtros
-                    </h5>
+            <div class="ContenedorPestaña pt-5">
+                <ul class="nav nav-tabs ms-lg-5 ms-md-4 ms-0">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link boton-cambiar-color tb" data-bs-toggle="tab" id="personaNatural-tab"
+                            type="button" data-bs-target="#personaNatural" role="tab" aria-controls="personaNatural"
+                            aria-selected="true" onclick="showPersonaNatural(this)">
+                            Persona Natural
+                        </button>
+                    </li>
+
+                    <li class="nav-item ms-4" role="presentation">
+                        <button class="nav-link boton-cambiar-color tab" data-bs-toggle="tab" id="personaJuridica-tab"
+                            type="button" data-bs-target="#personaJuridica" role="tab" aria-controls="personaJuridica"
+                            aria-selected="true" onclick="showPersonaJuridica(this)">
+                            Persona Juridica
+                        </button>
+                    </li>
+                </ul>
+                <div class="tab-content contenidoP position-relative" id="">
+                    <div class="tab-pane fade z-3 d-none pt-3" role="tabpanel" id="personaJuridica"
+                        aria-labelledby="personaJuridica-tab">
+                        <div class="flex-fill col-12">
+                            <!--Contenedor del boton para abrir los filtros colapsados-->
+                            <div class="p-2 d-md-none d-flex text-white btnSlBg">
+                                <a href="#" class="text-white" data-bs-toggle="offcanvas" data-bs-target="#bdSidebar">
+                                    <i class="fa-solid fa-bars"></i>
+                                </a>
+                                <h5 class="open-sans-bold text-white mx-3">
+                                    Filtros
+                                </h5>
+                            </div>
+                            <div class="contenedor-total-cards col-12" id="cleintesJuridicoContainer"></div>
+                        </div>
+                    </div>
+                    <div class="tab-pane1 fade z-2 position-relative d-none pt-3 d-flex flex-column align-items-center"
+                        role="tabpanel" id="personaNatural" aria-labelledby="personaNatural-tab">
+                        <div class="flex-fill col-12">
+                            <!--Contenedor del boton para abrir los filtros colapsados-->
+                            <div class="p-2 d-md-none d-flex text-white btnSlBg">
+                                <a href="#" class="text-white" data-bs-toggle="offcanvas" data-bs-target="#bdSidebar">
+                                    <i class="fa-solid fa-bars"></i>
+                                </a>
+                                <h5 class="open-sans-bold text-white mx-3">
+                                    Filtros
+                                </h5>
+                            </div>
+                            <div class="contenedor-total-cards col-12" id="cleintesNaturalContainer"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="contenedor-total-cards col-12" id="clientes_container"></div>
             </div>
         </div>
 
         <!--TODO -------------------------------MODAL ADD---------------------->
         <!-- Contenedor del modal de agregar automovil-->
-        <div class="modal fade" id="agregarClienteJuridicoModal" data-bs-backdrop="static" data-bs-keyboard="false"
-            tabindex="-1" aria-labelledby="agregarClienteJuridicoModal" aria-hidden="true">
+        <div class="modal fade" id="agregarClienteModal" data-bs-backdrop="static" data-bs-keyboard="false"
+            tabindex="-1" aria-labelledby="agregarClienteModal" aria-hidden="true">
             <!-- Contenedor del modal dialog-->
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <!-- Contenedor del modal content-->
                 <div class="modal-content p-lg-5 p-1 p-md-4 pb-0 pb-lg-3">
                     <!-- Contenedor del modal body-->
                     <div class="modal-body">
-                        <form id="addFormJuridico" name="addFormJuridico">
+                        <form id="addForm" name="addForm">
                             <!-- Columna izquierda -->
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_dui" name="input_dui"   placeholder="...">
+                                            <input type="text" class="form-control" id="input_nombre"
+                                                name="input_nombre" placeholder="...">
+                                            <label for="input_nombre">Nombres</label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="text" class="form-control" id="input_dui" name="input_dui"
+                                                placeholder="...">
                                             <label for="input_dui">DUI</label>
                                         </div>
                                     </div>
                                     <div class="mb-3">
                                         <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_nit" name="input_nit" placeholder="...">
-                                            <label for="input_nit">NIT</label>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_telefono" name="input_telefono"
-                                                placeholder="...">
-                                            <label for="input_telefono">Telefono</label>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_nrc" name="input_nrc" placeholder="...">
-                                            <label for="input_nrc">NRC</label>
+                                            <input type="text" class="form-control" id="input_correo"
+                                                name="input_correo" placeholder="...">
+                                            <label for="input_correo">Correo</label>
                                         </div>
                                     </div>
                                     <div class="mb-3">
@@ -400,29 +435,45 @@
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="mb-3" id="nrf">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="text" class="form-control" id="input_nrf" name="input_nrf"
+                                                placeholder="...">
+                                            <label for="input_nrf">NRF</label>
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- Columna derecha -->
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_nombre" name="input_nombre" placeholder="...">
-                                            <label for="input_nombre">Nombres</label>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_apellido" name="input_apellido"
-                                                placeholder="...">
+                                            <input type="text" class="form-control" id="input_apellido"
+                                                name="input_apellido" placeholder="...">
                                             <label for="input_apellido">Apellidos</label>
                                         </div>
                                     </div>
                                     <div class="mb-3">
                                         <div class="form-floating mb-0 p-0">
-                                            <input type="text" class="form-control" id="input_correo" name="input_correo" placeholder="...">
-                                            <label for="input_correo">Correo</label>
+                                            <input type="text" class="form-control" id="input_nit" name="input_nit"
+                                                placeholder="...">
+                                            <label for="input_nit">NIT</label>
                                         </div>
                                     </div>
                                     <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="text" class="form-control" id="input_telefono"
+                                                name="input_telefono" placeholder="...">
+                                            <label for="input_telefono">Telefono</label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3" id="nrc">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="text" class="form-control" id="input_nrc" name="input_nrc"
+                                                placeholder="...">
+                                            <label for="input_nrc">NRC</label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3" id="rubro_comercial">
                                         <div class="form-floating mb-0 p-0">
                                             <label class="form-label px-2 pt-0 p-0 m-0">Rubro Comercial</label>
                                             <select class="form-select pt-4 open-sans-regular"
@@ -440,9 +491,9 @@
                             </div>
                             <div class="modal-footer justify-content-center">
                                 <button type="button" class="btn btn-dark" id="cancelarModalButton"
-                                    onclick="openCloseJuridico()">Cancelar</button>
+                                    onclick="openClose()">Cancelar</button>
                                 <button type="button" class="btn btn-danger"
-                                    onclick="addSaveJuridico()">Aceptar</button>
+                                    onclick="addSave()">Aceptar</button>
                             </div>
                         </form>
                     </div>
