@@ -14,72 +14,59 @@ if (isset($_GET['action'])) {
     if (isset($_SESSION['id_cliente'])) {
         $result['session'] = 1; // Indica que hay una sesión activa.
         switch ($_GET['action']) {
-            
         }
     } else {
         // Se compara la acción a realizar cuando el administrador no ha iniciado sesión.
         switch ($_GET['action']) {
-            case 'readAllJuridico':
-                if ($result['dataset'] = $cliente->readAllJuridico()) {
+            case 'readAll':
+                if ($result['dataset'] = $cliente->readAll($_POST['tipo_persona'])) {
                     $result['status'] = 1;
                 } else {
-                    $result['error'] = 'No existen clientes juridicos para mostrar';
+                    $result['error'] = 'No existen clientes para mostrar';
                 }
                 break;
-                case 'readAllNatural':
-                    if ($result['dataset'] = $cliente->readAllNatural()) {
-                        $result['status'] = 1;
-                    } else {
-                        $result['error'] = 'No existen clientes naturales para mostrar';
-                    }
-                    break;
-                case 'createRow':
-                    $_POST = Validator::validateForm($_POST);
-                    if($_POST['tipo_cliente'] == 'Persona natural'){
-                        if (
-                            !$cliente->setDUI($_POST['input_dui']) or
-                            !$cliente->setNIT($_POST['input_nit']) or
-                            !$cliente->setTelefono($_POST['input_telefono']) or
-                            !$cliente->setDepartamento($_POST['input_departamento']) or
-                            !$cliente->setNombre($_POST['input_nombre']) or
-                            !$cliente->setApellido($_POST['input_apellido']) or
-                            !$cliente->setCorreo($_POST['input_correo']) or
-                            !$cliente->setFechaRegistro($_POST['fecha_registro']) or
-                            !$cliente->setTipoCliente($_POST['tipo_cliente']) 
-                        ) {
-                            $result['error'] = $cliente->getDataError();
-                        } elseif ($cliente->createRow()) {
+            case 'createRow':
+                var_dump($_POST);
+                $_POST = Validator::validateForm($_POST);
+                print_r($_POST);
+                // Validaciones comunes para ambos tipos de cliente
+                if (
+                    !$cliente->setDUI($_POST['input_dui']) or
+                    !$cliente->setNIT($_POST['input_nit']) or
+                    !$cliente->setTelefono($_POST['input_telefono']) or
+                    !$cliente->setDepartamento($_POST['input_departamento']) or
+                    !$cliente->setNombre($_POST['input_nombre']) or
+                    !$cliente->setApellido($_POST['input_apellido']) or
+                    !$cliente->setCorreo($_POST['input_correo']) or
+                    !$cliente->setFechaRegistro($_POST['fecha_registro']) or
+                    !$cliente->setTipoCliente($_POST['tipo_cliente'])
+                ) {
+                    $result['error'] = $cliente->getDataError();
+                } else {
+                    // Validaciones específicas para cada tipo de cliente
+                    if ($_POST['tipo_cliente'] == 'Persona natural') {
+                        if (!$cliente->createRow()) {
+                            $result['error'] = 'Ocurrió un problema al crear el Cliente natural';
+                        } else {
                             $result['status'] = 1;
                             $result['message'] = 'Cliente natural creado correctamente';
-                        } else {
-                            $result['error'] = 'Ocurrió un problema al crear el Cliente';
                         }
-                    }
-                    else{
+                    } else {
                         if (
-                            !$cliente->setDUI($_POST['input_dui']) or
-                            !$cliente->setNIT($_POST['input_nit']) or
-                            !$cliente->setTelefono($_POST['input_telefono']) or
                             !$cliente->setNRF($_POST['input_nrf']) or
                             !$cliente->setNRC($_POST['input_nrc']) or
-                            !$cliente->setDepartamento($_POST['input_departamento']) or
-                            !$cliente->setNombre($_POST['input_nombre']) or
-                            !$cliente->setApellido($_POST['input_apellido']) or
-                            !$cliente->setCorreo($_POST['input_correo']) or
-                            !$cliente->setRubro($_POST['input_rubro_comercial']) or
-                            !$cliente->setFechaRegistro($_POST['fecha_registro']) or
-                            !$cliente->setTipoCliente($_POST['tipo_cliente']) 
+                            !$cliente->setRubro($_POST['input_rubro_comercial'])
                         ) {
                             $result['error'] = $cliente->getDataError();
-                        } elseif ($cliente->createRow()) {
-                            $result['status'] = 1;
-                            $result['message'] = 'Cliente juridico creado correctamente';
+                        } elseif (!$cliente->createRow()) {
+                            $result['error'] = 'Ocurrió un problema al crear el Cliente jurídico';
                         } else {
-                            $result['error'] = 'Ocurrió un problema al crear el Cliente';
+                            $result['status'] = 1;
+                            $result['message'] = 'Cliente jurídico creado correctamente';
                         }
                     }
-                   
-                    break;
+                }
+                break;
             default:
                 $result['error'] = 'Acción no disponible fuera de la sesión';
         }

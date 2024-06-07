@@ -36,7 +36,7 @@ class ClienteHandler
             NRC_cliente,
             NRF_cliente,
             rubro_comercial,
-            tipo_cliente) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'; // Consulta SQL para insertar un nuevo cliente
+            tipo_cliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'; // Consulta SQL para insertar un nuevo cliente
         $params = array(
             $this-> fecha_registro_cliente,
             $this-> dui_cliente,
@@ -59,8 +59,8 @@ class ClienteHandler
     {
         $sql = 'SELECT id_cliente 
         FROM tb_clientes 
-        WHERE (dui_cliente = ? OR correo_cliente = ? OR telefono_cliente = ?)
-        AND id_trabajador <> ?;'; // Consulta SQL para verificar duplicados por valor (DUI o correo) excluyendo el ID actual
+        WHERE (dui_cliente = ? OR correo_cliente = ? OR telefono_cliente = ?)';
+        // Consulta SQL para verificar duplicados por valor (DUI o correo) excluyendo el ID actual
         $params = array(
             $value,
             $value,
@@ -71,15 +71,12 @@ class ClienteHandler
     }
 
      // Método para leer los clientes
-    public function readAllJuridico()
+    public function readAll($TipoPersona)
     {
-        $sql = 'SELECT * FROM tb_clientes WHERE tipo_cliente = "Persona juridica";';
-        return Database::getRows($sql);
-    }
-
-    public function readAllNatural()
-    {
-        $sql = 'SELECT * FROM tb_clientes WHERE tipo_cliente = "Persona natural";';
-        return Database::getRows($sql);
+        $sql = 'SELECT * FROM tb_clientes WHERE tipo_cliente = ?;';
+        $params = array(
+            $TipoPersona
+        );
+        return Database::getRows($sql, $params);
     }
 }

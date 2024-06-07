@@ -148,7 +148,7 @@ class ClienteData extends ClienteHandler
     public function setRubro($value)
     {
         if (!Validator::validateAlphabetic($value)) {
-            $this->data_error = 'El    rubro debe ser un valor alfabético';
+            $this->data_error = 'El rubro debe ser un valor alfabético';
             return false;
         } else {
             $this->rubro_comercial = $value;
