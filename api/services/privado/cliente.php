@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase del modelo.
-require_once('../../models/data/cliente_data.php');
+require_once ('../../models/data/cliente_data.php');
 
 // Se comprueba si existe una acción a realizar, de lo contrario se finaliza el script con un mensaje de error.
 if (isset($_GET['action'])) {
@@ -25,10 +25,18 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No existen clientes para mostrar';
                 }
                 break;
+            case 'readOne':
+                if (!$cliente->setId($_POST['id_cliente'])) {
+                    $result['error'] = $cliente->getDataError();
+                } elseif ($result['dataset'] = $cliente->readOne()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['error'] = 'Cliente inexistente';
+                }
+                break;
             case 'createRow':
-                var_dump($_POST);
                 $_POST = Validator::validateForm($_POST);
-                print_r($_POST);
+                //print_r($_POST);
                 // Validaciones comunes para ambos tipos de cliente
                 if (
                     !$cliente->setDUI($_POST['input_dui']) or
@@ -67,6 +75,47 @@ if (isset($_GET['action'])) {
                     }
                 }
                 break;
+            case 'updateRow':
+                $_POST = Validator::validateForm($_POST);
+                //print_r($_POST);
+                // Validaciones comunes para ambos tipos de cliente
+                if (
+                    !$cliente->setDUI($_POST['input_dui']) or
+                    !$cliente->setNIT($_POST['input_nit']) or
+                    !$cliente->setTelefono($_POST['input_telefono']) or
+                    !$cliente->setDepartamento($_POST['input_departamento']) or
+                    !$cliente->setNombre($_POST['input_nombre']) or
+                    !$cliente->setApellido($_POST['input_apellido']) or
+                    !$cliente->setCorreo($_POST['input_correo']) or
+                    !$cliente->setFechaRegistro($_POST['fecha_registro']) or
+                    !$cliente->setTipoCliente($_POST['tipo_cliente'])
+                ) {
+                    $result['error'] = $cliente->getDataError();
+                } else {
+                    // Validaciones específicas para cada tipo de cliente
+                    if ($_POST['tipo_cliente'] == 'Persona natural') {
+                        if (!$cliente->updateRow()) {
+                            $result['error'] = 'Ocurrió un problema al modificar el Cliente natural';
+                        } else {
+                            $result['status'] = 1;
+                            $result['message'] = 'Cliente natural modificado correctamente';
+                        }
+                    } else {
+                        if (
+                            !$cliente->setNRF($_POST['input_nrf']) or
+                            !$cliente->setNRC($_POST['input_nrc']) or
+                            !$cliente->setRubro($_POST['input_rubro_comercial'])
+                        ) {
+                            $result['error'] = $cliente->getDataError();
+                        } elseif (!$cliente->updateRow()) {
+                            $result['error'] = 'Ocurrió un problema al modificar el Cliente jurídico';
+                        } else {
+                            $result['status'] = 1;
+                            $result['message'] = 'Cliente jurídico modificado correctamente';
+                        }
+                    }
+                }
+                break;
             default:
                 $result['error'] = 'Acción no disponible fuera de la sesión';
         }
@@ -76,8 +125,8 @@ if (isset($_GET['action'])) {
     // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
     header('Content-type: application/json; charset=utf-8');
     // Se imprime el resultado en formato JSON y se retorna al controlador.
-    print(json_encode($result));
+    print (json_encode($result));
 } else {
     // Si no se envió una acción válida, se devuelve un mensaje de recurso no disponible.
-    print(json_encode('Recurso no disponible'));
+    print (json_encode('Recurso no disponible'));
 }

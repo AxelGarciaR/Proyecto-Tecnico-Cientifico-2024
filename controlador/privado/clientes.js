@@ -63,7 +63,7 @@ const addSave = async () => {
     const isValid = await checkFormValidity(ADD_FORM);
     if (isValid) {
         console.log('TodoGud'); // Código a ejecutar después de la validación
-        /* Constante tipo objeto con los datos del formulario.
+        //Constante tipo objeto con los datos del formulario.
         const FORM = new FormData(ADD_FORM);
         FORM.append('fecha_registro', getDateTime());
         FORM.append('tipo_cliente', TIPO_CLIENTE);
@@ -80,7 +80,7 @@ const addSave = async () => {
             ADD_FORM.classList.remove('was-validated'); // Quita la clase de validación
         } else {
             await sweetAlert(2, DATA.error, false);
-        }*/
+        }
     } else {
         console.log('Que paso?: Formulario no válido');
     }

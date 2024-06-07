@@ -54,6 +54,38 @@ class ClienteHandler
         return Database::executeRow($sql, $params); // Ejecución de la consulta SQL
     }
 
+    public function updateRow()
+    {
+        $sql = 'UPDATE tb_clientes SET 
+        dui_cliente = ?,
+        telefono_cliente = ?,
+        correo_cliente = ?,
+        nombres_cliente = ?,
+        apellidos_cliente = ?,
+        tipo_cliente = ?,
+        departamento_cliente = ?,
+        NIT_cliente = ?,
+        NRC_cliente = ?,
+        NRF_cliente = ?,
+        rubro_comercial = ?
+        
+        WHERE id_Cliente = ?'; // Consulta SQL para insertar un nuevo cliente
+        $params = array(
+            $this-> dui_cliente,
+            $this-> telefono_cliente,
+            $this-> correo_cliente,
+            $this-> nombres_cliente,
+            $this-> apellidos_cliente,
+            $this-> tipo_cliente,
+            $this-> departamento_cliente,
+            $this-> NIT_cliente,
+            $this-> NRC_cliente,
+            $this-> NRF_cliente,
+            $this-> rubro_comercial
+        ); // Parámetros para la consulta SQL
+        return Database::executeRow($sql, $params); // Ejecución de la consulta SQL
+    }
+
     // Método para verificar duplicados por valor (DUI o correo) y excluyendo el ID actual
     public function checkDuplicate($value)
     {
@@ -64,8 +96,7 @@ class ClienteHandler
         $params = array(
             $value,
             $value,
-            $value,
-            $this->id_cliente
+            $value
         ); // Parámetros para la consulta SQL
         return Database::getRow($sql, $params); // Ejecución de la consulta SQL
     }
@@ -79,4 +110,14 @@ class ClienteHandler
         );
         return Database::getRows($sql, $params);
     }
+
+     // Método para leer a un cliente
+     public function readOne()
+     {
+         $sql = 'SELECT * FROM tb_clientes WHERE id_cliente = ?';
+         $params = array(
+             $this->id_cliente
+         );
+         return Database::getRow($sql, $params);
+     }
 }

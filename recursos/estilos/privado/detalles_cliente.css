@@ -5,11 +5,13 @@ html {
     width: 100%;
     background-color: white;
 }
+
 /* Estilos para las medidas de la imagen */
 .contenedor-izq>img {
     width: 250px;
     height: 250px;
 }
+
 /* Estilos para el contenedor total */
 .contenedor-total {
     min-height: 80vh;
@@ -20,6 +22,7 @@ html {
 
     padding-top: 80px;
 }
+
 /* Estilos para el contenedor info */
 .contenedor-info {
     background-color: white;
@@ -28,11 +31,13 @@ html {
     min-height: 270px;
     margin-top: 30px;
 }
+
 /* Estilos para el dui*/
 .dui {
     border-left: 2px solid red;
     border-right: 2px solid red;
 }
+
 /* Estilos para el contenedor mas info */
 .contenedor-masinfo {
     background-color: white;
@@ -46,25 +51,48 @@ html {
 .info-header {
     margin-bottom: 55px;
 }
+
 /* Estilos para el contenedor mas info header */
 .masinfo-header {
     width: fit-content;
     border-bottom: 2px solid red;
     margin-bottom: 45px;
 }
+
 /* Estilos para el contenedor mas info body */
 .masinfo-body {
     display: grid;
     row-gap: 20px;
 }
-/* Estilos para el contenedor del departamento */
-.depa {
-    border-bottom:1px solid red;
-}
+
 /* Estilos para el contenedor del nit*/
-.nit {
+.nit,
+.nrc,
+.fecharegistro,
+.depa {
     border-bottom: 1px solid red;
 }
+
+/* Botón de edición */
+.btnEdit {
+    border: 0px;
+    /* Borde */
+    width: fit-content;
+    /* Ancho ajustado al contenido */
+}
+
+/* Efecto de hover en el botón de edición */
+.btnEdit:hover {
+    background-color: rgb(143, 255, 255);
+    /* Color de fondo al pasar el ratón */
+}
+
+/* Botón de retorno */
+.btnReturn {
+    cursor: pointer;
+    width: fit-content; /* Ancho ajustado al contenido */
+  }
+
 /* Estilos para el contenedor de la frecuencia*/
 .contenedor-frecuencia {
     background-color: #F1EFEF;
@@ -74,15 +102,18 @@ html {
     display: grid;
     row-gap: 20px;
 }
+
 /* Estilos para el contenedor derecha*/
 .contenedor-drch {
     display: grid;
     row-gap: 50px;
 }
+
 /* Estilos para el contenedor de la frecuencia */
 .frecuencia-header {
     border-bottom: 1px solid red;
 }
+
 /* Estilos para el contenedor con el scroll */
 .contenedor-scroll {
     overflow-y: hidden;
@@ -231,20 +262,24 @@ html {
 }
 
 /* Estilos para la scrollbar */
-.contenedor-scroll::-webkit-scrollbar{
-    width: 5px; /* Ancho del scrollbar */
+.contenedor-scroll::-webkit-scrollbar {
+    width: 5px;
+    /* Ancho del scrollbar */
 }
 
 /* Estilos para el scrollbar thumb */
-.contenedor-scroll::-webkit-scrollbar-thumb{
-    background-color: #BA181B; /* Color del scrollbar thumb */
-    border-radius: 5px; /* Borde redondeado del thumb */
+.contenedor-scroll::-webkit-scrollbar-thumb {
+    background-color: #BA181B;
+    /* Color del scrollbar thumb */
+    border-radius: 5px;
+    /* Borde redondeado del thumb */
 }
 
 .contenedor-scroll::-webkit-scrollbar {
-    width: 5px; /* Ancho del scrollbar */
+    width: 5px;
+    /* Ancho del scrollbar */
 }
 
-.return{
+.return {
     cursor: pointer;
 }
