@@ -225,9 +225,6 @@ CREATE TABLE tb_seguimientos_creditos_fiscales
 	id_consumidor_final INT /* FK */
 );
 
-/**FOREIGN KEY**/
-ALTER TABLE tb_seguimientos_consumidores_finales
-  ADD CONSTRAINT u_fk_consumidor_final_seguimiento_consumidor_final FOREIGN KEY (id_consumidor_final) REFERENCES tb_consumidores_finales(id_consumidor_final);
 
 CREATE TABLE tb_usuarios_clientes
 (
