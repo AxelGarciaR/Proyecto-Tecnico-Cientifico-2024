@@ -28,7 +28,7 @@
     <!-- Contenedor main -->
     <main class="open pt-4">
         <!-- Botón de regreso con una imagen -->
-        <div class="btnReturn pt-3 px-4" onclick="goBack()">  <!-- Boton regresar -->
+        <div class="btnReturn pt-3 px-4" onclick="goBack()"> <!-- Boton regresar -->
             <h4 class="open-sans-regular text-black">
                 <img src="../../recursos/imagenes/icons/minus.png">
                 Regresar
@@ -39,7 +39,8 @@
             class="contenedor-total col-12 d-flex flex-column justify-content-center align-items-center px-lg-5 px-md-3 px-1">
             <!-- Contenedor de la fila1, el de arriba -->
             <div class="fila1 col-12 d-flex flex-wrap justify-content-center gap-5" id="clienteDataContainer">
-                <!-- Contenedor de la columna de la izquierda--> </div>
+                <!-- Contenedor de la columna de la izquierda-->
+            </div>
             <!--Contenedor fila 2-->
             <div class="fila2 col-lg-10 col-md-11 col-12 px-3 px-md-0 px-lg-0 d-flex flex-column">
                 <!--Titulo-->
@@ -170,7 +171,158 @@
                 </div>
             </div>
         </div>
+
+        <!--TODO -------------------------------MODAL ADD---------------------->
+        <!-- Contenedor del modal de editar cliente-->
+        <div class="modal fade" id="editarClienteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="editarClienteModalLabel" aria-hidden="true">
+            <!-- Contenedor del modal dialog-->
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <!-- Contenedor del modal content-->
+                <div class="modal-content p-lg-5 p-1 p-md-4 pb-0 pb-lg-3">
+                    <!-- Contenedor del modal body-->
+                    <div class="modal-body">
+                        <form id="addForm" name="addForm" class="needs-validation" novalidate>
+                            <!-- Columna izquierda -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="text" class="form-control" id="input_nombre"
+                                                name="input_nombre" placeholder="..." required>
+                                            <label for="input_nombre">Nombres</label>
+                                            <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="text" class="form-control" id="input_dui" name="input_dui"
+                                                placeholder="..." required>
+                                            <label for="input_dui">DUI</label>
+                                            <div class="invalid-feedback">Por favor ingresa tu DUI.</div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="email" class="form-control" id="input_correo"
+                                                name="input_correo" placeholder="..." required>
+                                            <label for="input_correo">Correo</label>
+                                            <div class="invalid-feedback">Por favor ingresa un correo válido.</div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <label class="form-label px-2 pt-0 p-0 m-0">Departamento</label>
+                                            <select class="form-select pt-4 open-sans-regular" id="input_departamento"
+                                                name="input_departamento" aria-label="Default select example" required>
+                                                <option value="" selected>Seleccione una opción</option>
+                                                <option value="Ahuachapán">Ahuachapán</option>
+                                                <option value="Cabañas">Cabañas</option>
+                                                <option value="Chalatenango">Chalatenango</option>
+                                                <option value="Cuscatlán">Cuscatlán</option>
+                                                <option value="La Libertad">La Libertad</option>
+                                                <option value="La Paz">La Paz</option>
+                                                <option value="La Unión">La Unión</option>
+                                                <option value="Morazán">Morazán</option>
+                                                <option value="San Miguel">San Miguel</option>
+                                                <option value="San Salvador">San Salvador</option>
+                                                <option value="San Vicente">San Vicente</option>
+                                                <option value="Santa Ana">Santa Ana</option>
+                                                <option value="Sonsonate">Sonsonate</option>
+                                                <option value="Usulután">Usulután</option>
+                                            </select>
+                                            <div class="invalid-feedback">Por favor selecciona un departamento.</div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3" id="nrf">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="text" class="form-control" id="input_nrf" name="input_nrf"
+                                                placeholder="..." required>
+                                            <label for="input_nrf">NRF</label>
+                                            <div class="invalid-feedback">Por favor ingresa tu NRF.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Columna derecha -->
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="text" class="form-control" id="input_apellido"
+                                                name="input_apellido" placeholder="..." required>
+                                            <label for="input_apellido">Apellidos</label>
+                                            <div class="invalid-feedback">Por favor ingresa tus apellidos.</div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="text" class="form-control" id="input_nit" name="input_nit"
+                                                placeholder="..." required>
+                                            <label for="input_nit">NIT</label>
+                                            <div class="invalid-feedback">Por favor ingresa tu NIT.</div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="text" class="form-control" id="input_telefono"
+                                                name="input_telefono" placeholder="..." required>
+                                            <label for="input_telefono">Teléfono</label>
+                                            <div class="invalid-feedback">Por favor ingresa tu teléfono.</div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3" id="nrc">
+                                        <div class="form-floating mb-0 p-0">
+                                            <input type="text" class="form-control" id="input_nrc" name="input_nrc"
+                                                placeholder="..." required>
+                                            <label for="input_nrc">NRC</label>
+                                            <div class="invalid-feedback">Por favor ingresa tu NRC.</div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3" id="rubro_comercial">
+                                        <div class="form-floating mb-0 p-0">
+                                            <label class="form-label px-2 pt-0 p-0 m-0">Rubro comercial</label>
+                                            <select class="form-select pt-4 open-sans-regular"
+                                                id="input_rubro_comercial" name="input_rubro_comercial"
+                                                aria-label="Default select example" required>
+                                                <option value="" selected>Seleccione una opción</option>
+                                                <option value="Alimenticio">Alimenticio</option>
+                                                <option value="Automotriz">Automotriz</option>
+                                                <option value="Belleza">Belleza</option>
+                                                <option value="Calzado">Calzado</option>
+                                            </select>
+                                            <div class="invalid-feedback">Por favor selecciona un rubro comercial.</div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3" id="tipo_cliente">
+                                        <div class="form-floating mb-0 p-0">
+                                            <label class="form-label px-2 pt-0 p-0 m-0">Tipo del cliente</label>
+                                            <select class="form-select pt-4 open-sans-regular"
+                                                id="input_tipo_cliente" name="input_tipo_cliente"
+                                                aria-label="Default select example" required>
+                                                <option value="" selected>Seleccione una opción</option>
+                                                <option value="Persona natural">Persona natural</option>
+                                                <option value="Persona juridica">Persona juridica</option>
+                                            </select>
+                                            <div class="invalid-feedback">Por favor selecciona un tipo de persona.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer justify-content-center">
+                                <button type="button" class="btn btn-secondary btnCancel2 me-lg-5 me-3 me-md-5"
+                                onclick="openDelete()">Eliminar</button>
+                                <button type="button" class="btn btn-secondary btnCancel me-lg-5 me-3 me-md-5"
+                                    onclick="openClose()">Cancelar</button>
+                                <button type="submit" class="btn btn-primary btnSave me-lg-5 me-3 me-md-5"
+                                    onclick="addSave()">
+                                    Aceptar </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
+
     <!-- *Llamada a las hojas de estilos del framework e iconos -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!--Dejarlo NOQUITAR-->

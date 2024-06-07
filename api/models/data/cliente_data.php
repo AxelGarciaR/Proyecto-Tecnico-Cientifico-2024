@@ -1,8 +1,8 @@
 <?php
 // Se incluye la clase para validar los datos de entrada.
-require_once('../../helpers/validator.php');
+require_once ('../../helpers/validator.php');
 // Se incluye la clase padre.
-require_once('../../models/handler/cliente_handler.php');
+require_once ('../../models/handler/cliente_handler.php');
 /*
  *  Clase para manejar el encapsulamiento de los datos de la tabla USUARIO.
  */
@@ -167,6 +167,29 @@ class ClienteData extends ClienteHandler
     public function setTipoCliente($value)
     {
         $this->tipo_cliente = $value;
+        return true;
+    }
+
+    public function setEstado($value)
+    {
+        if (!Validator::validateAlphabetic($value)) {
+            $this->data_error = 'El estado debe ser un valor alfabético';
+            return false;
+        } else {
+            $this->estado_cliente = $value;
+            return true;
+        }
+    }
+
+    public function setFechaInicio($value)
+    {
+        $this->fecha_inicio = $value;
+        return true;
+    }
+
+    public function setFechaFin($value)
+    {
+        $this->fecha_fin = $value;
         return true;
     }
 

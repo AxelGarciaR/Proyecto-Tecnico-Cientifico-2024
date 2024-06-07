@@ -279,7 +279,7 @@ hr {
     min-height: 87vh;
     max-height: 87vh;
 
-    padding-top: 50px;
+    padding-top: 25px;
     display: grid;
     column-gap: 30px;
     row-gap: 30px;
@@ -336,6 +336,7 @@ hr {
     .cliente-card {
         min-height: 350px;
     }
+
     .contenedor-total-cards {
         padding-right: 65px;
         padding-left: 65px;
@@ -366,6 +367,7 @@ hr {
         padding-right: 90px;
         padding-left: 90px;
     }
+
     .cliente-card {
         min-height: 380px;
     }
@@ -376,6 +378,7 @@ hr {
     .cliente-card {
         min-height: 350px;
     }
+
     .contenedor-total-cards {
         grid-template-columns: repeat(2, 1fr);
         padding-right: 15px;
@@ -391,6 +394,7 @@ hr {
         padding-right: 15px;
         padding-left: 15px;
     }
+
     .cliente-card {
         min-height: 350px;
     }
@@ -405,6 +409,7 @@ hr {
         padding-right: 20px;
         padding-left: 20px;
     }
+
     .cliente-card {
         min-height: 310px;
     }
@@ -436,6 +441,7 @@ hr {
     flex-direction: column;
     width: 100%;
 }
+
 /* Estilos para los enlaces de la barra de navegación */
 .nav-link {
     text-decoration: none;
@@ -459,7 +465,58 @@ hr {
     max-height: 100%;
 }
 
-.boton-cambiar-color{
+.boton-cambiar-color {
     color: black;
     background-color: white;
 }
+
+/* Estilos para el botón de cancelar */
+.btnCancel {
+    background-color: black;
+}
+
+/* Estilos para el botón de guardar */
+.btnSave {
+    background-color: #E5383B;
+}
+
+/* Estilos para los botones de guardar y cancelar */
+.btnSave,
+.btnCancel {
+    height: 50px;
+    width: 200px;
+}
+
+.img {
+    width: 50px;
+    height: 50px;
+}
+
+.divReload{
+    cursor: pointer;
+}
+
+/* Icon Grow Rotate */
+.hvr-icon-grow-rotate {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+  }
+  .hvr-icon-grow-rotate .hvr-icon {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+  .hvr-icon-grow-rotate:hover .hvr-icon, .hvr-icon-grow-rotate:focus .hvr-icon, .hvr-icon-grow-rotate:active .hvr-icon {
+    -webkit-transform: scale(1.2) rotate(12deg);
+    transform: scale(1.2) rotate(12deg);
+  }

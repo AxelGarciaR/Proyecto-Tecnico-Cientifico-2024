@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase para trabajar con la base de datos.
-require_once('../../helpers/database.php');
+require_once ('../../helpers/database.php');
 /*
  *  Clase para manejar el comportamiento de los datos de la tabla administrador.
  */
@@ -20,6 +20,68 @@ class ClienteHandler
     protected $NRC_cliente = null;
     protected $NRF_cliente = null;
     protected $rubro_comercial = null;
+    protected $estado_cliente = null;
+    protected $fecha_inicio = null;
+    protected $fecha_fin = null;
+
+
+    public function searchRows()
+    {
+        $value =  '%' . Validator::getSearchValue() . '%';
+        $sql = 'SELECT * FROM tb_clientes WHERE departamento_cliente = ? OR 
+        nombres_cliente LIKE ?
+        AND tipo_cliente = ?;';
+        $params = array(
+            $this->departamento_cliente,
+            $this->$value,
+            $this->tipo_cliente
+        );
+        return Database::getRows($sql, $params);
+    }
+
+
+    public function updateRow()
+    {
+        $sql = 'UPDATE tb_clientes SET 
+        dui_cliente = ?,
+        telefono_cliente = ?,
+        correo_cliente = ?,
+        nombres_cliente = ?,
+        apellidos_cliente = ?,
+        tipo_cliente = ?,
+        departamento_cliente = ?,
+        NIT_cliente = ?,
+        NRC_cliente = ?,
+        NRF_cliente = ?,
+        rubro_comercial = ?
+        WHERE id_Cliente = ?'; // Consulta SQL para insertar un nuevo cliente
+        $params = array(
+            $this->dui_cliente,
+            $this->telefono_cliente,
+            $this->correo_cliente,
+            $this->nombres_cliente,
+            $this->apellidos_cliente,
+            $this->tipo_cliente,
+            $this->departamento_cliente,
+            $this->NIT_cliente,
+            $this->NRC_cliente,
+            $this->NRF_cliente,
+            $this->rubro_comercial,
+            $this->id_cliente
+        ); // Parámetros para la consulta SQL
+        return Database::executeRow($sql, $params); // Ejecución de la consulta SQL
+    }
+
+    public function deleteRow()
+    {
+        // Consulta SQL para eliminar un cliente basado en su ID
+        $sql = 'DELETE FROM tb_clientes
+            WHERE id_cliente = ?';
+        // Parámetros de la consulta SQL, usando el ID del cliente proporcionado por la clase
+        $params = array($this->id_cliente);
+        // Ejecuta la consulta de eliminación y devuelve el resultado
+        return Database::executeRow($sql, $params);
+    }
 
     // Método para crear un nuevo cliente
     public function createRow()
@@ -36,52 +98,22 @@ class ClienteHandler
             NRC_cliente,
             NRF_cliente,
             rubro_comercial,
-            tipo_cliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'; // Consulta SQL para insertar un nuevo cliente
+            tipo_cliente,
+            estado_cliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'; // Consulta SQL para insertar un nuevo cliente
         $params = array(
-            $this-> fecha_registro_cliente,
-            $this-> dui_cliente,
-            $this-> telefono_cliente,
-            $this-> correo_cliente,
-            $this-> nombres_cliente,
-            $this-> apellidos_cliente,
-            $this-> departamento_cliente,
-            $this-> NIT_cliente,
-            $this-> NRC_cliente,
-            $this-> NRF_cliente,
-            $this-> rubro_comercial,
-            $this-> tipo_cliente
-        ); // Parámetros para la consulta SQL
-        return Database::executeRow($sql, $params); // Ejecución de la consulta SQL
-    }
-
-    public function updateRow()
-    {
-        $sql = 'UPDATE tb_clientes SET 
-        dui_cliente = ?,
-        telefono_cliente = ?,
-        correo_cliente = ?,
-        nombres_cliente = ?,
-        apellidos_cliente = ?,
-        tipo_cliente = ?,
-        departamento_cliente = ?,
-        NIT_cliente = ?,
-        NRC_cliente = ?,
-        NRF_cliente = ?,
-        rubro_comercial = ?
-        
-        WHERE id_Cliente = ?'; // Consulta SQL para insertar un nuevo cliente
-        $params = array(
-            $this-> dui_cliente,
-            $this-> telefono_cliente,
-            $this-> correo_cliente,
-            $this-> nombres_cliente,
-            $this-> apellidos_cliente,
-            $this-> tipo_cliente,
-            $this-> departamento_cliente,
-            $this-> NIT_cliente,
-            $this-> NRC_cliente,
-            $this-> NRF_cliente,
-            $this-> rubro_comercial
+            $this->fecha_registro_cliente,
+            $this->dui_cliente,
+            $this->telefono_cliente,
+            $this->correo_cliente,
+            $this->nombres_cliente,
+            $this->apellidos_cliente,
+            $this->departamento_cliente,
+            $this->NIT_cliente,
+            $this->NRC_cliente,
+            $this->NRF_cliente,
+            $this->rubro_comercial,
+            $this->tipo_cliente,
+            $this->estado_cliente
         ); // Parámetros para la consulta SQL
         return Database::executeRow($sql, $params); // Ejecución de la consulta SQL
     }
@@ -91,17 +123,19 @@ class ClienteHandler
     {
         $sql = 'SELECT id_cliente 
         FROM tb_clientes 
-        WHERE (dui_cliente = ? OR correo_cliente = ? OR telefono_cliente = ?)';
+        WHERE (dui_cliente = ? OR correo_cliente = ? OR telefono_cliente = ?) 
+        AND id_cliente <> ?;';
         // Consulta SQL para verificar duplicados por valor (DUI o correo) excluyendo el ID actual
         $params = array(
             $value,
             $value,
-            $value
+            $value,
+            $this->id_cliente
         ); // Parámetros para la consulta SQL
         return Database::getRow($sql, $params); // Ejecución de la consulta SQL
     }
 
-     // Método para leer los clientes
+    // Método para leer los clientes
     public function readAll($TipoPersona)
     {
         $sql = 'SELECT * FROM tb_clientes WHERE tipo_cliente = ?;';
@@ -111,13 +145,13 @@ class ClienteHandler
         return Database::getRows($sql, $params);
     }
 
-     // Método para leer a un cliente
-     public function readOne()
-     {
-         $sql = 'SELECT * FROM tb_clientes WHERE id_cliente = ?';
-         $params = array(
-             $this->id_cliente
-         );
-         return Database::getRow($sql, $params);
-     }
+    // Método para leer a un cliente
+    public function readOne()
+    {
+        $sql = 'SELECT * FROM tb_clientes WHERE id_cliente = ?';
+        $params = array(
+            $this->id_cliente
+        );
+        return Database::getRow($sql, $params);
+    }
 }

@@ -45,21 +45,6 @@ function showMarcas() {
     REGRESAR_MARCAS.classList.add('d-none');
 }
 
-// Date pickers
-$('#datepicker-desde').datepicker({
-    uiLibrary: 'bootstrap5'
-});
-$('#datepicker-hasta').datepicker({
-    uiLibrary: 'bootstrap5'
-});
-
-$('#datepicker-desdeRE').datepicker({
-    uiLibrary: 'bootstrap5'
-});
-$('#datepicker-hastaRE').datepicker({
-    uiLibrary: 'bootstrap5'
-});
-
 
 // Funcion para ir hacia la pagina de detalles del automovil
 function gotoDetail() {
@@ -81,6 +66,20 @@ const openNoti = async () => {
     MODAL.hide();
 }
 
+// Date pickers
+$('#datepicker-desde').datepicker({
+    uiLibrary: 'bootstrap5'
+});
+$('#datepicker-hasta').datepicker({
+    uiLibrary: 'bootstrap5'
+});
+
+$('#datepicker-desdeRE').datepicker({
+    uiLibrary: 'bootstrap5'
+});
+$('#datepicker-hastaRE').datepicker({
+    uiLibrary: 'bootstrap5'
+});
 
 // Función para mostrar la imagen seleccionada en un elemento de imagen.
 function displaySelectedImage(event, elementId) {

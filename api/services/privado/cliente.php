@@ -19,7 +19,7 @@ if (isset($_GET['action'])) {
         // Se compara la acción a realizar cuando el administrador no ha iniciado sesión.
         switch ($_GET['action']) {
             case 'readAll':
-                if ($result['dataset'] = $cliente->readAll($_POST['tipo_persona'])) {
+                if ($result['dataset'] = $cliente->readAll($_POST['tipo_cliente'])) {
                     $result['status'] = 1;
                 } else {
                     $result['error'] = 'No existen clientes para mostrar';
@@ -47,7 +47,8 @@ if (isset($_GET['action'])) {
                     !$cliente->setApellido($_POST['input_apellido']) or
                     !$cliente->setCorreo($_POST['input_correo']) or
                     !$cliente->setFechaRegistro($_POST['fecha_registro']) or
-                    !$cliente->setTipoCliente($_POST['tipo_cliente'])
+                    !$cliente->setTipoCliente($_POST['tipo_cliente']) or
+                    !$cliente->setEstado($_POST['estado_cliente'])
                 ) {
                     $result['error'] = $cliente->getDataError();
                 } else {
@@ -80,6 +81,7 @@ if (isset($_GET['action'])) {
                 //print_r($_POST);
                 // Validaciones comunes para ambos tipos de cliente
                 if (
+                    !$cliente->setId($_POST['id_cliente']) or
                     !$cliente->setDUI($_POST['input_dui']) or
                     !$cliente->setNIT($_POST['input_nit']) or
                     !$cliente->setTelefono($_POST['input_telefono']) or
@@ -87,7 +89,6 @@ if (isset($_GET['action'])) {
                     !$cliente->setNombre($_POST['input_nombre']) or
                     !$cliente->setApellido($_POST['input_apellido']) or
                     !$cliente->setCorreo($_POST['input_correo']) or
-                    !$cliente->setFechaRegistro($_POST['fecha_registro']) or
                     !$cliente->setTipoCliente($_POST['tipo_cliente'])
                 ) {
                     $result['error'] = $cliente->getDataError();
@@ -113,6 +114,35 @@ if (isset($_GET['action'])) {
                             $result['status'] = 1;
                             $result['message'] = 'Cliente jurídico modificado correctamente';
                         }
+                    }
+                }
+                break;
+            case 'deleteRow':
+                if (!$cliente->setId($_POST['id_cliente'])) {
+                    $result['error'] = $cliente->getDataError();
+                } elseif ($cliente->deleteRow()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Cliente eliminado correctamente';
+                } else {
+                    $result['error'] = 'Ocurrió un problema al eliminar el cliente';
+                }
+                break;
+            case 'searchRows':
+                $_POST = Validator::validateForm($_POST);
+                print_r($_POST);
+                if (
+                    !$cliente->setTipoCliente($_POST['tipo_cliente']) or
+                    !$cliente->setDepartamento($_POST['departamento_cliente'])
+                ) {
+                    $result['error'] = $cliente->getDataError();
+                } else {
+                    // Luego, realizar la validación y búsqueda de filas
+                    if (!Validator::validateSearch($_POST['search'])) {
+                        $result['error'] = Validator::getSearchError();
+                    } elseif ($result['dataset'] = $cliente->searchRows()) {
+                        $result['status'] = 1;
+                    } else {
+                        $result['error'] = 'No hay coincidencias';
                     }
                 }
                 break;

@@ -26,6 +26,8 @@ const DUI = document.getElementById('input_dui'),
     CORREO = document.getElementById('input_correo'),
     RUBRO_COMERCIAL = document.getElementById('input_rubro_comercial');
 
+const DEPARTAMENTO_BUSCAR = document.getElementById('departamento_buscar');
+
 let TIPO_CLIENTE;
 
 // *Método del evento para cuando el documento ha cargado.
@@ -67,6 +69,7 @@ const addSave = async () => {
         const FORM = new FormData(ADD_FORM);
         FORM.append('fecha_registro', getDateTime());
         FORM.append('tipo_cliente', TIPO_CLIENTE);
+        FORM.append('estado_cliente', 'Activo');
 
         // Petición para guardar los datos del formulario.
         const DATA = await fetchData(CLIENTES_API, 'createRow', FORM);
@@ -74,7 +77,7 @@ const addSave = async () => {
         // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
         if (DATA.status) {
             sweetAlert(1, 'Se ha guardado con éxito', 300);
-            fillData();
+            fillData('readAll');
             MODAL.hide();
             resetForm(); // Resetea el formulario
             ADD_FORM.classList.remove('was-validated'); // Quita la clase de validación
@@ -105,18 +108,47 @@ const addSave = async () => {
     })
 })()
 
+function reload() {
+    fillData('readAll');
+}
+
+let textoIngresado;
+const inputBusqueda = document.getElementById('input_buscar');
+inputBusqueda.addEventListener("input", function (event) {
+    textoIngresado = event.target.value.trim();
+    search('A');
+});
+
+// Agregar un evento change al select
+DEPARTAMENTO_BUSCAR.addEventListener('change', function () {
+    const selectedDepartamento = this.value;
+    if (selectedDepartamento != 'Seleccionar departamento') {
+        search(selectedDepartamento);
+    } else {fillData('readAll')}
+    // Llamr a la función deseada pasando el valor seleccionado
+});
+
+
+const search = async (depaIngresado) => {
+    const FORM = new FormData();
+    FORM.append('tipo_cliente', TIPO_CLIENTE);
+    FORM.append('departamento_cliente', depaIngresado);
+    FORM.append('search', textoIngresado);
+    fillData('searchRows', FORM);
+}
+
 /*
 *   Función asíncrona para llenar el contenedor de los clientes con los registros disponibles.
 *   Parámetros: form (objeto opcional con los datos de búsqueda).
 *   Retorno: ninguno.
 */
-const fillData = async () => {
+const fillData = async (action, form = null) => {
     // Lógica para mostrar clientes naturales o jurídicos
     if (TIPO_CLIENTE == 'Persona natural') {
         CLIENTES_NATURAL_CONTAINER.innerHTML = '';
-        const FORM2 = new FormData();
-        FORM2.append('tipo_persona', TIPO_CLIENTE);
-        const DATA2 = await fetchData(CLIENTES_API, 'readAll', FORM2);
+        const FORM2 = form ?? new FormData();
+        FORM2.append('tipo_cliente', TIPO_CLIENTE);
+        const DATA2 = await fetchData(CLIENTES_API, action, FORM2);
 
         createCardAdd(CLIENTES_NATURAL_CONTAINER);
 
@@ -130,8 +162,8 @@ const fillData = async () => {
     } else {
         CLIENTES_JURIDICO_CONTAINER.innerHTML = '';
         const FORM1 = new FormData();
-        FORM1.append('tipo_persona', TIPO_CLIENTE);
-        const DATA1 = await fetchData(CLIENTES_API, 'readAll', FORM1);
+        FORM1.append('tipo_cliente', TIPO_CLIENTE);
+        const DATA1 = await fetchData(CLIENTES_API, action, FORM1);
 
         createCardAdd(CLIENTES_JURIDICO_CONTAINER);
 
@@ -192,7 +224,7 @@ function createCardAdd(container) {
 // Función para mostrar el div de agregar trabajador y ocultar el div de la tabla.
 function showPersonaNatural(boton) {
     TIPO_CLIENTE = 'Persona natural';
-    fillData();
+    fillData('readAll');
     PERSONA_NATURAL_DIV.classList.remove('d-none');
     PERSONA_JURIDICA_DIV.classList.add('d-none');
     RUBRO_COMERCIAL_DIV.classList.add('d-none');
@@ -208,7 +240,7 @@ function showPersonaNatural(boton) {
 // Función para mostrar el div de la tabla y ocultar el div de agregar trabajador.
 function showPersonaJuridica(boton) {
     TIPO_CLIENTE = 'Persona juridica';
-    fillData();
+    fillData('readAll');
     PERSONA_JURIDICA_DIV.classList.remove('d-none');
     PERSONA_NATURAL_DIV.classList.add('d-none');
     RUBRO_COMERCIAL_DIV.classList.remove('d-none');
@@ -251,6 +283,23 @@ function rotarImagen(idImagen) {
         imagen.classList.remove('rotacion-90');
     }
 }
+
+
+// Date pickers
+$('#datepicker-desde').datepicker({
+    uiLibrary: 'bootstrap5'
+});
+$('#datepicker-hasta').datepicker({
+    uiLibrary: 'bootstrap5'
+});
+
+$('#datepicker-desdeRE').datepicker({
+    uiLibrary: 'bootstrap5'
+});
+$('#datepicker-hastaRE').datepicker({
+    uiLibrary: 'bootstrap5'
+});
+
 
 function getDateTime() {
     // Crear un nuevo objeto Date para obtener la fecha y hora actual

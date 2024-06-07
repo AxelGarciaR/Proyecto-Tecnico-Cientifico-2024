@@ -46,7 +46,7 @@
                 data-bs-toggle="offcanvas"> <!-- Contenedor del menu lateral (filtros) -->
                 <div class="sidebar-header"> <!-- Contenedor del header del menu lateral (filtros) -->
                     <div class="input-group search shadow-sm"> <!-- Contenedor del los input de entrada -->
-                        <input type="text" class="form-control search" placeholder="Buscar...">
+                        <input type="text" class="form-control search" placeholder="Buscar..." id="input_buscar">
                         <button type="button" class="btn btn-outline"><i class="bi-search"><img
                                     src="../../recursos/imagenes/icons/icon-search.svg"></i></button>
                     </div>
@@ -78,7 +78,7 @@
                             </button>
 
                             <div class="collapse" id="Departamentos">
-                                <select class="form-select">
+                                <select class="form-select" name="departamento_buscar" id="departamento_buscar">
                                     <option selected>Seleccionar departamento</option>
                                     <option value="Ahuachapán">Ahuachapán</option>
                                     <option value="Cabañas">Cabañas</option>
@@ -112,7 +112,6 @@
                                     <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img2" class="imagen">
                                 </span>
                             </button>
-
                             <!--Contenedor de las fechas-->
                             <div class="collapse col-11 mt-3" id="FechaFab">
                                 <!--Contenedor flexbox-->
@@ -345,6 +344,13 @@
                 <div class="tab-content contenidoP position-relative" id="">
                     <div class="tab-pane fade z-3 d-none pt-3" role="tabpanel" id="personaJuridica"
                         aria-labelledby="personaJuridica-tab">
+                        <div class="d-flex me-auto ms-5 mt-3 align-items-center gap-3 hvr-icon-grow-rotate divReload"
+                            onclick="reload();">
+                            <i class="hvr-icon">
+                                <img src="../../recursos/imagenes/img_clientes/reload.svg" class="img">
+                            </i>
+                            <p class="m-0 p-0 open-sans-light-italic">Refrescar</p>
+                        </div>
                         <div class="flex-fill col-12">
                             <!--Contenedor del boton para abrir los filtros colapsados-->
                             <div class="p-2 d-md-none d-flex text-white btnSlBg">
@@ -360,6 +366,13 @@
                     </div>
                     <div class="tab-pane1 fade z-2 position-relative d-none pt-3 d-flex flex-column align-items-center"
                         role="tabpanel" id="personaNatural" aria-labelledby="personaNatural-tab">
+                        <div class="d-flex me-auto ms-5 mt-3 align-items-center gap-3 hvr-icon-grow-rotate divReload"
+                            onclick="reload();">
+                            <i class="hvr-icon">
+                                <img src="../../recursos/imagenes/img_clientes/reload.svg" class="img">
+                            </i>
+                            <p class="m-0 p-0 open-sans-light-italic">Refrescar</p>
+                        </div>
                         <div class="flex-fill col-12">
                             <!--Contenedor del boton para abrir los filtros colapsados-->
                             <div class="p-2 d-md-none d-flex text-white btnSlBg">
@@ -378,9 +391,9 @@
         </div>
 
         <!--TODO -------------------------------MODAL ADD---------------------->
-        <!-- Contenedor del modal de agregar automovil-->
+        <!-- Contenedor del modal de agregar cliente-->
         <div class="modal fade" id="agregarClienteModal" data-bs-backdrop="static" data-bs-keyboard="false"
-        tabindex="-1" aria-labelledby="agregarClienteModalLabel" aria-hidden="true">
+            tabindex="-1" aria-labelledby="agregarClienteModalLabel" aria-hidden="true">
             <!-- Contenedor del modal dialog-->
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <!-- Contenedor del modal content-->
@@ -484,7 +497,7 @@
                                     </div>
                                     <div class="mb-3" id="rubro_comercial">
                                         <div class="form-floating mb-0 p-0">
-                                            <label class="form-label px-2 pt-0 p-0 m-0">Rubro Comercial</label>
+                                            <label class="form-label px-2 pt-0 p-0 m-0">Rubro comercial</label>
                                             <select class="form-select pt-4 open-sans-regular"
                                                 id="input_rubro_comercial" name="input_rubro_comercial"
                                                 aria-label="Default select example" required>
@@ -500,9 +513,11 @@
                                 </div>
                             </div>
                             <div class="modal-footer justify-content-center">
-                                <button type="button" class="btn btn-dark" id="cancelarModalButton"
+                                <button type="button" class="btn btn-secondary btnCancel me-lg-5 me-3 me-md-5"
                                     onclick="openClose()">Cancelar</button>
-                                <button type="submit" class="btn btn-danger" onclick="addSave()">Aceptar</button>
+                                <button type="submit" class="btn btn-primary btnSave me-lg-5 me-3 me-md-5"
+                                    onclick="addSave()">
+                                    Aceptar</button>
                             </div>
                         </form>
                     </div>
