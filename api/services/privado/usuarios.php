@@ -113,9 +113,8 @@ if (isset($_GET['action'])) {
             case 'editProfile':
                 $_POST = Validator::validateForm($_POST);
                 if (
-                    !$usuario->setNombreUsuario($_POST['nombreUsuario']) or
                     !$usuario->setCorreo($_POST['correoUsuario']) or
-                    !$usuario->setClave($_POST['claveUsuario'])
+                    !$usuario->setNumeroTelefonico($_POST['telefonoUsuario']) 
                 ) {
                     $result['error'] = $usuario->getDataError();
                 } elseif ($usuario->editProfile()) {
@@ -159,9 +158,9 @@ if (isset($_GET['action'])) {
             case 'signUp':
                 $_POST = Validator::validateForm($_POST);
                 if (
-                    !$usuario->setNombreUsuario($_POST['nombreUsuario']) or
                     !$usuario->setCorreo($_POST['correoUsuario']) or
-                    !$usuario->setClave($_POST['claveUsuario'])
+                    !$usuario->setClave($_POST['claveUsuario']) or
+                    !$usuario->setNumeroTelefonico($_POST['telefonoUsuario']) 
                 ) {
                     $result['error'] = $usuario->getDataError();
                 } elseif ($_POST['claveUsuario'] != $_POST['confirmarClave']) {

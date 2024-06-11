@@ -68,25 +68,28 @@
 
                         <!--Contenedor de inputs para llenar los campos para poder ingresar al sistema-->
                         <div class="contenedor-inputs text-center col-11 col-lg-8 col-md-10">
-                            <div class="form-floating mb-0">
-                                <input type="email" class="form-control" id="Input_Correo"
-                                    placeholder="name@example.com">
-                                <label for="Input_Correo">Correo Electrónico</label>
-                            </div>
-                            <div class="form-floating">
-                                <input type="password" class="form-control" id="Input_Contra" placeholder="Password">
-                                <label for="Input_Contra">Contraseña</label>
-                            </div>
+                            <form id="FormLoginInputs">
+                                <div class="form-floating mb-0">
+                                    <input type="email" class="form-control" id="correoLogin" name="correoLogin"
+                                        placeholder="name@example.com" required>
+                                    <label for="correoLogin">Correo Electrónico</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="password" class="form-control" id="claveLogin" name="claveLogin" placeholder="Password" required>
+                                    <label for="claveLogin">Contraseña</label>
+                                </div>
+                            
+                                <button type="submit" class="btn btn-dark btnInicio col-10 col-lg-8 w-100">
+                                    <h6 class="open-sans-bold p-0 m-0">
+                                        Iniciar Sesión
+                                    </h6>
+                                </button>
+                            </form>
+                            
                         </div>
 
                         <!-- Contiene los botones para poder ingresar al sistema -->
                         <div class="contenedor-botones text-center col-12">
-                            <button type="submit" class="btn btn-dark btnInicio col-10 col-lg-8"
-                                onclick="goto_panel_principal()">
-                                <h6 class="open-sans-bold p-0 m-0">
-                                    Iniciar Sesión
-                                </h6>
-                            </button>
                             <button type="button" class="btn btn-primary btnForgot col-8 col-lg-6 open-sans-regular"
                                 onclick="showRecCon()">
                                 ¿Olvidaste tu contraseña?</button>

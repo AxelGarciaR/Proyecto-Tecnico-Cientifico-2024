@@ -5,6 +5,10 @@ const CONREST_FORM = document.getElementById('RestForm');
 const textREC = document.getElementById('textREC');
 const textREST = document.getElementById('textREST');
 
+//Constante donde esta la ruta del archivo php
+const USER_API = 'services/privado/usuarios.php';
+const FORM_LOGIN_INPUTS = document.getElementById('FormLoginInputs');
+
 // *Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {
     // Se muestra el formulario para iniciar sesión.
@@ -12,6 +16,40 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Se oculta el formulario de restablecimiento de contraseña (paso 1 y 2).
     CONREC_FORM.classList.add('d-none');
     CONREST_FORM.classList.add('d-none');
+    // Petición para consultar los usuarios registrados.
+    const DATA = await fetchData(USER_API, 'readUsers');
+    // Se comprueba si existe una sesión, de lo contrario se sigue con el flujo normal.
+    if (DATA.session) {
+        // Se direcciona a la página web de bienvenida.
+        location.href = 'InicioPublic.html';
+    } else if (DATA.status) {
+        // Se muestra el formulario para iniciar sesión.
+        LOGIN_FORM.classList.remove('d-none');
+        sweetAlert(4, DATA.message, true);
+    }
+
+});
+
+// Método del evento para cuando se envía el formulario de inicio de sesión.
+FORM_LOGIN_INPUTS.addEventListener('submit', async (event) => {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Constante tipo objeto con los datos del formulario.
+    const FORM = new FormData(FORM_LOGIN_INPUTS);
+    // Petición para iniciar sesión.
+    const DATA = await fetchData(USER_API, 'logIn', FORM);
+
+    // Loguear los valores del formulario en la consola.
+    for (let pair of DATA.entries()) {
+        console.log(pair[0] + ': ' + pair[1]);
+    }   
+
+    // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+    if (DATA.status) {
+        sweetAlert(1, DATA.message, true, 'panel_principal.html');
+    } else {
+        sweetAlert(2, DATA.error, false);
+    }
 });
 
 function showRecCon() {
@@ -41,9 +79,6 @@ function showLogin() {
     CONREST_FORM.classList.add('d-none');
 }
 
-function goto_panel_principal() {
-    location.href = "../../vistas/privado/panel_principal.html";
-}
 
 const openNoti1 = async () => {
     // Llamada a la función para mostrar una notificación

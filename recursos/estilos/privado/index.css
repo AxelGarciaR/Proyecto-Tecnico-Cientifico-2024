@@ -51,6 +51,13 @@ main,
     height: fit-content; /* Altura ajustada al contenido */
   }
 
+  /*Contenedor con etiqueta form*/
+  #FormLoginInputs{
+    display: grid; /* Mostrar como grid */
+    gap: 40px; /* Espacio entre elementos */
+    height: fit-content;
+  }
+
 /* Contenedor de imagen */
 .img-container {
     min-width: fit-content; /* Ancho mínimo ajustado al contenido */
