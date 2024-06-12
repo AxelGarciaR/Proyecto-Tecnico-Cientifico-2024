@@ -156,6 +156,12 @@ main,
     gap: 25px; /* Espacio entre elementos */
     height: fit-content; /* Altura ajustada al contenido */
   }
+
+  #forgetpasswordstepone{
+    display: grid; /* Mostrar como grid */
+    gap: 25px; /* Espacio entre elementos */
+    height: fit-content; /* Altura ajustada al contenido */
+  }
   
   /* Texto de retorno */
   .returnText {

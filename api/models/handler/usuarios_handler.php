@@ -93,6 +93,16 @@ class UsuariosHandler
         return Database::getRow($sql, $params);
     }
 
+    public function checkMail()
+    {
+        $sql = 'SELECT id_usuario, correo_usuario
+                FROM tb_usuarios
+                WHERE  correo_usuario = ?'; // Consulta SQL para verificar correo existente
+        $params = array($this->correoUsuario); // Parámetros para la consulta SQL
+        return Database::getRow($sql, $params); // Ejecución de la consulta SQL
+    }
+
+
     /*Metodos para realizar las operaciones SCRUD*/
 
     //Search

@@ -113,4 +113,36 @@ document.getElementById('Input_ContraNEW').addEventListener('input', function (e
     event.target.value = inputValue;
 });
 
+/**Aqui empiesa el script para poder recuperar la contraseña**/
 
+document.getElementById("forgetpasswordstepone").addEventListener("submit", async function (event) {
+    event.preventDefault(); // Esto evita que el formulario se envíe de forma predeterminada
+
+    const INPUTCONTRA = document.getElementById("Input_Correo2");
+
+    FORM1 = new FormData();
+    FORM1.append('Input_Correo2', INPUTCONTRA.value);
+
+    // Lógica asíncrona para obtener los datos del usuario
+    const DATA = await fetchData(USER_API, 'searchMail', FORM1);
+    if (DATA.status) {
+        FORM2 = new FormData();
+        var resultado = DATA.dataset;
+        FORM2.append('correo_electronico_paso1', INPUTCONTRA.value);
+        FORM2.append('nombre_destinatario', resultado.nombre_trabajador);
+
+        id = resultado.id_trabajador;
+
+        DATA2 = await fetchData(USER_API, 'enviarCodigoRecuperacion', FORM2); // Asigna el valor de DATA2 aquí
+
+        if (DATA2.status) {
+            await sweetAlert(1, 'Se ha enviado correctamente al correo electrónico, ingrese el código enviado', true);
+            showForgotPasswordStepTwoForm();
+        } else {
+            sweetAlert(2, DATA2.error, false);
+        }
+
+    } else {
+        sweetAlert(2, DATA.error, false);
+    }
+});
