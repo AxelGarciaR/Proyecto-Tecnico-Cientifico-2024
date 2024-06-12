@@ -39,10 +39,10 @@ FORM_LOGIN_INPUTS.addEventListener('submit', async (event) => {
     // Petición para iniciar sesión.
     const DATA = await fetchData(USER_API, 'logIn', FORM);
 
-    // Loguear los valores del formulario en la consola.
+    /* Loguear los valores del formulario en la consola.
     for (let pair of DATA.entries()) {
         console.log(pair[0] + ': ' + pair[1]);
-    }   
+    }  */
 
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {

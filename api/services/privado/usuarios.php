@@ -173,10 +173,11 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'logIn':
+                //print_r($_POST);
                 $_POST = Validator::validateForm($_POST);
                 if ($usuario->checkUser($_POST['correoLogin'], $_POST['claveLogin'])) {
                     $result['status'] = 1;
-                    $result['idadmin'] = $_SESSION['idAdministrador'];
+                    //$result['idadmin'] = $_SESSION['idAdministrador'];
                     $result['message'] = 
                     'Autenticación correcta';
 

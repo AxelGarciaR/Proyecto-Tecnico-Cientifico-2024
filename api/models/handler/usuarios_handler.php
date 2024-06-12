@@ -23,6 +23,8 @@ class UsuariosHandler
                 FROM tb_usuarios
                 WHERE  correo_usuario = ?';
         $params = array($username);
+        $data = Database::getRow($sql, $params);
+        
         if (!($data = Database::getRow($sql, $params))) {
             return false;
         } elseif (password_verify($password, $data['clave_usuario'])) {
