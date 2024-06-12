@@ -25,6 +25,13 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No existen clientes para mostrar';
                 }
                 break;
+            case 'readMarcas':
+                if ($result['dataset'] = $cliente->readMarcas()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['error'] = 'No existen marcas para mostrar';
+                }
+                break;
             case 'readOne':
                 if (!$cliente->setId($_POST['id_cliente'])) {
                     $result['error'] = $cliente->getDataError();

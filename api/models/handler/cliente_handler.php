@@ -173,14 +173,14 @@ class ClienteHandler
     {
         $sql = 'SELECT id_cliente 
         FROM tb_clientes 
-        WHERE (dui_cliente = ? OR correo_cliente = ? OR telefono_cliente = ?) 
-        AND id_cliente <> ?;';
+        WHERE (dui_cliente = ? OR correo_cliente = ? OR telefono_cliente = ?)';
+        //AND id_cliente <> ?;';
         // Consulta SQL para verificar duplicados por valor (DUI o correo) excluyendo el ID actual
         $params = array(
             $value,
             $value,
             $value,
-            $this->id_cliente
+            //$this->id_cliente
         ); // Parámetros para la consulta SQL
         return Database::getRow($sql, $params); // Ejecución de la consulta SQL
     }
@@ -193,6 +193,13 @@ class ClienteHandler
             $TipoPersona
         );
         return Database::getRows($sql, $params);
+    }
+
+    // Método para leer los clientes
+    public function readMarcas()
+    {
+        $sql = 'SELECT DISTINCT nombre_marca_automovil FROM tb_marcas_automoviles ORDER BY nombre_marca_automovil ASC;';
+        return Database::getRows($sql);
     }
 
     // Método para leer a un cliente

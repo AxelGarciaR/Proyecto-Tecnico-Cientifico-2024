@@ -50,7 +50,6 @@ const openClose = async () => {
 
 }
 
-
 /*
 *   Función para preparar el formulario al momento de insertar un registro.
 *   Parámetros: ninguno.
@@ -66,7 +65,6 @@ const openCreate = () => {
     document.getElementById('btnUno').innerText = 'Cancelar';
     document.getElementById('btnDos').innerText = 'Guardar';
 }
-
 
 function gotoDetail() {
     const lista_datos = [

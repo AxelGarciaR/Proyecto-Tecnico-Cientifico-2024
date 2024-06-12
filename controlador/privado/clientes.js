@@ -6,11 +6,12 @@ const MODAL = new bootstrap.Modal('#agregarClienteModal');
 // Constantes para establecer los elementos de la card de clientes.
 const CLIENTES_JURIDICO_CONTAINER = document.getElementById('clientesJuridicoContainer');
 const CLIENTES_NATURAL_CONTAINER = document.getElementById('clientesNaturalContainer');
+const CONTENEDOR_MARCAS_AUTOS = document.getElementById('contenedorMarcasAutos');
 const ADD_FORM = document.getElementById('addForm');
 
 const PERSONA_NATURAL_DIV = document.getElementById('personaNatural');
 const PERSONA_JURIDICA_DIV = document.getElementById('personaJuridica');
-const RUBRO_COMERCIAL_DIV = document.getElementById('rubro_comercial');
+const RUBRO_COMERCIAL_DIV = document.getElementById('rubroComercial');
 const NRC_DIV = document.getElementById('nrc');
 const NRF_DIV = document.getElementById('nrf');
 
@@ -40,8 +41,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     var primeraPestana = document.querySelector('#personaNatural-tab');
     if (primeraPestana) {
         primeraPestana.click();
+        fillData('readMarcas');
     }
-
 });
 
 const checkFormValidity = form => {
@@ -60,6 +61,14 @@ const checkFormValidity = form => {
 
     return validities.every(valid => valid); // Retorna true si todos los elementos son válidos.
 };
+
+
+// Método del evento para cuando se envía el formulario de guardar.
+ADD_FORM.addEventListener('submit', async (event) => {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    addSave();
+});
 
 const addSave = async () => {
     const isValid = await checkFormValidity(ADD_FORM);
@@ -100,8 +109,8 @@ const addSave = async () => {
     Array.from(forms).forEach(form => {
         form.addEventListener('submit', event => {
             if (!form.checkValidity()) {
-                event.preventDefault()
-                event.stopPropagation()
+                event.preventDefault();
+                event.stopPropagation();
             }
             form.classList.add('was-validated')
         }, false)
@@ -144,7 +153,7 @@ const search = async () => {
         FORM.append('fecha_hasta', formatDateToMySQL(FECHA_HASTA.value));
     }
 
-    if(AUTOS_CLIENTE.value){
+    if (AUTOS_CLIENTE.value) {
         FORM.append('autos_cantd', AUTOS_CLIENTE.value);
     }
 
@@ -158,36 +167,65 @@ const search = async () => {
 */
 const fillData = async (action, form = null) => {
     console.log(TIPO_CLIENTE);
-    // Lógica para mostrar clientes naturales o jurídicos
-    if (TIPO_CLIENTE == 'Persona natural') {
-        CLIENTES_NATURAL_CONTAINER.innerHTML = '';
-        const FORM2 = form ?? new FormData();
-        FORM2.append('tipo_cliente', TIPO_CLIENTE);
-        const DATA2 = await fetchData(CLIENTES_API, action, FORM2);
+    if (action == 'readAll') {
+        // Lógica para mostrar clientes naturales o jurídicos
+        if (TIPO_CLIENTE == 'Persona natural') {
+            CLIENTES_NATURAL_CONTAINER.innerHTML = '';
+            const FORM2 = form ?? new FormData();
+            FORM2.append('tipo_cliente', TIPO_CLIENTE);
+            const DATA2 = await fetchData(CLIENTES_API, action, FORM2);
 
-        createCardAdd(CLIENTES_NATURAL_CONTAINER);
-        if (DATA2.status) {
-            DATA2.dataset.forEach(row => {
-                CLIENTES_NATURAL_CONTAINER.innerHTML += createCardCliente(row);
-            });
+            createCardAdd(CLIENTES_NATURAL_CONTAINER);
+            if (DATA2.status) {
+                DATA2.dataset.forEach(row => {
+                    CLIENTES_NATURAL_CONTAINER.innerHTML += createCardCliente(row);
+                });
+            } else {
+                sweetAlert(4, DATA2.error, true);
+            }
         } else {
-            sweetAlert(4, DATA2.error, true);
-        }
-    } else {
-        CLIENTES_JURIDICO_CONTAINER.innerHTML = '';
-        const FORM1 = form ?? new FormData();;
-        FORM1.append('tipo_cliente', TIPO_CLIENTE);
-        const DATA1 = await fetchData(CLIENTES_API, action, FORM1);
+            CLIENTES_JURIDICO_CONTAINER.innerHTML = '';
+            const FORM1 = form ?? new FormData();;
+            FORM1.append('tipo_cliente', TIPO_CLIENTE);
+            const DATA1 = await fetchData(CLIENTES_API, action, FORM1);
 
-        createCardAdd(CLIENTES_JURIDICO_CONTAINER);
+            createCardAdd(CLIENTES_JURIDICO_CONTAINER);
 
-        if (DATA1.status) {
-            DATA1.dataset.forEach(row => {
-                CLIENTES_JURIDICO_CONTAINER.innerHTML += createCardCliente(row);
-            });
-        } else {
-            sweetAlert(4, DATA1.error, true);
+            if (DATA1.status) {
+                DATA1.dataset.forEach(row => {
+                    CLIENTES_JURIDICO_CONTAINER.innerHTML += createCardCliente(row);
+                });
+            } else {
+                sweetAlert(4, DATA1.error, true);
+            }
         }
+    }
+    else {
+        if (action == 'readMarcas') {
+            console.log('ReadMarcasAuto')
+            CONTENEDOR_MARCAS_AUTOS.innerHTML = '';
+            console.log(TIPO_CLIENTE);
+            const DATA = await fetchData(CLIENTES_API, action);
+
+            if (DATA.status) {
+                DATA.dataset.forEach(row => {
+                    CONTENEDOR_MARCAS_AUTOS.innerHTML +=
+                        `
+            <li class="list-group-item p-0 m-0 px-2">
+                <input class="form-check-input me-2 checkbox" type="checkbox" id="${row.nombre_marca_automovil}" onclick="clickOnCheckBox(this)">
+                <label class="form-check-label stretched-link" for="${row.nombre_marca_automovil}">
+                    <h6 class="m-0 p-0 open-sans-regular">
+                    ${row.nombre_marca_automovil}
+                    </h6>
+                </label>
+            </li>
+           `
+                });
+            } else {
+                sweetAlert(4, DATA2.error, true);
+            }
+        }
+
     }
 }
 
@@ -234,6 +272,11 @@ function createCardAdd(container) {
         </div>
     `;
 }
+
+function clickOnCheckBox(input){
+    console.log(input.id)
+}
+
 
 // Función para mostrar el div de agregar trabajador y ocultar el div de la tabla.
 function showPersonaNatural(boton) {

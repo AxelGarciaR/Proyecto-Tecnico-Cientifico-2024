@@ -173,53 +173,7 @@
                             <!-- Contenedor de los checkboxs del colores-->
                             <div class="collapse col-11 mt-3" id="Marca">
                                 <!--Contenedor de la lista no ordenada-->
-                                <ul class="list-group contenedor-checkbox">
-                                    <!--Contenedor del auto 1-->
-                                    <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Marca1">
-                                        <label class="form-check-label stretched-link" for="Marca1">
-                                            <h6 class="m-0 p-0 open-sans-regular">
-                                                KIA
-                                            </h6>
-                                        </label>
-                                    </li>
-                                    <!--Contenedor del auto 2-->
-                                    <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Marca2">
-                                        <label class="form-check-label stretched-link" for="Marca2">
-                                            <h6 class="m-0 p-0 open-sans-regular">
-                                                TOYOTA
-                                            </h6>
-                                        </label>
-                                    </li>
-                                    <!--Contenedor del auto 3-->
-                                    <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Marca3">
-                                        <label class="form-check-label stretched-link" for="Marca3">
-                                            <h6 class="m-0 p-0 open-sans-regular">
-                                                MAZDA
-                                            </h6>
-                                        </label>
-                                    </li>
-                                    <!--Contenedor del auto 4-->
-                                    <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Marca4">
-                                        <label class="form-check-label stretched-link" for="Marca4">
-                                            <h6 class="m-0 p-0 open-sans-regular">
-                                                HYUNDAI
-                                            </h6>
-                                        </label>
-                                    </li>
-                                    <!--Contenedor del auto 5-->
-                                    <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Marca5">
-                                        <label class="form-check-label stretched-link" for="Marca">
-                                            <h6 class="m-0 p-0 open-sans-regular">
-                                                FORD
-                                            </h6>
-                                        </label>
-                                    </li>
-                                </ul>
+                                <ul class="list-group contenedor-checkbox" id="contenedorMarcasAutos"></ul>
                             </div>
                         </li>
 
@@ -494,7 +448,7 @@
                                             <div class="invalid-feedback">Por favor ingresa tu NRC.</div>
                                         </div>
                                     </div>
-                                    <div class="mb-3" id="rubro_comercial">
+                                    <div class="mb-3" id="rubroComercial">
                                         <div class="form-floating mb-0 p-0">
                                             <label class="form-label px-2 pt-0 p-0 m-0">Rubro comercial</label>
                                             <select class="form-select pt-4 open-sans-regular"
@@ -514,8 +468,7 @@
                             <div class="modal-footer justify-content-center">
                                 <button type="button" class="btn btn-secondary btnCancel me-lg-5 me-3 me-md-5"
                                     onclick="openClose()">Cancelar</button>
-                                <button type="submit" class="btn btn-primary btnSave me-lg-5 me-3 me-md-5"
-                                    onclick="addSave()">
+                                <button type="submit" class="btn btn-primary btnSave me-lg-5 me-3 me-md-5">
                                     Aceptar</button>
                             </div>
                         </form>

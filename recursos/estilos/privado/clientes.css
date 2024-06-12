@@ -82,7 +82,7 @@ hr {
 .contenedor-checkbox,
 .contenedor-checkbox2 {
     overflow-x: hidden;
-    height: 230px;
+    height: 200px;
     overflow-y: auto;
     display: grid;
     grid-template-columns: auto;
@@ -155,7 +155,7 @@ hr {
 }
 
 #bdSidebar::-webkit-scrollbar-thumb {
-    background-color: #e5383b5c;
+    background-color: #d5d5d5;
     /* Color del scrollbar thumb */
     border-radius: 8px;
     /* Borde redondeado del thumb */

@@ -1,8 +1,8 @@
 <?php
 // Se incluye la clase para validar los datos de entrada.
-require_once ('../../helpers/validator.php');
+require_once('../../helpers/validator.php');
 // Se incluye la clase padre.
-require_once ('../../models/handler/cliente_handler.php');
+require_once('../../models/handler/cliente_handler.php');
 /*
  *  Clase para manejar el encapsulamiento de los datos de la tabla USUARIO.
  */
@@ -75,12 +75,15 @@ class ClienteData extends ClienteHandler
     // Método para establecer el teléfono del cliente
     public function setTelefono($value)
     {
-        if (Validator::validatePhone($value)) {
+        if (!Validator::validatePhone($value)) {
+            $this->data_error = 'El telèfono no es válido';
+            return false;
+        } elseif ($this->checkDuplicate($value)) {
+            $this->data_error = 'El telèfono ingresado ya existe';
+            return false;
+        } else {
             $this->telefono_cliente = $value;
             return true;
-        } else {
-            $this->data_error = 'El teléfono debe tener el formato (2, 6, 7)###-####';
-            return false;
         }
     }
 
