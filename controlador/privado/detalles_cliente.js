@@ -114,7 +114,6 @@ const openDelete = async () => {
         } else {
             await sweetAlert(2, DATA.error, false);
         }
-       
     }
 }
 
@@ -157,6 +156,7 @@ const fillData = async () => {
         CLIENTE_DATA_CONTAINER.innerHTML = html;
     } else {
         sweetAlert(4, DATA.error, true);
+        location.href = '../../vistas/privado/clientes.html';
     }
 }
 

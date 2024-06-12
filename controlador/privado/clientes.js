@@ -27,6 +27,9 @@ const DUI = document.getElementById('input_dui'),
     RUBRO_COMERCIAL = document.getElementById('input_rubro_comercial');
 
 const DEPARTAMENTO_BUSCAR = document.getElementById('departamento_buscar');
+const FECHA_DESDE = document.getElementById("datepicker-desde");
+const FECHA_HASTA = document.getElementById("datepicker-hasta");
+const AUTOS_CLIENTE = document.getElementById("input_cantd_autos");
 
 let TIPO_CLIENTE;
 
@@ -37,9 +40,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     var primeraPestana = document.querySelector('#personaNatural-tab');
     if (primeraPestana) {
         primeraPestana.click();
-        // Muestra el div de la tabla y oculta el div de agregar.
-        PERSONA_NATURAL_DIV.classList.remove('d-none');
-        PERSONA_JURIDICA_DIV.classList.add('d-none');
     }
 
 });
@@ -67,7 +67,7 @@ const addSave = async () => {
         console.log('TodoGud'); // Código a ejecutar después de la validación
         //Constante tipo objeto con los datos del formulario.
         const FORM = new FormData(ADD_FORM);
-        FORM.append('fecha_registro', getDateTime());
+        FORM.append('fecha_registro', getDateToMysql());
         FORM.append('tipo_cliente', TIPO_CLIENTE);
         FORM.append('estado_cliente', 'Activo');
 
@@ -109,31 +109,45 @@ const addSave = async () => {
 })()
 
 function reload() {
+    INPUT_BUSQUEDA.value = '';
+    DEPARTAMENTO_BUSCAR.value = 0;
+    FECHA_DESDE.value = '';
+    FECHA_HASTA.value = '';
+    AUTOS_CLIENTE.value = '';
     fillData('readAll');
 }
 
-let textoIngresado;
-const inputBusqueda = document.getElementById('input_buscar');
-inputBusqueda.addEventListener("input", function (event) {
-    textoIngresado = event.target.value.trim();
-    search('A');
-});
+const INPUT_BUSQUEDA = document.getElementById('input_buscar');
+/*INPUT_BUSQUEDA.addEventListener("input", function (event) {
+    TEXTO_INGRESADO = event.target.value.trim();
+    search(null, TEXTO_INGRESADO);
+});*/
 
 // Agregar un evento change al select
 DEPARTAMENTO_BUSCAR.addEventListener('change', function () {
-    const selectedDepartamento = this.value;
-    if (selectedDepartamento != 'Seleccionar departamento') {
-        search(selectedDepartamento);
-    } else {fillData('readAll')}
-    // Llamr a la función deseada pasando el valor seleccionado
+    search();
 });
 
-
-const search = async (depaIngresado) => {
+const search = async () => {
     const FORM = new FormData();
     FORM.append('tipo_cliente', TIPO_CLIENTE);
-    FORM.append('departamento_cliente', depaIngresado);
-    FORM.append('search', textoIngresado);
+
+    if (INPUT_BUSQUEDA.value) {
+        FORM.append('search', INPUT_BUSQUEDA.value);
+    }
+
+    if (DEPARTAMENTO_BUSCAR.value) {
+        FORM.append('departamento_cliente', DEPARTAMENTO_BUSCAR.value);
+    }
+
+    if (FECHA_DESDE.value) {
+        FORM.append('fecha_desde', formatDateToMySQL(FECHA_DESDE.value));
+    }
+
+    if (FECHA_HASTA.value) {
+        FORM.append('fecha_hasta', formatDateToMySQL(FECHA_HASTA.value));
+    }
+
     fillData('searchRows', FORM);
 }
 
@@ -143,6 +157,7 @@ const search = async (depaIngresado) => {
 *   Retorno: ninguno.
 */
 const fillData = async (action, form = null) => {
+    console.log(TIPO_CLIENTE);
     // Lógica para mostrar clientes naturales o jurídicos
     if (TIPO_CLIENTE == 'Persona natural') {
         CLIENTES_NATURAL_CONTAINER.innerHTML = '';
@@ -151,7 +166,6 @@ const fillData = async (action, form = null) => {
         const DATA2 = await fetchData(CLIENTES_API, action, FORM2);
 
         createCardAdd(CLIENTES_NATURAL_CONTAINER);
-
         if (DATA2.status) {
             DATA2.dataset.forEach(row => {
                 CLIENTES_NATURAL_CONTAINER.innerHTML += createCardCliente(row);
@@ -161,7 +175,7 @@ const fillData = async (action, form = null) => {
         }
     } else {
         CLIENTES_JURIDICO_CONTAINER.innerHTML = '';
-        const FORM1 = new FormData();
+        const FORM1 = form ?? new FormData();;
         FORM1.append('tipo_cliente', TIPO_CLIENTE);
         const DATA1 = await fetchData(CLIENTES_API, action, FORM1);
 
@@ -225,14 +239,7 @@ function createCardAdd(container) {
 function showPersonaNatural(boton) {
     TIPO_CLIENTE = 'Persona natural';
     fillData('readAll');
-    PERSONA_NATURAL_DIV.classList.remove('d-none');
-    PERSONA_JURIDICA_DIV.classList.add('d-none');
-    RUBRO_COMERCIAL_DIV.classList.add('d-none');
-    RUBRO_COMERCIAL.classList.add('d-none');
-    NRC_DIV.classList.add('d-none');
-    NRC.classList.add('d-none');
-    NRF_DIV.classList.add('d-none');
-    NRF.classList.add('d-none');
+    showCamposNaturales();
     resetForm();
     updateButtonColors(boton);
 }
@@ -241,6 +248,12 @@ function showPersonaNatural(boton) {
 function showPersonaJuridica(boton) {
     TIPO_CLIENTE = 'Persona juridica';
     fillData('readAll');
+    showCamposJuridicos();
+    resetForm();
+    updateButtonColors(boton);
+}
+
+function showCamposJuridicos() {
     PERSONA_JURIDICA_DIV.classList.remove('d-none');
     PERSONA_NATURAL_DIV.classList.add('d-none');
     RUBRO_COMERCIAL_DIV.classList.remove('d-none');
@@ -249,8 +262,17 @@ function showPersonaJuridica(boton) {
     NRC.classList.remove('d-none');
     NRF_DIV.classList.remove('d-none');
     NRF.classList.remove('d-none');
-    resetForm();
-    updateButtonColors(boton);
+}
+
+function showCamposNaturales() {
+    PERSONA_NATURAL_DIV.classList.remove('d-none');
+    PERSONA_JURIDICA_DIV.classList.add('d-none');
+    RUBRO_COMERCIAL_DIV.classList.add('d-none');
+    RUBRO_COMERCIAL.classList.add('d-none');
+    NRC_DIV.classList.add('d-none');
+    NRC.classList.add('d-none');
+    NRF_DIV.classList.add('d-none');
+    NRF.classList.add('d-none');
 }
 
 //Funcion que muestra la alerta de confirmacion
@@ -284,7 +306,6 @@ function rotarImagen(idImagen) {
     }
 }
 
-
 // Date pickers
 $('#datepicker-desde').datepicker({
     uiLibrary: 'bootstrap5'
@@ -300,23 +321,33 @@ $('#datepicker-hastaRE').datepicker({
     uiLibrary: 'bootstrap5'
 });
 
-
-function getDateTime() {
+function getDateToMysql() {
     // Crear un nuevo objeto Date para obtener la fecha y hora actual
-    let fechaHoraActual = new Date();
+    let fechaActual = new Date();
 
     // Formatear la fecha y hora en el formato adecuado para MySQL (YYYY-MM-DD HH:MM:SS)
-    let fechaHoraMySQL = fechaHoraActual.getFullYear() + '-' +
-        ('0' + (fechaHoraActual.getMonth() + 1)).slice(-2) + '-' +
-        ('0' + fechaHoraActual.getDate()).slice(-2) + ' ' +
-        ('0' + fechaHoraActual.getHours()).slice(-2) + ':' +
-        ('0' + fechaHoraActual.getMinutes()).slice(-2) + ':' +
-        ('0' + fechaHoraActual.getSeconds()).slice(-2);
+    let fechaMySQL = fechaActual.getFullYear() + '-' +
+        ('0' + (fechaActual.getMonth() + 1)).slice(-2) + '-' +
+        ('0' + fechaActual.getDate()).slice(-2) + ' ';
 
     // Mostrar la fecha y hora formateada en la consola
-    console.log(fechaHoraMySQL);
-    return fechaHoraMySQL;
+    console.log(fechaMySQL);
+    return fechaMySQL;
 }
+
+function formatDateToMySQL(dateValue) {
+    // Crear un nuevo objeto Date usando el valor recibido
+    let fecha = new Date(dateValue);
+
+    // Formatear la fecha en el formato adecuado para MySQL (YYYY-MM-DD)
+    let fechaFormateada = fecha.getFullYear() + '-' +
+        ('0' + (fecha.getMonth() + 1)).slice(-2) + '-' +
+        ('0' + fecha.getDate()).slice(-2);
+
+    // Devolver la fecha formateada
+    return fechaFormateada;
+}
+
 
 // Función para cambiar el color de los botones según el que se haya clicado.
 function updateButtonColors(boton) {

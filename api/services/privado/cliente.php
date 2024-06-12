@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase del modelo.
-require_once ('../../models/data/cliente_data.php');
+require_once('../../models/data/cliente_data.php');
 
 // Se comprueba si existe una acción a realizar, de lo contrario se finaliza el script con un mensaje de error.
 if (isset($_GET['action'])) {
@@ -128,19 +128,27 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'searchRows':
-                $_POST = Validator::validateForm($_POST);
-                print_r($_POST);
-                if (
-                    !$cliente->setTipoCliente($_POST['tipo_cliente']) or
-                    !$cliente->setDepartamento($_POST['departamento_cliente'])
-                ) {
+                //print_r($_POST);
+                if (!$cliente->setTipoCliente($_POST['tipo_cliente'])) {
                     $result['error'] = $cliente->getDataError();
                 } else {
-                    // Luego, realizar la validación y búsqueda de filas
-                    if (!Validator::validateSearch($_POST['search'])) {
-                        $result['error'] = Validator::getSearchError();
-                    } elseif ($result['dataset'] = $cliente->searchRows()) {
+                    // Obtener los valores de búsqueda si están definidos.
+                    $searchValue = isset($_POST['search']) ? $_POST['search'] : '';
+                    $departamento = isset($_POST['departamento_cliente']) ? $_POST['departamento_cliente'] : '';
+
+                    $fechaDesde = isset($_POST['fecha_desde']) ? $_POST['fecha_desde'] : '';
+                    $fechaHasta = isset($_POST['fecha_hasta']) ? $_POST['fecha_hasta'] : '';
+
+                    $cliente->setSearchValue($searchValue);
+                    $cliente->setDepartamento($departamento);
+
+                    $cliente->setFechaDesde($fechaDesde);
+                    $cliente->setFechaHasta($fechaHasta);
+
+                    // Buscar clientes con los criterios definidos.
+                    if ($result['dataset'] = $cliente->searchRows()) {
                         $result['status'] = 1;
+                        $result['message'] = 'Existen ' . count($result['dataset']) . ' registros';
                     } else {
                         $result['error'] = 'No hay coincidencias';
                     }
@@ -155,8 +163,8 @@ if (isset($_GET['action'])) {
     // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
     header('Content-type: application/json; charset=utf-8');
     // Se imprime el resultado en formato JSON y se retorna al controlador.
-    print (json_encode($result));
+    print(json_encode($result));
 } else {
     // Si no se envió una acción válida, se devuelve un mensaje de recurso no disponible.
-    print (json_encode('Recurso no disponible'));
+    print(json_encode('Recurso no disponible'));
 }

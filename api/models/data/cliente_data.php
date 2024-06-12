@@ -1,8 +1,8 @@
 <?php
 // Se incluye la clase para validar los datos de entrada.
-require_once ('../../helpers/validator.php');
+require_once('../../helpers/validator.php');
 // Se incluye la clase padre.
-require_once ('../../models/handler/cliente_handler.php');
+require_once('../../models/handler/cliente_handler.php');
 /*
  *  Clase para manejar el encapsulamiento de los datos de la tabla USUARIO.
  */
@@ -181,15 +181,21 @@ class ClienteData extends ClienteHandler
         }
     }
 
-    public function setFechaInicio($value)
+    public function setSearchValue($value)
     {
-        $this->fecha_inicio = $value;
+        $this->search_value = $value;
         return true;
     }
 
-    public function setFechaFin($value)
+    public function setFechaDesde($value)
     {
-        $this->fecha_fin = $value;
+        $this->fecha_desde = $value;
+        return true;
+    }
+
+    public function setFechaHasta($value)
+    {
+        $this->fecha_hasta = $value;
         return true;
     }
 

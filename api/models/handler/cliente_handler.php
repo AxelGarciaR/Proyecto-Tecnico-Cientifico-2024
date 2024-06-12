@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase para trabajar con la base de datos.
-require_once ('../../helpers/database.php');
+require_once('../../helpers/database.php');
 /*
  *  Clase para manejar el comportamiento de los datos de la tabla administrador.
  */
@@ -21,24 +21,54 @@ class ClienteHandler
     protected $NRF_cliente = null;
     protected $rubro_comercial = null;
     protected $estado_cliente = null;
-    protected $fecha_inicio = null;
-    protected $fecha_fin = null;
-
+    protected $fecha_desde = null;
+    protected $fecha_hasta = null;
+    protected $search_value = null;
 
     public function searchRows()
     {
-        $value =  '%' . Validator::getSearchValue() . '%';
-        $sql = 'SELECT * FROM tb_clientes WHERE departamento_cliente = ? OR 
-        nombres_cliente LIKE ?
-        AND tipo_cliente = ?;';
-        $params = array(
-            $this->departamento_cliente,
-            $this->$value,
-            $this->tipo_cliente
-        );
+        $sql = 'SELECT * FROM tb_clientes 
+        WHERE tipo_cliente = ?';
+        $params = array($this->tipo_cliente);
+
+        if ($this->search_value) {
+            $sql .= ' AND (
+                CONCAT(nombres_cliente, " ", apellidos_cliente) LIKE ? OR 
+                dui_cliente LIKE ? OR 
+                telefono_cliente LIKE ? OR 
+                correo_cliente LIKE ? OR 
+                NIT_cliente LIKE ? OR 
+                NRC_cliente LIKE ? OR
+                NRF_cliente LIKE ?
+            )';
+            $params[] = "%{$this->search_value}%";
+            $params[] = "%{$this->search_value}%";
+            $params[] = "%{$this->search_value}%";
+            $params[] = "%{$this->search_value}%";
+            $params[] = "%{$this->search_value}%";
+            $params[] = "%{$this->search_value}%";
+            $params[] = "%{$this->search_value}%";
+        }
+        if ($this->departamento_cliente) {
+            $sql .= ' AND departamento_cliente = ?';
+            $params[] = $this->departamento_cliente;
+        }
+        if ($this->fecha_desde && $this->fecha_hasta) {
+            $sql .= ' AND fecha_registro_cliente BETWEEN ? AND ?';
+            $params[] = $this->fecha_desde;
+            $params[] = $this->fecha_hasta;
+        } else {
+            if ($this->fecha_desde) {
+                $sql .= ' AND fecha_registro_cliente >= ?';
+                $params[] = $this->fecha_desde;
+            }
+            if ($this->fecha_hasta) {
+                $sql .= ' AND fecha_registro_cliente <= ?';
+                $params[] = $this->fecha_hasta;
+            }
+        }
         return Database::getRows($sql, $params);
     }
-
 
     public function updateRow()
     {

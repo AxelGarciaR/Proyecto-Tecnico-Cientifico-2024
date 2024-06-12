@@ -46,8 +46,9 @@
                 data-bs-toggle="offcanvas"> <!-- Contenedor del menu lateral (filtros) -->
                 <div class="sidebar-header"> <!-- Contenedor del header del menu lateral (filtros) -->
                     <div class="input-group search shadow-sm"> <!-- Contenedor del los input de entrada -->
-                        <input type="text" class="form-control search" placeholder="Buscar..." id="input_buscar">
-                        <button type="button" class="btn btn-outline"><i class="bi-search"><img
+                        <input type="text" class="form-control search" placeholder="Buscar..." id="input_buscar"
+                            name="input_buscar" maxlength="50" onkeydown="if (event.keyCode === 13) search()">
+                        <button type="button" class="btn btn-outline" onclick="search()"><i class="bi-search"><img
                                     src="../../recursos/imagenes/icons/icon-search.svg"></i></button>
                     </div>
                     <div class="d-flex justify-content-center d-flex align-items-baseline">
@@ -79,7 +80,7 @@
 
                             <div class="collapse" id="Departamentos">
                                 <select class="form-select" name="departamento_buscar" id="departamento_buscar">
-                                    <option selected>Seleccionar departamento</option>
+                                    <option selected value="0">Seleccionar departamento</option>
                                     <option value="Ahuachapán">Ahuachapán</option>
                                     <option value="Cabañas">Cabañas</option>
                                     <option value="Chalatenango">Chalatenango</option>
@@ -119,12 +120,14 @@
                                     <!--Contenedor de la fecha inicial (desde))-->
                                     <div class="fecha-desde col-lg-5 col-11">
                                         <h6 class="open-sans-regular">Desde</h6>
-                                        <input id="datepicker-desde" class="open-sans-regular-italic datepickerA" />
+                                        <input id="datepicker-desde" class="open-sans-regular-italic datepickerA"
+                                            onkeydown="if (event.keyCode === 13) search()" />
                                     </div>
                                     <!--Contenedor de la fecha posterios (hasta)-->
                                     <div class="fecha-hasta col-lg-5 col-11">
                                         <h6 class="open-sans-regular">Hasta</h6>
-                                        <input id="datepicker-hasta" class="open-sans-regular-italic datepickerA" />
+                                        <input id="datepicker-hasta" class="open-sans-regular-italic datepickerA"
+                                            onkeydown="if (event.keyCode === 13) search()" />
                                     </div>
                                 </div>
                             </div>
@@ -146,11 +149,7 @@
                             </button>
 
                             <div class="collapse col-11 mt-3" id="CantAutos">
-                                <div class="range-container">
-                                    <span class="range-label">1</span>
-                                    <input type="range" class="form-range" id="customRange1">
-                                    <span class="range-label">100</span>
-                                </div>
+                                <input type="number" name="input_cantd_autos" id="input_cantd_autos" max="99" min="1" class="w-50 text-center">
                             </div>
 
                         </li>
@@ -219,7 +218,6 @@
                                             </h6>
                                         </label>
                                     </li>
-
                                 </ul>
                             </div>
                         </li>
