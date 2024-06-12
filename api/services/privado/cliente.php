@@ -139,11 +139,15 @@ if (isset($_GET['action'])) {
                     $fechaDesde = isset($_POST['fecha_desde']) ? $_POST['fecha_desde'] : '';
                     $fechaHasta = isset($_POST['fecha_hasta']) ? $_POST['fecha_hasta'] : '';
 
+                    $autosCantidad = isset($_POST['autos_cantd']) ? $_POST['autos_cantd'] : '';
+
                     $cliente->setSearchValue($searchValue);
                     $cliente->setDepartamento($departamento);
 
                     $cliente->setFechaDesde($fechaDesde);
                     $cliente->setFechaHasta($fechaHasta);
+
+                    $cliente->setAutosCantidad($autosCantidad);
 
                     // Buscar clientes con los criterios definidos.
                     if ($result['dataset'] = $cliente->searchRows()) {

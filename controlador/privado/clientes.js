@@ -118,10 +118,6 @@ function reload() {
 }
 
 const INPUT_BUSQUEDA = document.getElementById('input_buscar');
-/*INPUT_BUSQUEDA.addEventListener("input", function (event) {
-    TEXTO_INGRESADO = event.target.value.trim();
-    search(null, TEXTO_INGRESADO);
-});*/
 
 // Agregar un evento change al select
 DEPARTAMENTO_BUSCAR.addEventListener('change', function () {
@@ -146,6 +142,10 @@ const search = async () => {
 
     if (FECHA_HASTA.value) {
         FORM.append('fecha_hasta', formatDateToMySQL(FECHA_HASTA.value));
+    }
+
+    if(AUTOS_CLIENTE.value){
+        FORM.append('autos_cantd', AUTOS_CLIENTE.value);
     }
 
     fillData('searchRows', FORM);

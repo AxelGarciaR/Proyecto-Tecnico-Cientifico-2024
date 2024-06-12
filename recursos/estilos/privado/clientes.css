@@ -276,8 +276,8 @@ hr {
     overflow-x: hidden;
     overflow-y: auto;
 
-    min-height: 87vh;
-    max-height: 87vh;
+    min-height: 70vh;
+    max-height: 70vh;
 
     padding-top: 25px;
     display: grid;
@@ -411,7 +411,7 @@ hr {
     }
 
     .cliente-card {
-        min-height: 310px;
+        min-height: 330px;
     }
 }
 

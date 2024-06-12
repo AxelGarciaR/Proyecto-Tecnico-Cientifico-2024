@@ -24,6 +24,7 @@ class ClienteHandler
     protected $fecha_desde = null;
     protected $fecha_hasta = null;
     protected $search_value = null;
+    protected $autos_cantidad = null;
 
     public function searchRows()
     {
@@ -67,6 +68,25 @@ class ClienteHandler
                 $params[] = $this->fecha_hasta;
             }
         }
+        if($this->autos_cantidad){
+            $sql .= ' AND (SELECT COUNT(id_automovil) FROM tb_automoviles WHERE id_cliente = tb_clientes.id_cliente) = ?';
+            $params[] = $this->autos_cantidad;
+        }
+       /* if(1 == 1){
+            $sql.= '
+                AND id_cliente IN (
+                    SELECT id_cliente FROM tb_automoviles
+                    WHERE id_modelo_automovil IN (
+                        SELECT id_modelo_automovil FROM tb_modelos_automoviles
+                        WHERE id_marca_automovil = (
+                            SELECT id_marca_automovil FROM tb_marcas_automoviles
+                            WHERE nombre_marca_automovil = ?
+                        )
+                    )
+                )
+            '
+            $params[] = $this->autos_cantidad;
+        }*/
         return Database::getRows($sql, $params);
     }
 
