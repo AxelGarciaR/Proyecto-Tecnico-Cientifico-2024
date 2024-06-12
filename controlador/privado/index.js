@@ -7,6 +7,7 @@ const textREST = document.getElementById('textREST');
 
 //Constante donde esta la ruta del archivo php
 const USER_API = 'services/privado/usuarios.php';
+//Constante para llamar al form de inicio de sesion
 const FORM_LOGIN_INPUTS = document.getElementById('FormLoginInputs');
 
 // *Método del evento para cuando el documento ha cargado.
@@ -21,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Se comprueba si existe una sesión, de lo contrario se sigue con el flujo normal.
     if (DATA.session) {
         // Se direcciona a la página web de bienvenida.
-        location.href = 'InicioPublic.html';
+        location.href = 'panel_principal.html';
     } else if (DATA.status) {
         // Se muestra el formulario para iniciar sesión.
         LOGIN_FORM.classList.remove('d-none');
@@ -38,20 +39,16 @@ FORM_LOGIN_INPUTS.addEventListener('submit', async (event) => {
     const FORM = new FormData(FORM_LOGIN_INPUTS);
     // Petición para iniciar sesión.
     const DATA = await fetchData(USER_API, 'logIn', FORM);
-
-    /* Loguear los valores del formulario en la consola.
-    for (let pair of DATA.entries()) {
-        console.log(pair[0] + ': ' + pair[1]);
-    }  */
-
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {
         sweetAlert(1, DATA.message, true, 'panel_principal.html');
+        window.location.href = 'panel_principal.html';
     } else {
         sweetAlert(2, DATA.error, false);
     }
 });
 
+//Funcion para mostrar el formulario de recuperar contraseña
 function showRecCon() {
     LOGIN_FORM.classList.add('d-none');
     CONREC_FORM.classList.remove('d-none');
@@ -60,6 +57,7 @@ function showRecCon() {
     CONREST_FORM.classList.add('d-none');
 }
 
+//Funcion para mostrar el formulario de recuperacion de contraseña cuando se ha verificado la direccion de correo electronico
 function showRestCon() {
 
     sweetAlert(1, 'Se ha verificado su dirección de correo electrónico', 250);
@@ -71,6 +69,7 @@ function showRestCon() {
     CONREST_FORM.classList.remove('d-none');
 }
 
+//Funcion para mostrar el formulario de login
 function showLogin() {
     LOGIN_FORM.classList.remove('d-none');
     CONREC_FORM.classList.add('d-none');

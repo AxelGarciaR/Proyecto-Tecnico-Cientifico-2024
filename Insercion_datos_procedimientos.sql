@@ -513,16 +513,16 @@ CALL sp_insertar_trabajador(8, '888999000', '00998877', 'correo8@example.com', '
 CALL sp_insertar_trabajador(9, '333444555', '12121121', 'correo9@example.com', 'Alejandro', 'Torres', 9, '333444555333444555', '2024-04-09', 2300.00);
 CALL sp_insertar_trabajador(10, '666777888', '88776655', 'correo10@example.com', 'Marta', 'García', 10, '666777888666777888', '2024-04-10', 2400.00);
 
-CALL sp_insertar_usuario('ejemplo1@example.com', '$2y$10$TQrw.jLObX4/Uqy4dvC3me1Ln2pi6KoOU1m7RTTwmgXuvGJEcGIJ2', '123456789');
-CALL sp_insertar_usuario('usuario2@example.com', '$2y$10$TQrw.jLObX4/Uqy4dvC3me1Ln2pi6KoOU1m7RTTwmgXuvGJEcGIJ2', '987654321');
-CALL sp_insertar_usuario('correo3@example.com', '$2y$10$TQrw.jLObX4/Uqy4dvC3me1Ln2pi6KoOU1m7RTTwmgXuvGJEcGIJ2', '654321987');
-CALL sp_insertar_usuario('usuario4@example.com', '$2y$10$TQrw.jLObX4/Uqy4dvC3me1Ln2pi6KoOU1m7RTTwmgXuvGJEcGIJ2', '111222333');
-CALL sp_insertar_usuario('ejemplo5@example.com', '$2y$10$TQrw.jLObX4/Uqy4dvC3me1Ln2pi6KoOU1m7RTTwmgXuvGJEcGIJ2', '444555666');
-CALL sp_insertar_usuario('correo6@example.com', '$2y$10$TQrw.jLObX4/Uqy4dvC3me1Ln2pi6KoOU1m7RTTwmgXuvGJEcGIJ2', '777888999');
-CALL sp_insertar_usuario('usuario7@example.com', '$2y$10$TQrw.jLObX4/Uqy4dvC3me1Ln2pi6KoOU1m7RTTwmgXuvGJEcGIJ2', '222333444');
-CALL sp_insertar_usuario('correo8@example.com', '$2y$10$TQrw.jLObX4/Uqy4dvC3me1Ln2pi6KoOU1m7RTTwmgXuvGJEcGIJ2', '555666777');
-CALL sp_insertar_usuario('usuario9@example.com', '$2y$10$TQrw.jLObX4/Uqy4dvC3me1Ln2pi6KoOU1m7RTTwmgXuvGJEcGIJ2', '888999000');
-CALL sp_insertar_usuario('ejemplo10@example.com', '$2y$10$TQrw.jLObX4/Uqy4dvC3me1Ln2pi6KoOU1m7RTTwmgXuvGJEcGIJ2', '123123123');
+CALL sp_insertar_usuario('ejemplo1@example.com', '$2y$10$XKzp.2fLqjNqiB2Gm3Z6k.ev6yKlIFfCdg1eJt.dtFnVZEg5YRleK', '123456789');
+CALL sp_insertar_usuario('usuario2@example.com', '$2y$10$XKzp.2fLqjNqiB2Gm3Z6k.ev6yKlIFfCdg1eJt.dtFnVZEg5YRleK', '987654321');
+CALL sp_insertar_usuario('correo3@example.com', '$2y$10$XKzp.2fLqjNqiB2Gm3Z6k.ev6yKlIFfCdg1eJt.dtFnVZEg5YRleK', '654321987');
+CALL sp_insertar_usuario('usuario4@example.com', '$2y$10$XKzp.2fLqjNqiB2Gm3Z6k.ev6yKlIFfCdg1eJt.dtFnVZEg5YRleK', '111222333');
+CALL sp_insertar_usuario('ejemplo5@example.com', '$2y$10$XKzp.2fLqjNqiB2Gm3Z6k.ev6yKlIFfCdg1eJt.dtFnVZEg5YRleK', '444555666');
+CALL sp_insertar_usuario('correo6@example.com', '$2y$10$XKzp.2fLqjNqiB2Gm3Z6k.ev6yKlIFfCdg1eJt.dtFnVZEg5YRleK', '777888999');
+CALL sp_insertar_usuario('usuario7@example.com', '$2y$10$XKzp.2fLqjNqiB2Gm3Z6k.ev6yKlIFfCdg1eJt.dtFnVZEg5YRleK', '222333444');
+CALL sp_insertar_usuario('correo8@example.com', '$2y$10$XKzp.2fLqjNqiB2Gm3Z6k.ev6yKlIFfCdg1eJt.dtFnVZEg5YRleK', '555666777');
+CALL sp_insertar_usuario('usuario9@example.com', '$2y$10$XKzp.2fLqjNqiB2Gm3Z6k.ev6yKlIFfCdg1eJt.dtFnVZEg5YRleK', '888999000');
+CALL sp_insertar_usuario('ejemplo10@example.com', '$2y$10$XKzp.2fLqjNqiB2Gm3Z6k.ev6yKlIFfCdg1eJt.dtFnVZEg5YRleK', '123123123');
 
 CALL sp_insertar_forma_pago('Efectivo');
 CALL sp_insertar_forma_pago('Tarjeta de crédito');

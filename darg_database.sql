@@ -276,7 +276,7 @@ CREATE TABLE tb_usuarios
 (
 	id_usuario INT PRIMARY KEY AUTO_INCREMENT, #PK
     correo_usuario VARCHAR(500),
-	clave_usuario VARCHAR(50) /*(min-6 max-50)*/,
+	clave_usuario VARCHAR(60) /*(min-6 max-60)*/,
     telefono_usuario VARCHAR(9),
     tipo_usuario ENUM('Administrador') NOT NULL
 );
