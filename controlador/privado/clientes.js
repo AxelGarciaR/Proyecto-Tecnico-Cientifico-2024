@@ -138,7 +138,7 @@ DEPARTAMENTO_BUSCAR.addEventListener('change', function () {
     search();
 });
 
-const search = async () => {
+const search = async (Marcas = null) => {
     const FORM = new FormData();
     FORM.append('tipo_cliente', TIPO_CLIENTE);
 
@@ -162,6 +162,10 @@ const search = async () => {
         FORM.append('autos_cantd', AUTOS_CLIENTE.value);
     }
 
+    if (Marcas) {
+        FORM.append('autos_marcas', Marcas);
+    }
+
     fillData('searchRows', FORM);
 }
 
@@ -172,7 +176,7 @@ const search = async () => {
 */
 const fillData = async (action, form = null) => {
     console.log(TIPO_CLIENTE);
-    if (action == 'readAll') {
+    if (action == 'readAll' || action == 'searchRows') {
         // Lógica para mostrar clientes naturales o jurídicos
         if (TIPO_CLIENTE == 'Persona natural') {
             CLIENTES_NATURAL_CONTAINER.innerHTML = '';
@@ -226,15 +230,15 @@ const fillData = async (action, form = null) => {
                 DATA.dataset.forEach(row => {
                     CONTENEDOR_MARCAS_AUTOS.innerHTML +=
                         `
-            <li class="list-group-item p-0 m-0 px-2">
-                <input class="form-check-input me-2 checkbox" type="checkbox" id="${row.nombre_marca_automovil}" onclick="clickOnCheckBox(this)">
-                <label class="form-check-label stretched-link" for="${row.nombre_marca_automovil}">
-                    <h6 class="m-0 p-0 open-sans-regular">
-                    ${row.nombre_marca_automovil}
-                    </h6>
-                </label>
-            </li>
-           `
+                    <li class="list-group-item p-0 m-0 px-2">
+                        <input class="form-check-input me-2 checkbox" type="checkbox" id="${row.nombre_marca_automovil}" onclick="clickOnCheckBox(this)">
+                        <label class="form-check-label stretched-link" for="${row.nombre_marca_automovil}">
+                            <h6 class="m-0 p-0 open-sans-regular">
+                            ${row.nombre_marca_automovil}
+                            </h6>
+                        </label>
+                    </li>
+                    `
                 });
             } else {
                 if (DATA.error == 'Acción no disponible fuera de la sesión, debe ingresar para continuar') {
@@ -245,7 +249,9 @@ const fillData = async (action, form = null) => {
                 }
             }
         }
+        else {
 
+        }
     }
 }
 
@@ -294,7 +300,11 @@ function createCardAdd(container) {
 }
 
 function clickOnCheckBox(input) {
-    console.log(input.id)
+    let selectedBrands = []; // Array para almacenar las marcas seleccionadas
+    selectedBrands.push(input.id);
+
+    // Llamamos a la función PHP con las marcas seleccionadas
+    search(selectedBrands);
 }
 
 

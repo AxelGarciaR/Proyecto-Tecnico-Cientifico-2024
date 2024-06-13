@@ -218,6 +218,13 @@ class ClienteData extends ClienteHandler
         return true;
     }
 
+    public function setMarcasAutomovil($value)
+    {
+        $this->marcas_seleccionadas = $value;
+        return true;
+    }
+
+
     // Método para obtener el error de los datos.
     public function getDataError()
     {

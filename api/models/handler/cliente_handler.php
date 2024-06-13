@@ -26,6 +26,8 @@ class ClienteHandler
     protected $search_value = null;
     protected $autos_cantidad = null;
 
+    protected $marcas_seleccionadas = null;
+
     public function searchRows()
     {
         $sql = 'SELECT * FROM tb_clientes 
@@ -72,21 +74,17 @@ class ClienteHandler
             $sql .= ' AND (SELECT COUNT(id_automovil) FROM tb_automoviles WHERE id_cliente = tb_clientes.id_cliente) = ?';
             $params[] = $this->autos_cantidad;
         }
-        /* if(1 == 1){
-             $sql.= '
-                 AND id_cliente IN (
-                     SELECT id_cliente FROM tb_automoviles
-                     WHERE id_modelo_automovil IN (
-                         SELECT id_modelo_automovil FROM tb_modelos_automoviles
-                         WHERE id_marca_automovil = (
-                             SELECT id_marca_automovil FROM tb_marcas_automoviles
-                             WHERE nombre_marca_automovil = ?
-                         )
-                     )
-                 )
-             '
-             $params[] = $this->autos_cantidad;
-         }*/
+
+        if (!empty($this->marcas_seleccionadas)) {
+            $sql .= ' AND EXISTS (
+                SELECT 1 FROM tb_automoviles 
+                INNER JOIN tb_modelos_automoviles ON tb_automoviles.id_modelo_automovil = tb_modelos_automoviles.id_modelo_automovil
+                INNER JOIN tb_marcas_automoviles ON tb_modelos_automoviles.id_marca_automovil = tb_marcas_automoviles.id_marca_automovil
+                WHERE tb_automoviles.id_cliente = tb_clientes.id_cliente
+                AND tb_marcas_automoviles.nombre_marca_automovil IN ('.implode(',', array_fill(0, count($this->marcas_seleccionadas), '?')).')
+            )';
+            $params = array_merge($params, $this->marcas_seleccionadas);
+        }
         return Database::getRows($sql, $params);
     }
 

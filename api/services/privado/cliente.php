@@ -143,6 +143,7 @@ if (isset($_GET['action'])) {
                     $fechaHasta = isset($_POST['fecha_hasta']) ? $_POST['fecha_hasta'] : '';
 
                     $autosCantidad = isset($_POST['autos_cantd']) ? $_POST['autos_cantd'] : '';
+                    $autosMarcas = isset($_POST['autos_marcas']) ? $_POST['autos_marcas'] : '';
 
                     $cliente->setSearchValue($searchValue);
                     $cliente->setDepartamento($departamento);
@@ -151,6 +152,7 @@ if (isset($_GET['action'])) {
                     $cliente->setFechaHasta($fechaHasta);
 
                     $cliente->setAutosCantidad($autosCantidad);
+                    $cliente->setMarcasAutomovil($autosMarcas);
 
                     // Buscar clientes con los criterios definidos.
                     if ($result['dataset'] = $cliente->searchRows()) {
