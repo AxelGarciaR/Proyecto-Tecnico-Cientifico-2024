@@ -1,3 +1,6 @@
+//Llamada al php donde se encuentra el metodo
+const USER_API = 'services/privado/usuarios.php';
+
 // *Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {
     loadTemplate();
@@ -22,4 +25,6 @@ const openLogout = async () => {
     if (RESPONSE.isConfirmed) {
        location.href = '../../vistas/privado/index.html';
     }
+
+
 }

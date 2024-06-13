@@ -201,14 +201,22 @@ const pieGraph = (canvas, legends, values, title) => {
 */
 const logOut = async () => {
     // Se muestra un mensaje de confirmación y se captura la respuesta en una constante.
-    const RESPONSE = await confirmAction('¿Está seguro de cerrar la sesión?');
-    // Se verifica la respuesta del mensaje.
-    if (RESPONSE) {
+    const confirmed = await Swal.fire({
+        title: '¿Está seguro de cerrar la sesión?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'Cancelar'
+    });
+
+    // Se verifica si el usuario confirmó la acción.
+    if (confirmed.isConfirmed) {
         // Petición para eliminar la sesión.
         const DATA = await fetchData(USER_API, 'logOut');
         // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
         if (DATA.status) {
-            sweetAlert(1, DATA.message, true, 'index.html');
+            sweetAlert(1, DATA.message, true);
+            window.location.href = 'index.html';
         } else {
             sweetAlert(2, DATA.exception, false);
         }
