@@ -138,7 +138,7 @@ DEPARTAMENTO_BUSCAR.addEventListener('change', function () {
     search();
 });
 
-const search = async (Marcas = null) => {
+const search = async () => {
     const FORM = new FormData();
     FORM.append('tipo_cliente', TIPO_CLIENTE);
 
@@ -160,10 +160,11 @@ const search = async (Marcas = null) => {
 
     if (AUTOS_CLIENTE.value) {
         FORM.append('autos_cantd', AUTOS_CLIENTE.value);
-    }
+    }else{}
 
-    if (Marcas) {
-        FORM.append('autos_marcas', Marcas);
+    if (MARCAS_SELECCIONADAS.length != 0) {
+        console.log(MARCAS_SELECCIONADAS);
+        FORM.append('autos_marcas', MARCAS_SELECCIONADAS);
     }
 
     fillData('searchRows', FORM);
@@ -231,8 +232,8 @@ const fillData = async (action, form = null) => {
                     CONTENEDOR_MARCAS_AUTOS.innerHTML +=
                         `
                     <li class="list-group-item p-0 m-0 px-2">
-                        <input class="form-check-input me-2 checkbox" type="checkbox" id="${row.nombre_marca_automovil}" onclick="clickOnCheckBox(this)">
-                        <label class="form-check-label stretched-link" for="${row.nombre_marca_automovil}">
+                        <input class="form-check-input me-2 checkbox" type="checkbox" id="${row.id_marca_automovil}" onclick="clickOnCheckBox(this)">
+                        <label class="form-check-label stretched-link" for="${row.id_marca_automovil}">
                             <h6 class="m-0 p-0 open-sans-regular">
                             ${row.nombre_marca_automovil}
                             </h6>
@@ -245,7 +246,11 @@ const fillData = async (action, form = null) => {
                     await sweetAlert(4, DATA.error, true); location.href = 'index.html'
                 }
                 else {
-                    sweetAlert(4, DATA.error, true);
+                    CONTENEDOR_MARCAS_AUTOS.innerHTML +=
+                        `<h6 class="m-0 p-0 open-sans-regular">
+                        No existen marcas de automoviles registrados
+                        </h6>`
+                    //sweetAlert(4, DATA.error, true);
                 }
             }
         }
@@ -299,14 +304,26 @@ function createCardAdd(container) {
     `;
 }
 
-function clickOnCheckBox(input) {
-    let selectedBrands = []; // Array para almacenar las marcas seleccionadas
-    selectedBrands.push(input.id);
+let MARCAS_SELECCIONADAS = [];
 
-    // Llamamos a la función PHP con las marcas seleccionadas
-    search(selectedBrands);
+function clickOnCheckBox(input) {
+    setIdMarcas(input.id)
 }
 
+function setIdMarcas(id) {
+    // Verificar si el id ya está en el arreglo
+    const index = MARCAS_SELECCIONADAS.indexOf(id);
+    if (index === -1) {
+        // Si el id no está en el arreglo, lo agregamos
+        MARCAS_SELECCIONADAS.push(id);
+    } else {
+        // Si el id ya está en el arreglo, lo eliminamos
+        MARCAS_SELECCIONADAS.splice(index, 1);
+    }
+
+    //console.log(MARCAS_SELECCIONADAS);
+    search();
+}
 
 // Función para mostrar el div de agregar trabajador y ocultar el div de la tabla.
 function showPersonaNatural(boton) {

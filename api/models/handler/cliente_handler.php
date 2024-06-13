@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase para trabajar con la base de datos.
-require_once ('../../helpers/database.php');
+require_once('../../helpers/database.php');
 /*
  *  Clase para manejar el comportamiento de los datos de la tabla administrador.
  */
@@ -30,6 +30,7 @@ class ClienteHandler
 
     public function searchRows()
     {
+        //var_dump($this->marcas_seleccionadas);
         $sql = 'SELECT * FROM tb_clientes 
         WHERE tipo_cliente = ?';
         $params = array($this->tipo_cliente);
@@ -71,20 +72,40 @@ class ClienteHandler
             }
         }
         if ($this->autos_cantidad) {
-            $sql .= ' AND (SELECT COUNT(id_automovil) FROM tb_automoviles WHERE id_cliente = tb_clientes.id_cliente) = ?';
+            $sql .= ' SELECT c.*
+                        FROM tb_clientes c
+                        INNER JOIN (
+                            SELECT id_cliente
+                            FROM tb_automoviles
+                            GROUP BY id_cliente
+                            HAVING COUNT(*) = ?
+                        ) a ON c.id_cliente = a.id_cliente;
+                    ';
             $params[] = $this->autos_cantidad;
         }
 
-        if (!empty($this->marcas_seleccionadas)) {
+        if ($this->marcas_seleccionadas) {
+            // Convertimos la cadena en un arreglo de IDs de marcas
+            $marcas_seleccionadas = explode(',', $this->marcas_seleccionadas);
+
+            // Creamos un string con el mismo número de placeholders que marcas seleccionadas
+            $placeholders = implode(',', array_fill(0, count($marcas_seleccionadas), '?'));
+
+            // Agregamos los placeholders a la consulta
             $sql .= ' AND EXISTS (
                 SELECT 1 FROM tb_automoviles 
                 INNER JOIN tb_modelos_automoviles ON tb_automoviles.id_modelo_automovil = tb_modelos_automoviles.id_modelo_automovil
                 INNER JOIN tb_marcas_automoviles ON tb_modelos_automoviles.id_marca_automovil = tb_marcas_automoviles.id_marca_automovil
                 WHERE tb_automoviles.id_cliente = tb_clientes.id_cliente
-                AND tb_marcas_automoviles.nombre_marca_automovil IN ('.implode(',', array_fill(0, count($this->marcas_seleccionadas), '?')).')
+                AND tb_marcas_automoviles.id_marca_automovil IN (' . $placeholders . ')
             )';
-            $params = array_merge($params, $this->marcas_seleccionadas);
+
+            // Agregamos los valores de las marcas seleccionadas a los parámetros
+            foreach ($marcas_seleccionadas as $marca) {
+                $params[] = $marca;
+            }
         }
+
         return Database::getRows($sql, $params);
     }
 
@@ -202,7 +223,7 @@ class ClienteHandler
     // Método para leer los clientes
     public function readMarcas()
     {
-        $sql = 'SELECT DISTINCT nombre_marca_automovil FROM tb_marcas_automoviles ORDER BY nombre_marca_automovil ASC;';
+        $sql = 'SELECT id_marca_automovil, nombre_marca_automovil FROM tb_marcas_automoviles ORDER BY nombre_marca_automovil ASC;';
         return Database::getRows($sql);
     }
 
