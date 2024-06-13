@@ -9,8 +9,8 @@ use PHPMailer\PHPMailer\Exception;
 
 class mandarCorreo
 {
-
-    function enviarCorreoPassword($correoDestino, $nombreDestinatario, $asunto, $codigoRecuperacion)
+    //Funcion para enviar el correo
+    function enviarCorreoPassword($correoDestino, $asunto, $codigoRecuperacion)
     {
         // Instanciar la clase PHPMailer
         $mail = new PHPMailer(true);
@@ -27,7 +27,7 @@ class mandarCorreo
 
             // Configuración del correo electrónico
             $mail->setFrom('feasverse@gmail.com', 'FEASVERSE.SV');
-            $mail->addAddress($correoDestino, $nombreDestinatario);
+            $mail->addAddress($correoDestino);
             $mail->isHTML(true);
             $mail->CharSet = 'UTF-8'; // Establecer la codificación de caracteres
             $mail->Subject = '=?UTF-8?B?' . base64_encode($asunto) . '?='; // Asunto codificado en base64
@@ -44,7 +44,7 @@ class mandarCorreo
                         font-family: Arial, sans-serif;
                     }
                     .header {
-                        background-color: #1A89BD; /* Color principal */
+                        background-color: #E5383B; /* Color principal */
                         padding: 10px;
                         text-align: center;
                         border-radius: 10px 10px 0 0; /* Redondear bordes superiores */
@@ -67,12 +67,12 @@ class mandarCorreo
             <body>
                 <div class="container">
                     <div class="header">
-                        <h1 class="company-name">FEASVERSE . SV</h1>
+                        <h1 class="company-name">DARG: Data Administration Revolution Garage</h1>
                     </div>
                     <div class="content">
                         <div class="card">
-                            <p>Hola ' . $nombreDestinatario . ',</p>
-                            <p>Recibiste este correo electrónico porque solicitaste un código de recuperación para restablecer tu contraseña en FEASVERSE.SV.</p>
+                            <p>Hola querido usuario,</p>
+                            <p>Recibiste este correo electrónico porque solicitaste un código de recuperación para restablecer tu contraseña en DARG.SV.</p>
                             <p>Tu código de recuperación es: <strong>' . $codigoRecuperacion . '</strong></p>
                             <p>Por favor, guarda este código de forma segura y no lo compartas con nadie.</p>
                             <p>Si no solicitaste este código, puedes ignorar este correo electrónico de manera segura.</p>
