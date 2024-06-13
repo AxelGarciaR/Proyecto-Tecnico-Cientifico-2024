@@ -62,6 +62,16 @@ class UsuariosHandler
         return Database::executeRow($sql, $params);
     }
 
+    // Método para actualizar la contraseña del trabajador por ID
+    public function updatePassword()
+    {
+        $sql = 'UPDATE tb_usuarios
+                SET clave_usuario = ?
+                WHERE id_usuario = ?'; // Consulta SQL para actualizar la contraseña del trabajador por ID
+        $params = array($this->claveUsuario, $this->idUsuario); // Parámetros para la consulta SQL
+        return Database::executeRow($sql, $params); // Ejecución de la consulta SQL
+    }
+
     //Esta funcion muestra los datos del usuario
     public function readProfile()
     {
