@@ -91,7 +91,12 @@ const addSave = async () => {
             resetForm(); // Resetea el formulario
             ADD_FORM.classList.remove('was-validated'); // Quita la clase de validación
         } else {
-            await sweetAlert(2, DATA.error, false);
+            if (DATA.error == 'Acción no disponible fuera de la sesión, debe ingresar para continuar') {
+                await sweetAlert(4, DATA.error, true); location.href = 'index.html'
+            }
+            else {
+                sweetAlert(4, DATA.error, true);
+            }
         }
     } else {
         console.log('Que paso?: Formulario no válido');
@@ -181,7 +186,12 @@ const fillData = async (action, form = null) => {
                     CLIENTES_NATURAL_CONTAINER.innerHTML += createCardCliente(row);
                 });
             } else {
-                sweetAlert(4, DATA2.error, true);
+                if (DATA2.error == 'Acción no disponible fuera de la sesión, debe ingresar para continuar') {
+                    await sweetAlert(4, DATA2.error, true); location.href = 'index.html'
+                }
+                else {
+                    sweetAlert(4, DATA2.error, true);
+                }
             }
         } else {
             CLIENTES_JURIDICO_CONTAINER.innerHTML = '';
@@ -196,7 +206,12 @@ const fillData = async (action, form = null) => {
                     CLIENTES_JURIDICO_CONTAINER.innerHTML += createCardCliente(row);
                 });
             } else {
-                sweetAlert(4, DATA1.error, true);
+                if (DATA1.error == 'Acción no disponible fuera de la sesión, debe ingresar para continuar') {
+                    await sweetAlert(4, DATA1.error, true); location.href = 'index.html'
+                }
+                else {
+                    sweetAlert(4, DATA1.error, true);
+                }
             }
         }
     }
@@ -222,7 +237,12 @@ const fillData = async (action, form = null) => {
            `
                 });
             } else {
-                sweetAlert(4, DATA2.error, true);
+                if (DATA.error == 'Acción no disponible fuera de la sesión, debe ingresar para continuar') {
+                    await sweetAlert(4, DATA.error, true); location.href = 'index.html'
+                }
+                else {
+                    sweetAlert(4, DATA.error, true);
+                }
             }
         }
 
@@ -273,7 +293,7 @@ function createCardAdd(container) {
     `;
 }
 
-function clickOnCheckBox(input){
+function clickOnCheckBox(input) {
     console.log(input.id)
 }
 
@@ -408,14 +428,31 @@ function updateButtonColors(boton) {
 
 //----------------------------VALIDACIONES-----------------
 
+document.getElementById('input_nrf').addEventListener('input', function (event) {
+    // Obtener el valor actual del campo de texto
+    let inputValue = event.target.value;
+
+    // Limpiar el valor de cualquier carácter que no sea un número o guión
+    inputValue = inputValue.replace(/[^\d-]/g, '');
+
+    // Asegurar que no haya más de 100 caracteres
+    inputValue = inputValue.slice(0, 100);
+
+    // Actualizar el valor del campo de texto con la entrada formateada
+    event.target.value = inputValue;
+});
+
 document.getElementById('input_nrc').addEventListener('input', function (event) {
     // Obtener el valor actual del campo de texto
     let inputValue = event.target.value;
 
-    // Asegurar que el texto no supere los 11 caracteres
-    inputValue = inputValue.slice(0, 11);
+    // Limpiar el valor de cualquier carácter que no sea un número o guión
+    inputValue = inputValue.replace(/[^\d-]/g, '');
 
-    // Actualizar el valor del campo de texto con la entrada validada
+    // Asegurar que no haya más de 100 caracteres
+    inputValue = inputValue.slice(0, 15);
+
+    // Actualizar el valor del campo de texto con la entrada formateada
     event.target.value = inputValue;
 });
 

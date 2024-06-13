@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase para trabajar con la base de datos.
-require_once('../../helpers/database.php');
+require_once ('../../helpers/database.php');
 /*
  *  Clase para manejar el comportamiento de los datos de la tabla administrador.
  */
@@ -68,25 +68,25 @@ class ClienteHandler
                 $params[] = $this->fecha_hasta;
             }
         }
-        if($this->autos_cantidad){
+        if ($this->autos_cantidad) {
             $sql .= ' AND (SELECT COUNT(id_automovil) FROM tb_automoviles WHERE id_cliente = tb_clientes.id_cliente) = ?';
             $params[] = $this->autos_cantidad;
         }
-       /* if(1 == 1){
-            $sql.= '
-                AND id_cliente IN (
-                    SELECT id_cliente FROM tb_automoviles
-                    WHERE id_modelo_automovil IN (
-                        SELECT id_modelo_automovil FROM tb_modelos_automoviles
-                        WHERE id_marca_automovil = (
-                            SELECT id_marca_automovil FROM tb_marcas_automoviles
-                            WHERE nombre_marca_automovil = ?
-                        )
-                    )
-                )
-            '
-            $params[] = $this->autos_cantidad;
-        }*/
+        /* if(1 == 1){
+             $sql.= '
+                 AND id_cliente IN (
+                     SELECT id_cliente FROM tb_automoviles
+                     WHERE id_modelo_automovil IN (
+                         SELECT id_modelo_automovil FROM tb_modelos_automoviles
+                         WHERE id_marca_automovil = (
+                             SELECT id_marca_automovil FROM tb_marcas_automoviles
+                             WHERE nombre_marca_automovil = ?
+                         )
+                     )
+                 )
+             '
+             $params[] = $this->autos_cantidad;
+         }*/
         return Database::getRows($sql, $params);
     }
 
@@ -171,18 +171,24 @@ class ClienteHandler
     // Método para verificar duplicados por valor (DUI o correo) y excluyendo el ID actual
     public function checkDuplicate($value)
     {
-        $sql = 'SELECT id_cliente 
-        FROM tb_clientes 
-        WHERE (dui_cliente = ? OR correo_cliente = ? OR telefono_cliente = ?)';
-        //AND id_cliente <> ?;';
+        $sql = 'SELECT id_cliente FROM tb_clientes 
+        WHERE (dui_cliente = ? OR correo_cliente = ? OR telefono_cliente = ? OR NIT_cliente = ? OR NRC_cliente = ? OR NRF_cliente = ?)';
         // Consulta SQL para verificar duplicados por valor (DUI o correo) excluyendo el ID actual
         $params = array(
             $value,
             $value,
             $value,
-            //$this->id_cliente
+            $value,
+            $value,
+            $value,
         ); // Parámetros para la consulta SQL
-        return Database::getRow($sql, $params); // Ejecución de la consulta SQL
+
+        if ($this->id_cliente) {
+            $sql .= ' AND id_cliente <> ?;';
+            $params[] = $this->id_cliente;
+        }
+
+        return Database::getRows($sql, $params); // Ejecución de la consulta SQL
     }
 
     // Método para leer los clientes

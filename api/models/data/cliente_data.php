@@ -1,8 +1,8 @@
 <?php
 // Se incluye la clase para validar los datos de entrada.
-require_once('../../helpers/validator.php');
+require_once ('../../helpers/validator.php');
 // Se incluye la clase padre.
-require_once('../../models/handler/cliente_handler.php');
+require_once ('../../models/handler/cliente_handler.php');
 /*
  *  Clase para manejar el encapsulamiento de los datos de la tabla USUARIO.
  */
@@ -39,36 +39,46 @@ class ClienteData extends ClienteHandler
     }
 
     // Método para establecer el NIT del cliente
-    public function setNIT($value, $min = 17, $max = 18)
+    public function setNIT($value, $min = 17, $max = 17)
     {
-        if (Validator::validateLength($value, $min, $max)) {
+        if (!Validator::validateLength($value, $min, $max)) {
+            $this->data_error = 'El NIT debe tener una longitud de entre ' . $min . ' y ' . $max;
+            return false;
+        } elseif ($this->checkDuplicate($value)) {
+            $this->data_error = 'El NIT ingresado ya existe';
+            return false;
+        } else {
             $this->NIT_cliente = $value;
             return true;
-        } else {
-            $this->data_error = 'El NIT debe tener una longitud de ' . $min;
-            return false;
         }
     }
 
     // Método para establecer el NRC del cliente
-    public function setNRC($value, $min = 11, $max = 11)
+    public function setNRC($value, $min = 8, $max = 15)
     {
-        if (Validator::validateLength($value, $min, $max)) {
+        if (!Validator::validateLength($value, $min, $max)) {
+            $this->data_error = 'El NRC debe tener una longitud de entre ' . $min . ' y ' . $max;
+            return false;
+        } elseif ($this->checkDuplicate($value)) {
+            $this->data_error = 'El NRC ingresado ya existe';
+            return false;
+        } else {
             $this->NRC_cliente = $value;
             return true;
-        } else {
-            $this->data_error = 'El NRC debe tener una longitud de ' . $min;
-            return false;
         }
     }
+
     public function setNRF($value, $min = 11, $max = 11)
     {
-        if (Validator::validateLength($value, $min, $max)) {
+        if (!Validator::validateLength($value, $min, $max)) {
+            $this->data_error = 'El NRF debe tener una longitud de entre ' . $min . ' y ' . $max;
+            return false;
+        } elseif ($this->checkDuplicate($value)) {
+            $this->data_error = 'El NRF ingresado ya existe';
+            return false;
+        } else {
             $this->NRF_cliente = $value;
             return true;
-        } else {
-            $this->data_error = 'El NRF debe tener una longitud de ' . $min;
-            return false;
         }
     }
 
@@ -201,7 +211,6 @@ class ClienteData extends ClienteHandler
         $this->fecha_hasta = $value;
         return true;
     }
-
 
     public function setAutosCantidad($value)
     {

@@ -50,6 +50,13 @@ const checkFormValidity = form => {
     return validities.every(valid => valid); // Retorna true si todos los elementos son válidos.
 };
 
+// Método del evento para cuando se envía el formulario de guardar.
+ADD_FORM.addEventListener('submit', async (event) => {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    addSave();
+});
+
 const addSave = async () => {
     const isValid = await checkFormValidity(ADD_FORM);
     if (isValid) {
@@ -57,7 +64,7 @@ const addSave = async () => {
         //Constante tipo objeto con los datos del formulario.
         const FORM = new FormData(ADD_FORM);
         FORM.append('id_cliente', Number(getQueryParam('id_cliente')))
-        FORM.append('tipo_cliente', 'Persona natural');
+        FORM.append('tipo_cliente', TIPO_CLIENTE_INPUT.value);
 
         // Petición para guardar los datos del formulario.
         const DATA = await fetchData(CLIENTES_API, 'updateRow', FORM);
@@ -69,7 +76,12 @@ const addSave = async () => {
             MODAL.hide();
             ADD_FORM.classList.remove('was-validated'); // Quita la clase de validación
         } else {
-            await sweetAlert(2, DATA.error, false);
+            if (DATA.error == 'Acción no disponible fuera de la sesión, debe ingresar para continuar') {
+                await sweetAlert(4, DATA.error, true); location.href = 'index.html'
+            }
+            else {
+                sweetAlert(4, DATA.error, true);
+            }
         }
     } else {
         console.log('Que paso?: Formulario no válido');
@@ -150,6 +162,7 @@ const fillData = async () => {
             NRC.classList.remove('d-none');
             NRF_DIV.classList.remove('d-none');
             NRF.classList.remove('d-none');
+            formSetValues(ROW);
             html = getPersonaJuridicaTemplate(ROW);
         }
 
@@ -276,12 +289,18 @@ function getPersonaNaturalTemplate(row) {
 
 function getPersonaJuridicaTemplate(row) {
     return `
-    <div class="fila1 col-12 d-flex flex-wrap">
+    <div class="fila1 col-12 d-flex flex-wrap justify-content-center gap-5">
         <div
-            class="contenedor-izq d-flex flex-column col-lg-7 col-md-6 col-12 flex-wrap justify-content-center align-items-center">
+            class="contenedor-izq d-flex flex-column col-lg-4 col-md-8 col-12 flex-wrap justify-content-center align-items-center">
             <img src="../../recursos/imagenes/user_exmpl2.png">
+            <div class="col-12 d-flex justify-content-end align-items-end">
+                <button type="button" id="btnEditCliente" onclick="" data-bs-toggle="modal"
+                    data-bs-target="#editarClienteModal" class="btn btn-outline-primary col-10 btnEdit m-0 p-0">
+                    <img src="../../recursos/imagenes/icons/btn-edit.svg" class="svg1">
+                </button>
+            </div>
             <div
-                class="contenedor-info d-flex flex-column col-lg-8 col-md-11 col-10 justify-content-center align-items-center">
+                class="contenedor-info d-flex flex-column col-lg-12 col-md-11 col-10 justify-content-center align-items-center">
                 <!--Contenedor del header de la info-->
                 <div class="info-header d-flex flex-column text-center my-4">
                     <h2 class="p-0 m-0 open-sans-bold">
@@ -407,8 +426,7 @@ function getPersonaJuridicaTemplate(row) {
     `;
 }
 
-function formSetValues(row)
-{
+function formSetValues(row) {
     DUI.value = row.dui_cliente;
     NIT.value = row.NIT_cliente;
     TELEFONO.value = row.telefono_cliente;
