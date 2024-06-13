@@ -128,8 +128,7 @@ document.getElementById("forgetpasswordstepone").addEventListener("submit", asyn
     if (DATA.status) {
         FORM2 = new FormData();
         var resultado = DATA.dataset;
-        FORM2.append('correo_electronico_paso1', INPUTCONTRA.value);
-        FORM2.append('nombre_destinatario', resultado.nombre_trabajador);
+        FORM2.append('Input_Correo2', INPUTCONTRA.value);
 
         id = resultado.id_trabajador;
 

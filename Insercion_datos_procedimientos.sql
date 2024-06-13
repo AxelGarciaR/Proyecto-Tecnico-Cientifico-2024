@@ -283,7 +283,7 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE sp_insertar_usuario (
     IN p_correo_usuario VARCHAR(500),
-    IN p_clave_usuario VARCHAR(50),
+    IN p_clave_usuario VARCHAR(60),
     IN p_telefono_usuario VARCHAR(9)
 )
 BEGIN
