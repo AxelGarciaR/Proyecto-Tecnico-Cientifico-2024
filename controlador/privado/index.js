@@ -60,7 +60,7 @@ function showRecCon() {
 //Funcion para mostrar el formulario de recuperacion de contraseña cuando se ha verificado la direccion de correo electronico
 function showRestCon() {
 
-    sweetAlert(1, 'Se ha verificado su dirección de correo electrónico', 250);
+    sweetAlert(1, 'Seguridad aprobada para recuperar contraseña', 250);
 
     LOGIN_FORM.classList.add('d-none');
     CONREC_FORM.classList.add('d-none');
@@ -84,7 +84,7 @@ const openNoti1 = async () => {
     sweetAlert(1, 'El <span class="open-sans-bold-italic">código de verificación</span> ha sido enviado a su direcciòn de corrreo electrónico', 250);
 }
 
-document.getElementById('Input_Contra21').addEventListener('input', function (event) {
+document.getElementById('Input_Contra2').addEventListener('input', function (event) {
     // Obtener el valor actual del campo de texto
     let inputValue = event.target.value;
 
@@ -115,6 +115,9 @@ document.getElementById('Input_ContraNEW').addEventListener('input', function (e
 
 /**Aqui empiesa el script para poder recuperar la contraseña**/
 
+let DATA2; // Declara DATA2 en un ámbito más amplio para que sea accesible desde ambos eventos
+let id;
+
 document.getElementById("forgetpasswordstepone").addEventListener("submit", async function (event) {
     event.preventDefault(); // Esto evita que el formulario se envíe de forma predeterminada
 
@@ -130,18 +133,65 @@ document.getElementById("forgetpasswordstepone").addEventListener("submit", asyn
         var resultado = DATA.dataset;
         FORM2.append('Input_Correo2', INPUTCONTRA.value);
 
-        id = resultado.id_trabajador;
+        id = resultado.id_usuario;
 
         DATA2 = await fetchData(USER_API, 'enviarCodigoRecuperacion', FORM2); // Asigna el valor de DATA2 aquí
 
         if (DATA2.status) {
             await sweetAlert(1, 'Se ha enviado correctamente al correo electrónico, ingrese el código enviado', true);
-            showForgotPasswordStepTwoForm();
         } else {
             sweetAlert(2, DATA2.error, false);
         }
 
     } else {
         sweetAlert(2, DATA.error, false);
+    }
+});
+
+
+document.getElementById("forgetpasswordsteptwo").addEventListener("submit", async function (event) {
+    event.preventDefault(); // Esto evita que el formulario se envíe de forma predeterminada
+
+    const INPUTCODIGO = document.getElementById("codigoContra").value;
+    if (INPUTCODIGO.trim() === DATA2.codigo) {
+        await sweetAlert(1, 'Codigo verificado correctamente.', true);
+        showRestCon();
+    } else {
+        await sweetAlert(2, 'Ingrese el codigo enviado en el correo.', true);
+    }
+});
+
+function validatePassword(password) {
+    // Expresión regular para validar que la contraseña cumpla con los requisitos
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+}{":;'?/>.<,])[A-Za-z\d!@#$%^&*()_+}{":;'?/>.<,]{8,}$/;
+    return regex.test(password);
+}
+
+document.getElementById("forgetPasswordStepThree").addEventListener("submit", async function (event) {
+    event.preventDefault(); // Esto evita que el formulario se envíe de forma predeterminada
+    const INPUTCONTRA = document.getElementById("Input_ContraNEW").value.trim();
+    const INPUTCONFIRMARCONTRA = document.getElementById("Input_Contra2").value.trim();
+
+    // Validar que las contraseñas coincidan
+    if (INPUTCONTRA === INPUTCONFIRMARCONTRA) {
+        // Validar que la contraseña cumpla con los requisitos
+        if (validatePassword(INPUTCONTRA)) {
+            const FORM1 = new FormData();
+            FORM1.append('claveTrabajador', INPUTCONTRA);
+            FORM1.append('confirmarTrabajador', INPUTCONFIRMARCONTRA);
+            FORM1.append('idTrabajador', id);
+
+            const DATA = await fetchData(USER_API, 'changePasswordLogin', FORM1);
+            if (DATA.status) {
+                sweetAlert(1, 'La contraseña ha sido restablecida correctamente', true);
+                showLogin()
+            } else {
+                sweetAlert(2, DATA.error, false);
+            }
+        } else {
+            sweetAlert(2, 'La contraseña debe tener al menos 8 caracteres, incluir letras mayúsculas y minúsculas, dígitos y caracteres especiales.', true);
+        }
+    } else {
+        sweetAlert(2, 'Los campos de contraseña no coinciden.', true);
     }
 });

@@ -36,6 +36,13 @@ main,
     height: fit-content; /* Altura ajustada al contenido */
   }
 
+  #forgetPasswordStepThree{
+    /*GRID*/
+    display: grid; /* Mostrar como grid */
+    gap: 55px; /* Espacio entre elementos */
+    height: fit-content; /* Altura ajustada al contenido */
+  }
+
 /* Contenedor izquierdo */
 .contenedor-izquierdo {
     height: 100%; /* Altura del 100% */
@@ -158,6 +165,12 @@ main,
   }
 
   #forgetpasswordstepone{
+    display: grid; /* Mostrar como grid */
+    gap: 25px; /* Espacio entre elementos */
+    height: fit-content; /* Altura ajustada al contenido */
+  }
+
+  #forgetpasswordsteptwo{
     display: grid; /* Mostrar como grid */
     gap: 25px; /* Espacio entre elementos */
     height: fit-content; /* Altura ajustada al contenido */
