@@ -1,8 +1,8 @@
 <?php
 // Se incluye la clase para validar los datos de entrada.
-require_once ('../../helpers/validator.php');
+require_once('../../helpers/validator.php');
 // Se incluye la clase padre.
-require_once ('../../models/handler/trabajadores_handler.php');
+require_once('../../models/handler/trabajadores_handler.php');
 /*
  *  Clase para manejar el encapsulamiento de los datos de la tabla USUARIO.
  */
@@ -82,61 +82,17 @@ class TrabajadoresData extends TrabajadoresHandler
         }
     }
 
-
-    // Método para establecer el NIT del cliente
-    public function setNIT($value, $min = 17, $max = 17)
+    //Metodo para establecer el departamento del trabajador
+    public function setDepartamento($value, $min = 2, $max = 50)
     {
-        if (!Validator::validateLength($value, $min, $max)) {
-            $this->data_error = 'El NIT debe tener una longitud de entre ' . $min . ' y ' . $max;
+        if (!Validator::validateAlphabetic($value)) {
+            $this->data_error = 'El nombre debe ser un valor alfabético';
             return false;
-        } elseif ($this->checkDuplicate($value)) {
-            $this->data_error = 'El NIT ingresado ya existe';
-            return false;
-        } else {
-            $this->NIT_cliente = $value;
-            return true;
-        }
-    }
-
-    // Método para establecer el NRC del cliente
-    public function setNRC($value, $min = 8, $max = 15)
-    {
-        if (!Validator::validateLength($value, $min, $max)) {
-            $this->data_error = 'El NRC debe tener una longitud de entre ' . $min . ' y ' . $max;
-            return false;
-        } elseif ($this->checkDuplicate($value)) {
-            $this->data_error = 'El NRC ingresado ya existe';
-            return false;
-        } else {
-            $this->NRC_cliente = $value;
-            return true;
-        }
-    }
-
-    public function setNRF($value, $min = 11, $max = 11)
-    {
-        if (!Validator::validateLength($value, $min, $max)) {
-            $this->data_error = 'El NRF debe tener una longitud de entre ' . $min . ' y ' . $max;
-            return false;
-        } elseif ($this->checkDuplicate($value)) {
-            $this->data_error = 'El NRF ingresado ya existe';
-            return false;
-        } else {
-            $this->NRF_cliente = $value;
-            return true;
-        }
-    }
-
-    
-
-    // Método para establecer el departamento del cliente
-    public function setDepartamento($value)
-    {
-        if (Validator::validateAlphabetic($value)) {
-            $this->departamento_cliente = $value;
+        } elseif (Validator::validateLength($value, $min, $max)) {
+            $this->departamento_trabajador = $value;
             return true;
         } else {
-            $this->data_error = 'El identificador del departamento es incorrecto';
+            $this->data_error = 'El nombre debe tener una longitud entre ' . $min . ' y ' . $max;
             return false;
         }
     }
@@ -148,7 +104,7 @@ class TrabajadoresData extends TrabajadoresHandler
             $this->data_error = 'El nombre debe ser un valor alfabético';
             return false;
         } elseif (Validator::validateLength($value, $min, $max)) {
-            $this->nombres_cliente = $value;
+            $this->nombres_trabajador = $value;
             return true;
         } else {
             $this->data_error = 'El nombre debe tener una longitud entre ' . $min . ' y ' . $max;
@@ -163,7 +119,7 @@ class TrabajadoresData extends TrabajadoresHandler
             $this->data_error = 'El apellido debe ser un valor alfabético';
             return false;
         } elseif (Validator::validateLength($value, $min, $max)) {
-            $this->apellidos_cliente = $value;
+            $this->apellidos_trabajador = $value;
             return true;
         } else {
             $this->data_error = 'El apellido debe tener una longitud entre ' . $min . ' y ' . $max;
@@ -171,73 +127,75 @@ class TrabajadoresData extends TrabajadoresHandler
         }
     }
 
-    
-
-    // Método para establecer el rubro del cliente
-    public function setRubro($value)
+    // Método para establecer el NIT del cliente
+    public function setNIT($value, $min = 17, $max = 17)
     {
-        if (!Validator::validateAlphabetic($value)) {
-            $this->data_error = 'El rubro debe ser un valor alfabético';
+        if (!Validator::validateLength($value, $min, $max)) {
+            $this->data_error = 'El NIT debe tener una longitud de entre ' . $min . ' y ' . $max;
+            return false;
+        } elseif ($this->checkDuplicate($value)) {
+            $this->data_error = 'El NIT ingresado ya existe';
             return false;
         } else {
-            $this->rubro_comercial = $value;
+            $this->NIT_trabajador = $value;
             return true;
         }
     }
 
     // Método para establecer el rubro del cliente
-    public function setFechaRegistro($value)
+    public function setFechaContratacion($value)
     {
-        $this->fecha_registro_cliente = $value;
-        return true;
-    }
-
-    // Método para establecer el tipo del cliente
-    public function setTipoCliente($value)
-    {
-        $this->tipo_cliente = $value;
-        return true;
-    }
-
-    public function setEstado($value)
-    {
-        if (!Validator::validateAlphabetic($value)) {
-            $this->data_error = 'El estado debe ser un valor alfabético';
-            return false;
+        if (Validator::validateDate($value)) {
+            $this->fecha_contratacion = $value;
+            return true;
         } else {
-            $this->estado_cliente = $value;
+            $this->data_error = 'La fecha esta en formato incorrecto';
+            return false;
+        }
+    }
+
+    //Hacer la validacion para el dinero
+    public function setSalarioBase($value)
+    {
+        if (Validator::validateMoney($value)) {
+            $this->salario_base = $value;
+            return true;
+        } else {
+            $this->data_error = 'El salario base no tiene el formato correcto';
+            return false;
+        }
+    }
+
+    //Hacer la validacion para las fotos del trabajador 
+    //Ver si se puede dejar esta validacion de imagen
+    public function setFtoTrabajador($file, $filename = null)
+    {
+        if (Validator::validateImageFile($file, 1000)) {
+            $this->Fto_trabajador = Validator::getFileName();
+            return true;
+        } elseif (Validator::getFileError()) {
+            $this->data_error = Validator::getFileError();
+            return false;
+        } elseif ($filename) {
+            $this->Fto_trabajador = $filename;
+            return true;
+        } else {
+            $this->Fto_trabajador = 'default.png';
             return true;
         }
     }
 
-    public function setSearchValue($value)
-    {
-        $this->search_value = $value;
-        return true;
-    }
 
-    public function setFechaDesde($value)
+    // Función para validar el nombre del archivo
+    public function setFilename()
     {
-        $this->fecha_desde = $value;
-        return true;
-    }
-
-    public function setFechaHasta($value)
-    {
-        $this->fecha_hasta = $value;
-        return true;
-    }
-
-    public function setAutosCantidad($value)
-    {
-        $this->autos_cantidad = $value;
-        return true;
-    }
-
-    public function setMarcasAutomovil($value)
-    {
-        $this->marcas_seleccionadas = $value;
-        return true;
+        if ($data = $this->readFilename()) {
+            $this->filename = $data['Fto_trabajador'];
+            return true;
+        } else {
+            $this->data_error = 'Foto de trabajador inexistente';
+            return false;
+        }
     }
 
 
@@ -245,5 +203,10 @@ class TrabajadoresData extends TrabajadoresHandler
     public function getDataError()
     {
         return $this->data_error;
+    }
+
+    public function getFilename()
+    {
+        return $this->filename;
     }
 }

@@ -277,7 +277,7 @@ CREATE TABLE tb_trabajadores
 	NIT_trabajador VARCHAR(18) NULL, #N U
 	fecha_contratacion DATE NOT NULL, 
 	salario_base DECIMAL(5, 2) NOT NULL,
-    Fto_trabajador LONGBLOB
+    Fto_trabajador VARCHAR(50)
 );
 
 SELECT * FROM tB_trabajadores;

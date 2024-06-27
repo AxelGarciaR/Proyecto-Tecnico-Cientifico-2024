@@ -21,18 +21,23 @@ class TrabajadoresHandler
     protected $Fto_trabajador = null;
 
 
-    //Funcion para buscar trabajadores dependiendo de su nombre o dui 
+    //Método para buscar trabajadores dependiendo de su nombre o dui 
     public function searchRows()
     {
-        //Sentencia select general para tabla trabajadores
-        $sql = 'SELECT * FROM tb_trabajadores 
-        WHERE nombres_trabajador = ? OR dui_trabajador = ?'; 
-        //Parametros a enviar a los campos de la tabla
-        $params = array($this->nombres_trabajador, $this->dui_trabajador); 
+        //Valores que se introducen la barra de busqueda 
+        $value = '%' . Validator::getSearchValue() . '%';
+        //Sentencia select de los campos para la tabla de trabajadores
+        $sql = 'SELECT id_trabajador, id_especializacion_trabajador, dui_trabajador, telefono_trabajador, correo_trabajador, nombres_trabajador, apellidos_trabajador, departamento_trabajador, NIT_trabajador, fecha_contratacion, salario_base, Fto_trabajador
+                FROM tb_trabajadores
+                WHERE nombres_trabajador LIKE ? OR dui_trabajador LIKE ?';
+        //Parametros a enviar dependiendo de los valores de la barra de busqueda
+        $params = array($value, $value);
+        //Ejecucion de la consulta SQL
         return Database::getRows($sql, $params);
     }
 
-    //Funcion para actualizar los datos de un trabajador
+
+    //Método para actualizar los datos de un trabajador
     public function updateRow()
     {
         //Sentencia update para los datos dependiendo del id del trabajador
@@ -152,4 +157,15 @@ class TrabajadoresHandler
         );
         return Database::getRow($sql, $params); //Ejecución de la consulta SQL
     }
+
+    //Metodo para
+    public function readFilename()
+    {
+        $sql = 'SELECT Fto_trabajador
+                FROM tb_trabajadores
+                WHERE id_trabajador = ?';
+        $params = array($this->id_trabajador);
+        return Database::getRow($sql, $params);
+    }
+
 }
