@@ -10,11 +10,13 @@ CREATE PROCEDURE sp_insertar_cliente (
     IN p_NIT_cliente VARCHAR(18),
     IN p_NRC_cliente VARCHAR(11),
     IN p_NRF_cliente VARCHAR(25),
-    IN p_giro_cliente VARCHAR(25)
+    IN p_rubro_comercial  ENUM('Alimenticio','Automotriz', 'Belleza', 'Calzado'),
+    IN p_estado_cliente ENUM('Activo', 'Eliminado'),
+    IN p_fto_cliente VARCHAR(50)
 )
 BEGIN
-    INSERT INTO tb_clientes (dui_cliente, telefono_cliente, correo_cliente, nombres_cliente, apellidos_cliente, tipo_cliente, departamento_cliente, NIT_cliente, NRC_cliente, NRF_cliente, giro_cliente) 
-    VALUES (p_dui_cliente, p_telefono_cliente, p_correo_cliente, p_nombres_cliente, p_apellidos_cliente, p_tipo_cliente, p_departamento_cliente, p_NIT_cliente, p_NRC_cliente, p_NRF_cliente, p_giro_cliente);
+    INSERT INTO tb_clientes (dui_cliente, telefono_cliente, correo_cliente, nombres_cliente, apellidos_cliente, tipo_cliente, departamento_cliente, NIT_cliente, NRC_cliente, NRF_cliente, rubro_comercial, estado_cliente, fto_cliente) 
+    VALUES (p_dui_cliente, p_telefono_cliente, p_correo_cliente, p_nombres_cliente, p_apellidos_cliente, p_tipo_cliente, p_departamento_cliente, p_NIT_cliente, p_NRC_cliente, p_NRF_cliente, p_rubro_comercial, p_estado_cliente, p_fto_cliente);
 END //
 DELIMITER ;
 
@@ -249,14 +251,14 @@ CREATE PROCEDURE sp_insertar_trabajador (
     IN p_correo_trabajador VARCHAR(50),
     IN p_nombres_trabajador VARCHAR(50),
     IN p_apellidos_trabajador VARCHAR(50),
-    IN p_id_departamento INT,
+    IN p_departamento_trabajador ENUM('Ahuachapán', 'Cabañas', 'Chalatenango', 'Cuscatlán', 'La Libertad', 'La Paz', 'La Unión', 'Morazán', 'San Miguel', 'San Salvador', 'San Vicente', 'Santa Ana', 'Sonsonate', 'Usulután'),  
     IN p_NIT_trabajador VARCHAR(18),
     IN p_fecha_contratacion DATE,
     IN p_salario_base DECIMAL(5, 2)
 )
 BEGIN
-    INSERT INTO tb_trabajadores (id_especializacion_trabajador, dui_trabajador, telefono_trabajador, correo_trabajador, nombres_trabajador, apellidos_trabajador, id_departamento, NIT_trabajador, fecha_contratacion, salario_base) 
-    VALUES (p_id_especializacion_trabajador, p_dui_trabajador, p_telefono_trabajador, p_correo_trabajador, p_nombres_trabajador, p_apellidos_trabajador, p_id_departamento, p_NIT_trabajador, p_fecha_contratacion, p_salario_base);
+    INSERT INTO tb_trabajadores (id_especializacion_trabajador, dui_trabajador, telefono_trabajador, correo_trabajador, nombres_trabajador, apellidos_trabajador, departamento_trabajador, NIT_trabajador, fecha_contratacion, salario_base) 
+    VALUES (p_id_especializacion_trabajador, p_dui_trabajador, p_telefono_trabajador, p_correo_trabajador, p_nombres_trabajador, p_apellidos_trabajador, p_departamento_trabajador, p_NIT_trabajador, p_fecha_contratacion, p_salario_base);
 END //
 DELIMITER ;
 
@@ -284,27 +286,16 @@ END //
 DELIMITER ;
 
 -- insercion de datos --
-CALL sp_insertar_departamento('San Salvador');
-CALL sp_insertar_departamento('Santa Ana');
-CALL sp_insertar_departamento('La Libertad');
-CALL sp_insertar_departamento('San Miguel');
-CALL sp_insertar_departamento('La Paz');
-CALL sp_insertar_departamento('Sonsonate');
-CALL sp_insertar_departamento('Usulután');
-CALL sp_insertar_departamento('Chalatenango');
-CALL sp_insertar_departamento('La Unión');
-CALL sp_insertar_departamento('Cuscatlán');
-
-CALL sp_insertar_cliente('0011223344', '78561234', 'cliente1@example.com', 'Juan', 'Pérez', 'persona natural', 1, '123456-7', '01234567890', 'NRF-001', 'Reparación de vehículos');
-CALL sp_insertar_cliente('1122334455', '79562345', 'cliente2@example.com', 'María', 'González', 'persona natural', 2, '223344-5', '23456789012', 'NRF-002', 'Lavado de autos');
-CALL sp_insertar_cliente('2233445566', '78563456', 'cliente3@example.com', 'Pedro', 'Hernández', 'persona natural', 3, '334455-6', '34567890123', 'NRF-003', 'Venta de repuestos');
-CALL sp_insertar_cliente('3344556677', '79564567', 'cliente4@example.com', 'Laura', 'López', 'persona natural', 4, '445566-7', '45678901234', 'NRF-004', 'Venta de autos nuevos');
-CALL sp_insertar_cliente('4455667788', '78565678', 'cliente5@example.com', 'Carlos', 'Martínez', 'persona natural', 5, '556677-8', '56789012345', 'NRF-005', 'Mecánica general');
-CALL sp_insertar_cliente('5566778899', '79566789', 'cliente6@example.com', 'Ana', 'Rodríguez', 'persona juridica', 6, '667788-9', '67890123456', 'NRF-006', 'Mantenimiento de flotas');
-CALL sp_insertar_cliente('6677889900', '78567890', 'cliente7@example.com', 'Miguel', 'Gómez', 'persona juridica', 7, '778899-0', '78901234567', 'NRF-007', 'Alquiler de autos');
-CALL sp_insertar_cliente('7788990011', '79568901', 'cliente8@example.com', 'Elena', 'Sánchez', 'persona juridica', 8, '889900-1', '89012345678', 'NRF-008', 'Taller de pintura');
-CALL sp_insertar_cliente('8899001122', '78569012', 'cliente9@example.com', 'David', 'Fernández', 'persona juridica', 9, '990011-2', '90123456789', 'NRF-009', 'Venta de seguros');
-CALL sp_insertar_cliente('9900112233', '79560123', 'cliente10@example.com', 'Sofía', 'Paz', 'persona juridica', 10, '001122-3', '01234567890', 'NRF-010', 'Accesorios para autos');
+CALL sp_insertar_cliente('0011223344', '78561234', 'cliente1@example.com', 'Juan', 'Pérez', 'persona natural', 1, '123456-7', '01234567890', 'NRF-001', 'Alimenticio', 'Activo', 'foto.png');
+CALL sp_insertar_cliente('1122334455', '79562345', 'cliente2@example.com', 'María', 'González', 'persona natural', 2, '223344-5', '23456789012', 'NRF-002', 'Alimenticio', 'Activo', 'foto.png');
+CALL sp_insertar_cliente('2233445566', '78563456', 'cliente3@example.com', 'Pedro', 'Hernández', 'persona natural', 3, '334455-6', '34567890123', 'NRF-003', 'Alimenticio', 'Activo', 'foto.png');
+CALL sp_insertar_cliente('3344556677', '79564567', 'cliente4@example.com', 'Laura', 'López', 'persona natural', 4, '445566-7', '45678901234', 'NRF-004', 'Alimenticio', 'Activo', 'foto.png');
+CALL sp_insertar_cliente('4455667788', '78565678', 'cliente5@example.com', 'Carlos', 'Martínez', 'persona natural', 5, '556677-8', '56789012345', 'NRF-005', 'Alimenticio', 'Activo', 'foto.png');
+CALL sp_insertar_cliente('5566778899', '79566789', 'cliente6@example.com', 'Ana', 'Rodríguez', 'persona juridica', 6, '667788-9', '67890123456', 'NRF-006', 'Alimenticio', 'Activo', 'foto.png');
+CALL sp_insertar_cliente('6677889900', '78567890', 'cliente7@example.com', 'Miguel', 'Gómez', 'persona juridica', 7, '778899-0', '78901234567', 'NRF-007', 'Alimenticio', 'Activo', 'foto.png');
+CALL sp_insertar_cliente('7788990011', '79568901', 'cliente8@example.com', 'Elena', 'Sánchez', 'persona juridica', 8, '889900-1', '89012345678', 'NRF-008', 'Alimenticio', 'Activo', 'foto.png');
+CALL sp_insertar_cliente('8899001122', '78569012', 'cliente9@example.com', 'David', 'Fernández', 'persona juridica', 9, '990011-2', '90123456789', 'NRF-009', 'Alimenticio', 'Activo', 'foto.png');
+CALL sp_insertar_cliente('9900112233', '79560123', 'cliente10@example.com', 'Sofía', 'Paz', 'persona juridica', 10, '001122-3', '01234567890', 'NRF-010', 'Alimenticio', 'Activo', 'foto.png');
 
 CALL sp_insertar_marca_automovil('Toyota');
 CALL sp_insertar_marca_automovil('Honda');
