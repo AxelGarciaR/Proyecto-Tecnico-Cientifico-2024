@@ -23,7 +23,7 @@ class TrabajadoresData extends TrabajadoresHandler
         }
     }
 
-    public function SetIdEspecializacionTrabajador($value)
+    public function setIdEspecializacionTrabajador($value)
     {
         if (Validator::validateNaturalNumber($value)) {
             $this->id_especializacion_trabajador = $value;
@@ -49,6 +49,18 @@ class TrabajadoresData extends TrabajadoresHandler
         }
     }
 
+    // Método que se utilizara para hacer un cambio al dui
+    public function setDUIUpdate($value)
+    {
+        if (!Validator::validateDUI($value)) {
+            $this->data_error = 'El DUI debe tener el formato (2, 6, 7)########-#';
+            return false;
+        } else {
+            $this->dui_trabajador = $value;
+            return true;
+        }
+    }
+
     // Método para establecer el teléfono del cliente
     public function setTelefono($value)
     {
@@ -57,6 +69,18 @@ class TrabajadoresData extends TrabajadoresHandler
             return false;
         } elseif ($this->checkDuplicate($value)) {
             $this->data_error = 'El telèfono ingresado ya existe';
+            return false;
+        } else {
+            $this->telefono_trabajador = $value;
+            return true;
+        }
+    }
+
+    // Método que se utilizara para hacer un cambio al telefono
+    public function setTelefonoUpdate($value)
+    {
+        if (!Validator::validatePhone($value)) {
+            $this->data_error = 'El telèfono no es válido';
             return false;
         } else {
             $this->telefono_trabajador = $value;
@@ -75,6 +99,21 @@ class TrabajadoresData extends TrabajadoresHandler
             return false;
         } elseif ($this->checkDuplicate($value)) {
             $this->data_error = 'El correo ingresado ya existe';
+            return false;
+        } else {
+            $this->correo_trabajador = $value;
+            return true;
+        }
+    }
+
+    // Método que se utilizara para hacer un cambio al correo
+    public function setCorreoUpdate($value, $min = 8, $max = 50)
+    {
+        if (!Validator::validateEmail($value)) {
+            $this->data_error = 'El correo no es válido';
+            return false;
+        } elseif (!Validator::validateLength($value, $min, $max)) {
+            $this->data_error = 'El correo debe tener una longitud entre ' . $min . ' y ' . $max;
             return false;
         } else {
             $this->correo_trabajador = $value;
@@ -135,6 +174,18 @@ class TrabajadoresData extends TrabajadoresHandler
             return false;
         } elseif ($this->checkDuplicate($value)) {
             $this->data_error = 'El NIT ingresado ya existe';
+            return false;
+        } else {
+            $this->NIT_trabajador = $value;
+            return true;
+        }
+    }
+
+    // Método que se utilizara para hacer un cambio al NIT
+    public function setNITUpdate($value, $min = 17, $max = 17)
+    {
+        if (!Validator::validateLength($value, $min, $max)) {
+            $this->data_error = 'El NIT debe tener una longitud de entre ' . $min . ' y ' . $max;
             return false;
         } else {
             $this->NIT_trabajador = $value;

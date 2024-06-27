@@ -25,6 +25,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No hay coincidencias';
                 }
                 break;
+            // Accion para seleccionar a todos los trabajadores existentes de la base 
             case 'readAll':
                 if ($result['dataset'] = $trabajador->readAll()) {
                     $result['status'] = 1;
@@ -32,6 +33,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No existen trabajadores para mostrar';
                 }
                 break;
+            // Accion para seleccionar a un trabajador en especifico de la base
             case 'readOne':
                 if (!$trabajador->setIdTrabajador($_POST['idTrabajador'])) {
                     $result['error'] = $trabajador->getDataError();
@@ -41,7 +43,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Cliente inexistente';
                 }
                 break;
-                // Acción para agregar a un trabajador a la base.
+            // Acción para agregar a un trabajador a la base.
             case 'createRow':
                 $_POST = Validator::validateForm($_POST);
                 if (
@@ -52,7 +54,7 @@ if (isset($_GET['action'])) {
                     !$trabajador->setTelefono($_POST['input_telefono']) or
                     !$trabajador->setCorreo($_POST['input_correo']) or
                     !$trabajador->setDepartamento($_POST['departamento_trabajador']) or
-                    !$trabajador->SetIdEspecializacionTrabajador($_POST['especializacion_trabajador']) or
+                    !$trabajador->setIdEspecializacionTrabajador($_POST['especializacion_trabajador']) or
                     !$trabajador->setFechaContratacion($_POST['fecha_contratacion']) or
                     !$trabajador->setSalarioBase($_POST['input_salario']) or
                     !$trabajador->setFtoTrabajador($_POST['fto_trabajador'])
@@ -67,16 +69,17 @@ if (isset($_GET['action'])) {
                 break;
                 // Acción para actualizar al trabajador.
             case 'updateRow':
+                //
                 $_POST = Validator::validateForm($_POST);
                 if (
-                    !$trabajador->setDUI($_POST['input_dui']) or
-                    !$trabajador->setNIT($_POST['input_nit']) or
+                    !$trabajador->setDUIUpdate($_POST['input_dui']) or
+                    !$trabajador->setNITUpdate($_POST['input_nit']) or
                     !$trabajador->setNombre($_POST['input_nombre']) or
                     !$trabajador->setApellido($_POST['input_apellido']) or
-                    !$trabajador->setTelefono($_POST['input_telefono']) or
-                    !$trabajador->setCorreo($_POST['input_correo']) or
+                    !$trabajador->setTelefonoUpdate($_POST['input_telefono']) or
+                    !$trabajador->setCorreoUpdate($_POST['input_correo']) or
                     !$trabajador->setDepartamento($_POST['departamento_trabajador']) or
-                    !$trabajador->SetIdEspecializacionTrabajador($_POST['especializacion_trabajador']) or
+                    !$trabajador->setIdEspecializacionTrabajador($_POST['especializacion_trabajador']) or
                     !$trabajador->setFechaContratacion($_POST['fecha_contratacion']) or
                     !$trabajador->setSalarioBase($_POST['input_salario']) or
                     !$trabajador->setFtoTrabajador($_POST['fto_trabajador']) or
@@ -85,9 +88,9 @@ if (isset($_GET['action'])) {
                     $result['error'] = $trabajador->getDataError();
                 } elseif ($trabajador->updateRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Comentario modificado correctamente';
+                    $result['message'] = 'Trabajador modificado correctamente';
                 } else {
-                    $result['error'] = 'Ocurrió un problema al modificar el comentario';
+                    $result['error'] = 'Ocurrió un problema al modificar un trabajador';
                 }
                 break;
                 // Acción eliminar a un trabajador
@@ -96,9 +99,9 @@ if (isset($_GET['action'])) {
                     $result['error'] = $trabajador->getDataError();
                 } elseif ($trabajador->deleteRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Producto removido correctamente';
+                    $result['message'] = 'Trabajador removido correctamente';
                 } else {
-                    $result['error'] = 'Ocurrió un problema al remover el producto';
+                    $result['error'] = 'Ocurrió un problema al remover el trabajador';
                 }
                 break;
 

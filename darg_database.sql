@@ -268,7 +268,7 @@ CREATE TABLE tb_trabajadores
 (
 	id_trabajador INT PRIMARY KEY AUTO_INCREMENT, #PK
 	id_especializacion_trabajador INT NOT NULL, /*FK*/
-	dui_trabajador VARCHAR(9) NOT NULL,  #NN U 
+	dui_trabajador VARCHAR(10) NOT NULL,  #NN U 
 	telefono_trabajador VARCHAR(9) NOT NULL, #NN U
 	correo_trabajador VARCHAR(50) NOT NULL, #NN U 
 	nombres_trabajador VARCHAR(50) NOT NULL, #NN
