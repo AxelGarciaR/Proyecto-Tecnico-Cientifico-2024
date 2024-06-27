@@ -1,13 +1,4 @@
 DELIMITER //
-CREATE PROCEDURE sp_insertar_departamento (
-    IN p_nombre_departamento VARCHAR(100)
-)
-BEGIN
-    INSERT INTO tb_departamentos (nombre_departamento) VALUES (p_nombre_departamento);
-END //
-DELIMITER ;
-
-DELIMITER //
 CREATE PROCEDURE sp_insertar_cliente (
     IN p_dui_cliente VARCHAR(10),
     IN p_telefono_cliente VARCHAR(9),
@@ -15,15 +6,15 @@ CREATE PROCEDURE sp_insertar_cliente (
     IN p_nombres_cliente VARCHAR(50),
     IN p_apellidos_cliente VARCHAR(50),
     IN p_tipo_cliente ENUM('persona natural','persona juridica'),
-    IN p_id_departamento INT,
+    IN p_departamento_cliente ENUM('Ahuachapán', 'Cabañas', 'Chalatenango', 'Cuscatlán', 'La Libertad', 'La Paz', 'La Unión', 'Morazán', 'San Miguel', 'San Salvador', 'San Vicente', 'Santa Ana', 'Sonsonate', 'Usulután'),
     IN p_NIT_cliente VARCHAR(18),
     IN p_NRC_cliente VARCHAR(11),
     IN p_NRF_cliente VARCHAR(25),
     IN p_giro_cliente VARCHAR(25)
 )
 BEGIN
-    INSERT INTO tb_clientes (dui_cliente, telefono_cliente, correo_cliente, nombres_cliente, apellidos_cliente, tipo_cliente, id_departamento, NIT_cliente, NRC_cliente, NRF_cliente, giro_cliente) 
-    VALUES (p_dui_cliente, p_telefono_cliente, p_correo_cliente, p_nombres_cliente, p_apellidos_cliente, p_tipo_cliente, p_id_departamento, p_NIT_cliente, p_NRC_cliente, p_NRF_cliente, p_giro_cliente);
+    INSERT INTO tb_clientes (dui_cliente, telefono_cliente, correo_cliente, nombres_cliente, apellidos_cliente, tipo_cliente, departamento_cliente, NIT_cliente, NRC_cliente, NRF_cliente, giro_cliente) 
+    VALUES (p_dui_cliente, p_telefono_cliente, p_correo_cliente, p_nombres_cliente, p_apellidos_cliente, p_tipo_cliente, p_departamento_cliente, p_NIT_cliente, p_NRC_cliente, p_NRF_cliente, p_giro_cliente);
 END //
 DELIMITER ;
 

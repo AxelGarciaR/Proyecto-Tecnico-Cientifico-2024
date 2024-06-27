@@ -42,28 +42,28 @@ class TrabajadoresHandler
     {
         //Sentencia update para los datos dependiendo del id del trabajador
         $sql = 'UPDATE tb_trabajadores SET 
-        id_especializacion_trabajador = ?,
         dui_trabajador = ?,
-        telefono_trabajador = ?,
-        correo_trabajador = ?,
+        NIT_trabajador = ?,
         nombres_trabajador = ?,
         apellidos_trabajador = ?,
+        telefono_trabajador = ?,
+        correo_trabajador = ?,
         departamento_trabajador = ?,
-        NIT_trabajador = ?,
+        id_especializacion_trabajador = ?,
         fecha_contratacion = ?,
         salario_base = ?,
         Fto_trabajador = ?
-        WHERE id_trabajador = ?';  
+        WHERE id_trabajador = ?';
         //Parametros a enviar a los campos de tabla
-        $params = array( 
-            $this->id_especializacion_trabajador,
+        $params = array(
             $this->dui_trabajador,
-            $this->telefono_trabajador,
-            $this->correo_trabajador,
+            $this->NIT_trabajador,
             $this->nombres_trabajador,
             $this->apellidos_trabajador,
+            $this->telefono_trabajador,
+            $this->correo_trabajador,
             $this->departamento_trabajador,
-            $this->NIT_trabajador,
+            $this->id_especializacion_trabajador,
             $this->fecha_contratacion,
             $this->salario_base,
             $this->Fto_trabajador,
@@ -99,7 +99,7 @@ class TrabajadoresHandler
             fecha_contratacion,
             salario_base,
             Fto_trabajador) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-         // Parámetros para la consulta SQL
+        // Parámetros para la consulta SQL
         $params = array(
             $this->dui_trabajador,
             $this->NIT_trabajador,
@@ -121,14 +121,14 @@ class TrabajadoresHandler
     {
         // Consulta SQL para verificar duplicados por valor (DUI o correo) excluyendo el ID actual
         $sql = 'SELECT id_trabajador FROM tb_trabajadores 
-        WHERE (dui_trabajador = ? OR correo_trabajador = ? OR telefono_trabajador = ? OR NIT_trabajador = ?)';        
+        WHERE (dui_trabajador = ? OR correo_trabajador = ? OR telefono_trabajador = ? OR NIT_trabajador = ?)';
         // Parámetros para la consulta SQL
         $params = array(
             $value,
             $value,
             $value,
             $value,
-        ); 
+        );
 
         //Parametro a agregar si id trabajador es correcto
         if ($this->id_trabajador) {
@@ -142,8 +142,9 @@ class TrabajadoresHandler
     // Método para campos de todos los trabajadores
     public function readAll()
     {
+        //consulta SQL para seleccionar todos los trabajadores de la tabla
         $sql = 'SELECT * FROM tb_trabajadores';
-        return Database::getRows($sql);
+        return Database::getRows($sql); //Ejecución de la consulta SQL
     }
 
     // Método para leer 
@@ -161,11 +162,12 @@ class TrabajadoresHandler
     //Metodo para
     public function readFilename()
     {
+        //Consulta SQL para seleccionar la imagen del trabajador
         $sql = 'SELECT Fto_trabajador
                 FROM tb_trabajadores
                 WHERE id_trabajador = ?';
+        //Parametro de id del trabajador para la consulta SQL
         $params = array($this->id_trabajador);
-        return Database::getRow($sql, $params);
+        return Database::getRow($sql, $params); //Ejecución de la consulta SQL
     }
-
 }
