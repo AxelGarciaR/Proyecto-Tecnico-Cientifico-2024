@@ -15,21 +15,20 @@
     <!-- Llamada al icono de la página web -->
     <link type="image/png" rel="icon" href="../../recursos/imagenes/icons/IconBook.png">
 
-    <!-- *Llamada a las hojas de estilos del sidebar de filtros-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <!-- *Llamada a las hojas de estilos del framework (BOOSTRAP) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
 
-    <!--Cambiarlo por el css de la página en cuestion-->
-    <link href="../../recursos/estilos/fuentes.css" rel="stylesheet"> <!--Dejarlo NOQUITAR-->
+    <!-- *Llamada a las hojas de estilos del sidebar de filtros-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!--Dejarlo NOQUITAR-->
     <link rel="stylesheet" href="../../recursos/estilos/privado/citas.css">
-    <link href="../../recursos/estilos/privado/plantilla.css" rel="stylesheet">
+    <link href="../../recursos/estilos/fuentes.css" rel="stylesheet"> <!--Dejarlo NOQUITAR-->
+    <link href="../../recursos/estilos/privado/plantilla.css" rel="stylesheet"> <!--Dejarlo NOQUITAR-->
 </head>
 
 <body>
@@ -160,76 +159,7 @@
                     </h5>
                 </div>
                 <!--Contenedor total del cuerpo de la página-->
-                <div class="contenedor-total-cards col-12">
-
-                    <div class="add-cita-card d-flex align-items-center justify-content-center">
-                        <img src="../../recursos/imagenes/icons/add.svg" class="hvr-grow" data-bs-toggle="modal"
-                            data-bs-target="#staticBackdrop">
-                    </div>
-
-                    <div class="card position-relative z-2"> <!--Card de la cita N#1-->
-                        <div class="content z-3">
-                            <h4 class="open-sans-light-italic">Màs informaciòn</h4>
-                        </div>
-                        <div class="line-divis position-absolute z-3"></div>
-                        <div class="card-izquierda">
-                            <div
-                                class="elemento-fecha-cita d-flex justify-content-center align-items-center text-center">
-                                <h6 class=" open-sans-regular text-black p-0 m-0"> <!--Fecha de la cita-->
-                                    Fecha de la cita programada: <br> <strong> 01/abril/2024</strong>
-                                </h6>
-                            </div>
-                            <div
-                                class="elemento-hora-llegada d-flex justify-content-center align-items-center text-center">
-                                <h6 class=" open-sans-regular-medium text-white p-0 m-0">
-                                    <!--Hora de llegada del cliente-->
-                                    Hora de llegada del cliente: <br> 11:00 am.
-                                </h6>
-                            </div>
-                            <div
-                                class="elemento-movilizacion text-black d-flex flex-column justify-content-center align-items-center px-3">
-                                <h6 class="open-sans-semibold p-0 m-0 mb-1"> <!--Movilización del vehículo-->
-                                    Movilización del vehículo:
-                                </h6>
-                                <h6 class="open-sans-regular p-0 m-0"> <!--Como se movilizo el vehículo-->
-                                    Cliente vendrá y dejará el vehículo
-                                </h6>
-                            </div>
-                        </div>
-
-                        <div class="card-derecha position-relative">
-
-                            <div class="cita-number position-absolute text-center">
-                                <h6 class="open-sans-semibold m-0 p-0 text-white">Cita N° 001</h6>
-                                <!--Número de la cita-->
-                            </div>
-
-                            <div class="img-container">
-                                <img src="../../recursos/imagenes/img_automoviles/carexmpl2.jpg">
-                            </div>
-                            <div
-                                class="info-cliente text-white d-flex flex-column justify-content-center align-items-center ">
-                                <div class="grupo1 pb-3">
-                                    <h6 class="open-sans-bold p-0 m-0"> <!--DUI del cliente-->
-                                        DUI del cliente:
-                                    </h6>
-                                    <h6 class="open-sans-regular p-0 m-0"> <!--Número de DUI del cliente-->
-                                        12345678-9
-                                    </h6>
-                                </div>
-
-                                <div class="grupo2">
-                                    <h6 class="open-sans-bold p-0 m-0"> <!--Placa del vehículo-->
-                                        Placa del Vehiculo:
-                                    </h6>
-                                    <h6 class="open-sans-regular p-0 m-0"> <!--Número de placa del vehículo-->
-                                        P333-333
-                                    </h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="contenedor-total-cards col-12" id="cards_citas_container"></div>
 
                 <!--Contenedor de detalles citas-->
                 <div class="ContainerDetalles container-fluid" id="containerExpand">
@@ -414,56 +344,72 @@
                 </div>
 
                 <!--Modal para cita-->
-                <div id="modalAgregarCita" class="modal">
-                    <div class="modal-content">
-                        <span class="closeServiciosB">&times;</span>
-                        <div class="contenidoModalSer">
-                            <div class="titulo">
-                                <h4>Agregar Cita</h4>
+                <div class="modal fade" id="modalAgregarCita" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="modalAgregarCitaLabel" aria-hidden="true">
+                    <!-- Contenedor del modal dialog-->
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <!-- Contenedor del modal content-->
+                        <div class="modal-content p-lg-5 p-1 p-md-4 pb-0 pb-lg-3">
+                            <!-- Contenedor del modal body-->
+                            <div class="modal-body">
+                                <form id="addForm" name="addForm" class="needs-validation" novalidate>
+                                    <!-- Columna izquierda -->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <div class="form-floating mb-0 p-0">
+                                                    <input type="text" class="form-control" id="input_fecha"
+                                                        name="input_nombre" placeholder="..." required>
+                                                    <label for="input_nombre">Fecha de llegada</label>
+                                                    <div class="invalid-feedback">Por favor ingresa una fecha.</div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-floating mb-0 p-0">
+                                                    <input type="text" class="form-control" id="input_hora"
+                                                        name="input_nombre" placeholder="..." required>
+                                                    <label for="input_nombre">Hora de llegada</label>
+                                                    <div class="invalid-feedback">Por favor ingresa una hora.</div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-floating mb-0 p-0">
+                                                    <input type="text" class="form-control" id="input_auto"
+                                                        name="input_nombre" placeholder="..." required>
+                                                    <label for="input_nombre">Automovil</label>
+                                                    <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- Columna derecha -->
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <div class="form-floating mb-0 p-0">
+                                                    <input type="text" class="form-control" id="input_movilizacion"
+                                                        name="input_nombre" placeholder="..." required>
+                                                    <label for="input_nombre">Movilizaciòn</label>
+                                                    <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-floating mb-0 p-0">
+                                                    <input type="text" class="form-control" id="input_a"
+                                                        name="input_nombre" placeholder="..." required>
+                                                    <label for="input_nombre">Direcciòn de ida</label>
+                                                    <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer justify-content-center">
+                                        <button type="button" class="btn btn-secondary btnCancel me-lg-5 me-3 me-md-5"
+                                            onclick="openClose()">Cancelar</button>
+                                        <button type="submit" class="btn btn-primary btnSave me-lg-5 me-3 me-md-5">
+                                            Aceptar</button>
+                                    </div>
+                                </form>
                             </div>
-
-                            <div class="camposServicios">
-                                <div class="form-floating mb-0 p-0">
-                                    <label for="inputFechaAproxFin" class="form-label px-2 pt-1 p-0 m-0">Fecha aprox
-                                        fin</label>
-                                    <input type="date" class="form-control" id="inputFechaAproxFin" placeholder=""
-                                        required>
-                                </div>
-
-                                <div class="form-floating mb-2 p-0">
-                                    <input type="text" class="form-control" id="inputHoraAproxFin" placeholder="...">
-                                    <label for="inputHoraAproxFin">Hora aprox fin</label>
-                                </div>
-
-                                <div class="form-floating mb-0 p-0">
-                                    <label for="inputFechaFinA" class="form-label px-2 pt-1 p-0 m-0">Fecha fin</label>
-                                    <input type="date" class="form-control" id="inputFechaFinA" placeholder="" required>
-                                </div>
-
-                                <div class="form-floating mb-2 p-0">
-                                    <input type="text" class="form-control" id="inputHoraFin" placeholder="...">
-                                    <label for="inputHoraFin">Hora fin</label>
-                                </div>
-
-                                <div class="form-floating mb-2 p-0">
-                                    <label class="form-label px-2 pt-0 p-0 m-0">Servicio</label>
-                                    <select class="form-select pt-4 open-sans-regular"
-                                        aria-label="Default select example" id="selectServicio">
-                                        <option value="1">Mantenimiento aire acondicionado</option>
-                                        <option value="2">Cambio de aceite</option>
-                                        <option value="3">Rectificado de frenos</option>
-                                    </select>
-                                </div>
-
-                            </div>
-
-                            <div class="bottomModalSer"></div>
-
-                            <div class="botonesModalSer">
-                                <button id="btnCancelar">Cancelar</button>
-                                <button id="btnAceptar">Aceptar</button>
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -732,10 +678,9 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!--Dejarlo NOQUITAR-->
     <!-- *Llamada al controlador del sitio publico -->
     <script type="text/javascript" src="../../controlador/utilidades/privado.js"></script> <!--Dejarlo NOQUITAR-->
-    <!-- *Llamada al controlador de la página web -->
-    <script type="text/javascript" src="../../controlador/privado/usuario.js"></script>
     <!--Cambiarlo por el js de la página en cuestion-->
     <script type="text/javascript" src="../../controlador/privado/citas.js"></script>
+    <script type="text/javascript" src="../../controlador/utilidades/components.js"></script>
 </body>
 
 </html>

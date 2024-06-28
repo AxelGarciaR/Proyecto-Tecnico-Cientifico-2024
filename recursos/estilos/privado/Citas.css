@@ -235,38 +235,13 @@ body {
     margin-bottom: 30px;
 }
 
-.form-floating>label {
-    color: red;
-}
-
-
+/* Etiqueta flotante enfocada o con contenido */
 .form-floating .form-control:focus~label,
 .form-floating .form-control:not(:placeholder-shown)~label {
     color: red;
     /* Color rojo */
+    /* Color rojo */
 }
-
-.form-floating {
-    width: 45%;
-    margin-right: 15px;
-    margin-bottom: 15px;
-}
-
-
-@media screen and (max-width: 375px) {
-
-    .form-floating input {
-        font-size: 12px;
-    }
-
-    .form-floating label {
-        font-size: 15px;
-    }
-
-}
-
-
-
 
 .finalizarCita {
     display: flex;
@@ -361,109 +336,6 @@ body {
     outline: none;
 }
 
-.input-field label {
-    position: absolute;
-    top: 0;
-    left: 15px;
-    transform: translateY(-50%);
-    color: #000000;
-    pointer-events: none;
-    font-size: 15px;
-    padding: 0 2px;
-    background-color: white;
-    color: #E64547;
-}
-
-
-
-@media screen and (max-width: 840px) {
-
-    .form-floating {
-        width: 80%;
-    }
-
-    .camposForm {
-        flex-direction: column;
-    }
-
-    .campos {
-        flex-direction: column;
-    }
-
-
-}
-
-@media screen and (max-width: 625px) {
-
-    .imagenYacciones {
-        width: 40%;
-    }
-
-    .camposForm {
-        width: 60%;
-    }
-
-    .input-field input {
-        width: 225px;
-        font-size: 12px;
-    }
-
-    .input-field label {
-        font-size: 12px;
-    }
-
-    .input-field select {
-        width: 225px;
-        font-size: 12px;
-    }
-}
-
-
-@media screen and (max-width: 580px) {
-    .input-field input {
-        width: 225px;
-        font-size: 12px;
-    }
-
-    .input-field label {
-        font-size: 12px;
-    }
-
-    .input-field select {
-        width: 225px;
-        font-size: 12px;
-    }
-}
-
-
-
-@media screen and (max-width: 520px) {
-
-
-    .input-field input {
-        width: 175px;
-    }
-
-    .input-field label {
-        font-size: 12px;
-    }
-
-    .input-field select {
-        width: 175px;
-    }
-
-
-}
-
-
-@media screen and (max-width: 515px) {
-
-
-    .input-field label {
-        width: 110px;
-    }
-
-}
 
 @media screen and (max-width: 440px) {
 
@@ -480,80 +352,7 @@ body {
 
 }
 
-@media screen and (max-width: 420px) {
-
-
-    .input-field input {
-        width: 150px;
-    }
-
-    .input-field label {
-        font-size: 12px;
-    }
-
-    .input-field select {
-        width: 150px;
-    }
-
-
-
-}
-
-@media screen and (max-width: 350px) {
-
-
-    .input-field input {
-        width: 135px;
-    }
-
-    .input-field label {
-        font-size: 12px;
-    }
-
-    .input-field select {
-        width: 135px;
-    }
-
-}
-
-
-
-@media screen and (max-width: 325px) {
-
-    .imagenYacciones img {
-        width: 130px;
-        height: 130px;
-    }
-
-    .btnAccion {
-        width: 130px;
-        font-size: 12px;
-    }
-
-}
-
 /***css del modal***/
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
-
 .close {
     color: #aaa;
     float: right;
@@ -691,20 +490,6 @@ body {
     outline: none;
 }
 
-.input-fieldS label {
-    position: absolute;
-    top: 0;
-    left: 15px;
-    transform: translateY(-50%);
-    color: #000000;
-    pointer-events: none;
-    font-size: 15px;
-    padding: 0 2px;
-    background-color: white;
-    color: #E64547;
-}
-
-
 .botonesModalSer {
     display: flex;
     align-items: center;
@@ -731,11 +516,6 @@ body {
     border-radius: 5px;
 }
 
-@media screen and (max-width: 730px) {
-    .modal-content {
-        margin-top: 110px;
-    }
-}
 
 @media screen and (max-width: 700px) {
     .input-fieldS {
@@ -1289,5 +1069,33 @@ hr {
     border: #232323 3px solid;
     position: relative;
     border-radius: 10px;
-    min-height: 170px;
+    min-height: 270px;
+    min-width: 350px;
+}
+
+/* Estilo para el diálogo modal */
+.modal-dialog {
+    min-width: 70vw;
+}
+
+/* Estilos para el botón de cancelar */
+.btnCancel {
+    background-color: black;
+}
+
+/* Estilos para el botón de guardar */
+.btnSave {
+    background-color: #E5383B;
+}
+
+/* Estilos para los botones de guardar y cancelar */
+.btnSave,
+.btnCancel {
+    height: 50px;
+    width: 200px;
+}
+
+/* Etiqueta flotante */
+.form-floating>label {
+    color: red;
 }
