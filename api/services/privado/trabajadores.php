@@ -15,6 +15,7 @@ if (isset($_GET['action'])) {
         $result['session'] = 1;
         // Se compara la acción a realizar cuando un cliente ha iniciado sesión.
         switch ($_GET['action']) {
+            //Accion buscar trabajadores por su nombre y DUI
             case 'searchRows':
                 if (!Validator::validateSearch($_POST['search'])) {
                     $result['error'] = Validator::getSearchError();
@@ -69,7 +70,6 @@ if (isset($_GET['action'])) {
                 break;
                 // Acción para actualizar al trabajador.
             case 'updateRow':
-                //
                 $_POST = Validator::validateForm($_POST);
                 if (
                     !$trabajador->setDUIUpdate($_POST['input_dui']) or

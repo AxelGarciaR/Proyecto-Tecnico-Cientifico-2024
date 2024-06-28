@@ -1,8 +1,8 @@
 <?php
 // Se incluye la clase para validar los datos de entrada.
-require_once('../../helpers/validator.php');
+require_once ('../../helpers/validator.php');
 // Se incluye la clase padre.
-require_once('../../models/handler/trabajadores_handler.php');
+require_once ('../../models/handler/trabajadores_handler.php');
 /*
  *  Clase para manejar el encapsulamiento de los datos de la tabla USUARIO.
  */
@@ -12,6 +12,7 @@ class TrabajadoresData extends TrabajadoresHandler
     private $data_error = null;
     private $filename = null;
 
+    //Metodo para establecer el id del trabajador
     public function setIdTrabajador($value)
     {
         if (Validator::validateNaturalNumber($value)) {
@@ -23,6 +24,7 @@ class TrabajadoresData extends TrabajadoresHandler
         }
     }
 
+    //Metodo para establecer la especializacion del trabajador
     public function setIdEspecializacionTrabajador($value)
     {
         if (Validator::validateNaturalNumber($value)) {
@@ -34,7 +36,7 @@ class TrabajadoresData extends TrabajadoresHandler
         }
     }
 
-    // Método para establecer el DUI del cliente
+    // Método para establecer el DUI del trabajador
     public function setDUI($value)
     {
         if (!Validator::validateDUI($value)) {
@@ -49,7 +51,7 @@ class TrabajadoresData extends TrabajadoresHandler
         }
     }
 
-    // Método que se utilizara para hacer un cambio al dui
+    // Método para establecer el DUI a la hora de hacer un update
     public function setDUIUpdate($value)
     {
         if (!Validator::validateDUI($value)) {
@@ -61,7 +63,7 @@ class TrabajadoresData extends TrabajadoresHandler
         }
     }
 
-    // Método para establecer el teléfono del cliente
+    // Método para establecer el teléfono del trabajador
     public function setTelefono($value)
     {
         if (!Validator::validatePhone($value)) {
@@ -76,7 +78,7 @@ class TrabajadoresData extends TrabajadoresHandler
         }
     }
 
-    // Método que se utilizara para hacer un cambio al telefono
+    // Método para establecer el telefono del trabajador a la hora de hacer un update
     public function setTelefonoUpdate($value)
     {
         if (!Validator::validatePhone($value)) {
@@ -106,7 +108,7 @@ class TrabajadoresData extends TrabajadoresHandler
         }
     }
 
-    // Método que se utilizara para hacer un cambio al correo
+    // Método para establecer el correo del trabajador a la hora de hacer un update
     public function setCorreoUpdate($value, $min = 8, $max = 50)
     {
         if (!Validator::validateEmail($value)) {
@@ -216,8 +218,7 @@ class TrabajadoresData extends TrabajadoresHandler
             return false;
         }
     }
-
-    //Hacer la validacion para las fotos del trabajador 
+ 
     //Ver si se puede dejar esta validacion de imagen
     public function setFtoTrabajador($file, $filename = null)
     {

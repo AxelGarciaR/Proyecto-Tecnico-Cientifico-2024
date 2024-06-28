@@ -1,4 +1,10 @@
 
+//Constante donde esta la ruta del archivo php
+const TRABAJADORES_API = 'services/privado/trabajadores.php';
+
+// Constante para establecer el cuerpo de la tabla.
+const CONTAINER_TRABAJADORES_BODY = document.getElementById('cardsTrabajadores');
+
 // Constantes para establecer los elementos del componente Modal.
 const SAVE_MODAL = new bootstrap.Modal('#staticBackdrop');
 
@@ -19,12 +25,186 @@ const SAVE_FORM = document.getElementById('saveForm'),
 // *Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {
     loadTemplate();
+    readTrabajadores();
 });
 /*
 *   Función para preparar el formulario al momento de insertar un registro.
 *   Parámetros: ninguno.
 *   Retorno: ninguno.
 */
+
+// Método del evento para cuando se envía el formulario de buscar.
+document.getElementById('searchForm').addEventListener('submit', async (event) => {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Constante tipo objeto con los datos del formulario.
+    const formData = new FormData(document.getElementById('searchForm'));
+
+    try {
+        // Realizar una solicitud al servidor para buscar productos.
+        const searchData = await fetchData(TRABAJADORES_API, 'searchRows', formData);
+
+        // Verificar si la búsqueda fue exitosa.
+        if (searchData.status) {
+            // Limpiar el contenedor de productos.
+            CONTAINER_TRABAJADORES_BODY.innerHTML = '';
+
+            // Verificar si se encontraron resultados.
+            if (searchData.dataset.length > 0) {
+                // Iterar sobre los resultados y mostrarlos en la vista.
+                searchData.dataset.forEach(row => {
+                    CONTAINER_TRABAJADORES_BODY.innerHTML += `
+                        <div class="auto-card card" onclick="gotoDetail()"> <!--Card de empleados #1-->
+                        <div class="content z-3">
+                            <h4 class="open-sans-light-italic">Más información</h4> <!--Boton de mas informacion-->
+                        </div>
+                        <div class="container-img-card"> <!--Imagen de la empresa-->
+                            <h1>DARG</h1> <!--Nombre de la empresa-->
+                            <img src="../../recursos/imagenes/img_empleados/fondo_cliente.png">
+                        </div>
+                        <div class="container-img-card2"> <!--Imagen del empleado-->
+                            <img src="../../recursos/imagenes/img_empleados/empleado.png">
+                            <h1 class=" align-items-center justify-content-center">${row.nombres_trabajador}</h1>
+                            <!--Nombre del empleado-->
+                            <h3 class="">${row.dui_trabajador}</h3> <!--DUI-->
+                            <h4 class="">${row.correo_trabajador}</h4> <!--Correo-->
+                            <h4 class="">${row.telefono_trabajador}</h4> <!--Telefono-->
+                        </div>
+                        <div class="container-img-card3"> <!--Logo de la empresa-->
+                            <img src="../../recursos/imagenes/img_empleados/logo.png">
+                            <h2>${row.nombre_especializacion_trabajador}</h2> <!--Especialización del empleado-->
+                        </div>
+                        <div class="container-info-card"> <!--Informacion adicional-->
+                        </div>
+                    </div>
+                        `;
+                });
+            } else {
+                // Mostrar un mensaje si no se encontraron resultados.
+                PRODUCTOS.innerHTML = '<p>No se encontraron trabajadores.</p>';
+            }
+        } else {
+            // Mostrar un mensaje si ocurrió un error durante la búsqueda.
+            console.error('Error al buscar trabajadores:', searchData.error);
+            // Puedes mostrar un mensaje de error al usuario si lo deseas.
+        }
+    } catch (error) {
+        console.error('Error al buscar trabajadores:', error);
+        // Puedes mostrar un mensaje de error al usuario si lo deseas.
+    }
+});
+
+// Método manejador de eventos para el botón de búsqueda.
+document.getElementById('searchButton').addEventListener('click', async (event) => {
+    //Evento para que la pagina no se recargue
+    event.preventDefault();
+    // Obtener el valor del campo de búsqueda.
+    const searchInput = document.getElementById('searchInput').value.trim();
+
+    // Verificar si el campo de búsqueda está vacío.
+    if (searchInput !== '') {
+        // Crear un FormData con el término de búsqueda.
+        const formData = new FormData();
+        formData.append('search', searchInput);
+
+        try {
+
+            // Realizar una solicitud al servidor para buscar productos.
+            const searchData = await fetchData(TRABAJADORES_API, 'searchRows', formData);
+
+            // Verificar si la búsqueda fue exitosa.
+            if (searchData.status) {
+                // Limpiar el contenedor de productos.
+                CONTAINER_TRABAJADORES_BODY.innerHTML = '';
+
+                // Verificar si se encontraron resultados.
+                if (searchData.dataset.length > 0) {
+                    // Iterar sobre los resultados y mostrarlos en la vista.
+                    searchData.dataset.forEach(row => {
+                        CONTAINER_TRABAJADORES_BODY.innerHTML += `
+                        <div class="auto-card card" onclick="gotoDetail()"> <!--Card de empleados #1-->
+                        <div class="content z-3">
+                            <h4 class="open-sans-light-italic">Más información</h4> <!--Boton de mas informacion-->
+                        </div>
+                        <div class="container-img-card"> <!--Imagen de la empresa-->
+                            <h1>DARG</h1> <!--Nombre de la empresa-->
+                            <img src="../../recursos/imagenes/img_empleados/fondo_cliente.png">
+                        </div>
+                        <div class="container-img-card2"> <!--Imagen del empleado-->
+                            <img src="../../recursos/imagenes/img_empleados/empleado.png">
+                            <h1 class=" align-items-center justify-content-center">${row.nombres_trabajador}</h1>
+                            <!--Nombre del empleado-->
+                            <h3 class="">${row.dui_trabajador}</h3> <!--DUI-->
+                            <h4 class="">${row.correo_trabajador}</h4> <!--Correo-->
+                            <h4 class="">${row.telefono_trabajador}</h4> <!--Telefono-->
+                        </div>
+                        <div class="container-img-card3"> <!--Logo de la empresa-->
+                            <img src="../../recursos/imagenes/img_empleados/logo.png">
+                            <h2>${row.nombre_especializacion_trabajador}</h2> <!--Especialización del empleado-->
+                        </div>
+                        <div class="container-info-card"> <!--Informacion adicional-->
+                        </div>
+                    </div>
+                        `;
+                    });
+                } else {
+                    // Mostrar un mensaje si no se encontraron resultados.
+                    PRODUCTOS.innerHTML = '<p>No se encontraron trabajadores.</p>';
+                }
+            } else {
+                // Mostrar un mensaje si ocurrió un error durante la búsqueda.
+                console.error('Error al buscar trabajadores:', searchData.error);
+                // Puedes mostrar un mensaje de error al usuario si lo deseas.
+            }
+        } catch (error) {
+            console.error('Error al buscar trabajadores:', error);
+            // Puedes mostrar un mensaje de error al usuario si lo deseas.
+        }
+    }
+});
+
+//Método para hacer el select a la base de los trabajadores disponibles
+async function readTrabajadores() {
+    // Petición para obtener los datos del pedido en proceso.
+    const DATA = await fetchData(TRABAJADORES_API, 'readAll');
+    // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+    if (DATA.status) {
+        // Se recorre el conjunto de registros fila por fila a través del objeto row.
+        DATA.dataset.forEach(row => {
+            // Se crean y concatenan las filas de la tabla con los datos de cada registro.
+            CONTAINER_TRABAJADORES_BODY.innerHTML += `
+            <div class="auto-card card" onclick="gotoDetail()"> <!--Card de empleados #1-->
+            <div class="content z-3">
+                <h4 class="open-sans-light-italic">Más información</h4> <!--Boton de mas informacion-->
+            </div>
+            <div class="container-img-card"> <!--Imagen de la empresa-->
+                <h1>DARG</h1> <!--Nombre de la empresa-->
+                <img src="../../recursos/imagenes/img_empleados/fondo_cliente.png">
+            </div>
+            <div class="container-img-card2"> <!--Imagen del empleado-->
+                <img src="../../recursos/imagenes/img_empleados/empleado.png">
+                <h1 class=" align-items-center justify-content-center">${row.nombres_trabajador}</h1>
+                <!--Nombre del empleado-->
+                <h3 class="">${row.dui_trabajador}</h3> <!--DUI-->
+                <h4 class="">${row.correo_trabajador}</h4> <!--Correo-->
+                <h4 class="">${row.telefono_trabajador}</h4> <!--Telefono-->
+            </div>
+            <div class="container-img-card3"> <!--Logo de la empresa-->
+                <img src="../../recursos/imagenes/img_empleados/logo.png">
+                <h2>${row.nombre_especializacion_trabajador}</h2> <!--Especialización del empleado-->
+            </div>
+            <div class="container-info-card"> <!--Informacion adicional-->
+            </div>
+        </div>
+            `;
+        });
+    } else {
+        sweetAlert(4, DATA.error, false);
+    }
+}
+
+
+
 const openSave = () => {
     sweetAlert(1, "Guardado exitosamente", false);
     SAVE_MODAL.hide();

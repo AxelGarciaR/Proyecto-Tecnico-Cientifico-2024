@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase para trabajar con la base de datos.
-require_once('../../helpers/database.php');
+require_once ('../../helpers/database.php');
 /*
  *  Clase para manejar el comportamiento de los datos de la tabla trabajadores.
  */
@@ -143,7 +143,9 @@ class TrabajadoresHandler
     public function readAll()
     {
         //consulta SQL para seleccionar todos los trabajadores de la tabla
-        $sql = 'SELECT * FROM tb_trabajadores';
+        $sql = 'SELECT id_trabajador, id_especializacion_trabajador, dui_trabajador, telefono_trabajador, correo_trabajador, nombres_trabajador, apellidos_trabajador, departamento_trabajador, NIT_trabajador, fecha_contratacion, salario_base, Fto_trabajador, nombre_especializacion_trabajador, id_especializacion_trabajador
+        FROM tb_trabajadores
+        INNER JOIN tb_especializaciones_trabajadores USING(id_especializacion_trabajador)';
         return Database::getRows($sql); //Ejecución de la consulta SQL
     }
 
