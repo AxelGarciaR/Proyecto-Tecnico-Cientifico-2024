@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Método del evento para cuando se envía el formulario de buscar.
 document.getElementById('searchForm').addEventListener('submit', async (event) => {
+
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Constante tipo objeto con los datos del formulario.
@@ -48,6 +49,13 @@ document.getElementById('searchForm').addEventListener('submit', async (event) =
         if (searchData.status) {
             // Limpiar el contenedor de productos.
             CONTAINER_TRABAJADORES_BODY.innerHTML = '';
+
+            CONTAINER_TRABAJADORES_BODY.innerHTML += `
+            <div class="add-auto-card d-flex align-items-center justify-content-center" class="agregar">
+                            <img src="../../recursos/imagenes/icons/agregar_cliente.png" class="hvr-grow"
+                                onclick="openCreate()">
+                        </div>
+            `;
 
             // Verificar si se encontraron resultados.
             if (searchData.dataset.length > 0) {
@@ -64,7 +72,7 @@ document.getElementById('searchForm').addEventListener('submit', async (event) =
                         </div>
                         <div class="container-img-card2"> <!--Imagen del empleado-->
                             <img src="../../recursos/imagenes/img_empleados/empleado.png">
-                            <h1 class=" align-items-center justify-content-center">${row.nombres_trabajador}</h1>
+                            <h1 class=" align-items-center justify-content-center">${row.nombres_trabajador} ${row.apellidos_trabajador}</h1>
                             <!--Nombre del empleado-->
                             <h3 class="">${row.dui_trabajador}</h3> <!--DUI-->
                             <h4 class="">${row.correo_trabajador}</h4> <!--Correo-->
@@ -94,74 +102,6 @@ document.getElementById('searchForm').addEventListener('submit', async (event) =
     }
 });
 
-// Método manejador de eventos para el botón de búsqueda.
-document.getElementById('searchButton').addEventListener('click', async (event) => {
-    //Evento para que la pagina no se recargue
-    event.preventDefault();
-    // Obtener el valor del campo de búsqueda.
-    const searchInput = document.getElementById('searchInput').value.trim();
-
-    // Verificar si el campo de búsqueda está vacío.
-    if (searchInput !== '') {
-        // Crear un FormData con el término de búsqueda.
-        const formData = new FormData();
-        formData.append('search', searchInput);
-
-        try {
-
-            // Realizar una solicitud al servidor para buscar productos.
-            const searchData = await fetchData(TRABAJADORES_API, 'searchRows', formData);
-
-            // Verificar si la búsqueda fue exitosa.
-            if (searchData.status) {
-                // Limpiar el contenedor de productos.
-                CONTAINER_TRABAJADORES_BODY.innerHTML = '';
-
-                // Verificar si se encontraron resultados.
-                if (searchData.dataset.length > 0) {
-                    // Iterar sobre los resultados y mostrarlos en la vista.
-                    searchData.dataset.forEach(row => {
-                        CONTAINER_TRABAJADORES_BODY.innerHTML += `
-                        <div class="auto-card card" onclick="gotoDetail()"> <!--Card de empleados #1-->
-                        <div class="content z-3">
-                            <h4 class="open-sans-light-italic">Más información</h4> <!--Boton de mas informacion-->
-                        </div>
-                        <div class="container-img-card"> <!--Imagen de la empresa-->
-                            <h1>DARG</h1> <!--Nombre de la empresa-->
-                            <img src="../../recursos/imagenes/img_empleados/fondo_cliente.png">
-                        </div>
-                        <div class="container-img-card2"> <!--Imagen del empleado-->
-                            <img src="../../recursos/imagenes/img_empleados/empleado.png">
-                            <h1 class=" align-items-center justify-content-center">${row.nombres_trabajador}</h1>
-                            <!--Nombre del empleado-->
-                            <h3 class="">${row.dui_trabajador}</h3> <!--DUI-->
-                            <h4 class="">${row.correo_trabajador}</h4> <!--Correo-->
-                            <h4 class="">${row.telefono_trabajador}</h4> <!--Telefono-->
-                        </div>
-                        <div class="container-img-card3"> <!--Logo de la empresa-->
-                            <img src="../../recursos/imagenes/img_empleados/logo.png">
-                            <h2>${row.nombre_especializacion_trabajador}</h2> <!--Especialización del empleado-->
-                        </div>
-                        <div class="container-info-card"> <!--Informacion adicional-->
-                        </div>
-                    </div>
-                        `;
-                    });
-                } else {
-                    // Mostrar un mensaje si no se encontraron resultados.
-                    PRODUCTOS.innerHTML = '<p>No se encontraron trabajadores.</p>';
-                }
-            } else {
-                // Mostrar un mensaje si ocurrió un error durante la búsqueda.
-                console.error('Error al buscar trabajadores:', searchData.error);
-                // Puedes mostrar un mensaje de error al usuario si lo deseas.
-            }
-        } catch (error) {
-            console.error('Error al buscar trabajadores:', error);
-            // Puedes mostrar un mensaje de error al usuario si lo deseas.
-        }
-    }
-});
 
 //Método para hacer el select a la base de los trabajadores disponibles
 async function readTrabajadores() {
@@ -183,11 +123,11 @@ async function readTrabajadores() {
             </div>
             <div class="container-img-card2"> <!--Imagen del empleado-->
                 <img src="../../recursos/imagenes/img_empleados/empleado.png">
-                <h1 class=" align-items-center justify-content-center">${row.nombres_trabajador}</h1>
+                <h1 class=" align-items-center justify-content-center">${row.nombres_trabajador} ${row.apellidos_trabajador}</h1>
                 <!--Nombre del empleado-->
-                <h3 class="">${row.dui_trabajador}</h3> <!--DUI-->
-                <h4 class="">${row.correo_trabajador}</h4> <!--Correo-->
-                <h4 class="">${row.telefono_trabajador}</h4> <!--Telefono-->
+                <h3 class=""> Dui: ${row.dui_trabajador}</h3> <!--DUI-->
+                <h4 class=""> Correo: ${row.correo_trabajador}</h4> <!--Correo-->
+                <h4 class=""> Tel: ${row.telefono_trabajador}</h4> <!--Telefono-->
             </div>
             <div class="container-img-card3"> <!--Logo de la empresa-->
                 <img src="../../recursos/imagenes/img_empleados/logo.png">
