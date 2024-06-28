@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase para trabajar con la base de datos.
-require_once ('../../helpers/database.php');
+require_once('../../helpers/database.php');
 /*
  *  Clase para manejar el comportamiento de los datos de la tabla trabajadores.
  */
@@ -27,8 +27,9 @@ class TrabajadoresHandler
         //Valores que se introducen la barra de busqueda 
         $value = '%' . Validator::getSearchValue() . '%';
         //Sentencia select de los campos para la tabla de trabajadores
-        $sql = 'SELECT id_trabajador, id_especializacion_trabajador, dui_trabajador, telefono_trabajador, correo_trabajador, nombres_trabajador, apellidos_trabajador, departamento_trabajador, NIT_trabajador, fecha_contratacion, salario_base, Fto_trabajador
-                FROM tb_trabajadores
+        $sql = 'SELECT id_trabajador, id_especializacion_trabajador, dui_trabajador, telefono_trabajador, correo_trabajador, nombres_trabajador, apellidos_trabajador, departamento_trabajador, NIT_trabajador, fecha_contratacion, salario_base, Fto_trabajador, nombre_especializacion_trabajador, id_especializacion_trabajador
+        FROM tb_trabajadores
+        INNER JOIN tb_especializaciones_trabajadores USING(id_especializacion_trabajador)
                 WHERE nombres_trabajador LIKE ? OR dui_trabajador LIKE ?';
         //Parametros a enviar dependiendo de los valores de la barra de busqueda
         $params = array($value, $value);
