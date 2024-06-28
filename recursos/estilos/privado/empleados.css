@@ -129,6 +129,10 @@
     padding-bottom: 20px; /* Relleno inferior */
   }
 
+  .idTrabajador{
+    display: none;
+  }
+
 /* Media queries para diferentes tamaños de pantalla */
 @media (min-width: 614px) {
     .contenedor-total-cards {

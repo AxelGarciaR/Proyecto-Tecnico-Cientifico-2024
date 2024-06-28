@@ -11,16 +11,18 @@ const SAVE_MODAL = new bootstrap.Modal('#staticBackdrop');
 
 // Constantes para establecer los elementos del formulario de guardar.
 const SAVE_FORM = document.getElementById('saveForm'),
-    DUI = document.getElementById('dui'),
-    NIT = document.getElementById('nit'),
-    NOMBRES = document.getElementById('nombres'),
-    APELLIDOS = document.getElementById('apellidos'),
-    TELEFONO = document.getElementById('telefono'),
-    CORREO = document.getElementById('correo'),
-    DEPARTAMENTO = document.getElementById('departamento'),
-    ESPECIALIZACION = document.getElementById('especializacion'),
-    FECHA = document.getElementById('fecha'),
-    SALARIO = document.getElementById('salario');
+    ID_EMPLEADO = document.getElementById('idTrabajador'),
+    DUI = document.getElementById('input_dui'),
+    NIT = document.getElementById('input_nit'),
+    NOMBRES = document.getElementById('input_nombre'),
+    APELLIDOS = document.getElementById('input_apellido'),
+    TELEFONO = document.getElementById('input_telefono'),
+    CORREO = document.getElementById('input_correo'),
+    DEPARTAMENTO = document.getElementById('departamento_trabajador'),
+    ESPECIALIZACION = document.getElementById('especializacion_trabajador'),
+    FECHA = document.getElementById('fecha_contratacion'),
+    SALARIO = document.getElementById('input_salario'),
+    FTO_TRABAJADOR = document.getElementById('fto_trabajador');
 
 // *Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {
@@ -32,6 +34,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 *   Parámetros: ninguno.
 *   Retorno: ninguno.
 */
+
 
 // Método del evento para cuando se envía el formulario de buscar.
 document.getElementById('searchForm').addEventListener('submit', async (event) => {
@@ -81,6 +84,7 @@ document.getElementById('searchForm').addEventListener('submit', async (event) =
                         <div class="container-img-card3"> <!--Logo de la empresa-->
                             <img src="../../recursos/imagenes/img_empleados/logo.png">
                             <h2>${row.nombre_especializacion_trabajador}</h2> <!--Especialización del empleado-->
+                            <p class="idTrabajador">${row.id_trabajador}</p>
                         </div>
                         <div class="container-info-card"> <!--Informacion adicional-->
                         </div>
@@ -107,10 +111,12 @@ document.getElementById('searchForm').addEventListener('submit', async (event) =
 async function readTrabajadores() {
     // Petición para obtener los datos del pedido en proceso.
     const DATA = await fetchData(TRABAJADORES_API, 'readAll');
+
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {
         // Se recorre el conjunto de registros fila por fila a través del objeto row.
         DATA.dataset.forEach(row => {
+
             // Se crean y concatenan las filas de la tabla con los datos de cada registro.
             CONTAINER_TRABAJADORES_BODY.innerHTML += `
             <div class="auto-card card" onclick="gotoDetail()"> <!--Card de empleados #1-->
@@ -132,6 +138,7 @@ async function readTrabajadores() {
             <div class="container-img-card3"> <!--Logo de la empresa-->
                 <img src="../../recursos/imagenes/img_empleados/logo.png">
                 <h2>${row.nombre_especializacion_trabajador}</h2> <!--Especialización del empleado-->
+                <p class="idTrabajador">${row.id_trabajador}</p>
             </div>
             <div class="container-info-card"> <!--Informacion adicional-->
             </div>
@@ -143,12 +150,99 @@ async function readTrabajadores() {
     }
 }
 
+// Método del evento para cuando se envía el formulario de guardar.
+SAVE_FORM.addEventListener('submit', async (event) => {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Se verifica la acción a realizar.
+    const action = ID_EMPLEADO.value ? 'updateRow' : 'createRow';
+    // Constante tipo objeto con los datos del formulario.
+    const formData = new FormData(SAVE_FORM);
+    // Petición para guardar los datos del formulario.
+    const responseData = await fetchData(TRABAJADORES_API, action, formData);
+    // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+    if (responseData.status) {
+        // Se cierra la caja de diálogo.
+        SAVE_FORM.hide();
+        // Se muestra un mensaje de éxito.
+        sweetAlert(1, responseData.message, true);
+        // Se carga nuevamente la tabla para visualizar los cambios.
+        readTrabajadores();
+    } else {
+        sweetAlert(2, responseData.error, false);
+    }
+});
 
 
-const openSave = () => {
-    sweetAlert(1, "Guardado exitosamente", false);
-    SAVE_MODAL.hide();
+/*
+*   Función asíncrona para preparar el formulario al momento de actualizar un registro.
+*   Parámetros: id (identificador del registro seleccionado).
+*   Retorno: ninguno.
+*/
+/*
+*   Función asíncrona para preparar el formulario al momento de actualizar un registro.
+*   Parámetros: id (identificador del registro seleccionado).
+*   Retorno: ninguno.
+*/
+const openUpdate = async (id) => {
+    // Se define una constante tipo objeto con los datos del registro seleccionado.
+    const formData = new FormData();
+    formData.append('idTrabajador', id);
+    // Petición para obtener los datos del registro solicitado.
+    const responseData = await fetchData(TRABAJADORES_API, 'readOne', formData);
+    // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+    if (responseData.status) {
+        // Se muestra la caja de diálogo con su título.
+        SAVE_MODAL.show();
+        // Se prepara el formulario.
+        SAVE_FORM.reset();
+        // Se inicializan los campos con los datos.
+        const row = responseData.dataset;
+        ID_EMPLEADO.value = row.id_trabajador;
+        DUI.value = row.dui_trabajador;
+        NIT.value = row.NIT_trabajador;
+        NOMBRES.value = row.nombres_trabajador;
+        APELLIDOS.value = row.apellidos_trabajador;
+        TELEFONO.value = row.telefono_trabajador;
+        CORREO.value = row.correo_trabajador;
+        DEPARTAMENTO.value = row.departamento_trabajador;
+        ESPECIALIZACION.value = row.nombre_especializacion_trabajador;
+        FECHA.value = row.fecha_contratacion;
+        SALARIO.value = row.salario_base;
+        FTO_TRABAJADOR.value = row.Fto_trabajador;
+    } else {
+        sweetAlert(2, responseData.error, false);
+    }
 }
+
+/*
+*   Función asíncrona para eliminar un registro.
+*   Parámetros: id (identificador del registro seleccionado).
+*   Retorno: ninguno.
+*/
+const openDelete = async (id) => {
+    // Llamada a la función para mostrar un mensaje de confirmación, capturando la respuesta en una constante.
+    const response = await confirmAction('¿Desea eliminar al de forma permanente?');
+    // Se verifica la respuesta del mensaje.
+    if (response) {
+        // Se define una constante tipo objeto con los datos del registro seleccionado.
+        const formData = new FormData();
+        formData.append('idTrabajador', id);
+        // Petición para eliminar el registro seleccionado.
+        const responseData = await fetchData(TRABAJADORES_API, 'deleteRow', formData);
+        // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+        if (responseData.status) {
+            // Se muestra un mensaje de éxito.
+            await sweetAlert(1, responseData.message, true);
+            // Se carga nuevamente la tabla para visualizar los cambios.
+            readTrabajadores();
+        } else {
+            sweetAlert(2, responseData.error, false);
+        }
+    }
+}
+
+
 
 var number = 1;
 
@@ -187,36 +281,10 @@ const openCreate = () => {
 }
 
 function gotoDetail() {
-    const lista_datos = [
-        {
-            dui: '12345678-9',
-            nit: '657-390',
-            nombres: 'Axel Gabriel',
-            apellidos: 'García Ramos',
-            telefono: '1234-5678',
-            correo: 'axel@gmail.com',
-            departamento: 'Departamento 1',
-            especializacion: 'Jefe',
-            fecha: '2022-02-09',
-            salario: '$2000.00',
-        }
-    ];
 
     SAVE_MODAL.show();
     number = 2;
     // Mostrar materiales de respaldo
-    lista_datos.forEach(ROW => {
-        DUI.value = ROW.dui;
-        NIT.value = ROW.nit;
-        NOMBRES.value = ROW.nombres;
-        APELLIDOS.value = ROW.apellidos;
-        TELEFONO.value = ROW.telefono;
-        CORREO.value = ROW.correo;
-        DEPARTAMENTO.value = ROW.departamento;
-        ESPECIALIZACION.value = ROW.especializacion;
-        FECHA.value = ROW.fecha;
-        SALARIO.value = ROW.salario;
-    });
 
     // Actualizar texto de los botones
     document.getElementById('btnUno').innerText = 'Eliminar';
@@ -247,7 +315,7 @@ function displaySelectedImage(event, elementId) {
 }
 
 
-document.getElementById('dui').addEventListener('input', function (event) {
+document.getElementById('DUI').addEventListener('input', function (event) {
     // Obtener el valor actual del campo de texto
     let inputValue = event.target.value;
 
@@ -266,7 +334,7 @@ document.getElementById('dui').addEventListener('input', function (event) {
     event.target.value = inputValue;
 });
 
-document.getElementById('nit').addEventListener('input', function (event) {
+document.getElementById('NIT').addEventListener('input', function (event) {
     // Obtener el valor actual del campo de texto
     let inputValue = event.target.value;
 
@@ -303,7 +371,7 @@ document.getElementById('nit').addEventListener('input', function (event) {
     event.target.value = formattedValue;
 });
 
-document.getElementById('nombres').addEventListener('input', function (event) {
+document.getElementById('input_nombre').addEventListener('input', function (event) {
     // Obtener el valor actual del campo de texto
     let inputValue = event.target.value;
 
@@ -317,7 +385,7 @@ document.getElementById('nombres').addEventListener('input', function (event) {
     event.target.value = inputValue;
 });
 
-document.getElementById('apellidos').addEventListener('input', function (event) {
+document.getElementById('input_apellido').addEventListener('input', function (event) {
     // Obtener el valor actual del campo de texto
     let inputValue = event.target.value;
 
@@ -331,7 +399,7 @@ document.getElementById('apellidos').addEventListener('input', function (event) 
     event.target.value = inputValue;
 });
 
-document.getElementById('telefono').addEventListener('input', function (event) {
+document.getElementById('input_telefono').addEventListener('input', function (event) {
     // Obtener el valor actual del campo de texto
     let inputValue = event.target.value;
 
@@ -350,7 +418,7 @@ document.getElementById('telefono').addEventListener('input', function (event) {
     event.target.value = inputValue;
 });
 
-document.getElementById('correo').addEventListener('input', function (event) {
+document.getElementById('input_correo').addEventListener('input', function (event) {
     // Obtener el valor actual del campo de texto
     let inputValue = event.target.value;
 
@@ -364,7 +432,7 @@ document.getElementById('correo').addEventListener('input', function (event) {
     event.target.value = inputValue;
 });
 
-document.getElementById('salario').addEventListener('input', function (event) {
+document.getElementById('input_salario').addEventListener('input', function (event) {
     // Obtener el valor actual del campo de texto
     let inputValue = event.target.value;
 

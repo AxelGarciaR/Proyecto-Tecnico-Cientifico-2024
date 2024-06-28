@@ -33,29 +33,31 @@
                 <div class="container">
                     <form id="searchForm">
                         <div class="input-group mb-3 buscador"> <!--Buscador-->
-                            <input type="search" name="search" class="form-control" placeholder="Buscar..." aria-label="Buscar..."
-                                aria-describedby="basic-addon2" required id="searchButton">
+                            <input type="search" name="search" class="form-control" placeholder="Buscar..."
+                                aria-label="Buscar..." aria-describedby="basic-addon2" required id="searchButton">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-secondary" type="submit" id="searchInput">Buscar</button>
                             </div>
                         </div>
                     </form>
-                    
+
                     <div class="p-2 d-md-none d-flex text-white btnSlBg">
                         <a href="#" class="text-white" data-bs-toggle="offcanvas" data-bs-target="#bdSidebar">
                             <i class="fa-solid fa-bars"></i>
                         </a>
                     </div>
                     <!--Cuerpo-->
-                    <div class="contenedor-total-cards col-12" id="cardsTrabajadores"> <!--Card de agregado de empleados-->
+                    <div class="contenedor-total-cards col-12" id="cardsTrabajadores">
+                        <!--Card de agregado de empleados-->
                         <div class="add-auto-card d-flex align-items-center justify-content-center" class="agregar">
                             <img src="../../recursos/imagenes/icons/agregar_cliente.png" class="hvr-grow"
                                 onclick="openCreate()">
                         </div>
-                    
+
                         <!--Modal-->
                         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                             tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
                             <div class="modal-dialog modal-dialog-centered modal-xl">
                                 <div class="modal-content p-lg-5 p-1 p-md-4 pb-0 pb-lg-3">
                                     <form id="saveForm"> <!--Formulario de guardado-->
@@ -77,38 +79,43 @@
                                             </div>
 
                                             <div class="content-add-info col-md-7">
+
+                                                <!--input para el id del trabajador-->
+                                                <input type="number" class="d-none" id="idTrabajador"
+                                                    name="idTrabajador">
+
                                                 <div class="form-floating mb-0 p-0">
-                                                    <input type="text" class="form-control" id="dui"
+                                                    <input type="text" class="form-control" id="input_dui" name="input_dui"
                                                         placeholder="name@example.com">
                                                     <label for="dui">DUI</label> <!--DUI-->
                                                 </div>
 
                                                 <div class="form-floating mb-0 p-0">
-                                                    <input type="text" class="form-control" id="nit"
+                                                    <input type="text" class="form-control" id="input_nit" name="input_nit"
                                                         placeholder="name@example.com">
                                                     <label for="nit">NIT</label> <!--NIT-->
                                                 </div>
 
                                                 <div class="form-floating mb-0 p-0">
-                                                    <input type="text" class="form-control" id="nombres"
+                                                    <input type="text" class="form-control" id="input_nombre" name="input_nombre"
                                                         placeholder="name@example.com">
                                                     <label for="nombres">Nombres</label> <!--Nombres-->
                                                 </div>
 
                                                 <div class="form-floating mb-0 p-0">
-                                                    <input type="text" class="form-control" id="apellidos"
+                                                    <input type="text" class="form-control" id="input_apellido" name="input_apellido"
                                                         placeholder="name@example.com">
                                                     <label for="apellidos">Apellidos</label> <!--Apellidos-->
                                                 </div>
 
                                                 <div class="form-floating mb-0 p-0">
-                                                    <input type="text" class="form-control" id="telefono"
+                                                    <input type="text" class="form-control" id="input_telefono" name="input_telefono"
                                                         placeholder="name@example.com">
                                                     <label for="telefono">Teléfono</label> <!--Telefono-->
                                                 </div>
 
                                                 <div class="form-floating mb-0 p-0">
-                                                    <input type="text" class="form-control" id="correo"
+                                                    <input type="text" class="form-control" id="input_correo" name="input_correo"
                                                         placeholder="name@example.com">
                                                     <label for="correo">Correo electrónico</label> <!--Correo-->
                                                 </div>
@@ -116,7 +123,7 @@
                                                 <div class="form-floating mb-0 p-0">
                                                     <label class="form-label px-2 pt-0 p-0 m-0">Departamento</label>
                                                     <!--Departamento-->
-                                                    <select class="form-select pt-4 open-sans-regular"
+                                                    <select class="form-select pt-4 open-sans-regular" id="departamento_trabajador" name="departamento_trabajador"
                                                         aria-label="Default select example">
                                                         <option selected>San salvador</option>
                                                         <option value="1">Departamento 1</option> <!--Opción 1-->
@@ -128,7 +135,7 @@
                                                 <div class="form-floating mb-0 p-0">
                                                     <label class="form-label px-2 pt-0  p-0 m-0">Especialización</label>
                                                     <!--Especialización-->
-                                                    <select class="form-select pt-4 open-sans-regular"
+                                                    <select class="form-select pt-4 open-sans-regular" id="especializacion_trabajador" name="especializacion_trabajador"
                                                         aria-label="Default select example">
                                                         <option selected>Técnico electrónico</option>
                                                         <option value="1">Especializacion 1</option> <!--Opción 1-->
@@ -139,12 +146,12 @@
                                                 <div class="form-floating mb-0 p-0">
                                                     <label for="fechanInput" class="form-label px-2 pt-1 p-0 m-0">Fecha
                                                         de contratación</label> <!--Fecha de contratación-->
-                                                    <input type="date" class="form-control" id="fechanInput"
+                                                    <input type="date" class="form-control" id="fecha_contratacion" name="fecha_contratacion"
                                                         placeholder="" required>
                                                 </div>
 
                                                 <div class="form-floating mb-0 p-0">
-                                                    <input type="text" class="form-control" id="salario"
+                                                    <input type="text" class="form-control" id="input_salario" name="input_salario"
                                                         placeholder="name@example.com">
                                                     <label for="salario">Salario Base</label> <!--Salario-->
                                                 </div>
@@ -155,8 +162,8 @@
                                             class="modal-footer d-flex justify-content-center align-items-center col-12 mt-5">
                                             <button type="button" id="btnUno" class="btn btn-secondary btnCancel mx-5"
                                                 onclick="openClose()">Cancelar</button> <!--Boton de cancelar-->
-                                            <button type="button" id="btnDos" class="btn btn-primary btnSave"
-                                                onclick="openSave()">Aceptar</button> <!--Boton de aceptar-->
+                                            <button type="submit" id="btnDos"
+                                                class="btn btn-primary btnSave">Aceptar</button> <!--Boton de aceptar-->
                                         </div>
                                     </form>
                                 </div>

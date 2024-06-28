@@ -154,7 +154,9 @@ class TrabajadoresHandler
     public function readOne()
     {
         // Consulta SQL para seleccionar a un trabajador en especifico 
-        $sql = 'SELECT * FROM tb_trabajadores WHERE id_trabajador = ?';
+        $sql = 'SELECT id_trabajador, id_especializacion_trabajador, dui_trabajador, telefono_trabajador, correo_trabajador, nombres_trabajador, apellidos_trabajador, departamento_trabajador, NIT_trabajador, fecha_contratacion, salario_base, Fto_trabajador, nombre_especializacion_trabajador, id_especializacion_trabajador
+        FROM tb_trabajadores WHERE id_trabajador = ?
+        INNER JOIN tb_especializaciones_trabajadores USING(id_especializacion_trabajador)';
         //Parametro para seleccionar el trabajador por su id
         $params = array(
             $this->id_trabajador
