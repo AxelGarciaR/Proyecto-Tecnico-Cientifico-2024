@@ -7,276 +7,20 @@
 
 /* Estilos para el cuerpo de la página */
 body {
-    height: 100%; /* Altura del cuerpo al 100% */
-    display: flex; /* Utiliza el modelo de caja flexible */
-    flex-direction: column; /* Apila los elementos verticalmente */
-}
-
-/* Estilos para las opciones laterales */
-.opcionesLat img {
-    height: 30px;
-    width: 30px;
-}
-
-.opcionesLat {
-    display: flex; /* Utiliza el modelo de caja flexible */
-    align-items: center; /* Centra verticalmente los elementos */
-    justify-content: space-between; /* Espacio uniforme entre los elementos */
-    border-top: #BDBDBD solid 2px; /* Borde superior sólido */
-    margin-bottom: 15px; /* Margen inferior */
-    padding-top: 15px; /* Relleno superior */
-    padding-bottom: 10px; /* Relleno inferior */
-    padding-left: 20px; /* Relleno izquierdo */
-    padding-right: 10px; /* Relleno derecho */
-    border-bottom-right-radius: 25px; /* Radio del borde inferior derecho */
-}
-
-/* Estilos para las imágenes dentro de opcionesLat */
-.opcionesLatIMG img {
-    height: 30px;
-    width: 30px;
-    margin-right: 17px; /* Margen derecho */
-}
-
-.opcionesLatIMG {
+    height: 100%;
+    /* Altura del cuerpo al 100% */
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
+    /* Utiliza el modelo de caja flexible */
+    flex-direction: column;
+    /* Apila los elementos verticalmente */
 }
 
-/* Estilos para el contenedor de opciones laterales cuando se pasa el cursor sobre él */
-.opcionesLat:hover {
-    background-color: #E64547; /* Color de fondo rojo al pasar el cursor */
-    color: white; /* Color del texto blanco */
-}
-
-/* Estilos para el icono */
-.icon {
-    position: absolute; /* Posición absoluta */
-    top: 0; /* Desde arriba */
-    width: 50px; /* Ancho de 50px */
-    height: 50px; /* Altura de 50px */
-    display: flex; /* Utiliza el modelo de caja flexible */
-    align-items: center; /* Centra verticalmente los elementos */
-    justify-content: center; /* Centra horizontalmente los elementos */
-}
-
-/* Estilos para el campo de búsqueda de citas */
-#txtBuscarCitas {
-    border: none; /* Sin borde */
-    border-bottom: #B4B4B4 solid 2px; /* Borde inferior sólido */
-    background-color: #F8F8F8; /* Color de fondo */
-    border-radius: 5px; /* Borde redondeado */
-    height: 35px; /* Altura de 35px */
-    padding-left: 10px; /* Relleno izquierdo */
-    padding-right: 10px; /* Relleno derecho */
-    width: 100%; /* Ancho del 100% */
-}
-
-/* Estilos para el campo de búsqueda de citas cuando está enfocado */
-#txtBuscarCitas:focus {
-    outline: none; /* Sin contorno */
-    border-bottom: #B4B4B4 solid 2px; /* Borde inferior sólido */
-}
-
-/*Acá comienza el CSS de las Cards*/
-
-.containerCards {
-    display: flex; /* Utiliza el modelo de caja flexible */
-    justify-content: center; /* Centra horizontalmente el contenido */
-    flex-direction: row; /* Apila los elementos horizontalmente */
-    height: 85vh; /* Altura del 85% del viewport */
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
-    overflow-x: auto; /* Desplazamiento horizontal */
-    margin-right: 0; /* Sin margen derecho */
-    margin-left: 0; /* Sin margen izquierdo */
-}
-
-/* Estilos para la barra de desplazamiento */
-.containerCards::-webkit-scrollbar {
-    width: 5px; /* Ancho de la barra de desplazamiento */
-    background-color: #BA181B; /* Color de fondo */
-    margin-right: 5px; /* Margen derecho */
-}
-
-/* Estilos para el deslizador de la barra de desplazamiento */
-.containerCards::-webkit-scrollbar-thumb {
-    width: 7px; /* Ancho del deslizador */
-    background-color: #000000; /* Color de fondo del deslizador */
-    border-radius: 5px; /* Borde redondeado */
-}
-
-/* Estilos para el contenedor de la tarjeta */
-.cardContainer {
-    border-radius: 10px; /* Borde redondeado */
-    margin: 15px; /* Margen */
-}
-
-
-/* Estilos cuando se pasa el cursor sobre el contenedor de la tarjeta */
-.cardContainer:hover {
-    border: #BA181B solid 5px; /* Borde rojo sólido */
-    margin: 10px; /* Margen */
-}
 
 /*****Aqui empieza el responsive ctm******/
 
 
-@media screen and (max-width: 1115px) {
-
-    .opcionesLat h3 {
-        font-size: 20px
-    }
-
-    .opcionesLatIMG h2 {
-        font-size: 25px
-    }
-
-    .opcionesLatIMG img {
-        height: 25px;
-        width: 25px;
-    }
-
-    .opcionesLat img {
-        height: 25px;
-        width: 25px;
-    }
-
-}
-
-@media screen and (max-width: 840px){
-    .opcionesLat img {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 768px) {
-  
-    .infoFecha h4 {
-        font-size: 15px;
-    }
-
-    .infoFecha h5 {
-        font-size: 10px;
-    }
-
-    .infoHora h4 {
-        font-size: 15px;
-    }
-
-    .infoHora h5 {
-        font-size: 10px;
-    }
-
-    .info h4 {
-        font-size: 15px;
-    }
-
-    .info h5 {
-        font-size: 10px;
-    }
-
-    .infoCliente h4 {
-        font-size: 15px;
-    }
-
-    .infoCliente h5 {
-        font-size: 10px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-
-    .imgInfoCard img {
-        height: 110px;
-        width: 110px
-    }
-
-    .opcionesLatIMG h2 {
-        font-size: 25px
-    }
-
-    .opcionesLat h3 {
-        font-size: 20px;
-    }
-
-    .opcionesLatIMG img {
-        height: 20px;
-        width: 20px;
-    }
-
-    .opcionesLat {
-        padding-left: 10px
-    }
-
-    #txtBuscarCitas {
-        font-size: 12px
-    }
-
-
-}
-
-@media screen and (max-width: 656px) {
-
-   
-    .opcionesLatIMG img {
-        display: none;
-    }
-
-}
-
-
-@media screen and (max-width: 636px) {
-
-    .opcionesLat h3{
-        font-size: 15px;
-    }
-
-}
-
-@media screen and (max-width: 425px) {
-
-
-    .opcionesLatIMG h2 {
-        font-size: 15px
-    }
-
-    .opcionesLat h3 {
-        font-size: 12px;
-    }
-
-
-
-
-}
-
-@media screen and (max-width: 375px) {
-
-    .opcionesLatIMG img {
-        display: none;
-    }
-
-}
-
-@media screen and (max-width: 320px) {
-
-    .opcionesLat {
-        padding-left: 5px
-    }
-
-    .opcionesLat h3 {
-        font-size: 10px
-    }
-
-    .opcionesLatIMG img {
-        display: none;
-    }
-
-}
 
 /****Aqui empiesa el css de info cita****/
-
 .ContainerDetalles {
     display: flex;
     flex-direction: column;
@@ -286,9 +30,8 @@ body {
     flex-wrap: wrap;
     width: 100%;
     margin-right: 0;
+    z-index: 3;
 }
-
-
 
 #containerExpand {
     position: fixed;
@@ -298,7 +41,7 @@ body {
     background-color: white;
 }
 
-#containerExpandAgregar{
+#containerExpandAgregar {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -306,7 +49,7 @@ body {
     background-color: white;
 }
 
-#containerExpandServicios{
+#containerExpandServicios {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -317,7 +60,7 @@ body {
 }
 
 
-.Titulo{
+.Titulo {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -325,7 +68,7 @@ body {
     color: white;
 }
 
-.cardsServicios{
+.cardsServicios {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -337,7 +80,7 @@ body {
 
 
 /*Al hacer hover a este div aparecera el contenedor contenidoSer*/
-.cardServicio{
+.cardServicio {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -349,7 +92,8 @@ body {
 }
 
 .contenidoSer {
-    display: none; /* Ocultar el contenido por defecto */
+    display: none;
+    /* Ocultar el contenido por defecto */
 }
 
 /* Mostrar el contenido cuando se hace hover en .cardServicio */
@@ -357,7 +101,7 @@ body {
     display: block;
 }
 
-.bottomCardSer{
+.bottomCardSer {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -368,19 +112,19 @@ body {
     height: 30px;
 }
 
-.bottomCardSer img{
+.bottomCardSer img {
     width: 20px;
     height: 20px;
 }
 
-.bottomCardSer h6{
+.bottomCardSer h6 {
     margin-bottom: 0;
 }
 
 /*Este es el contenedor que deplegado*/
-.contenidoSer{
+.contenidoSer {
     height: 70%;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
     overflow-x: hidden;
     width: 100%;
     color: white;
@@ -391,22 +135,22 @@ body {
     display: none;
 }
 
-.contenidoSer::-webkit-scrollbar{
+.contenidoSer::-webkit-scrollbar {
     width: 10px;
     background-color: #D9D9D9;
 }
 
-.contenidoSer::-webkit-scrollbar-thumb{
+.contenidoSer::-webkit-scrollbar-thumb {
     background-color: #BA181B;
     border: 3px solid #D9D9D9;
     border-radius: 5px;
 }
 
-.contenidoSer strong p{
+.contenidoSer strong p {
     font-size: 15px;
 }
 
-.contAcSer{
+.contAcSer {
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -414,28 +158,28 @@ body {
     flex-wrap: wrap;
 }
 
-.contAcSer p{
+.contAcSer p {
     font-size: 12px;
 }
 
-.contAcSer img{
+.contAcSer img {
     width: 20px;
     height: 20px;
 }
 
 
-.contenedorInfoSer{
+.contenedorInfoSer {
     padding: 5px;
     border-radius: 5px;
     margin-bottom: 15px;
 }
 
 
-.contenedorInfoSer:hover{
-    background-color: rgba(186, 24, 27,0.9);
+.contenedorInfoSer:hover {
+    background-color: rgba(186, 24, 27, 0.9);
 }
 
-.bottomServicio{
+.bottomServicio {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -477,7 +221,7 @@ body {
     width: 30%;
 }
 
-.imagenYacciones img{
+.imagenYacciones img {
     width: 150px;
     height: 150px;
 }
@@ -491,38 +235,13 @@ body {
     margin-bottom: 30px;
 }
 
-.form-floating>label {
-    color: red;
-}
-
-
+/* Etiqueta flotante enfocada o con contenido */
 .form-floating .form-control:focus~label,
 .form-floating .form-control:not(:placeholder-shown)~label {
     color: red;
     /* Color rojo */
+    /* Color rojo */
 }
-
-.form-floating{
-    width: 45%;
-    margin-right: 15px;
-    margin-bottom: 15px;
-}
-
-
-@media screen and (max-width: 375px) {
-
-    .form-floating input {
-        font-size: 12px;
-    }
-
-    .form-floating label {
-        font-size: 15px;
-    }
-
-}
-
-
- 
 
 .finalizarCita {
     display: flex;
@@ -617,109 +336,6 @@ body {
     outline: none;
 }
 
-.input-field label {
-    position: absolute;
-    top: 0;
-    left: 15px;
-    transform: translateY(-50%);
-    color: #000000;
-    pointer-events: none;
-    font-size: 15px;
-    padding: 0 2px;
-    background-color: white;
-    color: #E64547;
-}
-
-
-
-@media screen and (max-width: 840px) {
-    
-    .form-floating{
-        width: 80%;
-    }
-
-    .camposForm {
-        flex-direction: column;
-    }
-
-    .campos {
-        flex-direction: column;
-    }
-
-
-}
-
-@media screen and (max-width: 625px) {
-
-    .imagenYacciones {
-        width: 40%;
-    }
-
-    .camposForm {
-        width: 60%;
-    }
-
-    .input-field input {
-        width: 225px;
-        font-size: 12px;
-    }
-
-    .input-field label {
-        font-size: 12px;
-    }
-
-    .input-field select {
-        width: 225px;
-        font-size: 12px;
-    }
-}
-
-
-@media screen and (max-width: 580px) {
-    .input-field input {
-        width: 225px;
-        font-size: 12px;
-    }
-
-    .input-field label {
-        font-size: 12px;
-    }
-
-    .input-field select {
-        width: 225px;
-        font-size: 12px;
-    }
-}
-
-
-
-@media screen and (max-width: 520px) {
-
-
-    .input-field input {
-        width: 175px;
-    }
-
-    .input-field label {
-        font-size: 12px;
-    }
-
-    .input-field select {
-        width: 175px;
-    }
-
-
-}
-
-
-@media screen and (max-width: 515px) {
-
-
-    .input-field label {
-        width: 110px;
-    }
-
-}
 
 @media screen and (max-width: 440px) {
 
@@ -736,80 +352,7 @@ body {
 
 }
 
-@media screen and (max-width: 420px) {
-
-
-    .input-field input {
-        width: 150px;
-    }
-
-    .input-field label {
-        font-size: 12px;
-    }
-
-    .input-field select {
-        width: 150px;
-    }
-
-
-
-}
-
-@media screen and (max-width: 350px) {
-
-
-    .input-field input {
-        width: 135px;
-    }
-
-    .input-field label {
-        font-size: 12px;
-    }
-
-    .input-field select {
-        width: 135px;
-    }
-
-}
-
-
-
-@media screen and (max-width: 325px) {
-
-    .imagenYacciones img {
-        width: 130px;
-        height: 130px;
-    }
-
-    .btnAccion {
-        width: 130px;
-        font-size: 12px;
-    }
-
-}
-
 /***css del modal***/
-
-.modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.4); 
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; 
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; 
-}
-
 .close {
     color: #aaa;
     float: right;
@@ -824,7 +367,7 @@ body {
     cursor: pointer;
 }
 
-.contenidoModal{
+.contenidoModal {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -833,29 +376,29 @@ body {
 
 
 
-.imagenModal{
+.imagenModal {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.imagenModal img{
+.imagenModal img {
     height: 50%;
     width: 50%;
 }
 
-.botonesModal{
+.botonesModal {
     display: flex;
     margin-top: 20px;
     width: 100%;
     justify-content: space-around;
 }
 
-.botonesModal a{
+.botonesModal a {
     width: 40%;
 }
 
-.btnModal{
+.btnModal {
     background-color: #E5383B;
     width: 100%;
     font-size: 12px;
@@ -869,7 +412,7 @@ body {
 
 @media screen and (max-width: 530px) {
 
-    .btnModal{
+    .btnModal {
         font-size: 12px;
     }
 
@@ -877,11 +420,11 @@ body {
 
 @media screen and (max-width: 425px) {
 
-    .btnModal{
+    .btnModal {
         font-size: 10px;
     }
 
-    .contenidoModal{
+    .contenidoModal {
         flex-direction: column;
     }
 
@@ -891,25 +434,25 @@ body {
 
 @media screen and (max-width: 328px) {
 
-    .btnModal{
+    .btnModal {
         font-size: 8px;
     }
 
-    .contentModal h2{
+    .contentModal h2 {
         font-size: 15px;
     }
 }
 
 /**Modal agregar servicios***/
 
-.contenidoModalSer{
+.contenidoModalSer {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
 
-.camposServicios{
+.camposServicios {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -917,7 +460,7 @@ body {
     flex-wrap: wrap;
 }
 
-.input-fieldS{
+.input-fieldS {
     position: relative;
     margin-right: 15px;
     margin-bottom: 15px;
@@ -947,21 +490,7 @@ body {
     outline: none;
 }
 
-.input-fieldS label {
-    position: absolute;
-    top: 0;
-    left: 15px;
-    transform: translateY(-50%);
-    color: #000000;
-    pointer-events: none;
-    font-size: 15px;
-    padding: 0 2px;
-    background-color: white;
-    color: #E64547;
-}
-
-
-.botonesModalSer{
+.botonesModalSer {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -969,7 +498,7 @@ body {
     flex-wrap: wrap;
 }
 
-#btnAceptar{
+#btnAceptar {
     border: none;
     background-color: #E5383B;
     width: 35%;
@@ -978,7 +507,7 @@ body {
     border-radius: 5px;
 }
 
-#btnCancelar{
+#btnCancelar {
     border: none;
     background-color: #161A1D;
     width: 35%;
@@ -987,14 +516,9 @@ body {
     border-radius: 5px;
 }
 
-@media screen and (max-width: 730px) {
-    .modal-content {
-        margin-top: 110px;
-    }
-}
 
 @media screen and (max-width: 700px) {
-    .input-fieldS{
+    .input-fieldS {
         margin-right: 0;
     }
 }
@@ -1007,104 +531,118 @@ body {
     .input-fieldS select {
         width: 200px;
     }
-    
+
 }
 
-.bottomModalSer{
+.bottomModalSer {
     width: 100%;
     height: 15px;
     border-top: 4px solid #E5383B;
     margin-top: 10px;
-    margin-bottom: 10px; /* Cambia el color y aumenta el grosor */
+    margin-bottom: 10px;
+    /* Cambia el color y aumenta el grosor */
 }
-
 
 
 
 /* Estilo para el desplazamiento en el detalle */
-.detail-scroll {
-    overflow-y: auto; /* Desplazamiento vertical */
-    overflow-x: auto; /* Desplazamiento horizontal */
+.contenedor-total-cards {
+    overflow-y: auto;
+    /* Desplazamiento vertical */
+    overflow-x: auto;
+    /* Desplazamiento horizontal */
 }
 
 /* Estilo para las imágenes dentro de los contenedores */
 .img-container>img {
-    max-inline-size: 100%; /* Tamaño máximo en línea */
-    block-size: auto; /* Tamaño del bloque automático */
-    object-fit: cover; /* Ajuste del objeto */
-    object-position: center; /* Posición del objeto */
-    border-radius: 0px; /* Radio del borde */
-    height: 100%; /* Altura del 100% */
-    min-width: 100%; /* Ancho mínimo del 100% */
-    aspect-ratio: 2/1; /* Relación de aspecto */
+    max-inline-size: 100%;
+    /* Tamaño máximo en línea */
+    block-size: auto;
+    /* Tamaño del bloque automático */
+    object-fit: cover;
+    /* Ajuste del objeto */
+    object-position: center;
+    /* Posición del objeto */
+    border-radius: 0px;
+    /* Radio del borde */
+    height: 100%;
+    /* Altura del 100% */
+    min-width: 100%;
+    /* Ancho mínimo del 100% */
+    aspect-ratio: 2/1;
+    /* Relación de aspecto */
 }
 
 /* Encabezado de detalles */
 .details-header {
-    background-color: #E5383B; /* Color de fondo */
-    border-bottom-left-radius: 10px; /* Radio de borde inferior izquierdo */
-    border-bottom-right-radius: 10px; /* Radio de borde inferior derecho */
-    min-height: 80px; /* Altura mínima */
-  }
+    background-color: #E5383B;
+    /* Color de fondo */
+    border-bottom-left-radius: 10px;
+    /* Radio de borde inferior izquierdo */
+    border-bottom-right-radius: 10px;
+    /* Radio de borde inferior derecho */
+    min-height: 80px;
+    /* Altura mínima */
+}
 
 /* C2 */
 .c2 {
-    background-color: white; /* Color de fondo */
-    min-height: 80px; /* Altura mínima */
-  }
+    background-color: white;
+    /* Color de fondo */
+    min-height: 80px;
+    /* Altura mínima */
+}
 
 /* Scroll de detalles */
-.detail-scroll {
-    overflow-y: hidden; /* Ocultar desbordamiento vertical */
-    overflow-x: auto; /* Permitir desplazamiento horizontal */
+.contenedor-total-cards {
+    overflow-y: hidden;
+    /* Ocultar desbordamiento vertical */
+    overflow-x: auto;
+    /* Permitir desplazamiento horizontal */
     display: grid;
-    gap: 80px; /* Espacio entre elementos */
-    min-height: 395px; /* Altura mínima */
-  }
-
-/* Tarjeta */
-
-.card {
-    display: grid;
-    grid-template-columns: 2fr 2fr; /* Distribución de columnas */
-    gap: 0px; /* Espacio entre elementos */
-    cursor: pointer;
-    min-width: 565PX; /* Ancho mínimo */
-    max-width: 565PX; /* Ancho máximo */
-    border: 0px; /* Borde */
-    border: 1px solid #1E1E1E; /* Borde */
-    min-height: 355px;
-  }
+    gap: 80px;
+    /* Espacio entre elementos */
+    min-height: 395px;
+    /* Altura mínima */
+}
 
 /* Columna izquierda de la tarjeta */
 .card-izquierda {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr; /* Distribución de filas */
-    gap: 15px; /* Espacio entre elementos */
-  }
+    grid-template-rows: 1fr 1fr 1fr;
+    /* Distribución de filas */
+    gap: 15px;
+    /* Espacio entre elementos */
+}
 
 /* Columna derecha de la tarjeta */
 .card-derecha {
     display: grid;
-    grid-template-rows: 65% 35%; /* Distribución de filas */
-  }
+    grid-template-rows: 65% 35%;
+    /* Distribución de filas */
+}
 
 /* Elemento de fecha de la cita */
 .elemento-fecha-cita {
-    background-color: white; /* Color de fondo */
-    border-top-left-radius: 10px; /* Radio de borde superior izquierdo */
-  }
+    background-color: white;
+    /* Color de fondo */
+    border-top-left-radius: 10px;
+    /* Radio de borde superior izquierdo */
+}
 
 /* Elemento de hora de llegada */
 .elemento-hora-llegada {
-    background-color: #E64547; /* Color de fondo */
-  }
+    background-color: #E64547;
+    /* Color de fondo */
+}
 
 /* Elemento de movilización */
 .elemento-movilizacion {
-    border-bottom: 1px solid #B5B5B5; /* Borde inferior */
-    border-bottom-left-radius: 10px; /* Radio de borde inferior izquierdo */
-  }
+    border-bottom: 1px solid #B5B5B5;
+    /* Borde inferior */
+    border-bottom-left-radius: 10px;
+    /* Radio de borde inferior izquierdo */
+}
 
 
 /* Contenedor de imagen */
@@ -1112,24 +650,452 @@ body {
     min-width: 100%;
     object-fit: cover;
     object-position: bottom;
-  }
+}
 
 /* Información del cliente */
 .info-cliente {
-    background-color: black; /* Color de fondo */
-    border-bottom-right-radius: 10px; /* Radio de borde inferior derecho */
+    background-color: black;
+    /* Color de fondo */
+    border-bottom-right-radius: 10px;
+    /* Radio de borde inferior derecho */
+}
+
+/* Número de cita */
+.cita-number {
+    background-color: black;
+    /* Color de fondo */
+    width: 50%;
+    /* Ancho */
+    padding-top: 10px;
+    /* Relleno superior */
+    padding-bottom: 10px;
+    /* Relleno inferior */
+    border-bottom-left-radius: 15px;
+    /* Radio de borde inferior izquierdo */
+    border-bottom-right-radius: 15px;
+    /* Radio de borde inferior derecho */
+    border-bottom: 0px solid #D3D3D3;
+    /* Borde inferior */
+    top: 0;
+    /* Posición superior */
+    left: 50%;
+    /* Posición izquierda */
+    transform: translate(-50%);
+    /* Traslación */
+}
+
+
+/* AGREGADOS DE HOY --------------------- */
+/*Formato de la barra lateral */
+#bdSidebar {
+    max-height: 88vh;
+    min-height: 88vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+/* Estilo del header del menú lateral (filtros) */
+.sidebar-header {
+    display: grid;
+    gap: 25px; /* Espacio entre elementos */
+    grid-template-columns: auto;
+}
+
+/* Estilo para la barra de búsqueda */
+.search {
+    background-color: #F8F8F8;
+    border: 0px;
+    border-radius: 10px;
+}
+
+.imagen{
+    width: 30px;
+    height: 30px;
+}
+/* Estilos para la barra divisoria */
+hr {
+    border: none;
+    border-top: 1px solid;
+    border-color: #7C7C7C; /* Color de la línea */
+}
+
+/* Estilos para los botones */
+.btnSlBg {
+    background-color: #1B1919;
+}
+
+/* Contenedor para todas las tarjetas */
+.contenedor-total-cards {
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    max-height: 87vh;
+
+    padding-top: 50px;
+    display: grid;
+    column-gap: 30px;
+    row-gap: 30px;
+    grid-template-rows: repeat(3, 1fr);
+
+    padding-bottom: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.contenedor-total-cards::-webkit-scrollbar {
+    width: 10px;
+    /* Ancho del scrollbar */
+  }
+  
+  .contenedor-total-cards::-webkit-scrollbar-thumb {
+    background-color: #BA181B;
+    /* Color del thumb del scrollbar */
+    border-radius: 8px;
+    /* Borde redondeado del thumb */
+  }
+  
+  .contenedor-total-cards::-webkit-scrollbar {
+    width: 10px;
+    /* Ancho del scrollbar */
+  
+  }
+  
+  .contenedor-total-cards::-webkit-scrollbar-thumb {
+    background-color: #BA181B;
+    /* Color del scrollbar thumb */
+    border-radius: 8px;
+    /* Borde redondeado del thumb */
   }
 
-  /* Número de cita */
-.cita-number {
-    background-color: black; /* Color de fondo */
-    width: 50%; /* Ancho */
-    padding-top: 10px; /* Relleno superior */
-    padding-bottom: 10px; /* Relleno inferior */
-    border-bottom-left-radius: 15px; /* Radio de borde inferior izquierdo */
-    border-bottom-right-radius: 15px; /* Radio de borde inferior derecho */
-    border-bottom: 0px solid #D3D3D3; /* Borde inferior */
-    top: 0; /* Posición superior */
-    left: 50%; /* Posición izquierda */
-    transform: translate(-50%); /* Traslación */
+  /* Tarjeta */
+
+/* Tarjeta */
+/* Media query para pantallas de tamaño específico */
+@media (min-width: 200px) and (max-width: 470px) {
+    .card {
+      min-width: 315px;
+      max-width: 315px;
+      /* Distribución de filas */
+      gap: 0px;
+      /* Espacio entre elementos */
+      z-index: 0;
+    }
+  
+    /* Columna derecha de la tarjeta */
+    .card-derecha {
+      display: grid;
+      grid-template-rows: 65% 35%;
+      /* Distribución de filas */
+      min-height: 335px;
+    }
+  
+    /* Elemento de movilización */
+    .elemento-movilizacion {
+      padding-bottom: 15px;
+    }
+  
+    /* Scroll de detalles */
+    .contenedor-total-cards {
+      overflow-y: auto;
+      /* Ocultar desbordamiento vertical */
+      overflow-x: hidden;
+      /* Permitir desplazamiento horizontal */
+      display: grid;
+      column-gap: 40px;
+      /* Espacio entre elementos */
+      min-height: 87vh;
+      grid-auto-flow: column;
+      justify-content: center;
+      grid-auto-flow: row;
+    }
   }
+  
+  @media (min-width: 471px) and (max-width: 768px){
+    .card {
+      display: grid;
+      grid-template-columns: 2fr 2fr;
+      /* Distribución de columnas */
+      gap: 0px;
+      /* Espacio entre elementos */
+      cursor: pointer;
+      min-width: 445PX;
+      /* Ancho mínimo */
+      max-width: 445PX;
+      /* Ancho máximo */
+      border: 0px;
+      /* Borde */
+      border: 1px solid #1E1E1E;
+      /* Borde */
+      min-height: 355px;
+      max-height: 355px;
+    }
+  
+    /* Columna derecha de la tarjeta */
+    .card-derecha {
+      display: grid;
+      grid-template-rows: 65% 35%;
+      /* Distribución de filas */
+    }
+  
+    /* Elemento de movilización */
+    .elemento-movilizacion {
+      border-bottom: 1px solid #B5B5B5;
+      /* Borde inferior */
+      border-bottom-left-radius: 10px;
+      /* Radio de borde inferior izquierdo */
+    }
+  
+    /* Scroll de detalles */
+    .contenedor-total-cards {
+      overflow-y: auto;
+      /* Ocultar desbordamiento vertical */
+      overflow-x: hidden;
+      /* Permitir desplazamiento horizontal */
+      display: grid;
+      gap: 40px;
+      /* Espacio entre elementos */
+      min-height: fit-content;
+      padding-bottom: 30px;
+      grid-auto-flow: row;
+      justify-content: center;
+    }
+  }
+  
+  /* Media query para pantallas de tamaño específico */
+  @media (min-width: 769px) and (max-width: 1159px) {
+    .card {
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        /* Distribución de columnas */
+        gap: 0px;
+        /* Espacio entre elementos */
+        cursor: pointer;
+        min-width: 445PX;
+        /* Ancho mínimo */
+        max-width: 445PX;
+        /* Ancho máximo */
+        border: 0px;
+        /* Borde */
+        border: 1px solid #1E1E1E;
+        /* Borde */
+        min-height: 355px;
+        max-height: 355px;
+    }
+  
+    /* Columna derecha de la tarjeta */
+    .card-derecha {
+      display: grid;
+      grid-template-rows: 65% 35%;
+      /* Distribución de filas */
+      min-height: 355px;
+    }
+  
+    /* Elemento de movilización */
+    .elemento-movilizacion {
+      margin-bottom: 0px;
+    }
+  
+    /* Scroll de detalles */
+    .contenedor-total-cards {
+      overflow-y: auto;
+      /* Ocultar desbordamiento vertical */
+      overflow-x: hidden;
+      /* Permitir desplazamiento horizontal */
+      display: grid;
+      column-gap: 40px;
+      /* Espacio entre elementos */
+      min-height: fit-content;
+      padding-bottom: 30px;
+      grid-auto-flow: row;
+      min-height: 485px;
+      justify-content: center;
+  
+    }
+  }
+  
+  @media (min-width: 1160px) and (max-width: 1889px){
+    .card {
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        /* Distribución de columnas */
+        gap: 0px;
+        /* Espacio entre elementos */
+        cursor: pointer;
+        min-width: 445PX;
+        /* Ancho mínimo */
+        max-width: 445PX;
+        /* Ancho máximo */
+        border: 0px;
+        /* Borde */
+        border: 1px solid #1E1E1E;
+        /* Borde */
+        min-height: 355px;
+        max-height: 355px;
+      }
+  
+    /* Columna derecha de la tarjeta */
+    .card-derecha {
+      display: grid;
+      grid-template-rows: 65% 35%;
+      /* Distribución de filas */
+    }
+  
+    /* Elemento de movilización */
+    .elemento-movilizacion {
+      border-bottom: 1px solid #B5B5B5;
+      /* Borde inferior */
+      border-bottom-left-radius: 10px;
+      /* Radio de borde inferior izquierdo */
+    }
+  
+    /* Scroll de detalles */
+    .contenedor-total-cards {
+      overflow-y: auto;
+      /* Ocultar desbordamiento vertical */
+      overflow-x: hidden;
+      /* Permitir desplazamiento horizontal */
+      display: grid;
+      column-gap: 30px;
+      /* Espacio entre elementos */
+      min-height: fit-content;
+      padding-bottom: 30px;
+      grid-auto-flow: row;
+      min-height: 87vh;
+      /* Altura mínima */
+      max-height: 87vh;
+      grid-template-columns: repeat(2, 455px);
+    }
+  }
+  
+
+  @media (min-width: 1890px) {
+    /* Tarjeta */
+    .card {
+      display: grid;
+      grid-template-columns: 2fr 2fr;
+      /* Distribución de columnas */
+      gap: 0px;
+      /* Espacio entre elementos */
+      cursor: pointer;
+      /* Ancho máximo */
+      border: 0px;
+      /* Borde */
+      border: 1px solid #1E1E1E;
+      /* Borde */
+      min-height: 320px;
+      max-height: 320px;
+    }
+  
+    /* Columna derecha de la tarjeta */
+    .card-derecha {
+      display: grid;
+      grid-template-rows: 65% 35%;
+      /* Distribución de filas */
+    }
+  
+    /* Elemento de movilización */
+    .elemento-movilizacion {
+      border-bottom: 1px solid #B5B5B5;
+      /* Borde inferior */
+      border-bottom-left-radius: 10px;
+      /* Radio de borde inferior izquierdo */
+    }
+  
+    /* Scroll de detalles */
+    .contenedor-total-cards {
+      overflow-y: auto;
+      /* Ocultar desbordamiento vertical */
+      overflow-x: hidden;
+      /* Permitir desplazamiento horizontal */
+      display: grid;
+      gap: 25px;
+      /* Espacio entre elementos */
+      min-height: 87vh;
+      /* Altura mínima */
+      max-height: 87vh;
+      grid-template-columns: repeat(3, 485px);
+    }
+  }
+
+  
+/* Efecto de oscurecimiento al pasar el ratón por la tarjeta */
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000094;
+    border-radius: inherit;
+    opacity: 0;
+}
+
+/* Efecto de oscurecimiento al pasar el ratón por la tarjeta */
+.card:hover::after {
+    opacity: 1;
+    cursor: pointer;
+}
+
+/* Contenido de la tarjeta */
+.content {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/* Título del contenido de la tarjeta */
+.content h4 {
+    opacity: 0;
+    margin-bottom: 12px;
+    scale: 0.7;
+    color: white;
+    cursor: pointer;
+}
+
+/* Efecto de crecimiento al pasar el ratón por el contenido */
+.card:hover .content h4 {
+    scale: 1;
+    opacity: 1;
+}
+
+/* Estilos para la tarjeta de auto */
+.add-cita-card {
+    background-color: #F5F3F4;
+    border: #232323 3px solid;
+    position: relative;
+    border-radius: 10px;
+    min-height: 270px;
+    min-width: 350px;
+}
+
+/* Estilo para el diálogo modal */
+.modal-dialog {
+    min-width: 70vw;
+}
+
+/* Estilos para el botón de cancelar */
+.btnCancel {
+    background-color: black;
+}
+
+/* Estilos para el botón de guardar */
+.btnSave {
+    background-color: #E5383B;
+}
+
+/* Estilos para los botones de guardar y cancelar */
+.btnSave,
+.btnCancel {
+    height: 50px;
+    width: 200px;
+}
+
+/* Etiqueta flotante */
+.form-floating>label {
+    color: red;
+}

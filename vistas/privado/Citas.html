@@ -13,528 +13,645 @@
 
     <!-- *IMPORTACIÓN DE RECURSOS EXTERNOS -->
     <!-- Llamada al icono de la página web -->
-    <link type="image/png" rel="icon" href="../../recursos/imagenes/icons/icono_usuario.svg">
+    <link type="image/png" rel="icon" href="../../recursos/imagenes/icons/IconBook.png">
 
     <!-- *Llamada a las hojas de estilos del framework (BOOSTRAP) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
 
-    <!--Cambiarlo por el css de la página en cuestion-->
-    <link href="../../recursos/estilos/fuentes.css" rel="stylesheet"> <!--Dejarlo NOQUITAR-->
+    <!-- *Llamada a las hojas de estilos del sidebar de filtros-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!--Dejarlo NOQUITAR-->
-    <link href="../../recursos/estilos/privado/plantilla.css" rel="stylesheet">
     <link rel="stylesheet" href="../../recursos/estilos/privado/citas.css">
+    <link href="../../recursos/estilos/fuentes.css" rel="stylesheet"> <!--Dejarlo NOQUITAR-->
+    <link href="../../recursos/estilos/privado/plantilla.css" rel="stylesheet"> <!--Dejarlo NOQUITAR-->
 </head>
 
 <body>
     <!-- *Contenido principal del documento -->
-    <main>
-        <!--Contenedor principal-->
-        <div class="row w-100">
+    <main class="open">
 
+        <div class="container-fluid p-0 d-flex h-100 w-100">
             <!--Contenedor de barra lateral-->
-            <div class="containerLat col-3">
-                <div class="fieldgroup">
-                    <input type="text" name="txtBuscar" id="txtBuscarCitas" placeholder="Buscar...">
+            <div id="bdSidebar"
+                class="d-flex flex-column flex-shrink-0 p-3 pt-5 text-black offcanvas-md offcanvas-start col-12 col-lg-2 col-md-4"
+                data-bs-toggle="offcanvas"> <!-- Contenedor del menu lateral (filtros) -->
+                <div class="sidebar-header"> <!-- Contenedor del header del menu lateral (filtros) -->
+                    <div class="input-group search shadow-sm"> <!-- Contenedor del los input de entrada -->
+                        <input type="text" class="form-control search" placeholder="Buscar...">
+                        <button type="button" class="btn btn-outline"><i class="bi-search"><img
+                                    src="../../recursos/imagenes/icons/icon-search.svg"></i></button>
+                    </div>
+                    <div class="d-flex justify-content-center d-flex align-items-baseline">
+                        <!-- Contenedor del los input de entrada -->
+                        <img src="../../recursos/imagenes/icons/IconBook.png" width="25px" height="25px">
+                        <h3 class="px-3 open-sans-bold">Filtros </h3>
+                        <a href="#" class="text-black d-md-none" data-bs-toggle="offcanvas" data-bs-target="#bdSidebar">
+                            <h3 class="open-sans-bold">X</h3>
+                        </a>
+                    </div>
                 </div>
+                <hr>
+                <div class="sidebar-body"> <!-- Contedor del cuerpo de los filtros-->
+                    <ul class="list-unstyled ps-0 cursor-hover "> <!-- Lista no ordenada de los filtros-->
+                        <li class="mb-1 cursor-hover d-flex flex-column align-items-center opcionesLat">
+                            <!-- Primer elemento de filtros-->
+                            <!-- Elemento de la lista-->
+                            <button
+                                class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton w-100 py-2"
+                                data-bs-toggle="collapse">
+                                <span class="d-flex justify-content-between align-items-center">
+                                    <h5 class="open-sans-semibold m-0 p-0 ms-2">
+                                        Todas
+                                    </h5> <img src="../../recursos/imagenes/img_citas/todasCitas.png" class="imagen">
+                                </span>
+                            </button>
+                        </li>
+                        <hr>
+                        <!-- Segundo elemento de filtros-->
+                        <li class="mb-1 cursor-hover d-flex flex-column align-items-center opcionesLat">
+                            <!-- Elemento de la lista-->
+                            <button
+                                class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton w-100 py-2"
+                                data-bs-toggle="collapse" data-bs-target="#Colores" aria-expanded="false">
+                                <span class="d-flex justify-content-between align-items-center">
+                                    <h5 class="open-sans-semibold m-0 p-0 ms-2">
+                                        En espera
+                                    </h5>
+                                    <img src="../../recursos/imagenes/img_citas/enEsperaCitas.png" class="imagen">
+                                </span>
+                            </button>
+                        </li>
+                        <hr>
+                        <li class="mb-1 cursor-hover d-flex flex-column align-items-center opcionesLat">
+                            <!--Tercer elemento de filtros-->
+                            <button
+                                class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton w-100 py-2"
+                                data-bs-toggle="collapse" data-bs-target="#Tipos" aria-expanded="false">
+                                <span class="d-flex justify-content-between align-items-center">
+                                    <h5 class="open-sans-semibold m-0 p-0 ms-2">
+                                        Aceptadas
+                                    </h5>
+                                    <img src="../../recursos/imagenes//img_citas/aceptadasCitas.png" class="imagen">
+                                </span>
+                            </button>
+                        </li>
 
-                <br>
+                        <hr>
+                        <li class="mb-1 cursor-hover d-flex flex-column align-items-center opcionesLat">
+                            <!--Cuarto elemento de filtros-->
+                            <button
+                                class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton w-100 py-2"
+                                data-bs-toggle="collapse" data-bs-target="#FechaFab" aria-expanded="false">
+                                <span class="d-flex justify-content-between align-items-center">
+                                    <h5 class="open-sans-semibold m-0 p-0 ms-2">
+                                        Finalizadas
+                                    </h5>
+                                    <img src="../../recursos/imagenes/img_citas/finalizadasCitas.png" class="imagen">
+                                </span>
+                            </button>
 
-                <!--Lista de elementos de menu-->
-                <div class="opcionesLatIMG">
-                    <img src="../../recursos/imagenes/img_citas/carroCitas.png" alt="">
-                    <h2>Citas</h2>
+                        </li>
+                        <hr>
+                        <li class="mb-1 cursor-hover d-flex flex-column align-items-center opcionesLat">
+                            <!--Quinto elemento de filtros-->
+                            <button
+                                class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton w-100 py-2"
+                                data-bs-toggle="collapse" data-bs-target="#FechaReg" aria-expanded="false">
+                                <span class="d-flex justify-content-between align-items-center">
+                                    <h5 class="open-sans-semibold m-0 p-0 ms-2">
+                                        Canceladas
+                                    </h5>
+                                    <img src="../../recursos/imagenes/icons/icon-dropdown.svg" id="img5" class="imagen">
+                                </span>
+                            </button>
+
+                        </li>
+                        <!-- <li class="mb-1 cursor-hover d-flex flex-column align-items-center opcionesLat ">
+                            Quinto elemento de filtros
+                            <button
+                                class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton w-100 py-2"
+                                data-bs-toggle="collapse" data-bs-target="#FechaReg" aria-expanded="false">
+                                <span class="d-flex justify-content-between align-items-center">
+                                    <h5 class="open-sans-semibold m-0 p-0 ms-2">
+                                        Añadir cita
+                                    </h5>
+                                    <img src="../../recursos/imagenes/img_citas/Agregar.png" id="img5" class="imagen">
+                                </span>
+                            </button>
+                        </li>-->
+                    </ul>
                 </div>
-
-
-
-                <div class="opcionesLat " id="opcTodasCitas">
-                    <h3>Todas</h3>
-                    <img src="../../recursos/imagenes/img_citas/todasCitas.png" alt="">
-                </div>
-
-
-
-                <div class="opcionesLat">
-                    <h3>En espera</h3>
-                    <img src="../../recursos/imagenes/img_citas/enEsperaCitas.png" alt="">
-                </div>
-
-
-
-                <div class="opcionesLat">
-                    <h3>Aceptadas</h3>
-                    <img src="../../recursos/imagenes/img_citas/aceptadasCitas.png" alt="">
-                </div>
-
-
-                <div class="opcionesLat">
-                    <h3>Finalizadas</h3>
-                    <img src="../../recursos/imagenes/img_citas/finalizadasCitas.png" alt="">
-                </div>
-
-                <div class="opcionesLat" id="btnAgregar">
-                    <h3>Agregar</h3>
-                    <img src="../../recursos/imagenes/img_citas/Agregar.png" alt="">
-                </div>
-
             </div>
 
-            <!--Aqui empieza el contenedor de las cards-->
-            <div class="containerCards container-fluid col-9 align-items-start justify-content-start">
+            <div class="flex-fill col-12">
+                <!--Contenedor del boton para abrir los filtros colapsados-->
+                <div class="p-2 d-md-none d-flex text-white btnSlBg">
+                    <a href="#" class="text-white" data-bs-toggle="offcanvas" data-bs-target="#bdSidebar">
+                        <i class="fa-solid fa-bars"></i>
+                    </a>
+                    <h5 class="open-sans-bold text-white mx-3">
+                        Filtros
+                    </h5>
+                </div>
+                <!--Contenedor total del cuerpo de la página-->
+                <div class="contenedor-total-cards col-12" id="cards_citas_container"></div>
 
-                <div class="card cardContainer">
-                    <div class="card-izquierda">
-                        <div
-                            class="elemento-fecha-cita d-flex justify-content-center align-items-center text-center">
-                            <h5 class=" open-sans-regular-italic text-black p-0 m-0">
-                                Fecha de la cita programada: <br> 01/abril/2024
-                            </h5>
-                        </div>
-                        <div
-                            class="elemento-hora-llegada d-flex justify-content-center align-items-center text-center">
-                            <h5 class=" open-sans-regular-regular text-white p-0 m-0">
-                                Hora de llegada del cliente: <br> 11:00 am.
-                            </h5>
-                        </div>
-                        <div
-                            class="elemento-movilizacion text-black d-flex flex-column justify-content-center align-items-center px-3">
-                            <h5 class="open-sans-semibold p-0 m-0 mb-3">
-                                Movilización del vehículo:
-                            </h5>
-                            <h5 class="open-sans-regular p-0 m-0">
-                                Cliente vendrá y dejará el vehículo
-                            </h5>
-                        </div>
+                <!--Contenedor de detalles citas-->
+                <div class="ContainerDetalles container-fluid" id="containerExpand">
+
+                    <!--Container numero de cita-->
+                    <div class="numeroCita container row">
+                        <h5 class="text-center ">Cita Nº 001</h5>
                     </div>
 
-                    <div class="card-derecha position-relative">
+                    <!--Container infomacion y campos form-->
+                    <div class="infoDetalleCita">
 
-                        <div class="cita-number position-absolute text-center">
-                            <h6 class="open-sans-semibold m-0 p-0 text-white">Cita N° 003</h6>
+                        <div class="imagenYacciones">
+                            <img src="../../recursos/imagenes/img_citas/image 22.png" alt="">
+                            <button class="btnAccion" id="btnRevisarServicio">Servicios en proceso</button>
+                            <button class="btnAccion" id="btnRevisarFactura">Revisar factura</button>
                         </div>
 
-                        <div class="img-container">
-                            <img src="../../recursos/imagenes/img_automoviles/carexmpl2.jpg">
+                        <div class="camposForm">
+
+                            <form action="/procesar formulario" method="post" class="campos">
+
+                                <div class="form-floating mb-0 p-0">
+                                    <label for="inputFechaCita" class="form-label px-2 pt-1 p-0 m-0">Fecha cita</label>
+                                    <input type="date" class="form-control" id="inputFechaCita" placeholder="" required>
+                                </div>
+
+                                <!--Este es un combo box-->
+                                <div class="form-floating mb-2 p-0">
+                                    <label class="form-label px-2 pt-0 p-0 m-0">Zona Habilitada</label>
+                                    <select class="form-select pt-4 open-sans-regular"
+                                        aria-label="Default select example" id="selectZonaHabilitadaD">
+                                        <option selected>San Salvador Centro</option>
+                                        <option value="1">San Salvador Centro</option>
+                                        <option value="2">Zona 2</option>
+                                        <option value="3">Zona 3</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-floating mb-2 p-0">
+                                    <input type="text" class="form-control" id="inputHoraEntradaD" placeholder="...">
+                                    <label for="inputHoraEntradaD">Hora de entrada</label>
+                                </div>
+
+                                <div class="form-floating mb-2 p-0">
+                                    <input type="text" class="form-control" id="inputDireccion" placeholder="...">
+                                    <label for="inputDireccion">Direccion</label>
+                                </div>
+
+                                <div class="form-floating mb-2 p-0">
+                                    <input type="text" class="form-control" id="inputHoraSalida" placeholder="...">
+                                    <label for="inputHoraSalida">Hora de salida</label>
+                                </div>
+
+                                <!--Este es un combo box-->
+                                <div class="form-floating mb-2 p-0">
+                                    <label class="form-label px-2 pt-0 p-0 m-0">Estado</label>
+                                    <select class="form-select pt-4 open-sans-regular"
+                                        aria-label="Default select example" id="selectEstado">
+                                        <option selected>En espera</option>
+                                        <option value="1">En espera</option>
+                                        <option value="2">Aceptado</option>
+                                        <option value="3">Finalizado</option>
+                                    </select>
+                                </div>
+
+
+                                <!--Este es un combo box-->
+                                <div class="form-floating mb-2 p-0">
+                                    <label class="form-label px-2 pt-0 p-0 m-0">Movilizacion</label>
+                                    <select class="form-select pt-4 open-sans-regular"
+                                        aria-label="Default select example" id="selectMovilizacion">
+                                        <option selected>Yo lo llevo y regreso</option>
+                                        <option value="1">Yo lo llevo y regreso</option>
+                                        <option value="2">Solo lo llevo</option>
+                                        <option value="3">Solo de regreso</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-floating mb-2 p-0">
+                                    <input type="text" class="form-control" id="inputPlacaAutomovilD" placeholder="...">
+                                    <label for="inputPlacaAutomovilD">Placa</label>
+                                </div>
+
+
+                            </form>
                         </div>
-                        <div
-                            class="info-cliente text-white d-flex flex-column justify-content-center align-items-center ">
-                            <div class="grupo1 pb-3">
-                                <h5 class="open-sans-bold p-0 m-0">
-                                    DUI del cliente:
-                                </h5>
-                                <h5 class="open-sans-regular p-0 m-0">
-                                    12345678-9
-                                </h5>
+
+                    </div>
+
+                    <!--Container finalizar cita-->
+                    <div class="finalizarCita">
+
+                        <button id="finalizarCita">Finalizar Cita</button>
+                        <button id="cerrarCitas">Cerrar</button>
+
+                    </div>
+
+                </div>
+
+                <!--Agregar servicios-->
+                <div id="modalAgregarServicio" class="modal">
+                    <div class="modal-content">
+                        <span class="closeServiciosA">&times;</span>
+                        <div class="contenidoModalSer">
+                            <div class="titulo">
+                                <h4>Agregar Cita</h4>
                             </div>
 
-                            <div class="grupo2">
-                                <h5 class="open-sans-bold p-0 m-0">
-                                    Placa del Vehiculo:
-                                </h5>
-                                <h5 class="open-sans-regular p-0 m-0">
-                                    P333-333
-                                </h5>
+                            <div class="camposServicios">
+                                <div class="form-floating mb-0 p-0">
+                                    <label for="inputFechaRegistro" class="form-label px-2 pt-1 p-0 m-0">Fecha de
+                                        registro</label>
+                                    <input type="date" class="form-control" id="inputFechaRegistro" placeholder=""
+                                        required>
+                                </div>
+
+
+                                <div class="form-floating mb-2 p-0">
+                                    <input type="text" class="form-control" id="inputFechaHoraCita" placeholder="...">
+                                    <label for="inputFechaHoraCita">Fecha y hora cita</label>
+                                </div>
+
+                                <div class="form-floating mb-2 p-0">
+                                    <input type="text" class="form-control" id="inputPlacaAutomovilA" placeholder="...">
+                                    <label for="inputPlacaAutomovilA">Placa de automovil</label>
+                                </div>
+
+                                <div class="form-floating mb-2 p-0">
+                                    <label class="form-label px-2 pt-0 p-0 m-0">Movilizacion</label>
+                                    <select class="form-select pt-4 open-sans-regular"
+                                        aria-label="Default select example" id="selectMovilizacion">
+                                        <option value="1">Yo lo traigo y retiro</option>
+                                        <option value="2">Yo solo lo traigo</option>
+                                        <option value="3">Yo solo retiro</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-floating mb-2 p-0">
+                                    <label class="form-label px-2 pt-0 p-0 m-0">Zona habilitada</label>
+                                    <select class="form-select pt-4 open-sans-regular"
+                                        aria-label="Default select example" id="selectZonaHabilitadaA">
+                                        <option selected>Sansalvador Centro</option>
+                                        <option value="1">San Salvador Oeste</option>
+                                        <option value="2">San Salvador Este</option>
+                                        <option value="3">San Salvador Sur</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-floating mb-2 p-0">
+                                    <input type="text" class="form-control" id="inputDireccionDada" placeholder="...">
+                                    <label for="inputDireccionDada">Direccion ida</label>
+                                </div>
+
+                                <div class="form-floating mb-2 p-0">
+                                    <input type="text" class="form-control" id="inputDireccionRegreso"
+                                        placeholder="...">
+                                    <label for="inputDireccionRegreso">Direccion regreso</label>
+                                </div>
+
+                                <div class="form-floating mb-2 p-0">
+                                    <label class="form-label px-2 pt-0 p-0 m-0">Estado cita</label>
+                                    <select class="form-select pt-4 open-sans-regular"
+                                        aria-label="Default select example" id="selectEstadoCita">
+                                        <option value="1">Aceptada</option>
+                                        <option value="2">En espera</option>
+                                        <option value="3">Finalizadas</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <hr class="bottomModalSer">
+
+                            <div class="botonesModalSer">
+                                <button id="btnCancelar">Cancelar</button>
+                                <button id="btnAceptar">Aceptar</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!--Modal para cita-->
+                <div class="modal fade" id="modalAgregarCita" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="modalAgregarCitaLabel" aria-hidden="true">
+                    <!-- Contenedor del modal dialog-->
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <!-- Contenedor del modal content-->
+                        <div class="modal-content p-lg-5 p-1 p-md-4 pb-0 pb-lg-3">
+                            <!-- Contenedor del modal body-->
+                            <div class="modal-body">
+                                <form id="addForm" name="addForm" class="needs-validation" novalidate>
+                                    <!-- Columna izquierda -->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <div class="form-floating mb-0 p-0">
+                                                    <input type="text" class="form-control" id="input_fecha"
+                                                        name="input_nombre" placeholder="..." required>
+                                                    <label for="input_nombre">Fecha de llegada</label>
+                                                    <div class="invalid-feedback">Por favor ingresa una fecha.</div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-floating mb-0 p-0">
+                                                    <input type="text" class="form-control" id="input_hora"
+                                                        name="input_nombre" placeholder="..." required>
+                                                    <label for="input_nombre">Hora de llegada</label>
+                                                    <div class="invalid-feedback">Por favor ingresa una hora.</div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-floating mb-0 p-0">
+                                                    <input type="text" class="form-control" id="input_auto"
+                                                        name="input_nombre" placeholder="..." required>
+                                                    <label for="input_nombre">Automovil</label>
+                                                    <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- Columna derecha -->
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <div class="form-floating mb-0 p-0">
+                                                    <input type="text" class="form-control" id="input_movilizacion"
+                                                        name="input_nombre" placeholder="..." required>
+                                                    <label for="input_nombre">Movilizaciòn</label>
+                                                    <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-floating mb-0 p-0">
+                                                    <input type="text" class="form-control" id="input_a"
+                                                        name="input_nombre" placeholder="..." required>
+                                                    <label for="input_nombre">Direcciòn de ida</label>
+                                                    <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer justify-content-center">
+                                        <button type="button" class="btn btn-secondary btnCancel me-lg-5 me-3 me-md-5"
+                                            onclick="openClose()">Cancelar</button>
+                                        <button type="submit" class="btn btn-primary btnSave me-lg-5 me-3 me-md-5">
+                                            Aceptar</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="card cardContainer">
-                    <div class="card-izquierda">
-                        <div
-                            class="elemento-fecha-cita d-flex justify-content-center align-items-center text-center">
-                            <h5 class=" open-sans-regular-italic text-black p-0 m-0">
-                                Fecha de la cita programada: <br> 01/abril/2024
-                            </h5>
-                        </div>
-                        <div
-                            class="elemento-hora-llegada d-flex justify-content-center align-items-center text-center">
-                            <h5 class=" open-sans-regular-regular text-white p-0 m-0">
-                                Hora de llegada del cliente: <br> 11:00 am.
-                            </h5>
-                        </div>
-                        <div
-                            class="elemento-movilizacion text-black d-flex flex-column justify-content-center align-items-center px-3">
-                            <h5 class="open-sans-semibold p-0 m-0 mb-3">
-                                Movilización del vehículo:
-                            </h5>
-                            <h5 class="open-sans-regular p-0 m-0">
-                                Cliente vendrá y dejará el vehículo
-                            </h5>
-                        </div>
+                <!--Container Servicios en proceso-->
+                <div class="ContainerDetalles container-fluid" id="containerExpandServicios">
+
+                    <div class="Titulo">
+                        <h4>Servicios en proceso</h4>
                     </div>
 
-                    <div class="card-derecha position-relative">
+                    <div class="cardsServicios">
 
-                        <div class="cita-number position-absolute text-center">
-                            <h6 class="open-sans-semibold m-0 p-0 text-white">Cita N° 003</h6>
-                        </div>
+                        <div class="cardServicio">
 
-                        <div class="img-container">
-                            <img src="../../recursos/imagenes/img_automoviles/carexmpl2.jpg">
-                        </div>
-                        <div
-                            class="info-cliente text-white d-flex flex-column justify-content-center align-items-center ">
-                            <div class="grupo1 pb-3">
-                                <h5 class="open-sans-bold p-0 m-0">
-                                    DUI del cliente:
-                                </h5>
-                                <h5 class="open-sans-regular p-0 m-0">
-                                    12345678-9
-                                </h5>
+                            <div class="contenidoSer">
+                                <div class="contenedorInfoSer">
+                                    <strong>
+                                        <p>
+                                            Reparador de llanta
+                                        </p>
+                                    </strong>
+                                    <div class="contAcSer">
+                                        <p>Este servicio sirve para verificar y repara la integridad de las llantas del
+                                            vehiculo del cliente</p>
+                                        <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
+                                    </div>
+                                </div>
+
+                                <div class="contenedorInfoSer">
+                                    <strong>
+                                        <p>
+                                            Reparador de llanta
+                                        </p>
+                                    </strong>
+                                    <div class="contAcSer">
+                                        <p>Este servicio sirve para verificar y repara la integridad de las llantas del
+                                            vehiculo del cliente</p>
+                                        <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
+                                    </div>
+                                </div>
+
                             </div>
 
-                            <div class="grupo2">
-                                <h5 class="open-sans-bold p-0 m-0">
-                                    Placa del Vehiculo:
-                                </h5>
-                                <h5 class="open-sans-regular p-0 m-0">
-                                    P333-333
-                                </h5>
+                            <div class="bottomCardSer">
+                                <h6>Servicio 1</h6>
+                                <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
                             </div>
+
+                        </div>
+
+
+                        <div class="cardServicio">
+
+                            <div class="contenidoSer">
+                                <div class="contenedorInfoSer">
+                                    <strong>
+                                        <p>
+                                            Reparador de llanta
+                                        </p>
+                                    </strong>
+                                    <div class="contAcSer">
+                                        <p>Este servicio sirve para verificar y repara la integridad de las llantas del
+                                            vehiculo del cliente</p>
+                                        <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
+                                    </div>
+                                </div>
+
+                                <div class="contenedorInfoSer">
+                                    <strong>
+                                        <p>
+                                            Reparador de llanta
+                                        </p>
+                                    </strong>
+                                    <div class="contAcSer">
+                                        <p>Este servicio sirve para verificar y repara la integridad de las llantas del
+                                            vehiculo del cliente</p>
+                                        <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="bottomCardSer">
+                                <h6>Servicio 1</h6>
+                                <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
+                            </div>
+
+                        </div>
+
+                        <div class="cardServicio">
+
+                            <div class="contenidoSer">
+
+                                <div class="contenedorInfoSer">
+                                    <strong>
+                                        <p>
+                                            Reparador de llanta
+                                        </p>
+                                    </strong>
+                                    <div class="contAcSer">
+                                        <p>Este servicio sirve para verificar y repara la integridad de las llantas del
+                                            vehiculo del cliente</p>
+                                        <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
+                                    </div>
+                                </div>
+
+                                <div class="contenedorInfoSer">
+                                    <strong>
+                                        <p>
+                                            Reparador de llanta
+                                        </p>
+                                    </strong>
+                                    <div class="contAcSer">
+                                        <p>Este servicio sirve para verificar y repara la integridad de las llantas del
+                                            vehiculo del cliente</p>
+                                        <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="bottomCardSer">
+                                <h6>Servicio 1</h6>
+                                <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
+                            </div>
+
+                        </div>
+
+                        <div class="cardServicio">
+
+                            <div class="contenidoSer">
+                                <div class="contenedorInfoSer">
+                                    <strong>
+                                        <p>
+                                            Reparador de llanta
+                                        </p>
+                                    </strong>
+                                    <div class="contAcSer">
+                                        <p>Este servicio sirve para verificar y repara la integridad de las llantas del
+                                            vehiculo del cliente</p>
+                                        <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
+                                    </div>
+                                </div>
+
+                                <div class="contenedorInfoSer">
+                                    <strong>
+                                        <p>
+                                            Reparador de llanta
+                                        </p>
+                                    </strong>
+                                    <div class="contAcSer">
+                                        <p>Este servicio sirve para verificar y repara la integridad de las llantas del
+                                            vehiculo del cliente</p>
+                                        <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="bottomCardSer">
+                                <h6>Servicio 1</h6>
+                                <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="bottomServicio">
+                        <h4 id="btnRegresar">
+                            < Regresar </h4>
+                                <img src="../../recursos/imagenes/img_citas/SignoMas.png" alt=""
+                                    id="btnAgregarServicio">
+                    </div>
+
+                </div>
+
+                <!--Modal para elegir tipo de factura-->
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <div class="contenidoModal">
+                            <div class="imagenModal">
+                                <img src="../../recursos/imagenes/img_citas/factura.png" alt="">
+                            </div>
+                            <div class="contentModal">
+                                <h2>¿Que clase de factura desea realizar?</h2>
+                                <div class="botonesModal">
+                                    <a href="../privado/factura_persona_juridica.html"><button class="btnModal">Credito
+                                            Fiscal</button></a>
+                                    <a href="../privado/factura_persona_natural.html"><button
+                                            class="btnModal">Consumidor
+                                            final</button></a>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-
-                <div class="card cardContainer">
-                    <div class="card-izquierda">
-                        <div
-                            class="elemento-fecha-cita d-flex justify-content-center align-items-center text-center">
-                            <h5 class=" open-sans-regular-italic text-black p-0 m-0">
-                                Fecha de la cita programada: <br> 01/abril/2024
-                            </h5>
-                        </div>
-                        <div
-                            class="elemento-hora-llegada d-flex justify-content-center align-items-center text-center">
-                            <h5 class=" open-sans-regular-regular text-white p-0 m-0">
-                                Hora de llegada del cliente: <br> 11:00 am.
-                            </h5>
-                        </div>
-                        <div
-                            class="elemento-movilizacion text-black d-flex flex-column justify-content-center align-items-center px-3">
-                            <h5 class="open-sans-semibold p-0 m-0 mb-3">
-                                Movilización del vehículo:
-                            </h5>
-                            <h5 class="open-sans-regular p-0 m-0">
-                                Cliente vendrá y dejará el vehículo
-                            </h5>
-                        </div>
-                    </div>
-
-                    <div class="card-derecha position-relative">
-
-                        <div class="cita-number position-absolute text-center">
-                            <h6 class="open-sans-semibold m-0 p-0 text-white">Cita N° 003</h6>
-                        </div>
-
-                        <div class="img-container">
-                            <img src="../../recursos/imagenes/img_automoviles/carexmpl2.jpg">
-                        </div>
-                        <div
-                            class="info-cliente text-white d-flex flex-column justify-content-center align-items-center ">
-                            <div class="grupo1 pb-3">
-                                <h5 class="open-sans-bold p-0 m-0">
-                                    DUI del cliente:
-                                </h5>
-                                <h5 class="open-sans-regular p-0 m-0">
-                                    12345678-9
-                                </h5>
-                            </div>
-
-                            <div class="grupo2">
-                                <h5 class="open-sans-bold p-0 m-0">
-                                    Placa del Vehiculo:
-                                </h5>
-                                <h5 class="open-sans-regular p-0 m-0">
-                                    P333-333
-                                </h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card cardContainer">
-                    <div class="card-izquierda">
-                        <div
-                            class="elemento-fecha-cita d-flex justify-content-center align-items-center text-center">
-                            <h5 class=" open-sans-regular-italic text-black p-0 m-0">
-                                Fecha de la cita programada: <br> 01/abril/2024
-                            </h5>
-                        </div>
-                        <div
-                            class="elemento-hora-llegada d-flex justify-content-center align-items-center text-center">
-                            <h5 class=" open-sans-regular-regular text-white p-0 m-0">
-                                Hora de llegada del cliente: <br> 11:00 am.
-                            </h5>
-                        </div>
-                        <div
-                            class="elemento-movilizacion text-black d-flex flex-column justify-content-center align-items-center px-3">
-                            <h5 class="open-sans-semibold p-0 m-0 mb-3">
-                                Movilización del vehículo:
-                            </h5>
-                            <h5 class="open-sans-regular p-0 m-0">
-                                Cliente vendrá y dejará el vehículo
-                            </h5>
-                        </div>
-                    </div>
-
-                    <div class="card-derecha position-relative">
-
-                        <div class="cita-number position-absolute text-center">
-                            <h6 class="open-sans-semibold m-0 p-0 text-white">Cita N° 003</h6>
-                        </div>
-
-                        <div class="img-container">
-                            <img src="../../recursos/imagenes/img_automoviles/carexmpl2.jpg">
-                        </div>
-                        <div
-                            class="info-cliente text-white d-flex flex-column justify-content-center align-items-center ">
-                            <div class="grupo1 pb-3">
-                                <h5 class="open-sans-bold p-0 m-0">
-                                    DUI del cliente:
-                                </h5>
-                                <h5 class="open-sans-regular p-0 m-0">
-                                    12345678-9
-                                </h5>
-                            </div>
-
-                            <div class="grupo2">
-                                <h5 class="open-sans-bold p-0 m-0">
-                                    Placa del Vehiculo:
-                                </h5>
-                                <h5 class="open-sans-regular p-0 m-0">
-                                    P333-333
-                                </h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card cardContainer">
-                    <div class="card-izquierda">
-                        <div
-                            class="elemento-fecha-cita d-flex justify-content-center align-items-center text-center">
-                            <h5 class=" open-sans-regular-italic text-black p-0 m-0">
-                                Fecha de la cita programada: <br> 01/abril/2024
-                            </h5>
-                        </div>
-                        <div
-                            class="elemento-hora-llegada d-flex justify-content-center align-items-center text-center">
-                            <h5 class=" open-sans-regular-regular text-white p-0 m-0">
-                                Hora de llegada del cliente: <br> 11:00 am.
-                            </h5>
-                        </div>
-                        <div
-                            class="elemento-movilizacion text-black d-flex flex-column justify-content-center align-items-center px-3">
-                            <h5 class="open-sans-semibold p-0 m-0 mb-3">
-                                Movilización del vehículo:
-                            </h5>
-                            <h5 class="open-sans-regular p-0 m-0">
-                                Cliente vendrá y dejará el vehículo
-                            </h5>
-                        </div>
-                    </div>
-
-                    <div class="card-derecha position-relative">
-
-                        <div class="cita-number position-absolute text-center">
-                            <h6 class="open-sans-semibold m-0 p-0 text-white">Cita N° 003</h6>
-                        </div>
-
-                        <div class="img-container">
-                            <img src="../../recursos/imagenes/img_automoviles/carexmpl2.jpg">
-                        </div>
-                        <div
-                            class="info-cliente text-white d-flex flex-column justify-content-center align-items-center ">
-                            <div class="grupo1 pb-3">
-                                <h5 class="open-sans-bold p-0 m-0">
-                                    DUI del cliente:
-                                </h5>
-                                <h5 class="open-sans-regular p-0 m-0">
-                                    12345678-9
-                                </h5>
-                            </div>
-
-                            <div class="grupo2">
-                                <h5 class="open-sans-bold p-0 m-0">
-                                    Placa del Vehiculo:
-                                </h5>
-                                <h5 class="open-sans-regular p-0 m-0">
-                                    P333-333
-                                </h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
-            <!--Contenedor de detalles citas-->
-            <div class="ContainerDetalles container-fluid" id="containerExpand">
-
-                <!--Container numero de cita-->
-                <div class="numeroCita container row">
-                    <h5 class="text-center ">Cita Nº 001</h5>
-                </div>
-
-                <!--Container infomacion y campos form-->
-                <div class="infoDetalleCita">
-
-                    <div class="imagenYacciones">
-                        <img src="../../recursos/imagenes/img_citas/image 22.png" alt="">
-                        <button class="btnAccion" id="btnRevisarServicio">Servicios en proceso</button>
-                        <button class="btnAccion" id="btnRevisarFactura">Revisar factura</button>
-                    </div>
-
-                    <div class="camposForm">
-
-                        <form action="/procesar formulario" method="post" class="campos">
-
-                            <div class="form-floating mb-0 p-0">
-                                <label for="inputFechaCita" class="form-label px-2 pt-1 p-0 m-0">Fecha cita</label>
-                                <input type="date" class="form-control" id="inputFechaCita" placeholder="" required>
-                            </div>
-
-                            <!--Este es un combo box-->
-                            <div class="form-floating mb-2 p-0">
-                                <label class="form-label px-2 pt-0 p-0 m-0">Zona Habilitada</label>
-                                <select class="form-select pt-4 open-sans-regular" aria-label="Default select example"
-                                    id="selectZonaHabilitadaD">
-                                    <option selected>San Salvador Centro</option>
-                                    <option value="1">San Salvador Centro</option>
-                                    <option value="2">Zona 2</option>
-                                    <option value="3">Zona 3</option>
-                                </select>
-                            </div>
-
-                            <div class="form-floating mb-2 p-0">
-                                <input type="text" class="form-control" id="inputHoraEntradaD" placeholder="...">
-                                <label for="inputHoraEntradaD">Hora de entrada</label>
-                            </div>
-
-                            <div class="form-floating mb-2 p-0">
-                                <input type="text" class="form-control" id="inputDireccion" placeholder="...">
-                                <label for="inputDireccion">Direccion</label>
-                            </div>
-
-                            <div class="form-floating mb-2 p-0">
-                                <input type="text" class="form-control" id="inputHoraSalida" placeholder="...">
-                                <label for="inputHoraSalida">Hora de salida</label>
-                            </div>
-
-                            <!--Este es un combo box-->
-                            <div class="form-floating mb-2 p-0">
-                                <label class="form-label px-2 pt-0 p-0 m-0">Estado</label>
-                                <select class="form-select pt-4 open-sans-regular" aria-label="Default select example"
-                                    id="selectEstado">
-                                    <option selected>En espera</option>
-                                    <option value="1">En espera</option>
-                                    <option value="2">Aceptado</option>
-                                    <option value="3">Finalizado</option>
-                                </select>
-                            </div>
-
-
-                            <!--Este es un combo box-->
-                            <div class="form-floating mb-2 p-0">
-                                <label class="form-label px-2 pt-0 p-0 m-0">Movilizacion</label>
-                                <select class="form-select pt-4 open-sans-regular" aria-label="Default select example"
-                                    id="selectMovilizacion">
-                                    <option selected>Yo lo llevo y regreso</option>
-                                    <option value="1">Yo lo llevo y regreso</option>
-                                    <option value="2">Solo lo llevo</option>
-                                    <option value="3">Solo de regreso</option>
-                                </select>
-                            </div>
-
-                            <div class="form-floating mb-2 p-0">
-                                <input type="text" class="form-control" id="inputPlacaAutomovilD" placeholder="...">
-                                <label for="inputPlacaAutomovilD">Placa</label>
-                            </div>
-
-
-                        </form>
-                    </div>
-
-                </div>
-
-                <!--Container finalizar cita-->
-                <div class="finalizarCita">
-
-                    <button id="finalizarCita">Finalizar Cita</button>
-                    <button id="cerrarCitas">Cerrar</button>
-
-                </div>
-
-            </div>
-
-            <!--Agregar servicios-->
-            <div id="modalAgregarServicio" class="modal">
+            <!--Modal de la parte de agregar servicio-->
+            <div id="modalServicios" class="modal">
                 <div class="modal-content">
-                    <span class="closeServiciosA">&times;</span>
+                    <span class="closeServicios">&times;</span>
                     <div class="contenidoModalSer">
                         <div class="titulo">
-                            <h4>Agregar Cita</h4>
+                            <h4>Cita Axel Garcia</h4>
                         </div>
 
                         <div class="camposServicios">
                             <div class="form-floating mb-0 p-0">
-                                <label for="inputFechaRegistro" class="form-label px-2 pt-1 p-0 m-0">Fecha de
-                                    registro</label>
-                                <input type="date" class="form-control" id="inputFechaRegistro" placeholder="" required>
+                                <label for="inputFechaAproxFinS" class="form-label px-2 pt-1 p-0 m-0">Fecha aprox
+                                    fin</label>
+                                <input type="date" class="form-control" id="inputFechaAproxFinS" placeholder=""
+                                    required>
                             </div>
 
 
                             <div class="form-floating mb-2 p-0">
-                                <input type="text" class="form-control" id="inputFechaHoraCita" placeholder="...">
-                                <label for="inputFechaHoraCita">Fecha y hora cita</label>
+                                <input type="text" class="form-control" id="inputHoraAproxS" placeholder="...">
+                                <label for="inputHoraAproxS">hora aprox fin</label>
+                            </div>
+
+                            <div class="form-floating mb-0 p-0">
+                                <label for="inputFechaFinS" class="form-label px-2 pt-1 p-0 m-0">Fecha fin</label>
+                                <input type="date" class="form-control" id="inputFechaFinS" placeholder="" required>
                             </div>
 
                             <div class="form-floating mb-2 p-0">
-                                <input type="text" class="form-control" id="inputPlacaAutomovilA" placeholder="...">
-                                <label for="inputPlacaAutomovilA">Placa de automovil</label>
+                                <input type="text" class="form-control" id="inputHoraFinS" placeholder="...">
+                                <label for="inputHoraFinS">Hora fin</label>
                             </div>
 
                             <div class="form-floating mb-2 p-0">
-                                <label class="form-label px-2 pt-0 p-0 m-0">Movilizacion</label>
-                                <select class="form-select pt-4 open-sans-regular" aria-label="Default select example"
-                                    id="selectMovilizacion">
-                                    <option value="1">Yo lo traigo y retiro</option>
-                                    <option value="2">Yo solo lo traigo</option>
-                                    <option value="3">Yo solo retiro</option>
-                                </select>
-                            </div>
-
-                            <div class="form-floating mb-2 p-0">
-                                <label class="form-label px-2 pt-0 p-0 m-0">Zona habilitada</label>
-                                <select class="form-select pt-4 open-sans-regular" aria-label="Default select example"
-                                    id="selectZonaHabilitadaA">
-                                    <option selected>Sansalvador Centro</option>
-                                    <option value="1">San Salvador Oeste</option>
-                                    <option value="2">San Salvador Este</option>
-                                    <option value="3">San Salvador Sur</option>
-                                </select>
-                            </div>
-
-                            <div class="form-floating mb-2 p-0">
-                                <input type="text" class="form-control" id="inputDireccionDada" placeholder="...">
-                                <label for="inputDireccionDada">Direccion ida</label>
-                            </div>
-
-                            <div class="form-floating mb-2 p-0">
-                                <input type="text" class="form-control" id="inputDireccionRegreso" placeholder="...">
-                                <label for="inputDireccionRegreso">Direccion regreso</label>
-                            </div>
-
-                            <div class="form-floating mb-2 p-0">
-                                <label class="form-label px-2 pt-0 p-0 m-0">Estado cita</label>
-                                <select class="form-select pt-4 open-sans-regular" aria-label="Default select example"
-                                    id="selectEstadoCita">
-                                    <option value="1">Aceptada</option>
-                                    <option value="2">En espera</option>
-                                    <option value="3">Finalizadas</option>
+                                <label class="form-label px-2 pt-0 p-0 m-0">Servicio</label>
+                                <select class="form-select pt-4 open-sans-regular" aria-label="Default select example">
+                                    <option selected>Mantenimiento aire acondicionado</option>
+                                    <option value="1">Mantenimiento aire acondicionado</option>
+                                    <option value="2">Servicio1</option>
+                                    <option value="3">Servicio2</option>
                                 </select>
                             </div>
 
@@ -550,314 +667,6 @@
                     </div>
                 </div>
             </div>
-
-            <!--Modal para cita-->
-            <div id="modalAgregarCita" class="modal">
-                <div class="modal-content">
-                    <span class="closeServiciosB">&times;</span>
-                    <div class="contenidoModalSer">
-                        <div class="titulo">
-                            <h4>Agregar Cita</h4>
-                        </div>
-
-                        <div class="camposServicios">
-                            <div class="form-floating mb-0 p-0">
-                                <label for="inputFechaAproxFin" class="form-label px-2 pt-1 p-0 m-0">Fecha aprox
-                                    fin</label>
-                                <input type="date" class="form-control" id="inputFechaAproxFin" placeholder="" required>
-                            </div>
-
-                            <div class="form-floating mb-2 p-0">
-                                <input type="text" class="form-control" id="inputHoraAproxFin" placeholder="...">
-                                <label for="inputHoraAproxFin">Hora aprox fin</label>
-                            </div>
-
-                            <div class="form-floating mb-0 p-0">
-                                <label for="inputFechaFinA" class="form-label px-2 pt-1 p-0 m-0">Fecha fin</label>
-                                <input type="date" class="form-control" id="inputFechaFinA" placeholder="" required>
-                            </div>
-
-                            <div class="form-floating mb-2 p-0">
-                                <input type="text" class="form-control" id="inputHoraFin" placeholder="...">
-                                <label for="inputHoraFin">Hora fin</label>
-                            </div>
-
-                            <div class="form-floating mb-2 p-0">
-                                <label class="form-label px-2 pt-0 p-0 m-0">Servicio</label>
-                                <select class="form-select pt-4 open-sans-regular" aria-label="Default select example"
-                                    id="selectServicio">
-                                    <option value="1">Mantenimiento aire acondicionado</option>
-                                    <option value="2">Cambio de aceite</option>
-                                    <option value="3">Rectificado de frenos</option>
-                                </select>
-                            </div>
-
-                        </div>
-
-                        <div class="bottomModalSer"></div>
-
-                        <div class="botonesModalSer">
-                            <button id="btnCancelar">Cancelar</button>
-                            <button id="btnAceptar">Aceptar</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <!--Container Servicios en proceso-->
-            <div class="ContainerDetalles container-fluid" id="containerExpandServicios">
-
-                <div class="Titulo">
-                    <h4>Servicios en proceso</h4>
-                </div>
-
-                <div class="cardsServicios">
-
-                    <div class="cardServicio">
-
-                        <div class="contenidoSer">
-                            <div class="contenedorInfoSer">
-                                <strong>
-                                    <p>
-                                        Reparador de llanta
-                                    </p>
-                                </strong>
-                                <div class="contAcSer">
-                                    <p>Este servicio sirve para verificar y repara la integridad de las llantas del
-                                        vehiculo del cliente</p>
-                                    <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
-                                </div>
-                            </div>
-
-                            <div class="contenedorInfoSer">
-                                <strong>
-                                    <p>
-                                        Reparador de llanta
-                                    </p>
-                                </strong>
-                                <div class="contAcSer">
-                                    <p>Este servicio sirve para verificar y repara la integridad de las llantas del
-                                        vehiculo del cliente</p>
-                                    <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="bottomCardSer">
-                            <h6>Servicio 1</h6>
-                            <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
-                        </div>
-
-                    </div>
-
-
-                    <div class="cardServicio">
-
-                        <div class="contenidoSer">
-                            <div class="contenedorInfoSer">
-                                <strong>
-                                    <p>
-                                        Reparador de llanta
-                                    </p>
-                                </strong>
-                                <div class="contAcSer">
-                                    <p>Este servicio sirve para verificar y repara la integridad de las llantas del
-                                        vehiculo del cliente</p>
-                                    <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
-                                </div>
-                            </div>
-
-                            <div class="contenedorInfoSer">
-                                <strong>
-                                    <p>
-                                        Reparador de llanta
-                                    </p>
-                                </strong>
-                                <div class="contAcSer">
-                                    <p>Este servicio sirve para verificar y repara la integridad de las llantas del
-                                        vehiculo del cliente</p>
-                                    <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="bottomCardSer">
-                            <h6>Servicio 1</h6>
-                            <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
-                        </div>
-
-                    </div>
-
-                    <div class="cardServicio">
-
-                        <div class="contenidoSer">
-
-                            <div class="contenedorInfoSer">
-                                <strong>
-                                    <p>
-                                        Reparador de llanta
-                                    </p>
-                                </strong>
-                                <div class="contAcSer">
-                                    <p>Este servicio sirve para verificar y repara la integridad de las llantas del
-                                        vehiculo del cliente</p>
-                                    <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
-                                </div>
-                            </div>
-
-                            <div class="contenedorInfoSer">
-                                <strong>
-                                    <p>
-                                        Reparador de llanta
-                                    </p>
-                                </strong>
-                                <div class="contAcSer">
-                                    <p>Este servicio sirve para verificar y repara la integridad de las llantas del
-                                        vehiculo del cliente</p>
-                                    <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="bottomCardSer">
-                            <h6>Servicio 1</h6>
-                            <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
-                        </div>
-
-                    </div>
-
-                    <div class="cardServicio">
-
-                        <div class="contenidoSer">
-                            <div class="contenedorInfoSer">
-                                <strong>
-                                    <p>
-                                        Reparador de llanta
-                                    </p>
-                                </strong>
-                                <div class="contAcSer">
-                                    <p>Este servicio sirve para verificar y repara la integridad de las llantas del
-                                        vehiculo del cliente</p>
-                                    <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
-                                </div>
-                            </div>
-
-                            <div class="contenedorInfoSer">
-                                <strong>
-                                    <p>
-                                        Reparador de llanta
-                                    </p>
-                                </strong>
-                                <div class="contAcSer">
-                                    <p>Este servicio sirve para verificar y repara la integridad de las llantas del
-                                        vehiculo del cliente</p>
-                                    <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="bottomCardSer">
-                            <h6>Servicio 1</h6>
-                            <img src="../../recursos/imagenes/img_citas/eliminarIcono.png" alt="">
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="bottomServicio">
-                    <h4 id="btnRegresar">
-                        < Regresar </h4>
-                            <img src="../../recursos/imagenes/img_citas/SignoMas.png" alt="" id="btnAgregarServicio">
-                </div>
-
-            </div>
-
-        </div>
-
-        <!--Modal para elegir tipo de factura-->
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <div class="contenidoModal">
-                    <div class="imagenModal">
-                        <img src="../../recursos/imagenes/img_citas/factura.png" alt="">
-                    </div>
-                    <div class="contentModal">
-                        <h2>¿Que clase de factura desea realizar?</h2>
-                        <div class="botonesModal">
-                            <a href="../privado/factura_persona_juridica.html"><button class="btnModal">Credito
-                                    Fiscal</button></a>
-                            <a href="../privado/factura_persona_natural.html"><button class="btnModal">Consumidor
-                                    final</button></a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <!--Modal de la parte de agregar servicio-->
-        <div id="modalServicios" class="modal">
-            <div class="modal-content">
-                <span class="closeServicios">&times;</span>
-                <div class="contenidoModalSer">
-                    <div class="titulo">
-                        <h4>Cita Axel Garcia</h4>
-                    </div>
-
-                    <div class="camposServicios">
-                        <div class="form-floating mb-0 p-0">
-                            <label for="inputFechaAproxFinS" class="form-label px-2 pt-1 p-0 m-0">Fecha aprox
-                                fin</label>
-                            <input type="date" class="form-control" id="inputFechaAproxFinS" placeholder="" required>
-                        </div>
-
-
-                        <div class="form-floating mb-2 p-0">
-                            <input type="text" class="form-control" id="inputHoraAproxS" placeholder="...">
-                            <label for="inputHoraAproxS">hora aprox fin</label>
-                        </div>
-
-                        <div class="form-floating mb-0 p-0">
-                            <label for="inputFechaFinS" class="form-label px-2 pt-1 p-0 m-0">Fecha fin</label>
-                            <input type="date" class="form-control" id="inputFechaFinS" placeholder="" required>
-                        </div>
-
-                        <div class="form-floating mb-2 p-0">
-                            <input type="text" class="form-control" id="inputHoraFinS" placeholder="...">
-                            <label for="inputHoraFinS">Hora fin</label>
-                        </div>
-
-                        <div class="form-floating mb-2 p-0">
-                            <label class="form-label px-2 pt-0 p-0 m-0">Servicio</label>
-                            <select class="form-select pt-4 open-sans-regular" aria-label="Default select example">
-                                <option selected>Mantenimiento aire acondicionado</option>
-                                <option value="1">Mantenimiento aire acondicionado</option>
-                                <option value="2">Servicio1</option>
-                                <option value="3">Servicio2</option>
-                            </select>
-                        </div>
-
-                    </div>
-
-                    <hr class="bottomModalSer">
-
-                    <div class="botonesModalSer">
-                        <button id="btnCancelar">Cancelar</button>
-                        <button id="btnAceptar">Aceptar</button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-
     </main>
 
 
@@ -869,10 +678,9 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!--Dejarlo NOQUITAR-->
     <!-- *Llamada al controlador del sitio publico -->
     <script type="text/javascript" src="../../controlador/utilidades/privado.js"></script> <!--Dejarlo NOQUITAR-->
-    <!-- *Llamada al controlador de la página web -->
-    <script type="text/javascript" src="../../controlador/privado/usuario.js"></script>
     <!--Cambiarlo por el js de la página en cuestion-->
     <script type="text/javascript" src="../../controlador/privado/citas.js"></script>
+    <script type="text/javascript" src="../../controlador/utilidades/components.js"></script>
 </body>
 
 </html>
