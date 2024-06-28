@@ -1,5 +1,5 @@
 
-var cardContainers = document.getElementsByClassName("cardContainer");
+var cardContainers = document.getElementsByClassName("card");
 
 for (var i = 0; i < cardContainers.length; i++) {
   cardContainers[i].addEventListener("click", function () {
@@ -8,13 +8,11 @@ for (var i = 0; i < cardContainers.length; i++) {
   });
 }
 
-
 document.getElementById("cerrarCitas").addEventListener("click", function () {
   // Ocultar el contenedor containerExpand
   var cerrarCita = document.getElementById("containerExpand");
   cerrarCita.style.display = "none";
 });
-
 
 // Abre el agregar cita closeServiciosA
 document.getElementById("btnAgregar").addEventListener("click", function () {
