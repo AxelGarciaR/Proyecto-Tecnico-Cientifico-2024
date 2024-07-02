@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase del modelo.
-require_once ('../../models/data/cliente_data.php');
+require_once('../../models/data/cliente_data.php');
 
 // Se comprueba si existe una acción a realizar, de lo contrario se finaliza el script con un mensaje de error.
 if (isset($_GET['action'])) {
@@ -26,6 +26,13 @@ if (isset($_GET['action'])) {
                     $result['status'] = 1;
                 } else {
                     $result['error'] = 'No existen marcas para mostrar';
+                }
+                break;
+            case 'readServicios':
+                if ($result['dataset'] = $cliente->readServicios()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['error'] = 'No existen servicios para mostrar';
                 }
                 break;
             case 'readOne':
@@ -145,6 +152,9 @@ if (isset($_GET['action'])) {
                     $autosCantidad = isset($_POST['autos_cantd']) ? $_POST['autos_cantd'] : '';
                     $autosMarcas = isset($_POST['autos_marcas']) ? $_POST['autos_marcas'] : '';
 
+                    $servicios = isset($_POST['servicios']) ? $_POST['servicios'] : '';
+                    $rubro = isset($_POST['rubro_cliente']) ? $_POST['rubro_cliente'] : '';
+
                     $cliente->setSearchValue($searchValue);
                     $cliente->setDepartamento($departamento);
 
@@ -153,6 +163,9 @@ if (isset($_GET['action'])) {
 
                     $cliente->setAutosCantidad($autosCantidad);
                     $cliente->setMarcasAutomovil($autosMarcas);
+
+                    $cliente->setServicios($servicios);
+                    $cliente->setRubro($rubro);
 
                     // Buscar clientes con los criterios definidos.
                     if ($result['dataset'] = $cliente->searchRows()) {
@@ -178,8 +191,8 @@ if (isset($_GET['action'])) {
     // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
     header('Content-type: application/json; charset=utf-8');
     // Se imprime el resultado en formato JSON y se retorna al controlador.
-    print (json_encode($result));
+    print(json_encode($result));
 } else {
     // Si no se envió una acción válida, se devuelve un mensaje de recurso no disponible.
-    print (json_encode('Recurso no disponible'));
+    print(json_encode('Recurso no disponible'));
 }

@@ -27,6 +27,7 @@ class ClienteHandler
     protected $autos_cantidad = null;
 
     protected $marcas_seleccionadas = null;
+    protected $servicios_seleccionados = null;
 
     public function searchRows()
     {
@@ -104,6 +105,40 @@ class ClienteHandler
             foreach ($marcas_seleccionadas as $marca) {
                 $params[] = $marca;
             }
+        }
+
+        if ($this->servicios_seleccionados && ($this->tipo_cliente == 'Persona natural' || $this->tipo_cliente == 'Persona juridica')) {
+            $table = ($this->tipo_cliente == 'Persona Natural') ? 'tb_detalles_consumidores_finales' : 'tb_detalles_creditos_fiscales';
+        
+            // Convertimos la cadena en un arreglo de IDs de servicios
+            $servicios_seleccionados = explode(',', $this->servicios_seleccionados);
+        
+            // Creamos un string con el mismo número de placeholders que servicios seleccionados
+            $placeholders = implode(',', array_fill(0, count($servicios_seleccionados), '?'));
+        
+            // Agregamos los placeholders a la consulta
+            $sql .= ' AND EXISTS (
+                SELECT 1
+                FROM ' . $table . ' AS detalle
+                INNER JOIN tb_consumidores_finales AS consumidor ON detalle.id_consumidor_final = consumidor.id_consumidor_final
+                INNER JOIN tb_citas AS cita ON consumidor.id_cita = cita.id_cita
+                WHERE cita.id_automovil IN (
+                    SELECT id_automovil 
+                    FROM tb_automoviles 
+                    WHERE tb_automoviles.id_cliente = tb_clientes.id_cliente
+                )
+                AND detalle.id_servicio IN (' . $placeholders . ')
+            )';
+        
+            // Agregamos los valores de los servicios seleccionados a los parámetros
+            foreach ($servicios_seleccionados as $servicio) {
+                $params[] = $servicio;
+            }
+        }
+
+        if ($this->rubro_comercial) {
+            $sql .= ' AND rubro_comercial = ?';
+            $params[] = $this->rubro_comercial;
         }
 
         return Database::getRows($sql, $params);
@@ -224,6 +259,13 @@ class ClienteHandler
     public function readMarcas()
     {
         $sql = 'SELECT id_marca_automovil, nombre_marca_automovil FROM tb_marcas_automoviles ORDER BY nombre_marca_automovil ASC;';
+        return Database::getRows($sql);
+    }
+
+    // Método para leer los clientes
+    public function readServicios()
+    {
+        $sql = 'SELECT id_servicio, nombre_servicio FROM tb_servicios ORDER BY nombre_servicio ASC;';
         return Database::getRows($sql);
     }
 

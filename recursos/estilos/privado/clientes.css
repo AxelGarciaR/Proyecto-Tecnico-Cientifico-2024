@@ -492,7 +492,7 @@ hr {
     height: 50px;
 }
 
-.divReload{
+.divReload {
     cursor: pointer;
 }
 
@@ -505,8 +505,9 @@ hr {
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
     -webkit-transition-duration: 0.3s;
     transition-duration: 0.3s;
-  }
-  .hvr-icon-grow-rotate .hvr-icon {
+}
+
+.hvr-icon-grow-rotate .hvr-icon {
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
     -webkit-transition-duration: 0.3s;
@@ -515,8 +516,11 @@ hr {
     transition-property: transform;
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
-  }
-  .hvr-icon-grow-rotate:hover .hvr-icon, .hvr-icon-grow-rotate:focus .hvr-icon, .hvr-icon-grow-rotate:active .hvr-icon {
+}
+
+.hvr-icon-grow-rotate:hover .hvr-icon,
+.hvr-icon-grow-rotate:focus .hvr-icon,
+.hvr-icon-grow-rotate:active .hvr-icon {
     -webkit-transform: scale(1.2) rotate(12deg);
     transform: scale(1.2) rotate(12deg);
-  }
+}

@@ -13,7 +13,7 @@
 
     <!-- *IMPORTACIÓN DE RECURSOS EXTERNOS -->
     <!-- Llamada al icono de la página web -->
-    <link type="image/png" rel="icon" href="../../recursos/imagenes/icons/IconClientes.png">
+    <link type="image/png" rel="icon" href="../../recursos/imagenes/icons/icon-clientes.svg">
 
     <!-- *Llamada a las hojas de estilos del framework (BOOSTRAP) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -53,7 +53,7 @@
                     </div>
                     <div class="d-flex justify-content-center d-flex align-items-baseline">
                         <!-- Contenedor del los input de entrada -->
-                        <img src="../../recursos/imagenes/icons/IconClientesBlck.png" width="25px" height="25px">
+                        <img src="../../recursos/imagenes/icons/icon-clientesBlck.svg" width="30px" height="30px">
                         <h3 class="px-3 open-sans-bold">Filtros</h3>
                         <a href="#" class="text-black d-md-none" data-bs-toggle="offcanvas" data-bs-target="#bdSidebar">
                             <h3 class="open-sans-bold">X</h3>
@@ -63,7 +63,7 @@
                 <hr>
                 <div class="sidebar-body"> <!-- Contedor del cuerpo de los filtros-->
                     <ul class="list-unstyled ps-0 cursor-hover "> <!-- Lista no ordenada de los filtros-->
-                        <!--TODO ----------------------------ELEMENTO MARCAS----------------------------------->
+                        <!--TODO ----------------------------ELEMENTO DEPARTAMENTOS----------------------------------->
                         <li class="mb-1 cursor-hover d-flex flex-column align-items-center">
                             <!-- Primer elemento de filtros-->
                             <!-- Elemento de la lista-->
@@ -99,7 +99,7 @@
                             </div>
                         </li>
 
-                        <!--TODO ----------------------------ELEMENTO FECHA DE FABRICACIÓN----------------------------------->
+                        <!--TODO ----------------------------ELEMENTO FECHA DE REGISTRO----------------------------------->
                         <hr>
                         <li class="mb-1 cursor-hover d-flex flex-column align-items-center">
                             <!--Tercer elemento de filtros-->
@@ -196,59 +196,14 @@
                             <!-- Contenedor de los checkboxs del colores-->
                             <div class="collapse col-11 mt-3" id="Servicios">
                                 <!--Contenedor de la lista no ordenada-->
-                                <ul class="list-group contenedor-checkbox">
-                                    <!--Contenedor del auto 1-->
-                                    <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Servicio1">
-                                        <label class="form-check-label stretched-link" for="Servicio1">
-                                            <h6 class="m-0 p-0 open-sans-regular">
-                                                Mécanica General
-                                            </h6>
-                                        </label>
-                                    </li>
-                                    <!--Contenedor del auto 2-->
-                                    <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Servicio2">
-                                        <label class="form-check-label stretched-link" for="Servicio2">
-                                            <h6 class="m-0 p-0 open-sans-regular">
-                                                Aire Condicionado
-                                            </h6>
-                                        </label>
-                                    </li>
-                                    <!--Contenedor del auto 3-->
-                                    <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Servicio3">
-                                        <label class="form-check-label stretched-link" for="Servicio3">
-                                            <h6 class="m-0 p-0 open-sans-regular">
-                                                Mantenimiento General
-                                            </h6>
-                                        </label>
-                                    </li>
-                                    <!--Contenedor del auto 4-->
-                                    <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Servicio4">
-                                        <label class="form-check-label stretched-link" for="Servicio4">
-                                            <h6 class="m-0 p-0 open-sans-regular">
-                                                Enderezado
-                                            </h6>
-                                        </label>
-                                    </li>
-                                    <!--Contenedor del auto 5-->
-                                    <li class="list-group-item p-0 m-0 px-2">
-                                        <input class="form-check-input me-2" type="checkbox" id="Servicio5">
-                                        <label class="form-check-label stretched-link" for="Servicio5">
-                                            <h6 class="m-0 p-0 open-sans-regular">
-                                                Cambio de Aceite
-                                            </h6>
-                                        </label>
-                                    </li>
-                                </ul>
+                                <ul class="list-group contenedor-checkbox" id="contenedorServicios"></ul>
                             </div>
+
                         </li>
 
                         <!--TODO ----------------------------ELEMENTO RUBRO COMERCIAL----------------------------------->
                         <hr>
-                        <li class="mb-1 cursor-hover d-flex flex-column align-items-center">
+                        <li class="mb-1 cursor-hover d-flex flex-column align-items-center d-none" id="contenedorRubroComercial">
                             <!-- Primer elemento de filtros-->
                             <!-- Elemento de la lista-->
                             <button class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton"
@@ -263,12 +218,12 @@
                             </button>
 
                             <div class="collapse" id="Rubro">
-                                <select class="form-select">
-                                    <option selected>Seleccionar Rubro Comercial</option>
-                                    <option value="Ahuachapán">Alimenticio</option>
-                                    <option value="Cabañas">Automotriz</option>
-                                    <option value="Chalatenango">Belleza</option>
-                                    <option value="Cuscatlán">Calzado</option>
+                                <select class="form-select" name="rubro_buscar" id="rubro_buscar">
+                                    <option selected value="0">Seleccionar Rubro Comercial</option>
+                                    <option value="Alimenticio">Alimenticio</option>
+                                    <option value="Automotriz">Automotriz</option>
+                                    <option value="Belleza">Belleza</option>
+                                    <option value="Calzado">Calzado</option>
                                 </select>
                             </div>
                         </li>

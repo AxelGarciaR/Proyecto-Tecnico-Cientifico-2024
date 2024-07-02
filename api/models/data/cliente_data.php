@@ -1,8 +1,8 @@
 <?php
 // Se incluye la clase para validar los datos de entrada.
-require_once ('../../helpers/validator.php');
+require_once('../../helpers/validator.php');
 // Se incluye la clase padre.
-require_once ('../../models/handler/cliente_handler.php');
+require_once('../../models/handler/cliente_handler.php');
 /*
  *  Clase para manejar el encapsulamiento de los datos de la tabla USUARIO.
  */
@@ -109,6 +109,18 @@ class ClienteData extends ClienteHandler
         }
     }
 
+    // Método para establecer el rubro del cliente
+    public function setRubro($value)
+    {
+        if (!Validator::validateAlphabetic($value)) {
+            $this->data_error = 'El rubro debe ser un valor alfabético';
+            return false;
+        } else {
+            $this->rubro_comercial = $value;
+            return true;
+        }
+    }
+
     // Método para establecer el nombre del cliente
     public function setNombre($value, $min = 2, $max = 50)
     {
@@ -153,18 +165,6 @@ class ClienteData extends ClienteHandler
             return false;
         } else {
             $this->correo_cliente = $value;
-            return true;
-        }
-    }
-
-    // Método para establecer el rubro del cliente
-    public function setRubro($value)
-    {
-        if (!Validator::validateAlphabetic($value)) {
-            $this->data_error = 'El rubro debe ser un valor alfabético';
-            return false;
-        } else {
-            $this->rubro_comercial = $value;
             return true;
         }
     }
@@ -221,6 +221,12 @@ class ClienteData extends ClienteHandler
     public function setMarcasAutomovil($value)
     {
         $this->marcas_seleccionadas = $value;
+        return true;
+    }
+
+    public function setServicios($value)
+    {
+        $this->servicios_seleccionados = $value;
         return true;
     }
 

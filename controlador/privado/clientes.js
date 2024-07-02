@@ -7,6 +7,8 @@ const MODAL = new bootstrap.Modal('#agregarClienteModal');
 const CLIENTES_JURIDICO_CONTAINER = document.getElementById('clientesJuridicoContainer');
 const CLIENTES_NATURAL_CONTAINER = document.getElementById('clientesNaturalContainer');
 const CONTENEDOR_MARCAS_AUTOS = document.getElementById('contenedorMarcasAutos');
+const CONTENEDOR_SERVICIOS = document.getElementById('contenedorServicios');
+const CONTENEDOR_RUBRO_COMERCIAL = document.getElementById('contenedorRubroComercial');
 const ADD_FORM = document.getElementById('addForm');
 
 const PERSONA_NATURAL_DIV = document.getElementById('personaNatural');
@@ -28,6 +30,7 @@ const DUI = document.getElementById('input_dui'),
     RUBRO_COMERCIAL = document.getElementById('input_rubro_comercial');
 
 const DEPARTAMENTO_BUSCAR = document.getElementById('departamento_buscar');
+const RUBRO_BUSCAR = document.getElementById('rubro_buscar');
 const FECHA_DESDE = document.getElementById("datepicker-desde");
 const FECHA_HASTA = document.getElementById("datepicker-hasta");
 const AUTOS_CLIENTE = document.getElementById("input_cantd_autos");
@@ -42,6 +45,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (primeraPestana) {
         primeraPestana.click();
         fillData('readMarcas');
+        fillData('readServicios');
     }
 });
 
@@ -128,6 +132,7 @@ function reload() {
     FECHA_DESDE.value = '';
     FECHA_HASTA.value = '';
     AUTOS_CLIENTE.value = '';
+    RUBRO_BUSCAR.value = 0;
     fillData('readAll');
 }
 
@@ -135,6 +140,11 @@ const INPUT_BUSQUEDA = document.getElementById('input_buscar');
 
 // Agregar un evento change al select
 DEPARTAMENTO_BUSCAR.addEventListener('change', function () {
+    search();
+});
+
+// Agregar un evento change al select
+RUBRO_BUSCAR.addEventListener('change', function () {
     search();
 });
 
@@ -160,11 +170,20 @@ const search = async () => {
 
     if (AUTOS_CLIENTE.value) {
         FORM.append('autos_cantd', AUTOS_CLIENTE.value);
-    }else{}
+    } else { }
 
     if (MARCAS_SELECCIONADAS.length != 0) {
         console.log(MARCAS_SELECCIONADAS);
         FORM.append('autos_marcas', MARCAS_SELECCIONADAS);
+    }
+
+    if (SERVICIOS_SELECCIONADOS.length != 0) {
+        console.log(SERVICIOS_SELECCIONADOS);
+        FORM.append('servicios', SERVICIOS_SELECCIONADOS);
+    }
+
+    if (RUBRO_BUSCAR.value) {
+        FORM.append('rubro_cliente', RUBRO_BUSCAR.value);
     }
 
     fillData('searchRows', FORM);
@@ -255,7 +274,42 @@ const fillData = async (action, form = null) => {
             }
         }
         else {
+            if (action == 'readServicios') {
+                console.log('ReadServicios')
+                CONTENEDOR_SERVICIOS.innerHTML = '';
+                console.log(TIPO_CLIENTE);
+                const DATA = await fetchData(CLIENTES_API, action);
 
+                if (DATA.status) {
+                    DATA.dataset.forEach(row => {
+                        CONTENEDOR_SERVICIOS.innerHTML +=
+                            `
+                        <li class="list-group-item p-0 m-0 px-2">
+                            <input class="form-check-input me-2 checkbox" type="checkbox" id="${row.id_servicio}" onclick="clickOnCheckBoxServicios(this)">
+                            <label class="form-check-label stretched-link" for="${row.id_servicio}">
+                                <h6 class="m-0 p-0 open-sans-regular">
+                                ${row.nombre_servicio}
+                                </h6>
+                            </label>
+                        </li>
+                        `
+                    });
+                } else {
+                    if (DATA.error == 'Acción no disponible fuera de la sesión, debe ingresar para continuar') {
+                        await sweetAlert(4, DATA.error, true); location.href = 'index.html'
+                    }
+                    else {
+                        CONTENEDOR_SERVICIOS.innerHTML +=
+                            `<h6 class="m-0 p-0 open-sans-regular">
+                            No existen servicios registrados
+                            </h6>`
+                        //sweetAlert(4, DATA.error, true);
+                    }
+                }
+            }
+            else {
+
+            }
         }
     }
 }
@@ -325,6 +379,26 @@ function setIdMarcas(id) {
     search();
 }
 
+let SERVICIOS_SELECCIONADOS = [];
+
+function clickOnCheckBoxServicios(input) {
+    setIdServicios(input.id)
+}
+
+function setIdServicios(id) {
+    // Verificar si el id ya está en el arreglo
+    const index = SERVICIOS_SELECCIONADOS.indexOf(id);
+    if (index === -1) {
+        // Si el id no está en el arreglo, lo agregamos
+        SERVICIOS_SELECCIONADOS.push(id);
+    } else {
+        // Si el id ya está en el arreglo, lo eliminamos
+        SERVICIOS_SELECCIONADOS.splice(index, 1);
+    }
+    //console.log(MARCAS_SELECCIONADAS);
+    search();
+}
+
 // Función para mostrar el div de agregar trabajador y ocultar el div de la tabla.
 function showPersonaNatural(boton) {
     TIPO_CLIENTE = 'Persona natural';
@@ -352,6 +426,7 @@ function showCamposJuridicos() {
     NRC.classList.remove('d-none');
     NRF_DIV.classList.remove('d-none');
     NRF.classList.remove('d-none');
+    CONTENEDOR_RUBRO_COMERCIAL.classList.remove('d-none');
 }
 
 function showCamposNaturales() {
@@ -363,6 +438,7 @@ function showCamposNaturales() {
     NRC.classList.add('d-none');
     NRF_DIV.classList.add('d-none');
     NRF.classList.add('d-none');
+    CONTENEDOR_RUBRO_COMERCIAL.classList.add('d-none');
 }
 
 //Funcion que muestra la alerta de confirmacion
