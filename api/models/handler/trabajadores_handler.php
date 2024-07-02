@@ -20,6 +20,8 @@ class TrabajadoresHandler
     protected $salario_base = null;
     protected $Fto_trabajador = null;
 
+    //Aqui se guardaran las imagenes 
+    const RUTA_IMAGEN = '../../helpers/images/trabajadores';
 
     //Método para buscar trabajadores dependiendo de su nombre o dui 
     public function searchRows()

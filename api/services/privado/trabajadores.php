@@ -58,11 +58,13 @@ if (isset($_GET['action'])) {
                     !$trabajador->setIdEspecializacionTrabajador($_POST['especializacion_trabajador']) or
                     !$trabajador->setFechaContratacion($_POST['fecha_contratacion']) or
                     !$trabajador->setSalarioBase($_POST['input_salario']) or
-                    !$trabajador->setFtoTrabajador($_POST['fto_trabajador'])
+                    !$trabajador->setFtoTrabajador($_FILES['fto_trabajador'])
+
                 ) {
                     $result['error'] = $trabajador->getDataError();
                 } elseif ($trabajador->createRow()) {
-                    $result['status'] = 1;
+                    $result['status'] = 1;  
+                    $result['fileStatus'] = Validator::saveFile($_FILES['fto_trabajador'], $trabajador::RUTA_IMAGEN);
                     $result['message'] = 'trabajador creado correctamente';
                 } else {
                     $result['error'] = 'Ocurrio un problema con ingresar un trabajador';

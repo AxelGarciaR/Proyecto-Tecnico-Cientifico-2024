@@ -61,6 +61,8 @@
                             <div class="modal-dialog modal-dialog-centered modal-xl">
                                 <div class="modal-content p-lg-5 p-1 p-md-4 pb-0 pb-lg-3">
                                     <form id="saveForm"> <!--Formulario de guardado-->
+                                        <!--input para el id del trabajador-->
+                                        <input type="number" class="d-none" id="idTrabajador" name="idTrabajador">
                                         <div class="modal-body row">
                                             <div
                                                 class="content-add-img col-md-5 d-flex flex-column justify-content-center align-items-center">
@@ -71,59 +73,57 @@
                                                 <button type="button"
                                                     class="btn btn-primary btnFogot col-8 col-lg-6 open-sans-regular">
                                                     <label class="form-label text-white m-1"
-                                                        for="customFile2">Seleccionar
+                                                        for="fto_trabajador">Seleccionar
                                                         imagen</label></button>
-                                                <input type="file" class="form-control d-none" id="customFile2" readonly
-                                                    onchange="displaySelectedImage(event, 'selectedImageF')" />
+                                                <input type="file" class="form-control d-none" id="fto_trabajador"
+                                                    readonly onchange="displaySelectedImage(event, 'selectedImageF')" />
                                                 <!--Boton de seleccion de imagen-->
                                             </div>
 
                                             <div class="content-add-info col-md-7">
 
-                                                <!--input para el id del trabajador-->
-                                                <input type="number" class="d-none" id="idTrabajador"
-                                                    name="idTrabajador">
-
                                                 <div class="form-floating mb-0 p-0">
-                                                    <input type="text" class="form-control" id="input_dui" name="input_dui"
-                                                        placeholder="name@example.com">
-                                                    <label for="dui">DUI</label> <!--DUI-->
+                                                    <input type="text" class="form-control" id="input_dui"
+                                                        name="input_dui" placeholder="name@example.com">
+                                                    <label for="input_dui">DUI</label> <!--DUI-->
                                                 </div>
 
                                                 <div class="form-floating mb-0 p-0">
-                                                    <input type="text" class="form-control" id="input_nit" name="input_nit"
-                                                        placeholder="name@example.com">
-                                                    <label for="nit">NIT</label> <!--NIT-->
+                                                    <input type="text" class="form-control" id="input_nit"
+                                                        name="input_nit" placeholder="name@example.com">
+                                                    <label for="input_nit">NIT</label> <!--NIT-->
                                                 </div>
 
                                                 <div class="form-floating mb-0 p-0">
-                                                    <input type="text" class="form-control" id="input_nombre" name="input_nombre"
-                                                        placeholder="name@example.com">
-                                                    <label for="nombres">Nombres</label> <!--Nombres-->
+                                                    <input type="text" class="form-control" id="input_nombre"
+                                                        name="input_nombre" placeholder="name@example.com">
+                                                    <label for="input_nombre">Nombres</label> <!--Nombres-->
                                                 </div>
 
                                                 <div class="form-floating mb-0 p-0">
-                                                    <input type="text" class="form-control" id="input_apellido" name="input_apellido"
-                                                        placeholder="name@example.com">
-                                                    <label for="apellidos">Apellidos</label> <!--Apellidos-->
+                                                    <input type="text" class="form-control" id="input_apellido"
+                                                        name="input_apellido" placeholder="name@example.com">
+                                                    <label for="input_apellido">Apellidos</label> <!--Apellidos-->
                                                 </div>
 
                                                 <div class="form-floating mb-0 p-0">
-                                                    <input type="text" class="form-control" id="input_telefono" name="input_telefono"
-                                                        placeholder="name@example.com">
-                                                    <label for="telefono">Teléfono</label> <!--Telefono-->
+                                                    <input type="text" class="form-control" id="input_telefono"
+                                                        name="input_telefono" placeholder="name@example.com">
+                                                    <label for="input_telefono">Teléfono</label> <!--Telefono-->
                                                 </div>
 
                                                 <div class="form-floating mb-0 p-0">
-                                                    <input type="text" class="form-control" id="input_correo" name="input_correo"
-                                                        placeholder="name@example.com">
-                                                    <label for="correo">Correo electrónico</label> <!--Correo-->
+                                                    <input type="text" class="form-control" id="input_correo"
+                                                        name="input_correo" placeholder="name@example.com">
+                                                    <label for="input_correo">Correo electrónico</label> <!--Correo-->
                                                 </div>
 
                                                 <div class="form-floating mb-0 p-0">
-                                                    <label class="form-label px-2 pt-0 p-0 m-0">Departamento</label>
+                                                    <label for="departamento_trabajador"
+                                                        class="form-label px-2 pt-0 p-0 m-0">Departamento</label>
                                                     <!--Departamento-->
-                                                    <select class="form-select pt-4 open-sans-regular" id="departamento_trabajador" name="departamento_trabajador"
+                                                    <select class="form-select pt-4 open-sans-regular"
+                                                        id="departamento_trabajador" name="departamento_trabajador"
                                                         aria-label="Default select example">
                                                         <option selected>San salvador</option>
                                                         <option value="1">Departamento 1</option> <!--Opción 1-->
@@ -133,9 +133,12 @@
                                                 </div>
 
                                                 <div class="form-floating mb-0 p-0">
-                                                    <label class="form-label px-2 pt-0  p-0 m-0">Especialización</label>
+                                                    <label for="especializacion_trabajador"
+                                                        class="form-label px-2 pt-0  p-0 m-0">Especialización</label>
                                                     <!--Especialización-->
-                                                    <select class="form-select pt-4 open-sans-regular" id="especializacion_trabajador" name="especializacion_trabajador"
+                                                    <select class="form-select pt-4 open-sans-regular"
+                                                        id="especializacion_trabajador"
+                                                        name="especializacion_trabajador"
                                                         aria-label="Default select example">
                                                         <option selected>Técnico electrónico</option>
                                                         <option value="1">Especializacion 1</option> <!--Opción 1-->
@@ -144,16 +147,17 @@
                                                     </select>
                                                 </div>
                                                 <div class="form-floating mb-0 p-0">
-                                                    <label for="fechanInput" class="form-label px-2 pt-1 p-0 m-0">Fecha
+                                                    <label for="fecha_contratacion"
+                                                        class="form-label px-2 pt-1 p-0 m-0">Fecha
                                                         de contratación</label> <!--Fecha de contratación-->
-                                                    <input type="date" class="form-control" id="fecha_contratacion" name="fecha_contratacion"
-                                                        placeholder="" required>
+                                                    <input type="date" class="form-control" id="fecha_contratacion"
+                                                        name="fecha_contratacion" placeholder="" required>
                                                 </div>
 
                                                 <div class="form-floating mb-0 p-0">
-                                                    <input type="text" class="form-control" id="input_salario" name="input_salario"
-                                                        placeholder="name@example.com">
-                                                    <label for="salario">Salario Base</label> <!--Salario-->
+                                                    <input type="text" class="form-control" id="input_salario"
+                                                        name="input_salario" placeholder="name@example.com">
+                                                    <label for="input_salario">Salario Base</label> <!--Salario-->
                                                 </div>
 
                                             </div>

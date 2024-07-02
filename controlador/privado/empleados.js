@@ -8,10 +8,8 @@ const CONTAINER_TRABAJADORES_BODY = document.getElementById('cardsTrabajadores')
 // Constantes para establecer los elementos del componente Modal.
 const SAVE_MODAL = new bootstrap.Modal('#staticBackdrop');
 
-
 // Constantes para establecer los elementos del formulario de guardar.
 const SAVE_FORM = document.getElementById('saveForm'),
-    ID_EMPLEADO = document.getElementById('idTrabajador'),
     DUI = document.getElementById('input_dui'),
     NIT = document.getElementById('input_nit'),
     NOMBRES = document.getElementById('input_nombre'),
@@ -22,8 +20,8 @@ const SAVE_FORM = document.getElementById('saveForm'),
     ESPECIALIZACION = document.getElementById('especializacion_trabajador'),
     FECHA = document.getElementById('fecha_contratacion'),
     SALARIO = document.getElementById('input_salario'),
-    FTO_TRABAJADOR = document.getElementById('fto_trabajador');
-
+    FTO_TRABAJADOR = document.getElementById('fto_trabajador'),
+    ID_EMPLEADO = document.getElementById('idTrabajador');
 // *Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {
     loadTemplate();
@@ -154,12 +152,21 @@ async function readTrabajadores() {
 SAVE_FORM.addEventListener('submit', async (event) => {
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
+
     // Se verifica la acción a realizar.
     const action = ID_EMPLEADO.value ? 'updateRow' : 'createRow';
+
     // Constante tipo objeto con los datos del formulario.
     const formData = new FormData(SAVE_FORM);
+
+    // Mostrar los valores de los campos del FormData en la consola.
+    for (let pair of formData.entries()) {
+        console.log(pair[0] + ': ' + pair[1]);
+    }
+
     // Petición para guardar los datos del formulario.
     const responseData = await fetchData(TRABAJADORES_API, action, formData);
+
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (responseData.status) {
         // Se cierra la caja de diálogo.
@@ -174,6 +181,7 @@ SAVE_FORM.addEventListener('submit', async (event) => {
 });
 
 
+
 /*
 *   Función asíncrona para preparar el formulario al momento de actualizar un registro.
 *   Parámetros: id (identificador del registro seleccionado).
@@ -184,10 +192,15 @@ SAVE_FORM.addEventListener('submit', async (event) => {
 *   Parámetros: id (identificador del registro seleccionado).
 *   Retorno: ninguno.
 */
+
+let id_empleado = null;
+
 const openUpdate = async (id) => {
     // Se define una constante tipo objeto con los datos del registro seleccionado.
     const formData = new FormData();
     formData.append('idTrabajador', id);
+    id_empleado = id;
+    
     // Petición para obtener los datos del registro solicitado.
     const responseData = await fetchData(TRABAJADORES_API, 'readOne', formData);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
@@ -228,6 +241,7 @@ const openDelete = async (id) => {
         // Se define una constante tipo objeto con los datos del registro seleccionado.
         const formData = new FormData();
         formData.append('idTrabajador', id);
+        ID_EMPLEADO = id;
         // Petición para eliminar el registro seleccionado.
         const responseData = await fetchData(TRABAJADORES_API, 'deleteRow', formData);
         // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
@@ -315,7 +329,7 @@ function displaySelectedImage(event, elementId) {
 }
 
 
-document.getElementById('DUI').addEventListener('input', function (event) {
+document.getElementById('input_dui').addEventListener('input', function (event) {
     // Obtener el valor actual del campo de texto
     let inputValue = event.target.value;
 
@@ -334,7 +348,7 @@ document.getElementById('DUI').addEventListener('input', function (event) {
     event.target.value = inputValue;
 });
 
-document.getElementById('NIT').addEventListener('input', function (event) {
+document.getElementById('input_nit').addEventListener('input', function (event) {
     // Obtener el valor actual del campo de texto
     let inputValue = event.target.value;
 
@@ -370,6 +384,7 @@ document.getElementById('NIT').addEventListener('input', function (event) {
     // Actualizar el valor del campo de texto con la entrada formateada
     event.target.value = formattedValue;
 });
+
 
 document.getElementById('input_nombre').addEventListener('input', function (event) {
     // Obtener el valor actual del campo de texto
