@@ -46,41 +46,81 @@
                             <h3 class="email">correoelectrionico@gmail.com</h3>
                             <div class="lineR3"></div>
                         </div>
-
                         <div class="contenedor-inputs text-center col-12">
-                            <div class="form-floating mb-0">
-                                <input type="email" class="form-control" id="Input_Correo"
-                                    placeholder="name@example.com"
-                                    value="correoelectrionico@gmail.com                                    ">
-                                <label for="Input_Correo">Correo Electrónico</label>
-                            </div>
-                            <div class="form-floating">
-                                <input type="password" class="form-control" id="Input_Contra" placeholder="Password"
-                                    value="EjemploContra">
-                                <label for="Input_Contra">Contraseña</label>
-                            </div>
-                        </div>
+                            <form id="inputUsuario">
+                                <div class="form-floating mb-0">
+                                    <input type="email" class="form-control" id="correoUsuario" name="correoUsuario"
+                                        placeholder="name@example.com"
+                                        value="correoelectrionico@gmail.com                                    ">
+                                    <label for="correoUsuario">Correo Electrónico</label>
 
-                        <div
-                            class="contenedor_botones d-flex align-items-center justify-content-center col-12 flex-wrap">
-                            <button type="button" class="btn btn-dark btnCancelar col-lg-5 col-md-5 col-10"
-                                onclick="openClose()">
-                                <h6 class="open-sans-bold p-0 m-0 z-3">
-                                    Cancelar
-                                </h6>
-                            </button>
-                            <button type="button" class="btn btn-primary btnAceptar col-lg-5 col-md-5 col-10"
-                                onclick="openNoti()">
-                                <h6 class="open-sans-bold p-0 m-0 z-3">
-                                    Guardar
-                                </h6>
-                            </button>
+
+                                </div>
+                                <div class="form-floating">
+                                    <input type="tel" class="form-control" id="telefonoUsuario" placeholder="0000-0000">
+                                    <label for="telefonoUsuario">Teléfono</label>
+                                </div>
+                                <div
+                                    class="contenedor_botones d-flex align-items-center justify-content-center col-12 flex-wrap">
+                                    <button type="button" class="btn btn-dark btnCancelar col-lg-5 col-md-5 col-10"
+                                        onclick="openClose()">
+                                        <h6 class="open-sans-bold p-0 m-0 z-3">
+                                            Cancelar
+                                        </h6>
+                                    </button>
+                                    <button type="submit" class="btn btn-primary btnAceptar col-lg-5 col-md-5 col-10">
+                                        <h6 class="open-sans-bold p-0 m-0 z-3">
+                                            Guardar
+                                        </h6>
+                                    </button>
+                                    <button type="button" class="btn btn-primary btnAceptar col-lg-5 col-md-5 col-10"
+                                        onclick="openPassword()">
+                                        <h6 class="open-sans-bold p-0 m-0 z-3">
+                                            Cambiar contraseña
+                                        </h6>
+                                    </button>
+                                </div>
+
+                            </form>
+
                         </div>
                     </div>
                 </div>
             </div>
             <div class="contenedor-imagen col-lg-5 col-md-0 col-0 d-flex justify-content-end align-items-end">
                 <img src="../../recursos/imagenes/img-usuario/img-woman-2.svg" class="d-none d-lg-block">
+            </div>
+            <!--Modal-->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content p-lg-5 p-1 p-md-4 pb-0 pb-lg-3">
+                        <form id="saveForm"> <!--Formulario de guardado-->
+
+                            <div class="modal-body row">
+
+                                <div class="content-add-info col-md-7">
+
+                                    <div class="form-floating mb-0 p-0">
+                                        <input type="text" class="form-control" id="input_dui" name="input_dui"
+                                            placeholder="name@example.com">
+                                        <label for="input_dui">DUI</label> <!--DUI-->
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="modal-footer d-flex justify-content-center align-items-center col-12 mt-5"
+                                id="containerBotones">
+                                <button type="button" id="btnUno" class="btn btn-secondary btnCancel mx-5"
+                                    onclick="openClose()">Cancelar</button> <!--Boton de cancelar-->
+                                <button type="submit" id="btnDos" class="btn btn-primary btnSave">Aceptar</button>
+                                <!--Boton de aceptar-->
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
