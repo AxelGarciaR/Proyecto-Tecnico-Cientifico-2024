@@ -15,7 +15,7 @@ if (isset($_GET['action'])) {
         $result['session'] = 1;
         // Se compara la acción a realizar cuando un cliente ha iniciado sesión.
         switch ($_GET['action']) {
-            //Accion buscar trabajadores por su nombre y DUI
+                //Accion buscar trabajadores por su nombre y DUI
             case 'searchRows':
                 if (!Validator::validateSearch($_POST['search'])) {
                     $result['error'] = Validator::getSearchError();
@@ -26,7 +26,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No hay coincidencias';
                 }
                 break;
-            // Accion para seleccionar a todos los trabajadores existentes de la base 
+                // Accion para seleccionar a todos los trabajadores existentes de la base 
             case 'readAll':
                 if ($result['dataset'] = $trabajador->readAll()) {
                     $result['status'] = 1;
@@ -34,7 +34,14 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No existen trabajadores para mostrar';
                 }
                 break;
-            // Accion para seleccionar a un trabajador en especifico de la base
+            case 'readCombobox':
+                if ($result['dataset'] = $trabajador->readCombobox()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['error'] = 'No datos que mostrar';
+                }
+                break;
+                // Accion para seleccionar a un trabajador en especifico de la base
             case 'readOne':
                 if (!$trabajador->setIdTrabajador($_POST['idTrabajador'])) {
                     $result['error'] = $trabajador->getDataError();
@@ -44,7 +51,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Cliente inexistente';
                 }
                 break;
-            // Acción para agregar a un trabajador a la base.
+                // Acción para agregar a un trabajador a la base.
             case 'createRow':
                 $_POST = Validator::validateForm($_POST);
                 if (
@@ -63,7 +70,7 @@ if (isset($_GET['action'])) {
                 ) {
                     $result['error'] = $trabajador->getDataError();
                 } elseif ($trabajador->createRow()) {
-                    $result['status'] = 1;  
+                    $result['status'] = 1;
                     $result['fileStatus'] = Validator::saveFile($_FILES['fto_trabajador'], $trabajador::RUTA_IMAGEN);
                     $result['message'] = 'trabajador creado correctamente';
                 } else {

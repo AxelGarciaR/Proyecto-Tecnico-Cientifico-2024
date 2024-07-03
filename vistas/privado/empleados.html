@@ -54,6 +54,7 @@
                                 onclick="openCreate()">
                         </div>
 
+
                         <!--Modal-->
                         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                             tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -62,7 +63,8 @@
                                 <div class="modal-content p-lg-5 p-1 p-md-4 pb-0 pb-lg-3">
                                     <form id="saveForm"> <!--Formulario de guardado-->
                                         <!--input para el id del trabajador-->
-                                        <input type="number" class="d-none" id="idTrabajador" name="idTrabajador">
+                                        <input type="number" class="" id="idTrabajador" name="idTrabajador">
+
                                         <div class="modal-body row">
                                             <div
                                                 class="content-add-img col-md-5 d-flex flex-column justify-content-center align-items-center">
@@ -163,11 +165,12 @@
                                             </div>
                                         </div>
                                         <div
-                                            class="modal-footer d-flex justify-content-center align-items-center col-12 mt-5">
+                                            class="modal-footer d-flex justify-content-center align-items-center col-12 mt-5" id="containerBotones">
                                             <button type="button" id="btnUno" class="btn btn-secondary btnCancel mx-5"
                                                 onclick="openClose()">Cancelar</button> <!--Boton de cancelar-->
                                             <button type="submit" id="btnDos"
                                                 class="btn btn-primary btnSave">Aceptar</button> <!--Boton de aceptar-->
+                                            
                                         </div>
                                     </form>
                                 </div>
