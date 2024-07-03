@@ -13,7 +13,7 @@ const confirmAction = (message) => {
     return swal({
         title: 'Advertencia',
         text: message,
-        icon: 'warning',  
+        icon: 'warning',
         closeOnClickOutside: false,
         closeOnEsc: false,
         buttons: {
@@ -306,8 +306,64 @@ const fillSelect = async (filename, action, select, filter = undefined) => {
             }
         });
     } else {
-        content += '<option>No hay opciones disponibles</option>';
+        content += '<option value="">No hay opciones disponibles</option>';
     }
     // Se agregan las opciones a la etiqueta select mediante el id.
     document.getElementById(select).innerHTML = content;
+}
+
+const checkFormValidity = form => {
+    const validities = [];
+    Array.from(form.elements).forEach(element => {
+        // Verificar si el campo está visible
+        const isVisible = !element.classList.contains('d-none');
+        // Verificar si el campo es un elemento de formulario (input, select, textarea)
+        const isFormElement = ['INPUT', 'SELECT', 'TEXTAREA'].includes(element.tagName);
+
+        if (isVisible && isFormElement) {
+            validities.push(element.checkValidity());
+            console.log(`Elemento: ${element.id}, Validez: ${element.checkValidity()}, Mensaje de error: ${element.validationMessage}`);
+        }
+    });
+
+    return validities.every(valid => valid); // Retorna true si todos los elementos son válidos.
+};
+
+function getDateToMysql() {
+    // Crear un nuevo objeto Date para obtener la fecha y hora actual
+    let fechaActual = new Date();
+
+    // Formatear la fecha y hora en el formato adecuado para MySQL (YYYY-MM-DD HH:MM:SS)
+    let fechaMySQL = fechaActual.getFullYear() + '-' +
+        ('0' + (fechaActual.getMonth() + 1)).slice(-2) + '-' +
+        ('0' + fechaActual.getDate()).slice(-2) + ' ';
+
+    // Mostrar la fecha y hora formateada en la consola
+    console.log(fechaMySQL);
+    return fechaMySQL;
+}
+
+function formatDateToMySQL(dateValue) {
+    // Crear un nuevo objeto Date usando el valor recibido
+    let fecha = new Date(dateValue);
+
+    // Formatear la fecha en el formato adecuado para MySQL (YYYY-MM-DD)
+    let fechaFormateada = fecha.getFullYear() + '-' +
+        ('0' + (fecha.getMonth() + 1)).slice(-2) + '-' +
+        ('0' + fecha.getDate()).slice(-2);
+
+    // Devolver la fecha formateada
+    return fechaFormateada;
+}
+
+function convertMySQLDateToJSDate(mysqlDate) {
+    const [year, month, day] = mysqlDate.split("-");
+    return `${month}/${day}/${year}`;
+}
+
+function convertMySQLTimeToHTMLTime(mysqlTime) {
+    let [hours, minutes, seconds] = mysqlTime.split(":");
+    hours = hours.padStart(2, '0');
+    minutes = minutes.padStart(2, '0');
+    return `${hours}:${minutes}`;
 }

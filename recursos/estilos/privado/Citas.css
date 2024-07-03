@@ -16,37 +16,60 @@ body {
 }
 
 
-/*****Aqui empieza el responsive ctm******/
-
-
-
 /****Aqui empiesa el css de info cita****/
-.ContainerDetalles {
+.contenedorDetalles {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-top: #000000 solid 2px;
     flex-wrap: wrap;
     width: 100%;
-    margin-right: 0;
     z-index: 3;
+
+    min-height: 50vh;
 }
 
 #containerExpand {
     position: fixed;
     bottom: 0;
     left: 0;
-    display: none;
     background-color: white;
+    z-index: 4;
+
+    border-top: red solid 2px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
-#containerExpandAgregar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    display: none;
-    background-color: white;
+.rowGap{
+    min-height: 50vh;
+}
+
+.colIzqrd{
+    display: grid;
+    row-gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerImg{
+    height: 30vh;
+    width: 30vh;
+}
+
+.imagenCitaCarro {
+    max-inline-size: 100%;
+
+    block-size: auto;
+    object-fit: cover;
+
+    object-position: top center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    height: 100%;
+    min-width: 100%;
+    aspect-ratio: 2/1;
 }
 
 #containerExpandServicios {
@@ -58,7 +81,6 @@ body {
     overflow-x: scroll;
     height: 380px;
 }
-
 
 .Titulo {
     display: flex;
@@ -76,7 +98,6 @@ body {
     align-items: center;
     margin-top: 15px;
 }
-
 
 
 /*Al hacer hover a este div aparecera el contenedor contenidoSer*/
@@ -186,88 +207,12 @@ body {
     align-items: center;
 }
 
-.numeroCita {
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.numeroCita h5 {
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border: solid 1px #BDBDBD;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    width: 135px;
-    font-size: 16px;
-}
-
-.infoDetalleCita {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    width: 100%;
-    flex-wrap: wrap;
-}
-
-.imagenYacciones {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 30%;
-}
-
-.imagenYacciones img {
-    width: 150px;
-    height: 150px;
-}
-
-
-.camposForm {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    width: 70%;
-    margin-bottom: 30px;
-}
-
 /* Etiqueta flotante enfocada o con contenido */
 .form-floating .form-control:focus~label,
 .form-floating .form-control:not(:placeholder-shown)~label {
     color: red;
     /* Color rojo */
     /* Color rojo */
-}
-
-.finalizarCita {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-}
-
-#finalizarCita {
-    background-color: #000000;
-    color: white;
-    width: 160px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
-#cerrarCitas {
-    background-color: #000000;
-    color: white;
-    width: 160px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border: none;
-    border-radius: 5px;
 }
 
 #Cerrar {
@@ -280,17 +225,6 @@ body {
     border-radius: 5px;
 }
 
-.btnAccion {
-    width: 175px;
-    margin-top: 15px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 5px;
-    border: none;
-    background-color: #BA181B;
-    color: white;
-}
-
 .campos {
     display: flex;
     align-items: center;
@@ -300,57 +234,6 @@ body {
     flex-wrap: wrap;
 }
 
-
-/**css para los campos**/
-
-.input-field {
-    position: relative;
-    margin-right: 20px;
-    margin-bottom: 15px;
-    width: 40%;
-}
-
-
-
-.input-field input {
-    width: 250px;
-    height: 40px;
-    border-radius: 6px;
-    font-size: 15px;
-    padding: 0 15px;
-    border: solid 2px #000000;
-    background: transparent;
-    color: #000000;
-    outline: none;
-}
-
-.input-field select {
-    width: 250px;
-    height: 40px;
-    border-radius: 6px;
-    font-size: 15px;
-    padding: 0 15px;
-    border: solid 2px #000000;
-    background: transparent;
-    color: #000000;
-    outline: none;
-}
-
-
-@media screen and (max-width: 440px) {
-
-
-    .imagenYacciones img {
-        width: 150px;
-        height: 150px;
-    }
-
-    .btnAccion {
-        width: 150px;
-    }
-
-
-}
 
 /***css del modal***/
 .close {
@@ -544,14 +427,7 @@ body {
 }
 
 
-
-/* Estilo para el desplazamiento en el detalle */
-.contenedor-total-cards {
-    overflow-y: auto;
-    /* Desplazamiento vertical */
-    overflow-x: auto;
-    /* Desplazamiento horizontal */
-}
+/* TODO AGREGADOS ------------------------------------- */
 
 /* Estilo para las imágenes dentro de los contenedores */
 .img-container>img {
@@ -590,19 +466,6 @@ body {
     background-color: white;
     /* Color de fondo */
     min-height: 80px;
-    /* Altura mínima */
-}
-
-/* Scroll de detalles */
-.contenedor-total-cards {
-    overflow-y: hidden;
-    /* Ocultar desbordamiento vertical */
-    overflow-x: auto;
-    /* Permitir desplazamiento horizontal */
-    display: grid;
-    gap: 80px;
-    /* Espacio entre elementos */
-    min-height: 395px;
     /* Altura mínima */
 }
 
@@ -684,8 +547,6 @@ body {
     /* Traslación */
 }
 
-
-/* AGREGADOS DE HOY --------------------- */
 /*Formato de la barra lateral */
 #bdSidebar {
     max-height: 88vh;
@@ -699,7 +560,8 @@ body {
 /* Estilo del header del menú lateral (filtros) */
 .sidebar-header {
     display: grid;
-    gap: 25px; /* Espacio entre elementos */
+    gap: 25px;
+    /* Espacio entre elementos */
     grid-template-columns: auto;
 }
 
@@ -710,15 +572,17 @@ body {
     border-radius: 10px;
 }
 
-.imagen{
+.imagen {
     width: 30px;
     height: 30px;
 }
+
 /* Estilos para la barra divisoria */
 hr {
     border: none;
     border-top: 1px solid;
-    border-color: #7C7C7C; /* Color de la línea */
+    border-color: #7C7C7C;
+    /* Color de la línea */
 }
 
 /* Estilos para los botones */
@@ -747,279 +611,281 @@ hr {
 .contenedor-total-cards::-webkit-scrollbar {
     width: 10px;
     /* Ancho del scrollbar */
-  }
-  
-  .contenedor-total-cards::-webkit-scrollbar-thumb {
+}
+
+.contenedor-total-cards::-webkit-scrollbar-thumb {
     background-color: #BA181B;
     /* Color del thumb del scrollbar */
     border-radius: 8px;
     /* Borde redondeado del thumb */
-  }
-  
-  .contenedor-total-cards::-webkit-scrollbar {
+}
+
+.contenedor-total-cards::-webkit-scrollbar {
     width: 10px;
     /* Ancho del scrollbar */
-  
-  }
-  
-  .contenedor-total-cards::-webkit-scrollbar-thumb {
+
+}
+
+.contenedor-total-cards::-webkit-scrollbar-thumb {
     background-color: #BA181B;
     /* Color del scrollbar thumb */
     border-radius: 8px;
     /* Borde redondeado del thumb */
-  }
+}
 
-  /* Tarjeta */
+/* Tarjeta */
 
 /* Tarjeta */
 /* Media query para pantallas de tamaño específico */
 @media (min-width: 200px) and (max-width: 470px) {
     .card {
-      min-width: 315px;
-      max-width: 315px;
-      /* Distribución de filas */
-      gap: 0px;
-      /* Espacio entre elementos */
-      z-index: 0;
-    }
-  
-    /* Columna derecha de la tarjeta */
-    .card-derecha {
-      display: grid;
-      grid-template-rows: 65% 35%;
-      /* Distribución de filas */
-      min-height: 335px;
-    }
-  
-    /* Elemento de movilización */
-    .elemento-movilizacion {
-      padding-bottom: 15px;
-    }
-  
-    /* Scroll de detalles */
-    .contenedor-total-cards {
-      overflow-y: auto;
-      /* Ocultar desbordamiento vertical */
-      overflow-x: hidden;
-      /* Permitir desplazamiento horizontal */
-      display: grid;
-      column-gap: 40px;
-      /* Espacio entre elementos */
-      min-height: 87vh;
-      grid-auto-flow: column;
-      justify-content: center;
-      grid-auto-flow: row;
-    }
-  }
-  
-  @media (min-width: 471px) and (max-width: 768px){
-    .card {
-      display: grid;
-      grid-template-columns: 2fr 2fr;
-      /* Distribución de columnas */
-      gap: 0px;
-      /* Espacio entre elementos */
-      cursor: pointer;
-      min-width: 445PX;
-      /* Ancho mínimo */
-      max-width: 445PX;
-      /* Ancho máximo */
-      border: 0px;
-      /* Borde */
-      border: 1px solid #1E1E1E;
-      /* Borde */
-      min-height: 355px;
-      max-height: 355px;
-    }
-  
-    /* Columna derecha de la tarjeta */
-    .card-derecha {
-      display: grid;
-      grid-template-rows: 65% 35%;
-      /* Distribución de filas */
-    }
-  
-    /* Elemento de movilización */
-    .elemento-movilizacion {
-      border-bottom: 1px solid #B5B5B5;
-      /* Borde inferior */
-      border-bottom-left-radius: 10px;
-      /* Radio de borde inferior izquierdo */
-    }
-  
-    /* Scroll de detalles */
-    .contenedor-total-cards {
-      overflow-y: auto;
-      /* Ocultar desbordamiento vertical */
-      overflow-x: hidden;
-      /* Permitir desplazamiento horizontal */
-      display: grid;
-      gap: 40px;
-      /* Espacio entre elementos */
-      min-height: fit-content;
-      padding-bottom: 30px;
-      grid-auto-flow: row;
-      justify-content: center;
-    }
-  }
-  
-  /* Media query para pantallas de tamaño específico */
-  @media (min-width: 769px) and (max-width: 1159px) {
-    .card {
-        display: grid;
-        grid-template-columns: 2fr 2fr;
-        /* Distribución de columnas */
+        min-width: 315px;
+        max-width: 315px;
+        /* Distribución de filas */
         gap: 0px;
         /* Espacio entre elementos */
-        cursor: pointer;
-        min-width: 445PX;
-        /* Ancho mínimo */
-        max-width: 445PX;
-        /* Ancho máximo */
-        border: 0px;
-        /* Borde */
-        border: 1px solid #1E1E1E;
-        /* Borde */
-        min-height: 355px;
-        max-height: 355px;
+        z-index: 0;
     }
-  
-    /* Columna derecha de la tarjeta */
-    .card-derecha {
-      display: grid;
-      grid-template-rows: 65% 35%;
-      /* Distribución de filas */
-      min-height: 355px;
-    }
-  
-    /* Elemento de movilización */
-    .elemento-movilizacion {
-      margin-bottom: 0px;
-    }
-  
-    /* Scroll de detalles */
-    .contenedor-total-cards {
-      overflow-y: auto;
-      /* Ocultar desbordamiento vertical */
-      overflow-x: hidden;
-      /* Permitir desplazamiento horizontal */
-      display: grid;
-      column-gap: 40px;
-      /* Espacio entre elementos */
-      min-height: fit-content;
-      padding-bottom: 30px;
-      grid-auto-flow: row;
-      min-height: 485px;
-      justify-content: center;
-  
-    }
-  }
-  
-  @media (min-width: 1160px) and (max-width: 1889px){
-    .card {
-        display: grid;
-        grid-template-columns: 2fr 2fr;
-        /* Distribución de columnas */
-        gap: 0px;
-        /* Espacio entre elementos */
-        cursor: pointer;
-        min-width: 445PX;
-        /* Ancho mínimo */
-        max-width: 445PX;
-        /* Ancho máximo */
-        border: 0px;
-        /* Borde */
-        border: 1px solid #1E1E1E;
-        /* Borde */
-        min-height: 355px;
-        max-height: 355px;
-      }
-  
-    /* Columna derecha de la tarjeta */
-    .card-derecha {
-      display: grid;
-      grid-template-rows: 65% 35%;
-      /* Distribución de filas */
-    }
-  
-    /* Elemento de movilización */
-    .elemento-movilizacion {
-      border-bottom: 1px solid #B5B5B5;
-      /* Borde inferior */
-      border-bottom-left-radius: 10px;
-      /* Radio de borde inferior izquierdo */
-    }
-  
-    /* Scroll de detalles */
-    .contenedor-total-cards {
-      overflow-y: auto;
-      /* Ocultar desbordamiento vertical */
-      overflow-x: hidden;
-      /* Permitir desplazamiento horizontal */
-      display: grid;
-      column-gap: 30px;
-      /* Espacio entre elementos */
-      min-height: fit-content;
-      padding-bottom: 30px;
-      grid-auto-flow: row;
-      min-height: 87vh;
-      /* Altura mínima */
-      max-height: 87vh;
-      grid-template-columns: repeat(2, 455px);
-    }
-  }
-  
 
-  @media (min-width: 1890px) {
+    /* Columna derecha de la tarjeta */
+    .card-derecha {
+        display: grid;
+        grid-template-rows: 65% 35%;
+        /* Distribución de filas */
+        min-height: 335px;
+    }
+
+    /* Elemento de movilización */
+    .elemento-movilizacion {
+        padding-bottom: 15px;
+    }
+
+    /* Scroll de detalles */
+    .contenedor-total-cards {
+        overflow-y: auto;
+        /* Ocultar desbordamiento vertical */
+        overflow-x: hidden;
+        /* Permitir desplazamiento horizontal */
+        display: grid;
+        column-gap: 40px;
+        /* Espacio entre elementos */
+        min-height: 87vh;
+        grid-auto-flow: column;
+        justify-content: center;
+        grid-auto-flow: row;
+        align-items: center;
+    }
+}
+
+@media (min-width: 471px) and (max-width: 768px) {
+    .card {
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        /* Distribución de columnas */
+        gap: 0px;
+        /* Espacio entre elementos */
+        cursor: pointer;
+        min-width: 445PX;
+        /* Ancho mínimo */
+        max-width: 445PX;
+        /* Ancho máximo */
+        border: 0px;
+        /* Borde */
+        border: 1px solid #1E1E1E;
+        /* Borde */
+        min-height: 355px;
+        max-height: 355px;
+    }
+
+    /* Columna derecha de la tarjeta */
+    .card-derecha {
+        display: grid;
+        grid-template-rows: 65% 35%;
+        /* Distribución de filas */
+    }
+
+    /* Elemento de movilización */
+    .elemento-movilizacion {
+        border-bottom: 1px solid #B5B5B5;
+        /* Borde inferior */
+        border-bottom-left-radius: 10px;
+        /* Radio de borde inferior izquierdo */
+    }
+
+    /* Scroll de detalles */
+    .contenedor-total-cards {
+        overflow-y: auto;
+        /* Ocultar desbordamiento vertical */
+        overflow-x: hidden;
+        /* Permitir desplazamiento horizontal */
+        display: grid;
+        gap: 40px;
+        /* Espacio entre elementos */
+        min-height: fit-content;
+        padding-bottom: 30px;
+        grid-auto-flow: row;
+        justify-content: center;
+    }
+}
+
+/* Media query para pantallas de tamaño específico */
+@media (min-width: 769px) and (max-width: 1159px) {
+    .card {
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        /* Distribución de columnas */
+        gap: 0px;
+        /* Espacio entre elementos */
+        cursor: pointer;
+        min-width: 445PX;
+        /* Ancho mínimo */
+        max-width: 445PX;
+        /* Ancho máximo */
+        border: 0px;
+        /* Borde */
+        border: 1px solid #1E1E1E;
+        /* Borde */
+        min-height: 355px;
+        max-height: 355px;
+    }
+
+    /* Columna derecha de la tarjeta */
+    .card-derecha {
+        display: grid;
+        grid-template-rows: 65% 35%;
+        /* Distribución de filas */
+        min-height: 355px;
+    }
+
+    /* Elemento de movilización */
+    .elemento-movilizacion {
+        margin-bottom: 0px;
+    }
+
+    /* Scroll de detalles */
+    .contenedor-total-cards {
+        overflow-y: auto;
+        /* Ocultar desbordamiento vertical */
+        overflow-x: hidden;
+        /* Permitir desplazamiento horizontal */
+        display: grid;
+        column-gap: 40px;
+        /* Espacio entre elementos */
+        min-height: fit-content;
+        padding-bottom: 30px;
+        grid-auto-flow: row;
+        min-height: 485px;
+        justify-content: center;
+
+    }
+}
+
+@media (min-width: 1160px) and (max-width: 1889px) {
+    .card {
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        /* Distribución de columnas */
+        gap: 0px;
+        /* Espacio entre elementos */
+        cursor: pointer;
+        min-width: 445PX;
+        /* Ancho mínimo */
+        max-width: 445PX;
+        /* Ancho máximo */
+        border: 0px;
+        /* Borde */
+        border: 1px solid #1E1E1E;
+        /* Borde */
+        min-height: 355px;
+        max-height: 355px;
+    }
+
+    /* Columna derecha de la tarjeta */
+    .card-derecha {
+        display: grid;
+        grid-template-rows: 65% 35%;
+        /* Distribución de filas */
+    }
+
+    /* Elemento de movilización */
+    .elemento-movilizacion {
+        border-bottom: 1px solid #B5B5B5;
+        /* Borde inferior */
+        border-bottom-left-radius: 10px;
+        /* Radio de borde inferior izquierdo */
+    }
+
+    /* Scroll de detalles */
+    .contenedor-total-cards {
+        overflow-y: auto;
+        /* Ocultar desbordamiento vertical */
+        overflow-x: hidden;
+        /* Permitir desplazamiento horizontal */
+        display: grid;
+        column-gap: 30px;
+        /* Espacio entre elementos */
+        min-height: fit-content;
+        padding-bottom: 30px;
+        grid-auto-flow: row;
+        min-height: 87vh;
+        /* Altura mínima */
+        max-height: 87vh;
+        grid-template-columns: repeat(2, 455px);
+    }
+}
+
+
+@media (min-width: 1890px) {
+
     /* Tarjeta */
     .card {
-      display: grid;
-      grid-template-columns: 2fr 2fr;
-      /* Distribución de columnas */
-      gap: 0px;
-      /* Espacio entre elementos */
-      cursor: pointer;
-      /* Ancho máximo */
-      border: 0px;
-      /* Borde */
-      border: 1px solid #1E1E1E;
-      /* Borde */
-      min-height: 320px;
-      max-height: 320px;
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        /* Distribución de columnas */
+        gap: 0px;
+        /* Espacio entre elementos */
+        cursor: pointer;
+        /* Ancho máximo */
+        border: 0px;
+        /* Borde */
+        border: 1px solid #1E1E1E;
+        /* Borde */
+        min-height: 320px;
+        max-height: 320px;
     }
-  
+
     /* Columna derecha de la tarjeta */
     .card-derecha {
-      display: grid;
-      grid-template-rows: 65% 35%;
-      /* Distribución de filas */
+        display: grid;
+        grid-template-rows: 65% 35%;
+        /* Distribución de filas */
     }
-  
+
     /* Elemento de movilización */
     .elemento-movilizacion {
-      border-bottom: 1px solid #B5B5B5;
-      /* Borde inferior */
-      border-bottom-left-radius: 10px;
-      /* Radio de borde inferior izquierdo */
+        border-bottom: 1px solid #B5B5B5;
+        /* Borde inferior */
+        border-bottom-left-radius: 10px;
+        /* Radio de borde inferior izquierdo */
     }
-  
+
     /* Scroll de detalles */
     .contenedor-total-cards {
-      overflow-y: auto;
-      /* Ocultar desbordamiento vertical */
-      overflow-x: hidden;
-      /* Permitir desplazamiento horizontal */
-      display: grid;
-      gap: 25px;
-      /* Espacio entre elementos */
-      min-height: 87vh;
-      /* Altura mínima */
-      max-height: 87vh;
-      grid-template-columns: repeat(3, 485px);
+        overflow-y: auto;
+        /* Ocultar desbordamiento vertical */
+        overflow-x: hidden;
+        /* Permitir desplazamiento horizontal */
+        display: grid;
+        gap: 25px;
+        /* Espacio entre elementos */
+        min-height: 87vh;
+        /* Altura mínima */
+        max-height: 87vh;
+        grid-template-columns: repeat(3, 485px);
     }
-  }
+}
 
-  
+
 /* Efecto de oscurecimiento al pasar el ratón por la tarjeta */
 .card::after {
     content: "";
@@ -1075,7 +941,7 @@ hr {
 
 /* Estilo para el diálogo modal */
 .modal-dialog {
-    min-width: 70vw;
+    min-width: 50vw;
 }
 
 /* Estilos para el botón de cancelar */
@@ -1093,6 +959,12 @@ hr {
 .btnCancel {
     height: 50px;
     width: 200px;
+}
+
+.btnCancel2 {
+    height: 50px;
+    width: 300px;
+    background-color: #161A1D;
 }
 
 /* Etiqueta flotante */

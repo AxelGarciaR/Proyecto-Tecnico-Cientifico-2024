@@ -33,23 +33,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     fillData();
 });
 
-const checkFormValidity = form => {
-    const validities = [];
-    Array.from(form.elements).forEach(element => {
-        // Verificar si el campo está visible
-        const isVisible = !element.classList.contains('d-none');
-        // Verificar si el campo es un elemento de formulario (input, select, textarea)
-        const isFormElement = ['INPUT', 'SELECT', 'TEXTAREA'].includes(element.tagName);
-
-        if (isVisible && isFormElement) {
-            validities.push(element.checkValidity());
-            console.log(`Elemento: ${element.id}, Validez: ${element.checkValidity()}, Mensaje de error: ${element.validationMessage}`);
-        }
-    });
-
-    return validities.every(valid => valid); // Retorna true si todos los elementos son válidos.
-};
-
 // Método del evento para cuando se envía el formulario de guardar.
 ADD_FORM.addEventListener('submit', async (event) => {
     // Se evita recargar la página web después de enviar el formulario.

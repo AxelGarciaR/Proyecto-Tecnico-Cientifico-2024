@@ -49,24 +49,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-const checkFormValidity = form => {
-    const validities = [];
-    Array.from(form.elements).forEach(element => {
-        // Verificar si el campo está visible
-        const isVisible = !element.classList.contains('d-none');
-        // Verificar si el campo es un elemento de formulario (input, select, textarea)
-        const isFormElement = ['INPUT', 'SELECT', 'TEXTAREA'].includes(element.tagName);
-
-        if (isVisible && isFormElement) {
-            validities.push(element.checkValidity());
-            console.log(`Elemento: ${element.id}, Validez: ${element.checkValidity()}, Mensaje de error: ${element.validationMessage}`);
-        }
-    });
-
-    return validities.every(valid => valid); // Retorna true si todos los elementos son válidos.
-};
-
-
 // Método del evento para cuando se envía el formulario de guardar.
 ADD_FORM.addEventListener('submit', async (event) => {
     // Se evita recargar la página web después de enviar el formulario.
@@ -486,33 +468,6 @@ $('#datepicker-desdeRE').datepicker({
 $('#datepicker-hastaRE').datepicker({
     uiLibrary: 'bootstrap5'
 });
-
-function getDateToMysql() {
-    // Crear un nuevo objeto Date para obtener la fecha y hora actual
-    let fechaActual = new Date();
-
-    // Formatear la fecha y hora en el formato adecuado para MySQL (YYYY-MM-DD HH:MM:SS)
-    let fechaMySQL = fechaActual.getFullYear() + '-' +
-        ('0' + (fechaActual.getMonth() + 1)).slice(-2) + '-' +
-        ('0' + fechaActual.getDate()).slice(-2) + ' ';
-
-    // Mostrar la fecha y hora formateada en la consola
-    console.log(fechaMySQL);
-    return fechaMySQL;
-}
-
-function formatDateToMySQL(dateValue) {
-    // Crear un nuevo objeto Date usando el valor recibido
-    let fecha = new Date(dateValue);
-
-    // Formatear la fecha en el formato adecuado para MySQL (YYYY-MM-DD)
-    let fechaFormateada = fecha.getFullYear() + '-' +
-        ('0' + (fecha.getMonth() + 1)).slice(-2) + '-' +
-        ('0' + fecha.getDate()).slice(-2);
-
-    // Devolver la fecha formateada
-    return fechaFormateada;
-}
 
 
 // Función para cambiar el color de los botones según el que se haya clicado.

@@ -29,6 +29,11 @@
     <link rel="stylesheet" href="../../recursos/estilos/privado/citas.css">
     <link href="../../recursos/estilos/fuentes.css" rel="stylesheet"> <!--Dejarlo NOQUITAR-->
     <link href="../../recursos/estilos/privado/plantilla.css" rel="stylesheet"> <!--Dejarlo NOQUITAR-->
+
+    <!-- *Llamada a las hojas de estilos del DatePicker-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -42,12 +47,12 @@
                 data-bs-toggle="offcanvas"> <!-- Contenedor del menu lateral (filtros) -->
                 <div class="sidebar-header"> <!-- Contenedor del header del menu lateral (filtros) -->
                     <div class="input-group search shadow-sm"> <!-- Contenedor del los input de entrada -->
-                        <input type="text" class="form-control search" placeholder="Buscar..." id="input_buscar"
+                        <!--<input type="text" class="form-control search" placeholder="Buscar..." id="input_buscar"
                             name="input_buscar" maxlength="50">
                         <button type="button" class="btn btn-outline"><i class="bi-search"><img
-                                    src="../../recursos/imagenes/icons/icon-search.svg"></i></button>
+                                    src="../../recursos/imagenes/icons/icon-search.svg"></i></button>-->
                     </div>
-                    <div class="d-flex justify-content-center d-flex align-items-baseline">
+                    <div class="d-flex justify-content-center align-items-baseline">
                         <!-- Contenedor del los input de entrada -->
                         <img src="../../recursos/imagenes/icons/icon-citasBlck.svg" width="25px" height="25px">
                         <h3 class="px-3 open-sans-bold">Filtros </h3>
@@ -62,7 +67,7 @@
                         <li class="mb-1 cursor-hover d-flex flex-column align-items-center opcionesLat">
                             <!-- Primer elemento de filtros-->
                             <!-- Elemento de la lista-->
-                            <button
+                            <button onclick="fillData()"
                                 class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton w-100 py-2"
                                 data-bs-toggle="collapse">
                                 <span class="d-flex justify-content-between align-items-center">
@@ -76,7 +81,7 @@
                         <!-- Segundo elemento de filtros-->
                         <li class="mb-1 cursor-hover d-flex flex-column align-items-center opcionesLat">
                             <!-- Elemento de la lista-->
-                            <button
+                            <button onclick="search('En espera')"
                                 class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton w-100 py-2"
                                 data-bs-toggle="collapse" data-bs-target="#Colores" aria-expanded="false">
                                 <span class="d-flex justify-content-between align-items-center">
@@ -90,7 +95,7 @@
                         <hr>
                         <li class="mb-1 cursor-hover d-flex flex-column align-items-center opcionesLat">
                             <!--Tercer elemento de filtros-->
-                            <button
+                            <button onclick="search('Aceptado')"
                                 class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton w-100 py-2"
                                 data-bs-toggle="collapse" data-bs-target="#Tipos" aria-expanded="false">
                                 <span class="d-flex justify-content-between align-items-center">
@@ -105,7 +110,7 @@
                         <hr>
                         <li class="mb-1 cursor-hover d-flex flex-column align-items-center opcionesLat">
                             <!--Cuarto elemento de filtros-->
-                            <button
+                            <button onclick="search('Finalizada')"
                                 class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton w-100 py-2"
                                 data-bs-toggle="collapse" data-bs-target="#FechaFab" aria-expanded="false">
                                 <span class="d-flex justify-content-between align-items-center">
@@ -120,7 +125,7 @@
                         <hr>
                         <li class="mb-1 cursor-hover d-flex flex-column align-items-center opcionesLat">
                             <!--Quinto elemento de filtros-->
-                            <button
+                            <button onclick="search('Cancelado')"
                                 class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton w-100 py-2"
                                 data-bs-toggle="collapse" data-bs-target="#FechaReg" aria-expanded="false">
                                 <span class="d-flex justify-content-between align-items-center">
@@ -132,19 +137,6 @@
                             </button>
 
                         </li>
-                        <!-- <li class="mb-1 cursor-hover d-flex flex-column align-items-center opcionesLat ">
-                            Quinto elemento de filtros
-                            <button
-                                class="btn btn-toggle rounded pointer-hover collapsed dropdown-btn py-0 boton w-100 py-2"
-                                data-bs-toggle="collapse" data-bs-target="#FechaReg" aria-expanded="false">
-                                <span class="d-flex justify-content-between align-items-center">
-                                    <h5 class="open-sans-semibold m-0 p-0 ms-2">
-                                        Añadir cita
-                                    </h5>
-                                    <img src="../../recursos/imagenes/img_citas/Agregar.png" id="img5" class="imagen">
-                                </span>
-                            </button>
-                        </li>-->
                     </ul>
                 </div>
             </div>
@@ -161,104 +153,125 @@
                 </div>
                 <!--Contenedor total del cuerpo de la página-->
                 <div class="contenedor-total-cards col-12" id="cards_citas_container"></div>
-
                 <!--Contenedor de detalles citas-->
-                <div class="ContainerDetalles container-fluid" id="containerExpand">
-
-                    <!--Container numero de cita-->
-                    <div class="numeroCita container row">
-                        <h5 class="text-center ">Cita Nº 001</h5>
-                    </div>
-
+                <div class="contenedorDetalles container-fluid pb-0 m-0 d-flex justify-content-center col-12 d-none"
+                    id="containerExpand">
                     <!--Container infomacion y campos form-->
-                    <div class="infoDetalleCita">
-
-                        <div class="imagenYacciones">
-                            <img src="../../recursos/imagenes/img_citas/image 22.png" alt="">
-                            <button class="btnAccion" id="btnRevisarServicio">Servicios en proceso</button>
-                            <button class="btnAccion" id="btnRevisarFactura">Revisar factura</button>
+                    <div class="d-flex col-11 rowGap">
+                        <div class="d-flex col-5 flex-column colIzqrd">
+                            <div class="containerImg col-6">
+                                <img src="../../recursos/imagenes/img_automoviles/carExampleCita.svg"
+                                    class="imagenCitaCarro">
+                            </div>
+                            <div class="containerBtns col-12" id="acccionBtnEspera">
+                                <div
+                                    class="modal-footer d-flex flex-column justify-content-center align-items-center col-lg-12 col-12">
+                                    <button type="button" class="btn btn-secondary btnCancel2 col-11" onclick="updateEstado('Aceptado')">
+                                        Aceptar cita
+                                    </button>
+                                        <button type="button" class="btn btn-secondary btnCancel2 col-11 mt-3" onclick="updateEstado('Cancelado')">
+                                            Cancelar cita
+                                        </button>
+                                </div>
+                            </div>
                         </div>
-
-                        <div class="camposForm">
-
-                            <form action="/procesar formulario" method="post" class="campos">
-
-                                <div class="form-floating mb-0 p-0">
-                                    <label for="inputFechaCita" class="form-label px-2 pt-1 p-0 m-0">Fecha cita</label>
-                                    <input type="date" class="form-control" id="inputFechaCita" placeholder="" required>
+                        <div class="d-flex col-7 justify-content-center align-items-center">
+                            <form id="updateForm" name="updateForm" class="needs-validation col-12" novalidate>
+                                <!-- Columna izquierda ---------------------------------------------------------------------------------------->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <div class="form-floating mb-0 p-0">
+                                                <h6 class="p-0 m-0 open-sans-regular clrRed">Fecha de llegada</h6>
+                                                <input id="datepicker_llegada_UPDATE"
+                                                    class="open-sans-regular datepickerA form-control"
+                                                    name="datepicker_llegada_UPDATE" required />
+                                                <div class="invalid-feedback">Por favor ingresa una fecha.</div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="form-floating mb-0 p-0">
+                                                <label class="form-label px-2 pt-0 p-0 m-0">Automóvil</label>
+                                                <select class="form-select pt-4 open-sans-regular" id="input_automovil_UPDATE"
+                                                    name="input_automovil_UPDATE" aria-label="Default select example" required>
+                                                </select>
+                                                <div class="invalid-feedback">Por favor selecciona un automovil para
+                                                    la cita.</div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="form-floating mb-0 p-0">
+                                                <label class="form-label px-2 pt-0 p-0 m-0">Zona habilitada</label>
+                                                <select class="form-select pt-4 open-sans-regular" id="input_zona_UPDATE"
+                                                    name="input_zona_UPDATE" aria-label="Default select example" required>
+                                                    <option value="" selected>Seleccione una opción</option>
+                                                    <option value="Ayutuxtepeque">Ayutuxtepeque</option>
+                                                    <option value="Aguilares">Aguilares</option>
+                                                </select>
+                                                <div class="invalid-feedback">Por favor selecciona una zona para el
+                                                    servicio.</div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="form-floating mb-0 p-0">
+                                                <input type="text" class="form-control" id="input_regreso_UPDATE"
+                                                    name="input_regreso_UPDATE" placeholder="..." required maxlength="250">
+                                                <label for="input_regreso_UPDATE">Direcciòn de regreso</label>
+                                                <div class="invalid-feedback">Por favor ingresa la direccion en la
+                                                    que se regresará el automovil.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Columna derecha -->
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <div class="form-floating mb-0 p-0">
+                                                <input type="time" class="form-control" id="input_hora_UPDATE"
+                                                    name="input_hora_UPDATE" placeholder="HH:MM" required min="10:00"
+                                                    max="15:00">
+                                                <label for="input_hora_UPDATE">Hora de llegada (10:00 AM - 3:00 PM)</label>
+                                                <div class="invalid-feedback">Por favor ingresa una hora válida se
+                                                    aceptan desde las 10AM hasta las 3PM</div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="form-floating mb-0 p-0">
+                                                <label class="form-label px-2 pt-0 p-0 m-0">Movilización</label>
+                                                <select class="form-select pt-4 open-sans-regular"
+                                                    id="input_movilizacion_UPDATE" name="input_movilizacion_UPDATE"
+                                                    aria-label="Default select example" required>
+                                                    <option value="" selected>Seleccione una opción</option>
+                                                    <option value="Yo llevo el auto y lo traigo de regreso">Yo llevo
+                                                        el auto y lo traigo de regreso</option>
+                                                    <option value="Yo solo regreso el auto">Yo solo regreso el auto
+                                                    </option>
+                                                    <option value="Yo solo llevo el auto">Yo solo llevo el auto
+                                                    </option>
+                                                </select>
+                                                <div class="invalid-feedback">Por favor selecciona un tipo de
+                                                    movilización.</div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="form-floating mb-0 p-0">
+                                                <input type="text" class="form-control" id="input_ida_UPDATE" name="input_ida_UPDATE"
+                                                    placeholder="..." required maxlength="250">
+                                                <label for="input_ida_UPDATE">Direcciòn de ida</label>
+                                                <div class="invalid-feedback">Por favor ingresa la direccion en la
+                                                    que se traerá el automovil.</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-
-                                <!--Este es un combo box-->
-                                <div class="form-floating mb-2 p-0">
-                                    <label class="form-label px-2 pt-0 p-0 m-0">Zona Habilitada</label>
-                                    <select class="form-select pt-4 open-sans-regular"
-                                        aria-label="Default select example" id="selectZonaHabilitadaD">
-                                        <option selected>San Salvador Centro</option>
-                                        <option value="1">San Salvador Centro</option>
-                                        <option value="2">Zona 2</option>
-                                        <option value="3">Zona 3</option>
-                                    </select>
+                                <div class="modal-footer justify-content-end">
+                                    <button type="button" class="btn btn-secondary btnCancel me-lg-5 me-3 me-md-5"
+                                        onclick="openCloseUpdate()">Cerrar</button>
+                                    <button type="submit" class="btn btn-primary btnSave me-lg-5 me-3 me-md-5 d-none" id="btnUpdateEspera">
+                                        Actualizar</button>
                                 </div>
-
-                                <div class="form-floating mb-2 p-0">
-                                    <input type="text" class="form-control" id="inputHoraEntradaD" placeholder="...">
-                                    <label for="inputHoraEntradaD">Hora de entrada</label>
-                                </div>
-
-                                <div class="form-floating mb-2 p-0">
-                                    <input type="text" class="form-control" id="inputDireccion" placeholder="...">
-                                    <label for="inputDireccion">Direccion</label>
-                                </div>
-
-                                <div class="form-floating mb-2 p-0">
-                                    <input type="text" class="form-control" id="inputHoraSalida" placeholder="...">
-                                    <label for="inputHoraSalida">Hora de salida</label>
-                                </div>
-
-                                <!--Este es un combo box-->
-                                <div class="form-floating mb-2 p-0">
-                                    <label class="form-label px-2 pt-0 p-0 m-0">Estado</label>
-                                    <select class="form-select pt-4 open-sans-regular"
-                                        aria-label="Default select example" id="selectEstado">
-                                        <option selected>En espera</option>
-                                        <option value="1">En espera</option>
-                                        <option value="2">Aceptado</option>
-                                        <option value="3">Finalizado</option>
-                                    </select>
-                                </div>
-
-
-                                <!--Este es un combo box-->
-                                <div class="form-floating mb-2 p-0">
-                                    <label class="form-label px-2 pt-0 p-0 m-0">Movilizacion</label>
-                                    <select class="form-select pt-4 open-sans-regular"
-                                        aria-label="Default select example" id="selectMovilizacion">
-                                        <option selected>Yo lo llevo y regreso</option>
-                                        <option value="1">Yo lo llevo y regreso</option>
-                                        <option value="2">Solo lo llevo</option>
-                                        <option value="3">Solo de regreso</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-floating mb-2 p-0">
-                                    <input type="text" class="form-control" id="inputPlacaAutomovilD" placeholder="...">
-                                    <label for="inputPlacaAutomovilD">Placa</label>
-                                </div>
-
-
                             </form>
                         </div>
-
                     </div>
-
-                    <!--Container finalizar cita-->
-                    <div class="finalizarCita">
-
-                        <button id="finalizarCita">Finalizar Cita</button>
-                        <button id="cerrarCitas">Cerrar</button>
-
-                    </div>
-
                 </div>
 
                 <!--Agregar servicios-->
@@ -359,46 +372,84 @@
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <div class="form-floating mb-0 p-0">
-                                                    <input type="text" class="form-control" id="input_fecha"
-                                                        name="input_nombre" placeholder="..." required>
-                                                    <label for="input_nombre">Fecha de llegada</label>
+                                                    <h6 class="p-0 m-0 open-sans-regular clrRed">Fecha de llegada</h6>
+                                                    <input id="datepicker_llegada"
+                                                        class="open-sans-regular datepickerA form-control"
+                                                        name="datepicker_llegada" required/>
                                                     <div class="invalid-feedback">Por favor ingresa una fecha.</div>
                                                 </div>
                                             </div>
-                                            <div class="mb-3">
+                                            <div class="mb-3" id="Automovil">
                                                 <div class="form-floating mb-0 p-0">
-                                                    <input type="text" class="form-control" id="input_hora"
-                                                        name="input_nombre" placeholder="..." required>
-                                                    <label for="input_nombre">Hora de llegada</label>
-                                                    <div class="invalid-feedback">Por favor ingresa una hora.</div>
+                                                    <label class="form-label px-2 pt-0 p-0 m-0">Automóvil</label>
+                                                    <select class="form-select pt-4 open-sans-regular"
+                                                        id="input_automovil" name="input_automovil"
+                                                        aria-label="Default select example" required>
+                                                    </select>
+                                                    <div class="invalid-feedback">Por favor selecciona un automovil para
+                                                        la cita.</div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3" id="zonaHabilitada">
+                                                <div class="form-floating mb-0 p-0">
+                                                    <label class="form-label px-2 pt-0 p-0 m-0">Zona habilitada</label>
+                                                    <select class="form-select pt-4 open-sans-regular" id="input_zona"
+                                                        name="input_zona" aria-label="Default select example" required>
+                                                        <option value="" selected>Seleccione una opción</option>
+                                                        <option value="Ayutuxtepeque">Ayutuxtepeque</option>
+                                                        <option value="Aguilares">Aguilares</option>
+                                                    </select>
+                                                    <div class="invalid-feedback">Por favor selecciona una zona para el
+                                                        servicio.</div>
                                                 </div>
                                             </div>
                                             <div class="mb-3">
                                                 <div class="form-floating mb-0 p-0">
-                                                    <input type="text" class="form-control" id="input_auto"
-                                                        name="input_nombre" placeholder="..." required>
-                                                    <label for="input_nombre">Automovil</label>
-                                                    <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
+                                                    <input type="text" class="form-control" id="input_regreso"
+                                                        name="input_regreso" placeholder="..." required maxlength="250">
+                                                    <label for="input_regreso">Direcciòn de regreso</label>
+                                                    <div class="invalid-feedback">Por favor ingresa la direccion en la
+                                                        que se regresará el automovil.</div>
                                                 </div>
                                             </div>
-
                                         </div>
                                         <!-- Columna derecha -->
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <div class="form-floating mb-0 p-0">
-                                                    <input type="text" class="form-control" id="input_movilizacion"
-                                                        name="input_nombre" placeholder="..." required>
-                                                    <label for="input_nombre">Movilizaciòn</label>
-                                                    <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
+                                                    <input type="time" class="form-control" id="input_hora"
+                                                        name="input_hora" placeholder="HH:MM" required min="10:00"
+                                                        max="15:00">
+                                                    <label for="input_hora">Hora de llegada (10:00 AM - 3:00 PM)</label>
+                                                    <div class="invalid-feedback">Por favor ingresa una hora válida se
+                                                        aceptan desde las 10AM hasta las 3PM</div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3" id="movilizacion">
+                                                <div class="form-floating mb-0 p-0">
+                                                    <label class="form-label px-2 pt-0 p-0 m-0">Movilización</label>
+                                                    <select class="form-select pt-4 open-sans-regular"
+                                                        id="input_movilizacion" name="input_movilizacion"
+                                                        aria-label="Default select example" required>
+                                                        <option value="" selected>Seleccione una opción</option>
+                                                        <option value="Yo llevo el auto y lo traigo de regreso">Yo llevo
+                                                            el auto y lo traigo de regreso</option>
+                                                        <option value="Yo solo regreso el auto">Yo solo regreso el auto
+                                                        </option>
+                                                        <option value="Yo solo llevo el auto">Yo solo llevo el auto
+                                                        </option>
+                                                    </select>
+                                                    <div class="invalid-feedback">Por favor selecciona un tipo de
+                                                        movilización.</div>
                                                 </div>
                                             </div>
                                             <div class="mb-3">
                                                 <div class="form-floating mb-0 p-0">
-                                                    <input type="text" class="form-control" id="input_a"
-                                                        name="input_nombre" placeholder="..." required>
-                                                    <label for="input_nombre">Direcciòn de ida</label>
-                                                    <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
+                                                    <input type="text" class="form-control" id="input_ida"
+                                                        name="input_ida" placeholder="..." required maxlength="250">
+                                                    <label for="input_ida">Direcciòn de ida</label>
+                                                    <div class="invalid-feedback">Por favor ingresa la direccion en la
+                                                        que se traerá el automovil.</div>
                                                 </div>
                                             </div>
                                         </div>
