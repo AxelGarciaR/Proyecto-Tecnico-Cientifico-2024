@@ -24,10 +24,13 @@ const SAVE_FORM = document.getElementById('saveForm'),
     SALARIO = document.getElementById('input_salario'),
     FTO_TRABAJADOR = document.getElementById('fto_trabajador'),
     ID_EMPLEADO = document.getElementById('idTrabajador');
+  
 // *Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {
     loadTemplate();
     readTrabajadores();
+    fillSelect(TRABAJADORES_API, 'readEspecializacionCmb', 'especializacion_trabajador');
+    
 });
 /*
 *   Función para preparar el formulario al momento de insertar un registro.
@@ -286,36 +289,6 @@ const openDelete = async (id) => {
     }
 }
 
-
-
-async function fetchAndUpdateEspecializaciones() {
-    try {
-        // Petición para obtener los datos de especializaciones desde la API
-        const DATA = await fetchData(TRABAJADORES_API, 'readCombobox');
-
-        // Verificar si la respuesta es satisfactoria
-        if (DATA.status) {
-            // Limpiar opciones existentes antes de agregar nuevas
-            ESPECIALIZACION.innerHTML = '';
-
-            // Iterar sobre cada registro y crear opciones para el select
-            DATA.dataset.forEach(row => {
-                ESPECIALIZACION.innerHTML += `
-                    <option value="${row.id_especializacion_trabajador}">
-                        ${row.nombre_especializacion_trabajador}
-                    </option>
-                `;
-            });
-        } else {
-            // Manejar el caso donde la respuesta no es satisfactoria
-            throw new Error(DATA.error);
-        }
-    } catch (error) {
-        console.error('Error al obtener y actualizar especializaciones:', error);
-        sweetAlert(4, 'Error al obtener datos del servidor', false);
-    }
-}
-
 // Función principal para abrir el formulario de creación
 async function openCreate() {
     // Se prepara el formulario.
@@ -327,8 +300,6 @@ async function openCreate() {
     document.getElementById('btnUno').innerText = 'Cancelar';
     document.getElementById('btnDos').innerText = 'Guardar';
 
-    // Llamar a la función combinada para obtener y actualizar especializaciones
-    await fetchAndUpdateEspecializaciones();
 }
 
 var number = 1;

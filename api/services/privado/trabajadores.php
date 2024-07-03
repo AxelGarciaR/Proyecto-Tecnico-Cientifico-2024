@@ -34,11 +34,11 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No existen trabajadores para mostrar';
                 }
                 break;
-            case 'readCombobox':
-                if ($result['dataset'] = $trabajador->readCombobox()) {
+            case 'readEspecializacionCmb':
+                if ($result['dataset'] = $trabajador->readEspecializacionCmb()) {
                     $result['status'] = 1;
                 } else {
-                    $result['error'] = 'No datos que mostrar';
+                    $result['error'] = 'No existen especializaciones que mostrar para mostrar';
                 }
                 break;
                 // Accion para seleccionar a un trabajador en especifico de la base
