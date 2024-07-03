@@ -41,8 +41,8 @@ FORM_LOGIN_INPUTS.addEventListener('submit', async (event) => {
     const DATA = await fetchData(USER_API, 'logIn', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {
-        sweetAlert(1, DATA.message, true, 'panel_principal.html');
-        window.location.href = 'panel_principal.html';
+       // sweetAlert(1, DATA.message, true, 'panel_principal.html');
+        location.href = 'panel_principal.html';
     } else {
         sweetAlert(2, DATA.error, false);
     }
