@@ -53,8 +53,6 @@
                                         placeholder="name@example.com"
                                         value="correoelectrionico@gmail.com                                    ">
                                     <label for="correoUsuario">Correo Electrónico</label>
-
-
                                 </div>
                                 <div class="form-floating">
                                     <input type="tel" class="form-control" id="telefonoUsuario" placeholder="0000-0000">
@@ -95,40 +93,37 @@
                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
 
                 <div class="modal-dialog modal-dialog-centered modal-xl">
-                    <div class="modal-content p-lg-5 p-1 p-md-4 pb-0 pb-lg-3">
+                    <div class="modal-content p-lg-5 p-1 p-md-4 pb-0 pb-lg-3 text-center">
                         <form id="saveForm"> <!--Formulario de guardado-->
 
-                            <div class="modal-body row">
+                            <div class="modal-body row justify-content-center">
 
                                 <div class="content-add-info col-md-7">
 
                                     <div class="form-floating mb-0 p-0">
                                         <input type="text" class="form-control" id="input_contra" name="input_contra"
                                             placeholder="name@example.com">
-                                        <label for="input_contra">Contraseña antigua</label> <!--Contraseña antigua-->
+                                        <label for="input_contra">Nueva contraseña</label> <!--Contraseña antigua-->
                                     </div>
 
                                 </div>
-
-
                                 <div class="content-add-info col-md-7">
 
                                     <div class="form-floating mb-0 p-0">
-                                        <input type="text" class="form-control" id="input_nuevacontra" name="input_nuevacontra"
-                                            placeholder="name@example.com">
-                                        <label for="input_nuevacontra">Contraseña nueva</label> <!--Contraseña nueva-->
+                                        <input type="text" class="form-control" id="input_repetircontra"
+                                            name="input_repetircontra" placeholder="name@example.com">
+                                        <label for="input_repetircontra">Repetir contraseña</label>
+                                        <!--Contraseña nueva-->
                                     </div>
 
                                 </div>
-
                             </div>
-                            <div class="modal-footer d-flex justify-content-center align-items-center col-12 mt-5"
-                                id="containerBotones">
-                                <button type="button" id="btnUno" class="btn btn-secondary btnCancel mx-5"
-                                    onclick="openClose()">Cancelar</button> <!--Boton de cancelar-->
-                                <button type="submit" id="btnDos" class="btn btn-primary btnSave">Aceptar</button>
-                                <!--Boton de aceptar-->
-
+                            <div class="modal-footer justify-content-center">
+                                <button type="button" class="btn btn-secondary btnCancel me-lg-5 me-3 me-md-5"
+                                    onclick="openClose()">Cancelar</button>
+                                <button type="submit" class="btn btn-primary btnSave me-lg-5 me-3 me-md-5">
+                                    Aceptar
+                                </button>   
                             </div>
                         </form>
                     </div>

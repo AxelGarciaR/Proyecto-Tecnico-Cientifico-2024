@@ -88,3 +88,46 @@ body {
 .form-floating .form-control:not(:placeholder-shown) ~ label {
     color: red; /* Color rojo */
 }
+
+
+/* Estilos para separar los inputs y centrarlos */
+
+/* Centrar el contenido del modal verticalmente */
+.modal-dialog {
+    display: flex;
+    align-items: center;
+}
+/* Estilos para separar los inputs y centrarlos */
+
+/* Estilo para los inputs */
+.content-add-info {
+    margin-bottom: 15px; /* Espacio entre los inputs */
+}
+
+/* Ajustes adicionales según tu diseño específico */
+.form-floating {
+    width: 100%; /* Ancho completo del input */
+}   
+
+/* Estilos para los botones de guardar y cancelar */
+.btnSave,
+.btnCancel {
+    height: 50px;
+    width: 200px;
+}
+
+.boton-cambiar-color {
+    color: black;
+    background-color: white;
+}
+
+/* Estilos para el botón de cancelar */
+.btnCancel {
+    background-color: black;
+}
+
+/* Estilos para el botón de guardar */
+.btnSave {
+    background-color: #E5383B;
+}
+
